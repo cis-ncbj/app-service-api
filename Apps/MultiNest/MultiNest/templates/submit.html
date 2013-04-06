@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+        <form action="" method="post" name="function">
+            {{form.hidden_tag()}}
+            <p>
+                Select math function:<br>
+                {{form.function}}<br>
+            </p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+{% endblock %}
