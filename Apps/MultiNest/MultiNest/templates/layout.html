@@ -1,22 +1,119 @@
-<!doctype html>
-<html>
-<title>My Application</title>
-  <head>
-    <title>MultiNest web application</title>
-  </head>
-  {% with messages = get_flashed_messages() %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : FruityBlue 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120307
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>CIŚ MultiNest Webservice</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type=text/javascript>
+    $(document).ready(function(){
+
+        function updateStatus() {
+            $.getJSON('/status',
+                function(data) {
+                    if(data.state == 1) {
+                        $("#status").attr("class","ready");
+                        $("#messages").hide();
+                    };
+                    if(data.state == 2) {
+                        $("#status").attr("class","queued");
+                        $("#messages").attr("class","queued");
+                        $("#messages").show();
+                    };
+                    if(data.state == 3) {
+                        $("#status").attr("class","running");
+                        $("#messages").attr("class","running");
+                        $("#messages").show();
+                    };
+                    if(data.state == 4) {
+                        $("#status").attr("class","done");
+                        $("#messages").attr("class","done");
+                        $("#messages").show();
+                    };
+                    if(data.state == 5) {
+                        $("#status").attr("class","error");
+                        $("#messages").attr("class","error");
+                        $("#messages").show();
+                    };
+                    $("#status").text(data.desc);
+                    $("#messages").text(data.msg);
+                });
+        };
+
+        updateStatus();
+        setInterval(updateStatus, 5000); // 5 * 1000 miliseconds
+    });
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="splash"></div>
+	<div id="wrapper2">
+		<div id="header" class="container">
+            <div id="logo">
+                <h1><a href="/">MultiNest</a></h1>
+            </div>
+			<div id="menu">
+				<ul>
+					<li><a href="/">Opis</a></li>
+					<li><a href="/submit">Dane wejściowe</a></li>
+					<li><a href="/status">Monitor obliczeń</a></li>
+					<li><a href="/output">Wyniki</a></li>
+				</ul>
+            </div>
+		</div>
+		<!-- end #header -->
+		<div id="page">
+            <div id="sidebar">
+                <h3>Status Aplikacji</h3>
+                <div id="status" class=ready></div>
+                <div id="messages"></div>
+{% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
+    {% for category, message in messages %}
+    <li class="{{ category }}">{{ message }}</li>
     {% endfor %}
     </ul>
   {% endif %}
-  {% endwith %}
-  <body>
-    <h1>CIŚ MultiNest web application</h1>
+{% endwith %}
+            </div>
+			<!-- end #sidebar -->
+			<div id="content">
 {% block content %}
 {% endblock %}
-    <p><a href="/">Back</a></p>
-  </body>
+			</div>
+            <!-- end #content -->
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #page -->
+	</div>
+</div>
+<div id="footer-content">
+	<div id="footer">
+    <div id="footer_line"></div>
+    <img height="109px" src="static/loga.jpg" width="980px" />
+    <p> Projekt wspófinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego<br> w ramach Programu Operacyjnego Innowacyjna Gospodarka </p>
+    <p>Design by <a href="http://www.freecsstemplates.org">FCT</a> & CIŚ.</p>
+</div>
+</div>
+<!-- end #footer -->
+</body>
 </html>

@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="post">
+    <h2 class="title">Dane wejściowe</h2>
+    <div style="clear: both;">&nbsp;</div>
+    <div class="entry">
         <form action="" method="post" name="function">
             {{form.hidden_tag()}}
             <p>
@@ -8,4 +12,9 @@
             </p>
             <p><input type="submit" value="Submit"></p>
         </form>
+    </div>
+</div>
+<!--
+<div style="post_line"></div>
+-->
 {% endblock %}

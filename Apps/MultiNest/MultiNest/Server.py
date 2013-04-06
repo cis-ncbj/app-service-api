@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import requests
 import flask
 
@@ -6,30 +8,55 @@ try:
 except:
     import simplejson as json
 
+
 def submit(payload):
     payload['service'] = "MultiNest"
     url = "http://localhost:5000/submit"
     headers = {'content-type': 'application/json'}
-    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    try:
+        r = requests.post(url, data=json.dumps(payload), headers=headers)
+    except:
+        flask.flash(u"Brak połączenia z serwerem aplikacji", "error")
+        return flask.redirect('/')
+
     if r.text.startswith('MultiNest'):
-        flask.flash('Job submitted successfuly')
+        flask.flash(u"Zadanie wysłane pomyślnie", "success")
         resp = flask.make_response(flask.redirect('/'))
         resp.set_cookie('CISMultiNestJobID', r.text)
         return resp
 
-    flask.flash(r.text)
+    flask.flash(r.text, "error")
     return flask.redirect('/')
 
 def status():
+    _states = (
+            u'Oczekuję na zadania',
+            u'Zadanie oczekuje w kolejce',
+            u'Obliczenia w toku',
+            u'Obliczenia zakończone',
+            u'Błąd',
+            )
     _jid = flask.request.cookies.get('CISMultiNestJobID')
     if _jid is not None:
         url = "http://localhost:5000/status/" + _jid
         r = requests.get(url)
-        flask.flash(r.text)
-        return flask.redirect('/')
+        if \
+            r.text.startswith('Waiting') or \
+            r.text.startswith('Queued'):
+                _st = 2
+        elif \
+            r.text.startswith('Running'):
+                _st = 3
+        elif \
+            r.text.startswith('Done'):
+                _st = 4
+        else:
+            _st = 5
 
-    flask.flash('No job submitted yet ...')
-    return flask.redirect('/')
+        _result = {'state':_st, 'desc':_states[_st-1], 'msg':r.text}
+
+    _result = {'state':1, 'desc':_states[0], 'msg':''}
+    return flask.jsonify(_result)
 
 def output():
     _jid = flask.request.cookies.get('CISMultiNestJobID')
@@ -42,6 +69,5 @@ def output():
         else:
             return flask.redirect('file://' + r.text)
 
-    flask.flash('No job submitted yet ...')
+    flask.flash(u"Brak zakończonego zadania: nie mogę wyświetlić wyników", "error")
     return flask.redirect('/')
-
