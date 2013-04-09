@@ -171,9 +171,9 @@ a:hover {
 
 #menu {
 	float: left;
-	height: 44px;
+	height: 64px;
 	margin: 0 auto;
-	padding: 20px 0px 0px 0px;
+	padding: 0px;
 	background: url(/static/bg_menu.gif) repeat-x 0px 20px;
 	display: block;
 }
@@ -188,18 +188,18 @@ a:hover {
 
 #menu li {
 	float: left;
-	height: 44px;
-	padding: 0;
+	margin-top: 20px;
 }
 
 #menu a {
 	display: block;
 	margin-right: 1px;
-	margin-top: 3px;
+	height:44px;
+	line-height:44px;
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-align: center;
-	padding: 18px 18px;
+	padding: 0px 20px;
 	text-transform: uppercase;
 	/*font-size: 18px;*/
 	font-weight: bold;
@@ -227,8 +227,6 @@ a:hover {
 /* Content */
 
 #content {
-	/*float: left;*/
-	/*width: 640px*/;
 	padding: 0px;
 }
 
@@ -308,7 +306,7 @@ a:hover {
 	float: right;
 	width: 280px;
 	margin: 0px;
-	padding: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 20px;
 }
 
 #sidebar ul {
@@ -352,14 +350,7 @@ a:hover {
 }
 
 #sidebar h2 {
-	margin: 0px;
-	padding: 0px 0px 30px 0px;
-	padding-left: 30px;
-	letter-spacing: -2px;
-	text-align: left;
-	text-transform: uppercase;
-	font-size: 20px;
-	font-weight: normal;
+    margin: 5px 10px;
 }
 
 #sidebar p {
