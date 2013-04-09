@@ -2,11 +2,16 @@
 
 import requests
 import flask
+import logging
 
 try:
     import json
 except:
     import simplejson as json
+
+from logging import debug, error, warning
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def submit(payload):
@@ -54,6 +59,7 @@ def status():
             _st = 5
 
         _result = {'state':_st, 'desc':_states[_st-1], 'msg':r.text}
+        return flask.jsonify(_result)
 
     _result = {'state':1, 'desc':_states[0], 'msg':''}
     return flask.jsonify(_result)
@@ -67,7 +73,8 @@ def output():
             flask.flash(r.text)
             return flask.redirect('/')
         else:
-            return flask.redirect('file://' + r.text)
+            debug(r.text)
+            return flask.redirect(r.text)
 
     flask.flash(u"Brak zakończonego zadania: nie mogę wyświetlić wyników", "error")
     return flask.redirect('/')
