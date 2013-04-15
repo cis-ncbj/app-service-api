@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CISAppServer Package &mdash; CIŚ Web Services 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cistheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CIŚ Web Services 0.1 documentation" href="index.html" />
+    <link rel="up" title="CISAppServer" href="modules.html" />
+    <link rel="prev" title="CISAppServer" href="modules.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="CISAppServer"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CIŚ Web Services 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" accesskey="U">CISAppServer</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">CISAppServer</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">CISAppServer Package</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">CISAppServer</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/CISAppServer.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cisappserver-package">
+<h1>CISAppServer Package<a class="headerlink" href="#cisappserver-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-CISAppServer.JobManager">
+<span id="jobmanager-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">JobManager</span></tt> Module<a class="headerlink" href="#module-CISAppServer.JobManager" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="CISAppServer.JobManager.Job">
+<em class="property">class </em><tt class="descclassname">CISAppServer.JobManager.</tt><tt class="descname">Job</tt><big>(</big><em>job_id</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Class that implements a job instance.</p>
+<p>Allows to:</p>
+<ul class="simple">
+<li>query/set job state,</li>
+<li>generate the output status file,</li>
+<li>query job parameters defined in job request.</li>
+</ul>
+<p>Works with existing job requests that are identified by their unique ID
+string. Upon initialization loads job parameters from job request JSON
+file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job_id</strong> &#8211; The unique job ID.</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.Job.data">
+<tt class="descname">data</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Job parameters as specified in job request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.die">
+<tt class="descname">die</tt><big>(</big><em>message</em>, <em>err=True</em>, <em>exc_info=False</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.die" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abort further job execution with proper error in AppServer log as well
+as with proper message for clinet in the job output status file. Sets
+job state as <em>aborted</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> &#8211; Message to be passed to logs and client,</li>
+<li><strong>err</strong> &#8211; if True use log as ERROR otherwise use WARNING priority,</li>
+<li><strong>exc_info</strong> &#8211; if True logging will extract current exception info
+(use in except block to provide additional information to the
+logger).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.exit">
+<tt class="descname">exit</tt><big>(</big><em>message</em>, <em>state='done'</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set one of job finished states and generate job output status file.</p>
+<p>The output file is created on the shared storage so that the AppGateway
+can pass the job status and the message to clients.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> &#8211; Message that will be written to the output status file.</li>
+<li><strong>state</strong> &#8211; Job state to set. Valid values are &#8216;done&#8217;, aborted&#8217;,
+&#8216;killed&#8217;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.get_state">
+<tt class="descname">get_state</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current job state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">One of valid job states:</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><dl class="first docutils">
+<dt>waiting:</dt>
+<dd><p class="first last">job request was submitted and is waiting for JobManager to process
+it,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>queued:</dt>
+<dd><p class="first last">job reuest was processed and is queued in the scheduling backend,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>running:</dt>
+<dd><p class="first last">job is running on a compute node,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>done:</dt>
+<dd><p class="first last">job has finished,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>aborted:</dt>
+<dd><p class="first last">an error occurred during job preprocessing, submission or
+postprocessing,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>killed:</dt>
+<dd><p class="first last">job execution was stopped by an user,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>removed:</dt>
+<dd><p class="first last">job is scheduled for removal.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.Job.id">
+<tt class="descname">id</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique job ID string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.set_state">
+<tt class="descname">set_state</tt><big>(</big><em>new_state</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.set_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change job state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_state</strong> &#8211; new sate for the job. For valid states see
+<a class="reference internal" href="#CISAppServer.JobManager.Job.get_state" title="CISAppServer.JobManager.Job.get_state"><tt class="xref py py-meth docutils literal"><span class="pre">get_state()</span></tt></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.Job.valid_data">
+<tt class="descname">valid_data</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.valid_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Job parameters after validation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CISAppServer.JobManager.JobManager">
+<em class="property">class </em><tt class="descclassname">CISAppServer.JobManager.</tt><tt class="descname">JobManager</tt><a class="headerlink" href="#CISAppServer.JobManager.JobManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Main calss of CISAppServer. It is responsible for job management.</p>
+<p>Upon initialization parses command line arguments, loads options
+from input files. Initializes Validator and Sheduler interfaces.</p>
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.check_deleted_jobs">
+<tt class="descname">check_deleted_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_deleted_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for jobs marked for removal.</p>
+<p>If found remove all resources related to the job. If a job is still
+running kill it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.check_new_jobs">
+<tt class="descname">check_new_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_new_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for new job files in the queue directory.</p>
+<p>If found try to submit them to selected job scheduler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.check_old_jobs">
+<tt class="descname">check_old_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_old_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for jobs that exceed their life time.</p>
+<p>If found mark them for removal. [Not Implemented]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.check_running_jobs">
+<tt class="descname">check_running_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_running_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check status of running jobs.</p>
+<p>If finished jobs are found perform finalisation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.get_job">
+<tt class="descname">get_job</tt><big>(</big><em>job_id</em>, <em>create=False</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.get_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Job object from internal list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job_id</strong> &#8211; Job unique ID,</li>
+<li><strong>create</strong> &#8211; If job identified by <em>job_id</em> is not found in the list
+an ERROR message is logged. When create is True a new Job object is
+created and added to the list,</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Job object if <em>job_id</em> was found, None otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main loop of JobManager.</p>
+<ul class="simple">
+<li>Check for new jobs - submit them if found,</li>
+<li>Check for finished jobs - retrive output if found,</li>
+<li>Check for jobs exceeding their life time - mark for removal,</li>
+<li>Check for jobs to be removed - delete all related resources.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.submit">
+<tt class="descname">submit</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate job related scripts and submit them to selected scheduler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; The Job object to submit.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.JobManager.validator">
+<tt class="descname">validator</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.JobManager.validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validator instance</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-CISAppServer.Tools">
+<span id="tools-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">Tools</span></tt> Module<a class="headerlink" href="#module-CISAppServer.Tools" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="CISAppServer.Tools.CTemplate">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">CTemplate</tt><big>(</big><em>template</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.CTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">string.Template</span></tt></p>
+<p>Class used to substitute placeholder strings in script templates.
+The placeholders have following form: &#64;&#64;{KEY}.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Tools.CTemplate.delimiter">
+<tt class="descname">delimiter</tt><em class="property"> = '&#64;&#64;'</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.delimiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delimiter identifying keywords.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.CTemplate.pattern">
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x38d8170&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CISAppServer.Tools.PbsScheduler">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">PbsScheduler</tt><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#CISAppServer.Tools.Scheduler" title="CISAppServer.Tools.Scheduler"><tt class="xref py py-class docutils literal"><span class="pre">CISAppServer.Tools.Scheduler</span></tt></a></p>
+<p>Class implementing simple interface for PBS queue system.</p>
+<p>Allows for job submission, deletion and extraction of job status.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Tools.PbsScheduler.default_queue">
+<tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.default_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default PBS queue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.PbsScheduler.finalise">
+<tt class="descname">finalise</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.finalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare output of finished job.</p>
+<p>Job working directory is moved to the external_data_path directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.PbsScheduler.max_jobs">
+<tt class="descname">max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of concurent jobs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.PbsScheduler.queue_path">
+<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.queue_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where submitted PBS job IDs are stored</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.PbsScheduler.status">
+<tt class="descname">status</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return status of the job in PBS queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+<p>Returns one of &#8220;waiting&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, &#8220;unknown&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.PbsScheduler.stop">
+<tt class="descname">stop</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop running job and remove it from PBS queue.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.PbsScheduler.submit">
+<tt class="descname">submit</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a job to PBS queue. The &#8220;pbs.sh&#8221; script should be already
+present in the pbs_work_path/job directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.PbsScheduler.work_path">
+<tt class="descname">work_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.work_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>PBS Working directory path</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CISAppServer.Tools.Scheduler">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Scheduler</tt><a class="headerlink" href="#CISAppServer.Tools.Scheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Virtual Class implementing simple interface for execution backend. Actual
+execution backends should derive from this class and implement defined
+interface.</p>
+<p>Allows for job submission, deletion and extraction of job status.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Scheduler.default_queue">
+<tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.default_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default queue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.finalise">
+<tt class="descname">finalise</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.finalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare output of finished job.</p>
+<p>Job working directory is moved to the output_path directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.generate_scripts">
+<tt class="descname">generate_scripts</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.generate_scripts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate scripts and job input files from templates.</p>
+<p>Will walk through service_data_path/service and copy all files
+including recursion through subdirectories to PBS work directory for
+specified job (the directory structure is retained). For all files
+substitute all occurences of &#64;&#64;{atribute_name} with specified values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance after validation</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Scheduler.max_jobs">
+<tt class="descname">max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of concurent jobs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Scheduler.queue_path">
+<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.queue_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where submitted job IDs are stored</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.status">
+<tt class="descname">status</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return status of the job in execution queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+<p>Returns one of &#8220;waiting&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, &#8220;unknown&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.stop">
+<tt class="descname">stop</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop running job and remove it from execution queue.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.submit">
+<tt class="descname">submit</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a job for execution. The &#8220;pbs.sh&#8221; script should be already
+present in the work_path/job directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Scheduler.work_path">
+<tt class="descname">work_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.work_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Working directory path</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CISAppServer.Tools.Validator">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Validator</tt><a class="headerlink" href="#CISAppServer.Tools.Validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Class responsible for validation of job input data.
+It is also responsible for preparation of PBS scripts.</p>
+<p>Upon initialisation load services configuration.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Validator.services">
+<tt class="descname">services</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Validator.services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Services configurations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Validator.validate">
+<tt class="descname">validate</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Validator.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate job input data and update <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance with
+validated data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rerurn :</th><td class="field-body">True on success False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Validator.validate_value">
+<tt class="descname">validate_value</tt><big>(</big><em>key</em>, <em>value</em>, <em>service</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Validator.validate_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate value for specified service attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> &#8211; attribute name</li>
+<li><strong>value</strong> &#8211; value to validate</li>
+<li><strong>service</strong> &#8211; service name for which attribute is defined</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success False otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="CISAppServer.Tools.rmtree_error">
+<tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">rmtree_error</tt><big>(</big><em>function</em>, <em>path</em>, <em>exc_info</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.rmtree_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception handler for shutil.rmtree().</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="CISAppServer.Tools.verbose">
+<tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">verbose</tt><big>(</big><em>msg</em>, <em>exc_info=False</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="CISAppServer"
+             >previous</a> |</li>
+        <li><a href="index.html">CIŚ Web Services 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >CISAppServer</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Konrad Klimaszewski.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
