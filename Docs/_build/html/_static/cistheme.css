@@ -1,1 +1,28 @@
-@import url("shinxdoc.css");
+@import url("sphinxdoc.css");
+
+/* -- body styles ----------------------------------------------------------- */
+
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    background-color: rgb(175, 193, 196);
+    border: 1px solid rgb(134, 152, 155);
+}
+
+dl.class dt {
+    background-color: rgb(175, 193, 196);
+    border: 1px solid rgb(134, 152, 155);
+}
+
+dl.attribute dt {
+    background-color: white;
+    border: 0;
+}
+
+dl.method dt {
+    background-color: white;
+    border: 0;
+}
