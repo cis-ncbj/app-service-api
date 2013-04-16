@@ -1,19 +1,20 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CISAppGateway Package &mdash; CIŚ Web Services v0.1 documentation</title>
+    <title>CISAppGateway Package &mdash; CIŚ Web Services 0.2 documentation</title>
+    
     <link rel="stylesheet" href="_static/cistheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.1',
+        URL_ROOT:    './',
+        VERSION:     '0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CIŚ Web Services v0.1 documentation" href="index.html" />
+    <link rel="top" title="CIŚ Web Services 0.2 documentation" href="index.html" />
     <link rel="up" title="Implementation reference" href="modules.html" />
     <link rel="next" title="CISAppServer Package" href="CISAppServer.html" />
     <link rel="prev" title="Implementation reference" href="modules.html" /> 
@@ -43,7 +44,7 @@
         <li class="right" >
           <a href="modules.html" title="Implementation reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li>
+        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li>
           <li><a href="modules.html" accesskey="U">Implementation reference</a> &raquo;</li> 
       </ul>
     </div>
@@ -74,7 +75,7 @@
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -165,10 +166,7 @@ service.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>id</strong> &#8211; ID of job to be removed</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; ID of job to be removed</td>
 </tr>
 </tbody>
 </table>
@@ -182,7 +180,7 @@ service.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body">URL. Returns Error string if id does not exist or job is not
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">URL. Returns Error string if id does not exist or job is not
 finished.</td>
 </tr>
 </tbody>
@@ -197,15 +195,11 @@ finished.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>id</strong> &#8211; Job id to check</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; Job id to check</td>
 </tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Job status [Waiting, Queued, Running, Done, Failed, Killed,
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Job status [Waiting, Queued, Running, Done, Failed, Killed,
 Aborted]. For Done, Failed and Aborted states additional info is
-provided after &#8220;:&#8221;. Returns Error string if id does not exist.</p>
-</td>
+provided after &#8221;:&#8221;. Returns Error string if id does not exist.</td>
 </tr>
 </tbody>
 </table>
@@ -221,15 +215,11 @@ serves as job ID. The job is added to the queue for execution.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>request</strong> &#8211; dict with requests&#8217; attributes. A &#8220;service&#8221; attribute with
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> &#8211; dict with requests&#8217; attributes. A &#8220;service&#8221; attribute with
 valid value is required.  Other atributes will be passed to the
-execution script and input files by AppServer after validation.</li>
-</ul>
-</td>
+execution script and input files by AppServer after validation.</td>
 </tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Job ID</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Job ID</td>
 </tr>
 </tbody>
 </table>
@@ -246,28 +236,34 @@ execution script and input files by AppServer after validation.</li>
 <p>Class responsible for configuration storage and initialization.</p>
 <p>Config stores variables as instace members e.g.:</p>
 <blockquote>
-conf.config_file</blockquote>
+<div>conf.config_file</div></blockquote>
 <p>The variables are also accessible via dictionary interface e.g.:</p>
 <blockquote>
-conf[&#8216;conf_file&#8217;]</blockquote>
+<div>conf[&#8216;conf_file&#8217;]</div></blockquote>
 <p>Upon initialisation some default values are applied to the variables.
 However to finish the initialization <a class="reference internal" href="#CISAppGateway.Config.Config.load" title="CISAppGateway.Config.Config.load"><tt class="xref py py-meth docutils literal"><span class="pre">Config.load()</span></tt></a> method
 should be called.</p>
 <dl class="attribute">
 <dt id="CISAppGateway.Config.Config.allowed_services">
-<tt class="descname">allowed_services</tt><a class="headerlink" href="#CISAppGateway.Config.Config.allowed_services" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">allowed_services</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.allowed_services" title="Permalink to this definition">¶</a></dt>
 <dd><p>Supported services</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppGateway.Config.Config.config_file">
+<tt class="descname">config_file</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.config_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Config file name</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppGateway.Config.Config.gate_path_output">
-<tt class="descname">gate_path_output</tt><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_output" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gate_path_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path where jobs output will be stored</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppGateway.Config.Config.gate_path_shared">
-<tt class="descname">gate_path_shared</tt><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_shared" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gate_path_shared</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_shared" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path to the shared storage used as communication medium with
 AppServer</p>
 </dd></dl>
@@ -281,19 +277,28 @@ initialisation.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>conf_name</strong> &#8211; name of CISAppGateway config file. When <em>None</em> is
-provided hardcoded defaults are used.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>conf_name</strong> &#8211; name of CISAppGateway config file. When <em>None</em> is
+provided hardcoded defaults are used.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppGateway.Config.Config.log_level">
+<tt class="descname">log_level</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.log_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.log_output">
+<tt class="descname">log_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.log_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log output file name</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppGateway.Config.Config.service_states">
-<tt class="descname">service_states</tt><a class="headerlink" href="#CISAppGateway.Config.Config.service_states" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">service_states</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.service_states" title="Permalink to this definition">¶</a></dt>
 <dd><p>Valid job states as well as names of directories on shared storage
 that are used to monitor job states</p>
 </dd></dl>
@@ -302,7 +307,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppGateway.Config.conf">
-<tt class="descclassname">CISAppGateway.Config.</tt><tt class="descname">conf</tt><a class="headerlink" href="#CISAppGateway.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppGateway.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'gate_path_aborted': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/aborted', 'gate_path_queued': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/queued', 'log_level': 'INFO', 'gate_path_done': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/done', 'gate_path_failed': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/failed', 'gate_path_killed': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/killed', 'gate_path_waiting': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/waiting', 'config_file': None, 'gate_path_removed': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/removed', 'gate_url_output': 'http://localhost:8000/', 'allowed_services': ('Test', 'MultiNest', 'EPRCore'), 'gate_path_running': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/running', 'gate_path_output': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Output', 'log_output': None, 'gate_path_jobs': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/jobs', 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'removed'), 'gate_path_shared': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue', 'gate_path': {'running': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/running', 'failed': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/failed', 'waiting': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/waiting', 'done': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/done', 'aborted': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/aborted', 'removed': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/removed', 'queued': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/queued', 'killed': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/killed'}, 'gate_path_exit': '/mnt/home/kklimaszewski/Soft/WebServices/Docs/Queue/exit'}</em><a class="headerlink" href="#CISAppGateway.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>
@@ -331,13 +336,13 @@ configuration.</p>
         <li class="right" >
           <a href="modules.html" title="Implementation reference"
              >previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li>
+        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li>
           <li><a href="modules.html" >Implementation reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Konrad Klimaszewski.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+        &copy; Copyright 2013, CIŚ.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>
