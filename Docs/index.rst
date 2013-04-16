@@ -3,20 +3,27 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CIŚAppServer's documentation!
-========================================
+=============================
+CIŚ WebServices documentation
+=============================
 
-Contents:
+Documentation of backend infrastructure for CIŚ web services. CIŚ web
+services allow users to perform calculations for predefined problems using
+web interface. This document describes infrastructure that separates the
+interface accessible to users from CIŚ computing resources.
+
+Contents
+--------
 
 .. toctree::
    :maxdepth: 2
 
+   overview
+   webapi
    modules
 
-
-
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`

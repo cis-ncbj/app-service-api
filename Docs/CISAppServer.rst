@@ -17,3 +17,11 @@ CISAppServer Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`Config` Module
+--------------------
+
+.. automodule:: CISAppServer.Config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

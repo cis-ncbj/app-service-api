@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; CIŚ Web Services v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/cistheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CIŚ Web Services v0.1 documentation" href="index.html" />
+    <link rel="next" title="Web API" href="webapi.html" />
+    <link rel="prev" title="CIŚ WebServices documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="webapi.html" title="Web API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CIŚ WebServices documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-overview">API overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-definition">Service definition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Implementation reference</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">CIŚ WebServices documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="webapi.html"
+                        title="next chapter">Web API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/overview.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>The WebServices backend infrastructure was designed with following goals in
+mind:</p>
+<ul class="simple">
+<li>Minimize possibility of successful attack on CIŚ computing
+infrastructure via web services<ul>
+<li>Separate the web interface from computing resources</li>
+<li>Validate input sent by the user</li>
+</ul>
+</li>
+<li>Prepare common simple API for web service designers</li>
+<li>Remain agnostic with regards to choice of programming language by web
+service designers</li>
+</ul>
+</div>
+<div class="section" id="design">
+<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+<p>The design of web service frontend remains at discretion of its developer.
+However it will usually consist of HTML web pages displayed by users web
+browser that communicate with web service dedicated web server (some usage
+of AJAX may by required for seamles user experience).</p>
+<p>The server part of web service will communicate with an AppGateway over https
+using REST <a class="reference internal" href="webapi.html"><em>Web API</em></a>. It is viewed as the Client for the backend
+infrastructure, users web browser should not interact directly with the
+backend. The AppGateway is very lightweight and its purpose is to pass job
+requests to AppServer as well as to answer status requests from Clients (It is
+possible that the AppGateway could be extended to accomodate for instance user
+authentication). The AppGateway will be positioned inside the DMZ, however it
+should not be accessible from outside networks - the assumption is that Clients
+will also reside inside DMZ. The AppServer is placed inside the internal CIŚ
+network and can access computational resources in particular file servers and
+PBS scheduler. AppGateway will communicate with AppServer using shared file
+system - each new request is represented as a new file that AppServer will
+process. The job status is represented by symbolic links at appropriate paths.</p>
+<p>Communication between system components:</p>
+<div class="highlight-python"><pre>Web Browser  (WAN)
+    ⇵ HTTPS
+Client       (DMZ)
+    ⇵ HTTPS
+AppGateway   (DMZ)
+    ⇵ NFS
+AppServer    (LAN)
+    ⇵ PBS / SSH
+Worker Nodes (LAN)</pre>
+</div>
+</div>
+<div class="section" id="api-overview">
+<h2>API overview<a class="headerlink" href="#api-overview" title="Permalink to this headline">¶</a></h2>
+<p>The Gateway API allows for:</p>
+<ul class="simple">
+<li>Job submission<ul>
+<li>Predefined set of variables can be used to alter the job execution. Four
+types of variables are available:<ul>
+<li>&#8220;int&#8221; - an integer number with predefined validity range</li>
+<li>&#8220;float&#8221; - a floating point number with predefined validity range</li>
+<li>&#8220;string&#8221; - a string with predefined dictionary of allowed values</li>
+<li>&#8220;set&#8221; - [TO BE IMPLEMENTED] name of predefined set of variable values,
+allows to set several variables using one parameter. Also the only way
+for a job to influence internal variables like &#8220;PBS queue&#8221; or
+&#8220;number of PBS worker nodes&#8221;.</li>
+</ul>
+</li>
+<li>Each variable has predefined default value therefore jobs do not have to
+specify values for all available variables</li>
+</ul>
+</li>
+<li>Status query<ul>
+<li>Job status (&#8220;queued&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, ...) can be queried for each job</li>
+</ul>
+</li>
+<li>Retrival of job output<ul>
+<li>Job output is stored on a dedicated http server. The URL where output files
+for a job are accessible is available through REST API call.</li>
+</ul>
+</li>
+<li>Job termination / removal of completed jobs</li>
+</ul>
+</div>
+<div class="section" id="service-definition">
+<h2>Service definition<a class="headerlink" href="#service-definition" title="Permalink to this headline">¶</a></h2>
+<p>Each service besides the web interface will consist of two addictional
+components.</p>
+<ul class="simple">
+<li>Service configuration - a file that defines allowed variables and their
+values.</li>
+<li>Script and input data templates - templates for scripts that will be executed
+on Worker Nodes and templates for input data files. The templates contain
+keywords that will be substituted with actual values as requested by the
+client.</li>
+</ul>
+<p>The service configuration is stored in JSON format in a file named exactly as
+the service. Each variable is defined as dictionary with three rquired keys.</p>
+<ul class="simple">
+<li>type - defines type of variable, one of (&#8220;int&#8221;, &#8220;float&#8221;, &#8220;string&#8221;, &#8220;set&#8221;)</li>
+<li>default - default value</li>
+<li>values - array with allowed values. For int and float exactly two elemets are
+required: min and max. For string array defines a list of allowed
+values.</li>
+</ul>
+<p>Example Test service configuration:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;A&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;type&quot;</span> <span class="p">:</span> <span class="s">&quot;int&quot;</span><span class="p">,</span>
+        <span class="s">&quot;default&quot;</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s">&quot;B&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;type&quot;</span> <span class="p">:</span> <span class="s">&quot;float&quot;</span><span class="p">,</span>
+        <span class="s">&quot;default&quot;</span> <span class="p">:</span> <span class="mf">20.99</span><span class="p">,</span>
+        <span class="s">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s">&quot;C&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;type&quot;</span> <span class="p">:</span> <span class="s">&quot;string&quot;</span><span class="p">,</span>
+        <span class="s">&quot;default&quot;</span> <span class="p">:</span> <span class="s">&quot;alpha&quot;</span><span class="p">,</span>
+        <span class="s">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s">&quot;alpha&quot;</span><span class="p">,</span> <span class="s">&quot;beta&quot;</span><span class="p">,</span> <span class="s">&quot;gamma&quot;</span><span class="p">,</span> <span class="s">&quot;delta&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Service templates are placed in a subdirectory named exactly as the service.
+They should consist of at least one file named &#8220;pbs.sh&#8221; which will be executed
+on Worker Node. Additional template files can be stored in arbitraty directory
+structure which will be replicated at WORKDIR of running job. Each file will be
+parsed and all occurances of &#64;&#64;{variable_name} will be replaced with value
+specified for variable &#8220;variable_name&#8221;.</p>
+<p>Example Test template pbs.sh script:</p>
+<div class="highlight-python"><pre>#!/bin/sh
+
+A=@@{A}
+B=@@{B}
+C=@@{C}
+
+echo $A $B $C
+/bin/hostname
+sleep 10</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="webapi.html" title="Web API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CIŚ WebServices documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Konrad Klimaszewski.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

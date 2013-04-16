@@ -1,19 +1,18 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CISAppServer Package &mdash; CIŚ Web Services 0.1 documentation</title>
-    
+    <title>CISAppServer Package &mdash; CIŚ Web Services v0.1 documentation</title>
     <link rel="stylesheet" href="_static/cistheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '',
         VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -23,9 +22,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CIŚ Web Services 0.1 documentation" href="index.html" />
-    <link rel="up" title="CISAppServer" href="modules.html" />
-    <link rel="prev" title="CISAppServer" href="modules.html" /> 
+    <link rel="top" title="CIŚ Web Services v0.1 documentation" href="index.html" />
+    <link rel="up" title="Implementation reference" href="modules.html" />
+    <link rel="prev" title="CISAppGateway Package" href="CISAppGateway.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,25 +37,28 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="CISAppServer"
+          <a href="CISAppGateway.html" title="CISAppGateway Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.1 documentation</a> &raquo;</li>
-          <li><a href="modules.html" accesskey="U">CISAppServer</a> &raquo;</li> 
+        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" accesskey="U">Implementation reference</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">CISAppServer</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Implementation reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html">CISAppGateway Package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">CISAppServer Package</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="modules.html"
-                        title="previous chapter">CISAppServer</a></p>
+  <p class="topless"><a href="CISAppGateway.html"
+                        title="previous chapter">CISAppGateway Package</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/CISAppServer.txt"
@@ -65,7 +67,7 @@
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" size="18" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -105,13 +107,16 @@ file.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job_id</strong> &#8211; The unique job ID.</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>job_id</strong> &#8211; The unique job ID.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
 <dt id="CISAppServer.JobManager.Job.data">
-<tt class="descname">data</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.data" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">data</tt><a class="headerlink" href="#CISAppServer.JobManager.Job.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job parameters as specified in job request.</p>
 </dd></dl>
 
@@ -125,7 +130,7 @@ job state as <em>aborted</em>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>message</strong> &#8211; Message to be passed to logs and client,</li>
 <li><strong>err</strong> &#8211; if True use log as ERROR otherwise use WARNING priority,</li>
 <li><strong>exc_info</strong> &#8211; if True logging will extract current exception info
@@ -148,7 +153,7 @@ can pass the job status and the message to clients.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>message</strong> &#8211; Message that will be written to the output status file.</li>
 <li><strong>state</strong> &#8211; Job state to set. Valid values are &#8216;done&#8217;, aborted&#8217;,
 &#8216;killed&#8217;</li>
@@ -167,7 +172,7 @@ can pass the job status and the message to clients.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">One of valid job states:</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">One of valid job states:</td>
 </tr>
 </tbody>
 </table>
@@ -221,7 +226,7 @@ postprocessing,</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.JobManager.Job.id">
-<tt class="descname">id</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.id" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">id</tt><a class="headerlink" href="#CISAppServer.JobManager.Job.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique job ID string.</p>
 </dd></dl>
 
@@ -233,8 +238,11 @@ postprocessing,</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_state</strong> &#8211; new sate for the job. For valid states see
-<a class="reference internal" href="#CISAppServer.JobManager.Job.get_state" title="CISAppServer.JobManager.Job.get_state"><tt class="xref py py-meth docutils literal"><span class="pre">get_state()</span></tt></a>.</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>new_state</strong> &#8211; new sate for the job. For valid states see
+<a class="reference internal" href="#CISAppServer.JobManager.Job.get_state" title="CISAppServer.JobManager.Job.get_state"><tt class="xref py py-meth docutils literal"><span class="pre">get_state()</span></tt></a>.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -242,7 +250,7 @@ postprocessing,</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.JobManager.Job.valid_data">
-<tt class="descname">valid_data</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.valid_data" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">valid_data</tt><a class="headerlink" href="#CISAppServer.JobManager.Job.valid_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job parameters after validation</p>
 </dd></dl>
 
@@ -292,7 +300,7 @@ running kill it.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>job_id</strong> &#8211; Job unique ID,</li>
 <li><strong>create</strong> &#8211; If job identified by <em>job_id</em> is not found in the list
 an ERROR message is logged. When create is True a new Job object is
@@ -300,7 +308,7 @@ created and added to the list,</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Job object if <em>job_id</em> was found, None otherwise.</p>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Job object if <em>job_id</em> was found, None otherwise.</p>
 </td>
 </tr>
 </tbody>
@@ -327,18 +335,16 @@ created and added to the list,</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; The Job object to submit.</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; The Job object to submit.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success, False otherwise.</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success, False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppServer.JobManager.JobManager.validator">
-<tt class="descname">validator</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.JobManager.validator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validator instance</p>
 </dd></dl>
 
 </dd></dl>
@@ -354,14 +360,9 @@ created and added to the list,</li>
 The placeholders have following form: &#64;&#64;{KEY}.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.delimiter">
-<tt class="descname">delimiter</tt><em class="property"> = '&#64;&#64;'</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.delimiter" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">delimiter</tt><a class="headerlink" href="#CISAppServer.Tools.CTemplate.delimiter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delimiter identifying keywords.</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x38d8170&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -373,7 +374,7 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 <p>Allows for job submission, deletion and extraction of job status.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Tools.PbsScheduler.default_queue">
-<tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.default_queue" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">default_queue</tt><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.default_queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default PBS queue</p>
 </dd></dl>
 
@@ -386,9 +387,13 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -396,13 +401,13 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.PbsScheduler.max_jobs">
-<tt class="descname">max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">max_jobs</tt><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of concurent jobs</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.PbsScheduler.queue_path">
-<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.queue_path" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">queue_path</tt><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.queue_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path where submitted PBS job IDs are stored</p>
 </dd></dl>
 
@@ -414,7 +419,10 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -436,9 +444,13 @@ present in the pbs_work_path/job directory.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -446,7 +458,7 @@ present in the pbs_work_path/job directory.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.PbsScheduler.work_path">
-<tt class="descname">work_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.work_path" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">work_path</tt><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.work_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>PBS Working directory path</p>
 </dd></dl>
 
@@ -462,7 +474,7 @@ interface.</p>
 <p>Allows for job submission, deletion and extraction of job status.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Scheduler.default_queue">
-<tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.default_queue" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">default_queue</tt><a class="headerlink" href="#CISAppServer.Tools.Scheduler.default_queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default queue</p>
 </dd></dl>
 
@@ -475,9 +487,13 @@ interface.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -495,9 +511,13 @@ substitute all occurences of &#64;&#64;{atribute_name} with specified values.</p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance after validation</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance after validation</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -505,13 +525,13 @@ substitute all occurences of &#64;&#64;{atribute_name} with specified values.</p
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Scheduler.max_jobs">
-<tt class="descname">max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">max_jobs</tt><a class="headerlink" href="#CISAppServer.Tools.Scheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of concurent jobs</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Scheduler.queue_path">
-<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.queue_path" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">queue_path</tt><a class="headerlink" href="#CISAppServer.Tools.Scheduler.queue_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path where submitted job IDs are stored</p>
 </dd></dl>
 
@@ -523,7 +543,10 @@ substitute all occurences of &#64;&#64;{atribute_name} with specified values.</p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -545,9 +568,13 @@ present in the work_path/job directory.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -555,7 +582,7 @@ present in the work_path/job directory.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Scheduler.work_path">
-<tt class="descname">work_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.work_path" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">work_path</tt><a class="headerlink" href="#CISAppServer.Tools.Scheduler.work_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Working directory path</p>
 </dd></dl>
 
@@ -570,7 +597,7 @@ It is also responsible for preparation of PBS scripts.</p>
 <p>Upon initialisation load services configuration.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Validator.services">
-<tt class="descname">services</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Validator.services" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">services</tt><a class="headerlink" href="#CISAppServer.Tools.Validator.services" title="Permalink to this definition">¶</a></dt>
 <dd><p>Services configurations</p>
 </dd></dl>
 
@@ -583,9 +610,13 @@ validated data.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Rerurn :</th><td class="field-body">True on success False otherwise.</td>
+<tr class="field"><th class="field-name">Rerurn :</th><td class="field-body"><p class="first last">True on success False otherwise.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -599,14 +630,14 @@ validated data.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>key</strong> &#8211; attribute name</li>
 <li><strong>value</strong> &#8211; value to validate</li>
 <li><strong>service</strong> &#8211; service name for which attribute is defined</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success False otherwise.</p>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success False otherwise.</p>
 </td>
 </tr>
 </tbody>
@@ -627,6 +658,101 @@ validated data.</p>
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-CISAppServer.Config">
+<span id="config-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">Config</span></tt> Module<a class="headerlink" href="#module-CISAppServer.Config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="CISAppServer.Config.Config">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">Config</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#CISAppServer.Config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
+<p>Global configuration for CISAppServer.</p>
+<p>CISAppServer defines global instance of Config class: conf.
+Config stores variables as instace members e.g.:</p>
+<blockquote>
+conf.config_file</blockquote>
+<p>The variables are also accessible via dictionary interface e.g.:</p>
+<blockquote>
+conf[&#8216;conf_file&#8217;]</blockquote>
+<p>Upon initialisation some default values are applied to the variables.
+However to finish the initialization <a class="reference internal" href="#CISAppServer.Config.Config.load" title="CISAppServer.Config.Config.load"><tt class="xref py py-meth docutils literal"><span class="pre">Config.load()</span></tt></a> method
+should be called.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.config_sleep_time">
+<tt class="descname">config_sleep_time</tt><a class="headerlink" href="#CISAppServer.Config.Config.config_sleep_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleep interval between job status queries</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_output">
+<tt class="descname">gate_path_output</tt><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where jobs output will be stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_shared">
+<tt class="descname">gate_path_shared</tt><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_shared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the shared storage used as communication medium with
+AppGateway</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Config.Config.load">
+<tt class="descname">load</tt><big>(</big><em>conf_name=None</em><big>)</big><a class="headerlink" href="#CISAppServer.Config.Config.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load CISAppServer configuration from JSON file and finalize the
+initialisation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>conf_name</strong> &#8211; name of CISAppServer config file. When <em>None</em> is
+provided hardcoded defaults are used.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.pbs_path_queue">
+<tt class="descname">pbs_path_queue</tt><a class="headerlink" href="#CISAppServer.Config.Config.pbs_path_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where PBS backend will store job IDs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.pbs_path_work">
+<tt class="descname">pbs_path_work</tt><a class="headerlink" href="#CISAppServer.Config.Config.pbs_path_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where PBS backeng will create job working directories</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_path_conf">
+<tt class="descname">service_path_conf</tt><a class="headerlink" href="#CISAppServer.Config.Config.service_path_conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path with services configuration files</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_path_data">
+<tt class="descname">service_path_data</tt><a class="headerlink" href="#CISAppServer.Config.Config.service_path_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path with services scripts and input files</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_reserved_keys">
+<tt class="descname">service_reserved_keys</tt><a class="headerlink" href="#CISAppServer.Config.Config.service_reserved_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved key names for job parameters</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_states">
+<tt class="descname">service_states</tt><a class="headerlink" href="#CISAppServer.Config.Config.service_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Valid job states as well as names of directories on shared storage
+that are used to monitor job states</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -645,15 +771,15 @@ validated data.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="CISAppServer"
+          <a href="CISAppGateway.html" title="CISAppGateway Package"
              >previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.1 documentation</a> &raquo;</li>
-          <li><a href="modules.html" >CISAppServer</a> &raquo;</li> 
+        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Implementation reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Konrad Klimaszewski.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>

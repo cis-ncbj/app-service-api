@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Web API &mdash; CIŚ Web Services v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/cistheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CIŚ Web Services v0.1 documentation" href="index.html" />
+    <link rel="next" title="Implementation reference" href="modules.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="Implementation reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Overview"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Web API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#job-submission">Job submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifying-job-status">Verifying job status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-output">Job output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-removal">Job removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-services">Supported services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Implementation reference</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="overview.html"
+                        title="previous chapter">Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="next chapter">Implementation reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/webapi.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="web-api">
+<h1>Web API<a class="headerlink" href="#web-api" title="Permalink to this headline">¶</a></h1>
+<p>CIŚ WebService REST API</p>
+<div class="section" id="job-submission">
+<h2>Job submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
+<p>Jobs are subbited via POST request on <a class="reference external" href="http://appgate.cis.gov.pl/submit">http://appgate.cis.gov.pl/submit</a>.
+The POST request should contain job attributes either in JSON format or as
+FORM data. The data payload should contain key value pairs corresponding to
+variables supported by the service. In addition a reserved &#8220;service&#8221; keyword is
+required with name of the service as a value.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;service&quot;</span> <span class="p">:</span> <span class="s">&quot;MultiNest&quot;</span><span class="p">,</span>
+    <span class="s">&quot;live_points&quot;</span> <span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The request will return an Job ID e.g.:</p>
+<blockquote>
+MultiNest_40ecad7d-41be-48bc-9d87-131f894052a8_nlfsvY</blockquote>
+<p>The Job ID should be stored for duration of a session. It will be used when
+performing other API requests. Simple implementation can store it as a cookie
+in the users we browser.</p>
+<p>Example implementation in python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">flask</span>
+
+<span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Submit job request to CIŚ AppGateway</span>
+
+<span class="sd">    :param payload: dictionary of name, value pairs that defines job</span>
+<span class="sd">        parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># Service name</span>
+    <span class="n">payload</span><span class="p">[</span><span class="s">&#39;service&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;MultiNest&quot;</span>
+    <span class="c"># API url</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://appgate.cis.gov.pl/submit&quot;</span>
+    <span class="c"># The data will be sent as JSON payload</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
+    <span class="c"># Send the POST request</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">flask</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="s">u&quot;Cannot communicate with AppGateway.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+
+    <span class="c"># Check if server returned Job ID. It will start with the service name</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;MultiNest&#39;</span><span class="p">):</span>
+        <span class="n">flask</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="s">u&quot;Job submitted successfuly.&quot;</span><span class="p">)</span>
+        <span class="c"># Store the Job ID as a cookie</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">make_response</span><span class="p">(</span><span class="n">flask</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">))</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s">&#39;CISMultiNestJobID&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resp</span>
+
+    <span class="c"># Error returned</span>
+    <span class="n">flask</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verifying-job-status">
+<h2>Verifying job status<a class="headerlink" href="#verifying-job-status" title="Permalink to this headline">¶</a></h2>
+<p>Job status can be queried by GET request on
+<a class="reference external" href="http://appgate.cis.gov.pl/status/[id">http://appgate.cis.gov.pl/status/[id</a>]. Where [id] is the Job ID returned
+during submission. The request returns one of:</p>
+<ul class="simple">
+<li>waiting - Job is waiting for validation by AppServer</li>
+<li>queued - Job is submitted to PBS and awaiting in queue</li>
+<li>running - Job is performing calculations</li>
+<li>done - Job has finished successfuly</li>
+<li>failed - Job has finished with non zero exit code. The exit code is returned
+along with the status message.</li>
+<li>aborted - Job execution was aborted due to an error - either malformed job
+request or internal AppGateway/AppServer error. The type of error is returned
+alongside the status message.</li>
+<li>killed - Job was killed by the user.</li>
+</ul>
+<p>Example implementation in python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">flask</span>
+
+<span class="k">def</span> <span class="nf">status</span><span class="p">():</span>
+    <span class="c"># Get the Job ID from web browser cookie</span>
+    <span class="n">_jid</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;CISMultiNestJobID&#39;</span><span class="p">)</span>
+    <span class="c"># Job ID stored - check status</span>
+    <span class="k">if</span> <span class="n">_jid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://appgate.cis.gov.pl/status/&quot;</span> <span class="o">+</span> <span class="n">_jid</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="k">return</span> <span class="s">&quot;No job submitted yet ...&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="job-output">
+<h2>Job output<a class="headerlink" href="#job-output" title="Permalink to this headline">¶</a></h2>
+<p>The http base URL for the output files is retrieved as
+<a class="reference external" href="http://appgate.cis.gov.pl/output/[id">http://appgate.cis.gov.pl/output/[id</a>]</p>
+</div>
+<div class="section" id="job-removal">
+<h2>Job removal<a class="headerlink" href="#job-removal" title="Permalink to this headline">¶</a></h2>
+<p>Job can be scheduled for removal. If a job is queued or running its execution
+by the queue system will be stopped. All files related with the job will be
+romoved. Delete request URL: <a class="reference external" href="http://appgate.cis.gov.pl/delete/[id">http://appgate.cis.gov.pl/delete/[id</a>]</p>
+</div>
+<div class="section" id="supported-services">
+<h2>Supported services<a class="headerlink" href="#supported-services" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Test<ul>
+<li>A : int(0,10000)</li>
+<li>B : float(-100,100)</li>
+<li>C : [&#8220;alpha&#8221;, &#8220;beta&#8221;, &#8220;gamma&#8221;, &#8220;delta&#8221;]</li>
+</ul>
+</li>
+<li>MultiNest<ul>
+<li>argument : float(-10,10)</li>
+<li>live_points : int(0,10000)</li>
+<li>function : [&#8220;sin&#8221;, &#8220;cos&#8221;, &#8220;log&#8221;]</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="Implementation reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Overview"
+             >previous</a> |</li>
+        <li><a href="index.html">CIŚ Web Services v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Konrad Klimaszewski.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

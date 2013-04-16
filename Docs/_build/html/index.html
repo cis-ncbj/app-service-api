@@ -1,19 +1,18 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to CIŚAppServer’s documentation! &mdash; CIŚ Web Services 0.1 documentation</title>
-    
+    <title>CIŚ WebServices documentation &mdash; CIŚ Web Services v0.1 documentation</title>
     <link rel="stylesheet" href="_static/cistheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '',
         VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -23,8 +22,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CIŚ Web Services 0.1 documentation" href="#" />
-    <link rel="next" title="CISAppServer" href="modules.html" /> 
+    <link rel="top" title="CIŚ Web Services v0.1 documentation" href="#" />
+    <link rel="next" title="Overview" href="overview.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,21 +36,23 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="CISAppServer"
+          <a href="overview.html" title="Overview"
              accesskey="N">next</a> |</li>
-        <li><a href="#">CIŚ Web Services 0.1 documentation</a> &raquo;</li> 
+        <li><a href="#">CIŚ Web Services v0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
 <h3><a href="#">Table Of Contents</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">CISAppServer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Implementation reference</a></li>
 </ul>
 
   <h4>Next topic</h4>
-  <p class="topless"><a href="modules.html"
-                        title="next chapter">CISAppServer</a></p>
+  <p class="topless"><a href="overview.html"
+                        title="next chapter">Overview</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -60,7 +61,7 @@
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" size="18" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -78,12 +79,33 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-cisappserver-s-documentation">
-<h1>Welcome to CIŚAppServer&#8217;s documentation!<a class="headerlink" href="#welcome-to-cisappserver-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
+  <div class="section" id="cis-webservices-documentation">
+<h1>CIŚ WebServices documentation<a class="headerlink" href="#cis-webservices-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Documentation of backend infrastructure for CIŚ web services. CIŚ web
+services allow users to perform calculations for predefined problems using
+web interface. This document describes infrastructure that separates the
+interface accessible to users from CIŚ computing resources.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">CISAppServer</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#api-overview">API overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#service-definition">Service definition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webapi.html#job-submission">Job submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapi.html#verifying-job-status">Verifying job status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapi.html#job-output">Job output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapi.html#job-removal">Job removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapi.html#supported-services">Supported services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Implementation reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html">CISAppGateway Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CISAppServer.html">CISAppServer Package</a></li>
 </ul>
 </li>
@@ -91,12 +113,13 @@
 </div>
 </div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
 <li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
 <li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
 </ul>
+</div>
 </div>
 
 
@@ -115,14 +138,14 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="CISAppServer"
+          <a href="overview.html" title="Overview"
              >next</a> |</li>
-        <li><a href="#">CIŚ Web Services 0.1 documentation</a> &raquo;</li> 
+        <li><a href="#">CIŚ Web Services v0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Konrad Klimaszewski.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>
