@@ -70,16 +70,16 @@ Job status can be queried by GET request on
 http://appgate.cis.gov.pl/status/[id]. Where [id] is the Job ID returned
 during submission. The request returns one of:
 
-* waiting - Job is waiting for validation by AppServer
-* queued - Job is submitted to PBS and awaiting in queue
-* running - Job is performing calculations
-* done - Job has finished successfuly
-* failed - Job has finished with non zero exit code. The exit code is returned
-  along with the status message.
-* aborted - Job execution was aborted due to an error - either malformed job
+* Waiting - Job is waiting for validation by AppServer
+* Queued - Job is submitted to PBS and awaiting in queue
+* Running - Job is performing calculations
+* Done - Job has finished successfuly
+* Failed - Job has finished with non zero exit code. The exit code is returned
+  along with the status message e.g.: "Failed: 127"
+* Aborted - Job execution was aborted due to an error - either malformed job
   request or internal AppGateway/AppServer error. The type of error is returned
-  alongside the status message.
-* killed - Job was killed by the user.
+  alongside the status message e.g.: "Aborted: @Validator - Not supported variable: bad_variable"
+* Killed - Job was killed by the user.
 
 Example implementation in python::
 
