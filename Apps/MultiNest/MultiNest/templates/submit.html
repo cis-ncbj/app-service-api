@@ -7,8 +7,65 @@
         <form action="" method="post" name="function">
             {{form.hidden_tag()}}
             <p>
-                Select math function:<br>
-                {{form.function}}<br>
+            <h3 class="title">Parametry Symulacji</h3>
+            </p>
+            <p>
+            Rozmiar przestrzeni:<br/>
+            {{form.xsize.label}}: {{form.xsize}}
+            {% for error in form.errors.xsize %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            {{form.ysize.label}}: {{form.ysize}}
+            {% for error in form.errors.ysize %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            Liczba maksimów:<br/>
+            {{form.nodes_min.label}}: {{form.nodes_min}}
+            {% for error in form.errors.nodes_min %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            {{form.nodes_max.label}}: {{form.nodes_max}}
+            {% for error in form.errors.nodes_max %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            Szerokość maksimów:<br/>
+            {{form.sigma_min.label}}: {{form.sigma_min}}
+            {% for error in form.errors.sigma_min %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            {{form.sigma_max.label}}: {{form.sigma_max}}
+            {% for error in form.errors.sigma_max %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            </p>
+            <p>
+            <h3 class="title">Parametry MultiNest</h3>
+            </p>
+            <p>
+            {{form.n_live_points.label}}: {{form.n_live_points}}
+            {% for error in form.errors.n_live_points %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            {{form.max_modes.label}}: {{form.max_modes}}
+            {% for error in form.errors.max_modes %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            {{form.sampling_efficiency.label}}: {{form.sampling_efficiency}}
+            {% for error in form.errors.sampling_efficiency %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <br/>
+            {{form.evidence_tolerance.label}}: {{form.evidence_tolerance}}
+            {% for error in form.errors.evidence_tolerance %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
             </p>
             <p><input type="submit" value="Submit"></p>
         </form>

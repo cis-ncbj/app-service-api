@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<script type=text/javascript>
+    $(document).ready(function(){
+
+        function updateMonitor() {
+            // The current_state is set by updateStatus function loaded in
+            // layout.html. Check for updates only for jobs that did not finish
+            // (states 1-3)
+            if(current_state >= 4) {
+                return false;
+            }
+
+            // Ask MultiNest app for progress info
+            $.getJSON('/progress',
+                function(data) {
+                    // Clear contents
+                    $("#job_output").text("");
+                    // Set new contents - using append as it does not escape
+                    // html tags
+                    $("#job_output").append(data.job_output.split("\n").join("<br />"));
+                    $("#job_output").scrollTop($("#job_output")[0].scrollHeight);
+                });
+        };
+
+        updateMonitor();
+        setInterval(updateMonitor, 5000); // 5 * 1000 miliseconds
+    });
+</script>
+<div class="post">
+    <h2 class="title">Wyniki</h2>
+    <div style="clear: both;">&nbsp;</div>
+    <div class="entry">
+        <div id="job_output"></div>
+    </div>
+</div>
+<!--
+<div style="post_line"></div>
+-->
+{% endblock %}
