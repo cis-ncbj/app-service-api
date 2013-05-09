@@ -300,6 +300,11 @@ a:hover {
 	padding: 0px 0px 0px 0px;
 }
 
+#job_output {
+    height: 300px;
+    overflow: auto;
+}
+
 /* Sidebar */
 
 #sidebar {

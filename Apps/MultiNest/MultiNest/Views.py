@@ -19,6 +19,14 @@ def submit():
         title = 'Test Title',
         form = form)
 
+@app.route('/progress')
+def progress():
+    return Server.progress()
+
+@app.route('/monitor')
+def monitor():
+    return render_template("monitor.html")
+
 @app.route('/status')
 def status():
     return Server.status()

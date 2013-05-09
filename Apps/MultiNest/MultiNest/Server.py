@@ -20,27 +20,28 @@ def submit(payload):
     headers = {'content-type': 'application/json'}
     try:
         r = requests.post(url, data=json.dumps(payload), headers=headers)
-    except:
-        flask.flash(u"Brak połączenia z serwerem aplikacji", "error")
+    except Exception as e:
+        flask.flash(u"Brak połączenia z serwerem aplikacji: %s" % e, "error")
         return flask.redirect('/')
 
     if r.text.startswith('MultiNest'):
         flask.flash(u"Zadanie wysłane pomyślnie", "success")
-        resp = flask.make_response(flask.redirect('/'))
+        resp = flask.make_response(flask.redirect('/monitor'))
         resp.set_cookie('CISMultiNestJobID', r.text)
         return resp
 
     flask.flash(r.text, "error")
     return flask.redirect('/')
 
+
 def status():
     _states = (
-            u'Oczekuję na zadania',
-            u'Zadanie oczekuje w kolejce',
-            u'Obliczenia w toku',
-            u'Obliczenia zakończone',
-            u'Błąd',
-            )
+        u'Oczekuję na zadania',
+        u'Zadanie oczekuje w kolejce',
+        u'Obliczenia w toku',
+        u'Obliczenia zakończone',
+        u'Błąd',
+    )
     _jid = flask.request.cookies.get('CISMultiNestJobID')
     if _jid is not None:
         url = "http://localhost:5000/status/" + _jid
@@ -64,6 +65,23 @@ def status():
     _result = {'state':1, 'desc':_states[0], 'msg':''}
     return flask.jsonify(_result)
 
+
+def progress():
+    _result = {'job_output':'Waiting ...'}
+    _jid = flask.request.cookies.get('CISMultiNestJobID')
+    if _jid is not None:
+        url = "http://localhost:5000/progress/" + _jid
+        r = requests.get(url)
+        if r.text.startswith('Error'):
+            flask.flash(r.text, 'error')
+        else:
+            _result['job_output'] = r.text
+    else:
+        flask.flash(u"Brak zadań: nie mogę wyświetlić stanu obliczeń", "error")
+
+    return flask.Response(json.dumps(_result), mimetype='application/json')
+
+
 def output():
     _jid = flask.request.cookies.get('CISMultiNestJobID')
     if _jid is not None:
@@ -74,7 +92,8 @@ def output():
             return flask.redirect('/')
         else:
             debug(r.text)
-            return flask.redirect(r.text)
+            return flask.render_template("output.html",
+                                         url=r.text)
 
     flask.flash(u"Brak zakończonego zadania: nie mogę wyświetlić wyników", "error")
     return flask.redirect('/')
