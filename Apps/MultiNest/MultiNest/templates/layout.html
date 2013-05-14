@@ -17,59 +17,20 @@ Released   : 20120307
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>CIŚ MultiNest Webservice</title>
 <link href="static/style.css" rel="stylesheet" type="text/css" media="screen" />
+<noscript>
+    <meta http-equiv="Refresh" id="refresh" content="30"/>
+</noscript>
+<!--
+FirebugLite console.log
+<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js#startOpened"></script>
+-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
 <script type=text/javascript>
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
-<script type=text/javascript>
-    var current_state = 0
-    $(document).ready(function(){
-
-        function updateStatus() {
-            if(current_state >= 4) {
-                return false;
-            }
-
-            $.getJSON('/status',
-                function(data) {
-                    if(data.state == 1) {
-                        $("#status").attr("class","ready");
-                        $("#messages").hide();
-                    };
-                    if(data.state == 2) {
-                        $("#status").attr("class","queued");
-                        $("#messages").attr("class","queued");
-                        $("#messages").show();
-                    };
-                    if(data.state == 3) {
-                        $("#status").attr("class","running");
-                        $("#messages").attr("class","running");
-                        $("#messages").show();
-                    };
-                    if(data.state == 4) {
-                        $("#status").attr("class","done");
-                        $("#messages").attr("class","done");
-                        $("#messages").show();
-                    };
-                    if(data.state == 5) {
-                        $("#status").attr("class","error");
-                        $("#messages").attr("class","error");
-                        $("#messages").show();
-                    };
-                    $("#status").text(data.desc);
-                    $("#messages").text(data.msg);
-
-                    if(current_state != data.state) {
-                        current_state = data.state;
-                    }
-                });
-        };
-
-        updateStatus();
-        setInterval(updateStatus, 5000); // 5 * 1000 miliseconds
-    });
-</script>
+<script type=text/javascript src="{{
+  url_for('static', filename='update_status.js') }}"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -92,8 +53,8 @@ Released   : 20120307
 		<div id="page">
             <div id="sidebar">
                 <h2>Status Aplikacji</h2>
-                <div id="status" class=ready></div>
-                <div id="messages"></div>
+                <div id="status" class={{state.type}}>{{state.desc}}</div>
+                <div id="messages" class={{state.type}}>{{state.msg}}</div>
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     <ul class=flashes>

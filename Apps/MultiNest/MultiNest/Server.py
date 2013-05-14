@@ -50,20 +50,26 @@ def status():
             r.text.startswith('Waiting') or \
             r.text.startswith('Queued'):
                 _st = 2
+                _type = 'queued'
         elif \
             r.text.startswith('Running'):
                 _st = 3
+                _type = 'running'
         elif \
             r.text.startswith('Done'):
                 _st = 4
+                _type = 'done'
         else:
             _st = 5
+            _type = 'error'
 
-        _result = {'state':_st, 'desc':_states[_st-1], 'msg':r.text}
-        return flask.jsonify(_result)
+        _result = {
+            'state':_st, 'type':_type, 'desc':_states[_st-1], 'msg':r.text
+        }
+        return _result
 
-    _result = {'state':1, 'desc':_states[0], 'msg':''}
-    return flask.jsonify(_result)
+    _result = {'state':1, 'type':'ready', 'desc':_states[0], 'msg':''}
+    return _result
 
 
 def progress():
@@ -79,7 +85,7 @@ def progress():
     else:
         flask.flash(u"Brak zadań: nie mogę wyświetlić stanu obliczeń", "error")
 
-    return flask.Response(json.dumps(_result), mimetype='application/json')
+    return _result
 
 
 def output():
@@ -92,8 +98,10 @@ def output():
             return flask.redirect('/')
         else:
             debug(r.text)
+            _state = status()
             return flask.render_template("output.html",
-                                         url=r.text)
+                                         url=r.text,
+                                         state=_state)
 
     flask.flash(u"Brak zakończonego zadania: nie mogę wyświetlić wyników", "error")
     return flask.redirect('/')
