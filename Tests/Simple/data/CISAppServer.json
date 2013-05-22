@@ -39,7 +39,7 @@
     // ****************
     //
     // Logging level: VERBOSE, DEBUG, INFO, WARNING, ERROR (default: INFO)
-    //"log_level" : "INFO",
+    "log_level" : "INFO",
     //
     // Log output file name (default: /tmp/CISAppServer.log)
     "log_output" : "CISAppServer.log",

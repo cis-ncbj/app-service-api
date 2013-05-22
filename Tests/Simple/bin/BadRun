@@ -4,7 +4,7 @@
 
 module load python-tools
 # Start server
-$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log start
+$HOME/Soft/WebServices/AppServer/cisapps start
 # Start gateway
 ($HOME/Soft/WebServices/AppGateway/cisappg > CISAppGateway.log 2>&1) &
 
@@ -68,6 +68,6 @@ echo ""
 sleep 2
 
 # Stop server
-$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log terminate
+$HOME/Soft/WebServices/AppServer/cisapps terminate
 # Stop gateway (we use "axww" to make sure ps does not truncate command line options)
 ps axww | grep cisappg | grep -v grep | awk '{print $1}' | xargs kill
