@@ -79,7 +79,7 @@ during submission. The request returns one of:
 * Aborted - Job execution was aborted due to an error - either malformed job
   request or internal AppGateway/AppServer error. The type of error is returned
   alongside the status message e.g.: "Aborted: @Validator - Not supported variable: bad_variable"
-* Killed - Job was killed by the user.
+* Killed - Job was killed either by the user or by the underlying queue system.
 
 Example implementation in python::
 
@@ -102,6 +102,12 @@ Job output
 
 The http base URL for the output files is retrieved as
 http://appgate.cis.gov.pl/output/[id]
+
+Job progress
+------------
+
+If service supports a job can be queried about it's current progress:
+http://appgate.cis.gov.pl/progress/[id]
 
 Job removal
 -----------

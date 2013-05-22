@@ -152,10 +152,10 @@ types of variables are available:<ul>
 <li>&#8220;int&#8221; - an integer number with predefined validity range</li>
 <li>&#8220;float&#8221; - a floating point number with predefined validity range</li>
 <li>&#8220;string&#8221; - a string with predefined dictionary of allowed values</li>
-<li>&#8220;set&#8221; - [TO BE IMPLEMENTED] name of predefined set of variable values,
-allows to set several variables using one parameter. Also the only way
-for a job to influence internal variables like &#8220;PBS queue&#8221; or
-&#8220;number of PBS worker nodes&#8221;.</li>
+<li>&#8220;set&#8221; - name of predefined set of variable values, allows to set several
+variables using one parameter. Also the only way for a job to influence
+internal variables like &#8220;PBS queue&#8221; or &#8220;number of PBS worker nodes&#8221;.
+Varliable of type &#8220;set&#8221; can only accept values 1 (int) or &#8220;1&#8221; (string&#8221;</li>
 </ul>
 </li>
 <li>Each variable has predefined default value therefore jobs do not have to
@@ -187,40 +187,76 @@ keywords that will be substituted with actual values as requested by the
 client.</li>
 </ul>
 <p>The service configuration is stored in JSON format in a file named exactly as
-the service. Each variable is defined as dictionary with three rquired keys.</p>
+the service. File consists of three dictionaries:</p>
 <ul class="simple">
-<li>type - defines type of variable, one of (&#8220;int&#8221;, &#8220;float&#8221;, &#8220;string&#8221;, &#8220;set&#8221;)</li>
+<li>config - defines key:value pairs that modify service behaviour.
+(Currently no options are implemented yet)</li>
+<li>variables - defines allowed input variables for the service. Dcitionary keys
+specify variable names. Allowed variable names consist of any combination of
+small and large letters, numbers and an underscore. National characters are
+not allowed [TBC]. Each variable is defined as dictionary with three required
+keys.<ul>
+<li>type - defines type of variable, one of (&#8220;int&#8221;, &#8220;float&#8221;, &#8220;string&#8221;)</li>
 <li>default - default value</li>
-<li>values - array with allowed values. For int and float exactly two elemets are
-required: min and max. For string array defines a list of allowed
-values.</li>
+<li>values - array with allowed values. For int and float exactly two elemets
+are required: min and max. For string array defines a list of allowed
+values. Allowed strings can contain national characters [NOT IMPLEMENTED YET].</li>
 </ul>
+</li>
+<li>sets - predefined sets of variable values. Each set is a dictionary of
+&#8220;variable name&#8221;:&#8221;value&#8221; pairs. Values have to be valid according to variable
+definition in &#8220;variables&#8221; dictionary. Variables not defined in a set will use
+default values unless provided explicitely. Values for variables defined in a
+set can be overriden by specifying them explicitely in the input data.</li>
+</ul>
+<p>Keep in mind that JSON unlike Python does not allow dangling &#8216;,&#8217; separators.</p>
 <p>Example Test service configuration:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;A&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;type&quot;</span> <span class="p">:</span> <span class="s">&quot;int&quot;</span><span class="p">,</span>
-        <span class="s">&quot;default&quot;</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="s">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s">&quot;B&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;type&quot;</span> <span class="p">:</span> <span class="s">&quot;float&quot;</span><span class="p">,</span>
-        <span class="s">&quot;default&quot;</span> <span class="p">:</span> <span class="mf">20.99</span><span class="p">,</span>
-        <span class="s">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s">&quot;C&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;type&quot;</span> <span class="p">:</span> <span class="s">&quot;string&quot;</span><span class="p">,</span>
-        <span class="s">&quot;default&quot;</span> <span class="p">:</span> <span class="s">&quot;alpha&quot;</span><span class="p">,</span>
-        <span class="s">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s">&quot;alpha&quot;</span><span class="p">,</span> <span class="s">&quot;beta&quot;</span><span class="p">,</span> <span class="s">&quot;gamma&quot;</span><span class="p">,</span> <span class="s">&quot;delta&quot;</span><span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-python"><pre>{
+    "config" : {
+        "quota" : "10000"
+    },
+    "variables" : {
+        "A" : {
+            "type" : "int",
+            "default" : 100,
+            "values" : [0,10000]
+        },
+        "B" : {
+            "type" : "float",
+            "default" : 20.99,
+            "values" : [-100,100]
+        },
+        "C" : {
+            "type" : "string",
+            "default" : "alpha",
+            "values" : ["alpha", "beta", "gamma", "delta"]
+        }
+    },
+    "sets" : {
+        "Set1" : {
+            "A" : 1,
+            "B" : -55.55,
+            "C" : "delta"
+        }
+        "Set2" : {
+            "A" : 1000,
+            "C" : "gamma"
+        },
+        "Set3" : {
+            "C" : "beta"
+        }
+    }
+}</pre>
 </div>
 <p>Service templates are placed in a subdirectory named exactly as the service.
-They should consist of at least one file named &#8220;pbs.sh&#8221; which will be executed
-on Worker Node. Additional template files can be stored in arbitraty directory
-structure which will be replicated at WORKDIR of running job. Each file will be
-parsed and all occurances of &#64;&#64;{variable_name} will be replaced with value
-specified for variable &#8220;variable_name&#8221;.</p>
+They should contain at least two files &#8220;pbs.sh&#8221; and &#8220;epilogue.sh&#8221;. The &#8220;pbs.sh&#8221;
+script after substitutions will be executed on Worker Node. The &#8220;epilogue.sh&#8221;
+script is executed after the job finishes and should create &#8220;status.dat&#8221; file
+in job working directory containing one line with jobs&#8217; exit code. Additional
+template files can be stored in arbitraty directory structure which will be
+replicated at WORKDIR of running job. Each file will be parsed and all
+occurances of &#64;&#64;{variable_name} will be replaced with value specified for
+variable &#8220;variable_name&#8221;.</p>
 <p>Example Test template pbs.sh script:</p>
 <div class="highlight-python"><pre>#!/bin/sh
 

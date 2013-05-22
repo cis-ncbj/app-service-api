@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#job-submission">Job submission</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#verifying-job-status">Verifying job status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-output">Job output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-progress">Job progress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-removal">Job removal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#supported-services">Supported services</a></li>
 </ul>
@@ -160,16 +161,16 @@ in the users we browser.</p>
 <a class="reference external" href="http://appgate.cis.gov.pl/status/[id">http://appgate.cis.gov.pl/status/[id</a>]. Where [id] is the Job ID returned
 during submission. The request returns one of:</p>
 <ul class="simple">
-<li>waiting - Job is waiting for validation by AppServer</li>
-<li>queued - Job is submitted to PBS and awaiting in queue</li>
-<li>running - Job is performing calculations</li>
-<li>done - Job has finished successfuly</li>
-<li>failed - Job has finished with non zero exit code. The exit code is returned
-along with the status message.</li>
-<li>aborted - Job execution was aborted due to an error - either malformed job
+<li>Waiting - Job is waiting for validation by AppServer</li>
+<li>Queued - Job is submitted to PBS and awaiting in queue</li>
+<li>Running - Job is performing calculations</li>
+<li>Done - Job has finished successfuly</li>
+<li>Failed - Job has finished with non zero exit code. The exit code is returned
+along with the status message e.g.: &#8220;Failed: 127&#8221;</li>
+<li>Aborted - Job execution was aborted due to an error - either malformed job
 request or internal AppGateway/AppServer error. The type of error is returned
-alongside the status message.</li>
-<li>killed - Job was killed by the user.</li>
+alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supported variable: bad_variable&#8221;</li>
+<li>Killed - Job was killed either by the user or by the underlying queue system.</li>
 </ul>
 <p>Example implementation in python:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
@@ -192,6 +193,11 @@ alongside the status message.</li>
 <h2>Job output<a class="headerlink" href="#job-output" title="Permalink to this headline">¶</a></h2>
 <p>The http base URL for the output files is retrieved as
 <a class="reference external" href="http://appgate.cis.gov.pl/output/[id">http://appgate.cis.gov.pl/output/[id</a>]</p>
+</div>
+<div class="section" id="job-progress">
+<h2>Job progress<a class="headerlink" href="#job-progress" title="Permalink to this headline">¶</a></h2>
+<p>If service supports a job can be queried about it&#8217;s current progress:
+<a class="reference external" href="http://appgate.cis.gov.pl/progress/[id">http://appgate.cis.gov.pl/progress/[id</a>]</p>
 </div>
 <div class="section" id="job-removal">
 <h2>Job removal<a class="headerlink" href="#job-removal" title="Permalink to this headline">¶</a></h2>

@@ -120,6 +120,14 @@ file.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="CISAppServer.JobManager.Job.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job for removal.</p>
+<p>Active jobs will be killed. All data files including output files will
+be removed.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="CISAppServer.JobManager.Job.die">
 <tt class="descname">die</tt><big>(</big><em>message</em>, <em>err=True</em>, <em>exc_info=False</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.die" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abort further job execution with proper error in AppServer log as well
@@ -214,12 +222,6 @@ postprocessing,</p>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>removed:</dt>
-<dd><p class="first last">job is scheduled for removal.</p>
-</dd>
-</dl>
-</li>
 </ul>
 </dd></dl>
 
@@ -257,8 +259,7 @@ postprocessing,</p>
 <em class="property">class </em><tt class="descclassname">CISAppServer.JobManager.</tt><tt class="descname">JobManager</tt><a class="headerlink" href="#CISAppServer.JobManager.JobManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Main calss of CISAppServer. It is responsible for job management.</p>
-<p>Upon initialization parses command line arguments, loads options
-from input files. Initializes Validator and Sheduler interfaces.</p>
+<p>Upon initialization stes up Validator and Sheduler interfaces.</p>
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.check_deleted_jobs">
 <tt class="descname">check_deleted_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_deleted_jobs" title="Permalink to this definition">¶</a></dt>
@@ -312,6 +313,14 @@ created and added to the list,</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.init">
+<tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize JobManager. Creates new instaces of Validator and
+Schedulers. Loads existing jobs from file system.</p>
+<p>Existing state is purged.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.run">
 <tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main loop of JobManager.</p>
@@ -322,6 +331,21 @@ created and added to the list,</li>
 <li>Check for jobs to be removed - delete all related resources.</li>
 </ul>
 </dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.submit">
@@ -337,12 +361,6 @@ created and added to the list,</li>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppServer.JobManager.JobManager.validator">
-<tt class="descname">validator</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.JobManager.validator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validator instance</p>
 </dd></dl>
 
 </dd></dl>
@@ -365,8 +383,13 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Tools.CTemplate.idpattern">
+<tt class="descname">idpattern</tt><em class="property"> = '[_a-z0-9]+'</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.idpattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x3421440&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x2ce1220&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -429,8 +452,23 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="method">
 <dt id="CISAppServer.Tools.PbsScheduler.stop">
-<tt class="descname">stop</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.stop" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">stop</tt><big>(</big><em>job</em>, <em>msg</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop running job and remove it from PBS queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+<li><strong>msg</strong> &#8211; Message that will be passed to the user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -568,6 +606,12 @@ present in the work_path/job directory.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="CISAppServer.Tools.Service">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Service</tt><big>(</big><em>data</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
+</dd></dl>
+
+<dl class="class">
 <dt id="CISAppServer.Tools.Validator">
 <em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Validator</tt><a class="headerlink" href="#CISAppServer.Tools.Validator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
@@ -608,7 +652,7 @@ validated data.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>key</strong> &#8211; attribute name</li>
 <li><strong>value</strong> &#8211; value to validate</li>
-<li><strong>service</strong> &#8211; service name for which attribute is defined</li>
+<li><strong>service</strong> &#8211; service object for which attribute is defined</li>
 </ul>
 </td>
 </tr>
@@ -654,9 +698,27 @@ messages, e.g. data dumps, output from subprocesses, etc.</p>
 However to finish the initialization <a class="reference internal" href="#CISAppServer.Config.Config.load" title="CISAppServer.Config.Config.load"><tt class="xref py py-meth docutils literal"><span class="pre">Config.load()</span></tt></a> method
 should be called.</p>
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.config_delete_interval">
+<tt class="descname">config_delete_interval</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_delete_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interval in hours after which job is automatically removed with all data</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.config_file">
 <tt class="descname">config_file</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Config file name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.config_kill_interval">
+<tt class="descname">config_kill_interval</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_kill_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interval in hours after which job is automatically killed if in running state</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.config_progress_step">
+<tt class="descname">config_progress_step</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_progress_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every n-th status query dump the progress logs</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -666,9 +728,93 @@ should be called.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.daemon_path_pidfile">
+<tt class="descname">daemon_path_pidfile</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.daemon_path_pidfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Daemon mode pid file path</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.daemon_path_workdir">
+<tt class="descname">daemon_path_workdir</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.daemon_path_workdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Working directory of daemon</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.daemon_pidfile_timeout">
+<tt class="descname">daemon_pidfile_timeout</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.daemon_pidfile_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout for daemon mode pid file acquisition</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path">
+<tt class="descname">gate_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of job states with corresponding paths</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_aborted">
+<tt class="descname">gate_path_aborted</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_aborted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where aborted jobs are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_delete">
+<tt class="descname">gate_path_delete</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where jobs shceduled for removal are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_done">
+<tt class="descname">gate_path_done</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where done jobs are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_dump">
+<tt class="descname">gate_path_dump</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where jobs output is moved before removal (aleviates problems</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_exit">
+<tt class="descname">gate_path_exit</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were jobs exit status is stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_failed">
+<tt class="descname">gate_path_failed</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_failed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where failed jobs are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_jobs">
+<tt class="descname">gate_path_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were jobs description is stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_killed">
+<tt class="descname">gate_path_killed</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_killed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where killed jobs are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_output">
 <tt class="descname">gate_path_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path where jobs output will be stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_queued">
+<tt class="descname">gate_path_queued</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_queued" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where queued jobs are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_running">
+<tt class="descname">gate_path_running</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where running jobs are symlinked</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -676,6 +822,30 @@ should be called.</p>
 <tt class="descname">gate_path_shared</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_shared" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path to the shared storage used as communication medium with
 AppGateway</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_waiting">
+<tt class="descname">gate_path_waiting</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_waiting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path were where waiting jobs are symlinked</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Config.Config.json_load">
+<tt class="descname">json_load</tt><big>(</big><em>file</em><big>)</big><a class="headerlink" href="#CISAppServer.Config.Config.json_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a JSON file
+First remove comments and then use the json module package
+Comments look like :</p>
+<blockquote>
+<div>// ...</div></blockquote>
+<dl class="docutils">
+<dt>or</dt>
+<dd><a href="#id1"><span class="problematic" id="id2">*</span></a>/</dd>
+</dl>
+<p>Based on:
+<a class="reference external" href="http://www.lifl.fr/~riquetd/parse-a-json-file-with-comments.html">http://www.lifl.fr/~riquetd/parse-a-json-file-with-comments.html</a>
+Much faster than <a class="reference external" href="https://github.com/getify/JSON.minify">https://github.com/getify/JSON.minify</a> and
+<a class="reference external" href="https://gist.github.com/WizKid/1170297">https://gist.github.com/WizKid/1170297</a></p>
 </dd></dl>
 
 <dl class="method">
@@ -695,15 +865,33 @@ provided hardcoded defaults are used.</td>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.log_config">
+<tt class="descname">log_config</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.log_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of logging module</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.log_level">
 <tt class="descname">log_level</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.log_level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logging level</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.log_level_cli">
+<tt class="descname">log_level_cli</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.log_level_cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging level CLI override</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.log_output">
 <tt class="descname">log_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.log_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log output file name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.log_output_cli">
+<tt class="descname">log_output_cli</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.log_output_cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log output file name CLI override</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -759,7 +947,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppServer.Config.conf">
-<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'config_file': None, 'gate_path_done': None, 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'gate_path_waiting': None, 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'removed': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'gate_path_running': None, 'config_sleep_time': 1, 'pbs_default_queue': 'default', 'gate_path_killed': None, 'gate_path_removed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'log_level': 'INFO', 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'removed'), 'gate_path_queued': None, 'gate_path_output': 'Output', 'log_output': None, 'service_path_data': 'Services/Data'}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'log_level_cli': None, 'config_delete_interval': 48, 'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'gate_path_done': None, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'config_kill_interval': 24, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'waiting': None, 'killed': None, 'failed': None, 'running': None, 'done': None, 'aborted': None, 'queued': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'config_file': None, 'config_sleep_time': 3, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed'), 'config_progress_step': 2, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>

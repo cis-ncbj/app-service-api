@@ -65,10 +65,10 @@ The Gateway API allows for:
     - "int" - an integer number with predefined validity range
     - "float" - a floating point number with predefined validity range
     - "string" - a string with predefined dictionary of allowed values
-    - "set" - [TO BE IMPLEMENTED] name of predefined set of variable values,
-      allows to set several variables using one parameter. Also the only way
-      for a job to influence internal variables like "PBS queue" or
-      "number of PBS worker nodes".
+    - "set" - name of predefined set of variable values, allows to set several
+      variables using one parameter. Also the only way for a job to influence
+      internal variables like "PBS queue" or "number of PBS worker nodes".
+      Varliable of type "set" can only accept values 1 (int) or "1" (string"
 
   + Each variable has predefined default value therefore jobs do not have to
     specify values for all available variables
@@ -98,40 +98,78 @@ components.
   client.
 
 The service configuration is stored in JSON format in a file named exactly as
-the service. Each variable is defined as dictionary with three rquired keys.
+the service. File consists of three dictionaries:
 
-* type - defines type of variable, one of ("int", "float", "string", "set")
-* default - default value
-* values - array with allowed values. For int and float exactly two elemets are
-  required: min and max. For string array defines a list of allowed
-  values.
+* config - defines key:value pairs that modify service behaviour.
+  (Currently no options are implemented yet)
+* variables - defines allowed input variables for the service. Dcitionary keys
+  specify variable names. Allowed variable names consist of any combination of
+  small and large letters, numbers and an underscore. National characters are
+  not allowed [TBC]. Each variable is defined as dictionary with three required
+  keys.
+
+  + type - defines type of variable, one of ("int", "float", "string")
+  + default - default value
+  + values - array with allowed values. For int and float exactly two elemets
+    are required: min and max. For string array defines a list of allowed
+    values. Allowed strings can contain national characters [NOT IMPLEMENTED YET].
+
+* sets - predefined sets of variable values. Each set is a dictionary of
+  "variable name":"value" pairs. Values have to be valid according to variable
+  definition in "variables" dictionary. Variables not defined in a set will use
+  default values unless provided explicitely. Values for variables defined in a
+  set can be overriden by specifying them explicitely in the input data.
+
+Keep in mind that JSON unlike Python does not allow dangling ',' separators.
 
 Example Test service configuration::
 
     {
-        "A" : {
-            "type" : "int",
-            "default" : 100,
-            "values" : [0,10000]
+        "config" : {
+            "quota" : "10000"
         },
-        "B" : {
-            "type" : "float",
-            "default" : 20.99,
-            "values" : [-100,100]
+        "variables" : {
+            "A" : {
+                "type" : "int",
+                "default" : 100,
+                "values" : [0,10000]
+            },
+            "B" : {
+                "type" : "float",
+                "default" : 20.99,
+                "values" : [-100,100]
+            },
+            "C" : {
+                "type" : "string",
+                "default" : "alpha",
+                "values" : ["alpha", "beta", "gamma", "delta"]
+            }
         },
-        "C" : {
-            "type" : "string",
-            "default" : "alpha",
-            "values" : ["alpha", "beta", "gamma", "delta"]
+        "sets" : {
+            "Set1" : {
+                "A" : 1,
+                "B" : -55.55,
+                "C" : "delta"
+            }
+            "Set2" : {
+                "A" : 1000,
+                "C" : "gamma"
+            },
+            "Set3" : {
+                "C" : "beta"
+            }
         }
     }
 
 Service templates are placed in a subdirectory named exactly as the service.
-They should consist of at least one file named "pbs.sh" which will be executed
-on Worker Node. Additional template files can be stored in arbitraty directory
-structure which will be replicated at WORKDIR of running job. Each file will be
-parsed and all occurances of @@{variable_name} will be replaced with value
-specified for variable "variable_name".
+They should contain at least two files "pbs.sh" and "epilogue.sh". The "pbs.sh"
+script after substitutions will be executed on Worker Node. The "epilogue.sh"
+script is executed after the job finishes and should create "status.dat" file
+in job working directory containing one line with jobs' exit code. Additional
+template files can be stored in arbitraty directory structure which will be
+replicated at WORKDIR of running job. Each file will be parsed and all
+occurances of @@{variable_name} will be replaced with value specified for
+variable "variable_name".
 
 Example Test template pbs.sh script::
 
