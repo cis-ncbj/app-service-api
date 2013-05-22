@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Test system behaviour for jobs that are killed while queued
+
+module load python-tools
+# Start server
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log start
+# Start gateway
+($HOME/Soft/WebServices/AppGateway/cisappg > CISAppGateway.log 2>&1) &
+
+sleep 2
+
+# Submit job
+# Use the WaitSet - it should queue infinitely due to unreasonable resource request
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+    '{"service":"Test", "WaitSet":"1"}')
+# Expect Waiting
+curl -s -S http://localhost:5000/status/$ID
+echo ""
+
+sleep 20
+
+# Expect Queued
+curl -s -S http://localhost:5000/status/$ID
+echo ""
+
+# Kill the job - simulates cluster shutdown or admin intervention
+qdel $(cat $TEXTTEST_SANDBOX/PBS/Queue/$ID)
+
+sleep 20
+
+# Expect Killed
+curl -s -S http://localhost:5000/status/$ID
+
+# Stop server
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log terminate
+# Stop gateway (we use "axww" to make sure ps does not truncate command line options)
+ps axww | grep cisappg | grep -v grep | awk '{print $1}' | xargs kill
+

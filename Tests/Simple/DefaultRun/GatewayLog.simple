@@ -1,0 +1,18 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_c0f035e5-5219-4bdb-bddc-a0c30a6a6d41_y72NhS
+INFO:werkzeug:127.0.0.1 - - [20/May/2013 23:53:07] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c0f035e5-5219-4bdb-bddc-a0c30a6a6d41_y72NhS
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [20/May/2013 23:53:07] "GET /status/Test_c0f035e5-5219-4bdb-bddc-a0c30a6a6d41_y72NhS HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c0f035e5-5219-4bdb-bddc-a0c30a6a6d41_y72NhS
+INFO:werkzeug:127.0.0.1 - - [20/May/2013 23:55:07] "GET /status/Test_c0f035e5-5219-4bdb-bddc-a0c30a6a6d41_y72NhS HTTP/1.1" 200 -

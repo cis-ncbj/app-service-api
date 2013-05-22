@@ -1,0 +1,6 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation

@@ -1,0 +1,33 @@
+The following new files/directories were created:
+<Test Directory>
+----CISAppGateway.log
+----CISAppServer.log
+----Dump
+----Output
+--------Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
+------------epilogue.sh
+------------output.log
+------------pbs.sh
+------------progress.log
+------------status.dat
+----PBS
+--------Scratch
+----Shared
+--------aborted
+--------delete
+--------done
+--------exit
+------------Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
+--------failed
+------------Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
+--------jobs
+------------Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
+--------killed
+--------queued
+--------running
+--------waiting
+
+The following existing files/directories changed their contents:
+<Test Directory>
+----PBS
+--------Queue

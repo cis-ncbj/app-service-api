@@ -1,0 +1,15 @@
+INFO 05-22 10:13:42 Daemon : Executing start
+INFO 05-22 10:13:42 Tools : Initialized service: MultiNest
+INFO 05-22 10:13:42 Tools : Initialized service: default
+INFO 05-22 10:13:42 Tools : Initialized service: Test
+INFO 05-22 10:13:42 Daemon : CISAppServer started with pid 9106
+INFO 05-22 10:13:46 Tools : Job successfully submitted: Test_faba94f6-3129-4c17-9ccd-fe57b6766d07_dzwkxX
+WARNING 05-22 10:14:07 Tools : @PBS - Unable to extract job exit code: Test_faba94f6-3129-4c17-9ccd-fe57b6766d07_dzwkxX. Will continue with output extraction
+Traceback (most recent call last):
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 733, in finalise
+    with open(os.path.join(_work_dir, 'status.dat')) as _status_file:
+IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.22May094524.6495/simple/Kill2Run/PBS/Scratch/Test_faba94f6-3129-4c17-9ccd-fe57b6766d07_dzwkxX/status.dat'
+INFO 05-22 10:14:07 Tools : Job Test_faba94f6-3129-4c17-9ccd-fe57b6766d07_dzwkxX output retrived.
+INFO 05-22 10:14:07 JobManager : Job Test_faba94f6-3129-4c17-9ccd-fe57b6766d07_dzwkxX finished: killed
+INFO 05-22 10:14:24 Daemon : Received terminate command
+INFO 05-22 10:14:24 Daemon : Shutdown

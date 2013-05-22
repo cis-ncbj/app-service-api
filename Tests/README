@@ -1,0 +1,4 @@
+Tests are based on http://texttest.org
+
+To run them download the texttest application and modify "run.sh" scripts to point to it.
+Tests are designed to be run on interactive0001 or interactive0002 machines.

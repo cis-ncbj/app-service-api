@@ -1,0 +1,33 @@
+The following new files/directories were created:
+<Test Directory>
+----CISAppGateway.log
+----CISAppServer.log
+----Dump
+----Output
+--------Test_66a1214a-bc63-418b-bc4d-b571459009fe_sImcUn
+------------epilogue.sh
+------------output.log
+------------pbs.sh
+------------progress.log
+------------status.dat
+----PBS
+--------Scratch
+----Shared
+--------aborted
+--------delete
+--------done
+------------Test_66a1214a-bc63-418b-bc4d-b571459009fe_sImcUn
+--------exit
+------------Test_66a1214a-bc63-418b-bc4d-b571459009fe_sImcUn
+--------failed
+--------jobs
+------------Test_66a1214a-bc63-418b-bc4d-b571459009fe_sImcUn
+--------killed
+--------queued
+--------running
+--------waiting
+
+The following existing files/directories changed their contents:
+<Test Directory>
+----PBS
+--------Queue

@@ -1,0 +1,13 @@
+INFO 05-21 12:31:47 Daemon : Executing start
+INFO 05-21 12:31:47 Tools : Initialized service: MultiNest
+INFO 05-21 12:31:47 Tools : Initialized service: default
+INFO 05-21 12:31:47 Tools : Initialized service: Test
+INFO 05-21 12:31:47 Daemon : CISAppServer started with pid 13169
+INFO 05-21 12:31:50 JobManager : Job Test_2877a5f0-c8ea-4a4f-b6e5-8ece562a3168_6Dyifu finished: aborted
+ERROR 05-21 12:31:50 JobManager : @Scheduler - Scripts creation failed for job: Test_2877a5f0-c8ea-4a4f-b6e5-8ece562a3168_6Dyifu.
+Traceback (most recent call last):
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 463, in generate_scripts
+    _fou.write(_line)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\u0105' in position 18: ordinal not in range(128)
+INFO 05-21 12:32:30 Daemon : Received terminate command
+INFO 05-21 12:32:30 Daemon : Shutdown

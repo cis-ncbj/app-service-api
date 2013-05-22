@@ -1,0 +1,38 @@
+INFO 05-21 15:58:57 Daemon : Executing start
+INFO 05-21 15:58:57 Tools : Initialized service: MultiNest
+INFO 05-21 15:58:57 Tools : Initialized service: default
+INFO 05-21 15:58:57 Tools : Initialized service: Test
+INFO 05-21 15:58:57 Daemon : CISAppServer started with pid 19935
+WARNING 05-21 15:59:00 Tools : @Validator - Value is not a proper int.
+Traceback (most recent call last):
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 237, in validate_value
+    _v = int(value)
+ValueError: invalid literal for int() with base 10: '0.1'
+INFO 05-21 15:59:00 JobManager : Job Test_8ab1763f-13dc-411a-b3bd-a34568ede344_VDLEGm finished: aborted
+WARNING 05-21 15:59:00 JobManager : @Validator - Variable value not allowed: SLEEP - 0.1.
+WARNING 05-21 15:59:06 Tools : @Validator - Value is not a proper float
+Traceback (most recent call last):
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 269, in validate_value
+    _v = float(value)
+ValueError: could not convert string to float: string
+INFO 05-21 15:59:06 JobManager : Job Test_1d289cdd-215a-47e7-9fdb-8e47f2f524ee_45p21W finished: aborted
+WARNING 05-21 15:59:06 JobManager : @Validator - Variable value not allowed: 1Float - string.
+INFO 05-21 15:59:12 JobManager : Job Test_63cce4d7-2842-48e5-bcd3-e614a69c279a_PbAGf7 finished: aborted
+WARNING 05-21 15:59:12 JobManager : @Validator - Not supported variable: 11Float.
+WARNING 05-21 15:59:15 Tools : @Validator - Value not in allowed range: SLEEP - 100000
+INFO 05-21 15:59:15 JobManager : Job Test_b9467f6e-5c7e-4c75-aeea-c08db5939b61_T9C2tv finished: aborted
+WARNING 05-21 15:59:15 JobManager : @Validator - Variable value not allowed: SLEEP - 100000.
+WARNING 05-21 15:59:21 Tools : @Validator - Value not in allowed range: SLEEP - -100000
+INFO 05-21 15:59:21 JobManager : Job Test_ccbd943e-cceb-41af-bdf8-fbcf45a7f89e_hiBuXV finished: aborted
+WARNING 05-21 15:59:21 JobManager : @Validator - Variable value not allowed: SLEEP - -100000.
+WARNING 05-21 15:59:28 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
+INFO 05-21 15:59:28 JobManager : Job Test_e02ca577-1b06-4605-9021-324b69384500_xlY4vy finished: aborted
+WARNING 05-21 15:59:28 JobManager : @Validator - Variable value not allowed: 1Float - 900000.
+WARNING 05-21 15:59:31 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
+INFO 05-21 15:59:31 JobManager : Job Test_be91fbec-5c0f-4344-8381-c32d516c1eee_U9YH_g finished: aborted
+WARNING 05-21 15:59:31 JobManager : @Validator - Variable value not allowed: 1Float - -900000.
+WARNING 05-21 15:59:37 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
+INFO 05-21 15:59:37 JobManager : Job Test_0a17abeb-a076-4c65-9545-48a821eaa579_39RUgA finished: aborted
+WARNING 05-21 15:59:37 JobManager : @Validator - Variable value not allowed: COMMAND - /bin/true.
+INFO 05-21 15:59:42 Daemon : Received terminate command
+INFO 05-21 15:59:42 Daemon : Shutdown

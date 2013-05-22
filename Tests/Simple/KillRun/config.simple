@@ -1,0 +1,14 @@
+# Full path to the System Under Test
+executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/KillRun
+
+[collate_file]
+Script:Output/*/pbs.sh
+ScriptEpilogue:Output/*/epilogue.sh
+ScriptLog:Output/*/output.log
+ScriptProgress:Output/*/progress.log
+
+[run_dependent_text]
+GatewayLog:INFO:werkzeug:127.0.0.1
+GatewayLog:Test_[\w_\-]+{REPLACE Test}
+ServerLog:Test_[\w_\-]+{REPLACE Test}
+catalogue:Test_[\w_\-]+{REPLACE Test}

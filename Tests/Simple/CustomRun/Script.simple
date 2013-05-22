@@ -1,31 +1,31 @@
 #!/bin/sh
-#PBS -q @@{queue}
-#@@{PBS_OPTS}
+#PBS -q short
+#
 
-echo "Commencing test: @@{TestName}" | tee -a progress.log
-sleep @@{SLEEP}
+echo "Commencing test: CleanRun" | tee -a progress.log
+sleep 1
 echo 10 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 9 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 8 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 7 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 6 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 5 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 4 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 3 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 2 | tee -a progress.log
-sleep @@{SLEEP}
+sleep 1
 echo 1 | tee -a progress.log
 
-python -c "print @@{1Float} / @@{2Float}"
-@@{COMMAND}
+python -c "print 0.5 / 5e-1"
+/bin/ls
 
 exit $?
 

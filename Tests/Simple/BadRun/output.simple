@@ -1,0 +1,17 @@
+Error: Unsupported service
+Aborted: @Validator - Variable value not allowed: SLEEP - 0.1.
+
+Aborted: @Validator - Variable value not allowed: 1Float - string.
+
+Aborted: @Validator - Not supported variable: 11Float.
+
+Aborted: @Validator - Variable value not allowed: SLEEP - 100000.
+
+Aborted: @Validator - Variable value not allowed: SLEEP - -100000.
+
+Aborted: @Validator - Variable value not allowed: 1Float - 900000.
+
+Aborted: @Validator - Variable value not allowed: 1Float - -900000.
+
+Aborted: @Validator - Variable value not allowed: COMMAND - /bin/true.
+

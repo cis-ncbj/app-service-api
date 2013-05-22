@@ -1,0 +1,18 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"FailSet": "1", "service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS
+INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:46:56] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:46:56] "GET /status/Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS
+INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:47:36] "GET /status/Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS HTTP/1.1" 200 -

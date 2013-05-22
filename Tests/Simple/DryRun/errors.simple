@@ -1,0 +1,33 @@
+ 'python-tools/1.6-x86_64-gcc46-python27' load complete.
+INFO     CISAppS 0.2
+INFO     Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO Executing start
+INFO Initialized service: MultiNest
+INFO Initialized service: default
+INFO Initialized service: Test
+INFO CISAppServer started with pid 10295
+INFO     CISAppS 0.2
+INFO     Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Executing pause
+INFO     CISAppS 0.2
+INFO     Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Executing run
+INFO     CISAppS 0.2
+INFO     Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Executing reload
+INFO     CISAppS 0.2
+INFO     Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO Executing restart
+INFO Initialized service: MultiNest
+INFO Initialized service: default
+INFO Initialized service: Test
+INFO CISAppServer started with pid 10318
+INFO     CISAppS 0.2
+INFO     Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Executing terminate

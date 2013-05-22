@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Test server start, pause, run, reload, restart and terminate commands
+
+module load python-tools
+# Start server
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log start
+# Start gateway
+($HOME/Soft/WebServices/AppGateway/cisappg > CISAppGateway.log 2>&1) &
+
+sleep 2
+
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log pause
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log run
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log reload
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log restart
+
+# Stop server
+$HOME/Soft/WebServices/AppServer/cisapps --log=INFO --log-output=CISAppServer.log terminate
+# Stop gateway (we use "axww" to make sure ps does not truncate command line options)
+ps axww | grep cisappg | grep -v grep | awk '{print $1}' | xargs kill
