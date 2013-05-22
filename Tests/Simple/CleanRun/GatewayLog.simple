@@ -1,6 +1,6 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Running on http://127.0.0.1:5002/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
@@ -9,10 +9,10 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_60f359a9-59fb-40d7-b389-29752928a0c4_McCfaw
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:43:27] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_60f359a9-59fb-40d7-b389-29752928a0c4_McCfaw
+DEBUG:root:Return request id: Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:14] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:43:27] "GET /status/Test_60f359a9-59fb-40d7-b389-29752928a0c4_McCfaw HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_60f359a9-59fb-40d7-b389-29752928a0c4_McCfaw
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:44:07] "GET /status/Test_60f359a9-59fb-40d7-b389-29752928a0c4_McCfaw HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:14] "GET /status/Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:54] "GET /status/Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X HTTP/1.1" 200 -

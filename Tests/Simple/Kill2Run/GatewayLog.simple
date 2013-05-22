@@ -1,6 +1,6 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Running on http://127.0.0.1:5005/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
@@ -9,14 +9,14 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 17:27:04] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd
+DEBUG:root:Return request id: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:34] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 17:27:04] "GET /status/Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:34] "GET /status/Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb
 DEBUG:root:Job queued
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 17:27:24] "GET /status/Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:54] "GET /status/Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb
 DEBUG:root:Job killed
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 17:27:44] "GET /status/Test_8c62b213-1330-48cb-8e07-c0fd128b54f5_10oppd HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:14] "GET /status/Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb HTTP/1.1" 200 -

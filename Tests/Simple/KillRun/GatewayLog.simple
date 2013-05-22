@@ -1,6 +1,6 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Running on http://127.0.0.1:5006/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
@@ -9,13 +9,13 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 16:48:38] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
+DEBUG:root:Return request id: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:29:43] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 16:48:38] "GET /status/Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:29:43] "GET /status/Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 16:48:58] "GET /status/Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 16:49:03] "GET /status/Test_e6c003f1-05c3-4f9e-902b-9ff1f49119d9_RLHQ_W HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:30:23] "GET /status/Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:30:28] "GET /status/Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO HTTP/1.1" 200 -

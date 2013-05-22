@@ -2,11 +2,14 @@
 
 # Test server start, pause, run, reload, restart and terminate commands
 
+PORT=5001
+
 module load python-tools
 # Start server
 $HOME/Soft/WebServices/AppServer/cisapps start
-# Start gateway
-($HOME/Soft/WebServices/AppGateway/cisappg > CISAppGateway.log 2>&1) &
+# Start gateway (start ne process group)
+(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+GATEPID=$! # Pid of gateway and also group id
 
 sleep 2
 
@@ -17,5 +20,5 @@ $HOME/Soft/WebServices/AppServer/cisapps restart
 
 # Stop server
 $HOME/Soft/WebServices/AppServer/cisapps terminate
-# Stop gateway (we use "axww" to make sure ps does not truncate command line options)
-ps axww | grep cisappg | grep -v grep | awk '{print $1}' | xargs kill
+# Stop gateway (kill the whole process group)
+kill -TERM -$GATEPID

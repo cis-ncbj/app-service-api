@@ -2,72 +2,75 @@
 
 # Test wrong input detection
 
+PORT=5000
+
 module load python-tools
 # Start server
 $HOME/Soft/WebServices/AppServer/cisapps start
 # Start gateway
-($HOME/Soft/WebServices/AppGateway/cisappg > CISAppGateway.log 2>&1) &
+(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+GATEPID=$!
 
 sleep 2
 
 # Submit bad jobs
 
 # Wrong service
-curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"WrongTest", "SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}'
 echo ""
 # Wrong int type
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Wrong float type
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"2", "1Float":"string", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Wrong option
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "11Float":"0.5", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds int
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"100000", "1Float":"0.5", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds int 2
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"-100000", "1Float":"0.5", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds float
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"1", "1Float":"900000", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds float 2
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"1", "1Float":"-900000", "2Float":"0.5"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Bad string
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "SLEEP":"1", "1Float":"1.0", "2Float":"0.5", "COMMAND":"/bin/true"}')
 sleep 5
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 sleep 2
 
 # Stop server
 $HOME/Soft/WebServices/AppServer/cisapps terminate
-# Stop gateway (we use "axww" to make sure ps does not truncate command line options)
-ps axww | grep cisappg | grep -v grep | awk '{print $1}' | xargs kill
+# Stop gateway
+kill -TERM -$GATEPID

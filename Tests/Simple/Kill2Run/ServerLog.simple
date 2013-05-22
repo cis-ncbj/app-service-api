@@ -1,15 +1,15 @@
-INFO 05-22 13:14:09 Daemon : Executing start
-INFO 05-22 13:14:09 Tools : Initialized service: MultiNest
-INFO 05-22 13:14:09 Tools : Initialized service: Test
-INFO 05-22 13:14:09 Tools : Initialized service: default
-INFO 05-22 13:14:09 Daemon : CISAppServer started with pid 25270
-INFO 05-22 13:14:13 Tools : Job successfully submitted: Test_3d25b36c-8c8a-40c8-8a60-551731c260d7_YCCsUY
-WARNING 05-22 13:14:41 Tools : @PBS - Unable to extract job exit code: Test_3d25b36c-8c8a-40c8-8a60-551731c260d7_YCCsUY. Will continue with output extraction
+INFO 05-22 15:24:32 Daemon : Executing start
+INFO 05-22 15:24:32 Tools : Initialized service: MultiNest
+INFO 05-22 15:24:32 Tools : Initialized service: default
+INFO 05-22 15:24:32 Tools : Initialized service: Test
+INFO 05-22 15:24:32 Daemon : CISAppServer started with pid 5375
+INFO 05-22 15:24:36 Tools : Job successfully submitted: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb
+WARNING 05-22 15:25:03 Tools : @PBS - Unable to extract job exit code: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb. Will continue with output extraction
 Traceback (most recent call last):
   File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 738, in finalise
     with open(os.path.join(_work_dir, 'status.dat')) as _status_file:
-IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.22May130348.23994/simple/Kill2Run/PBS/Scratch/Test_3d25b36c-8c8a-40c8-8a60-551731c260d7_YCCsUY/status.dat'
-INFO 05-22 13:14:41 Tools : Job Test_3d25b36c-8c8a-40c8-8a60-551731c260d7_YCCsUY output retrived.
-INFO 05-22 13:14:41 JobManager : Job Test_3d25b36c-8c8a-40c8-8a60-551731c260d7_YCCsUY finished: killed
-INFO 05-22 13:14:52 Daemon : Received terminate command
-INFO 05-22 13:14:52 Daemon : Shutdown
+IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.22May152430.5354/simple/Kill2Run/PBS/Scratch/Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb/status.dat'
+INFO 05-22 15:25:03 Tools : Job Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb output retrived.
+INFO 05-22 15:25:03 JobManager : Job Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb finished: killed
+INFO 05-22 15:25:14 Daemon : Received terminate command
+INFO 05-22 15:25:14 Daemon : Shutdown

@@ -2,26 +2,29 @@
 
 # Test system behaviour for jobs that are killed while running
 
+PORT=5006
+
 module load python-tools
 # Start server
 $HOME/Soft/WebServices/AppServer/cisapps start
 # Start gateway
-($HOME/Soft/WebServices/AppGateway/cisappg > CISAppGateway.log 2>&1) &
+(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+GATEPID=$!
 
 sleep 2
 
 # Submit job
 # Use the LongSet - running time is around 50 seconds and kill during execution
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:5000/submit -d \
+ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "LongSet":"1"}')
 # Expect Waiting
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
-sleep 20
+sleep 40
 
 # Expect Running
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Kill the job - simulates cluster shutdown or admin intervention
@@ -30,11 +33,11 @@ qdel $(cat $TEXTTEST_SANDBOX/PBS/Queue/$ID)
 sleep 5
 
 # Expect Killed
-curl -s -S http://localhost:5000/status/$ID
+curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Stop server
 $HOME/Soft/WebServices/AppServer/cisapps terminate
-# Stop gateway (we use "axww" to make sure ps does not truncate command line options)
-ps axww | grep cisappg | grep -v grep | awk '{print $1}' | xargs kill
+# Stop gateway
+kill -TERM -$GATEPID
 

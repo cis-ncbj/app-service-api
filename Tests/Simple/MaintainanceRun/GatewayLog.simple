@@ -1,6 +1,6 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Running on http://127.0.0.1:5007/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
@@ -9,28 +9,28 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:52:12] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+DEBUG:root:Return request id: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:35] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:52:12] "GET /status/Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:35] "GET /status/Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:52:27] "GET /status/Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:33] "GET /status/Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:50] "GET /status/Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:55] "GET /status/Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj HTTP/1.1" 200 -
 DEBUG:root:Request {"CleanSet": "1", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:33] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+DEBUG:root:Return request id: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:55] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:33] "GET /status/Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:55] "GET /status/Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:48] "GET /status/Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:54:29] "GET /status/Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:26:10] "GET /status/Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:26:52] "GET /status/Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt HTTP/1.1" 200 -

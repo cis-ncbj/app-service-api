@@ -2,7 +2,7 @@
 executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/simple
 
 # Disable parallel runs until it is possible to adjust server port from config
-config_module:default
+#config_module:default
 
 # Expanded name to use for application
 full_name:Simple
