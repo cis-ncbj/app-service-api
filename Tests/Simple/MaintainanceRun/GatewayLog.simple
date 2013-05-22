@@ -1,0 +1,36 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:52:12] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:52:12] "GET /status/Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+DEBUG:root:Job running
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:52:27] "GET /status/Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:33] "GET /status/Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H HTTP/1.1" 200 -
+DEBUG:root:Request {"CleanSet": "1", "service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:33] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:33] "GET /status/Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:53:48] "GET /status/Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+INFO:werkzeug:127.0.0.1 - - [22/May/2013 13:54:29] "GET /status/Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm HTTP/1.1" 200 -

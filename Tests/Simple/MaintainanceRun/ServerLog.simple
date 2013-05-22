@@ -1,0 +1,19 @@
+INFO 05-22 13:52:09 Daemon : Executing start
+INFO 05-22 13:52:09 Tools : Initialized service: MultiNest
+INFO 05-22 13:52:09 Tools : Initialized service: Test
+INFO 05-22 13:52:09 Tools : Initialized service: default
+INFO 05-22 13:52:09 Daemon : CISAppServer started with pid 28617
+INFO 05-22 13:52:16 Tools : Job successfully submitted: Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H
+INFO 05-22 13:52:28 Daemon : Received pause command
+INFO 05-22 13:53:26 Tools : Job Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H output retrived.
+INFO 05-22 13:53:26 JobManager : Job Test_82aaf3ec-4d00-4ade-a3fa-b650c1d39e56_3BlV4H finished: done
+INFO 05-22 13:53:48 Daemon : Executing restart
+INFO 05-22 13:53:49 Tools : Initialized service: MultiNest
+INFO 05-22 13:53:49 Tools : Initialized service: Test
+INFO 05-22 13:53:49 Tools : Initialized service: default
+INFO 05-22 13:53:49 Daemon : CISAppServer started with pid 28824
+INFO 05-22 13:53:53 Tools : Job successfully submitted: Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm
+INFO 05-22 13:54:15 Tools : Job Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm output retrived.
+INFO 05-22 13:54:15 JobManager : Job Test_78a908a2-3012-4620-8a6a-0d01a871634d__tNIqm finished: done
+INFO 05-22 13:54:29 Daemon : Received terminate command
+INFO 05-22 13:54:29 Daemon : Shutdown
