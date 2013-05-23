@@ -55,6 +55,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-overview">API overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#service-definition">Service definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-bugs">Known Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">TODO</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
@@ -268,6 +270,30 @@ echo $A $B $C
 /bin/hostname
 sleep 10</pre>
 </div>
+</div>
+<div class="section" id="known-bugs">
+<h2>Known Bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>No unicode support</li>
+<li>Lack of proper handling for all PBS job states even the more exotic ones e.g. &#8220;C&#8221;</li>
+</ul>
+</div>
+<div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<p>List of planned / proposed features:</p>
+<ul class="simple">
+<li>Resource quota system:<ul>
+<li>Per service job life-time setting</li>
+<li>Per service disk quota</li>
+<li>Per service concurent jobs quota</li>
+<li>Garbage collector</li>
+</ul>
+</li>
+<li>Improved reaction time - implement inotify triggers</li>
+<li>Validation of config files structure</li>
+<li>Some additional anti DOS measures - limit request / second?</li>
+<li>User support (LDAP and/or OpenID login, per user quota, etc)</li>
+</ul>
 </div>
 </div>
 

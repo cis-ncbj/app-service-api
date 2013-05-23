@@ -184,3 +184,25 @@ Example Test template pbs.sh script::
     sleep 10
 
 
+Known Bugs
+----------
+
+* No unicode support
+* Lack of proper handling for all PBS job states even the more exotic ones e.g. "C"
+
+TODO
+----
+
+List of planned / proposed features:
+
+* Resource quota system:
+
+  + Per service job life-time setting
+  + Per service disk quota
+  + Per service concurent jobs quota
+  + Garbage collector
+
+* Improved reaction time - implement inotify triggers
+* Validation of config files structure
+* Some additional anti DOS measures - limit request / second?
+* User support (LDAP and/or OpenID login, per user quota, etc)
