@@ -188,7 +188,7 @@ Known Bugs
 ----------
 
 * No unicode support
-* Lack of proper handling for all PBS job states even the more exotic ones e.g. "C"
+* Lack of proper handling for all PBS job states e.g. "C"
 
 TODO
 ----
@@ -204,5 +204,10 @@ List of planned / proposed features:
 
 * Improved reaction time - implement inotify triggers
 * Validation of config files structure
-* Some additional anti DOS measures - limit request / second?
+* Some additional anti DOS measures:
+
+  + Limit request / second?
+  + Compiled python code?
+  + Webserver that does not fork for each request ????
+
 * User support (LDAP and/or OpenID login, per user quota, etc)
