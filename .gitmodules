@@ -1,0 +1,9 @@
+[submodule "AppServer"]
+	path = AppServer
+	url = ./../AppServer.git
+[submodule "AppGateway"]
+	path = AppGateway
+	url = ./../AppGateway.git
+[submodule "Apps/AppMultiNest"]
+	path = Apps/AppMultiNest
+	url = ./../AppMultiNest.git
