@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Test clean test job execution with options from option set
+# Test clean test job execution with options from option set. Simulate service restart.
 
 PORT=5007
 
