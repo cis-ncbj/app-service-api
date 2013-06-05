@@ -1,0 +1,68 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5009/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:26:55] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:26:55] "GET /status/Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg HTTP/1.1" 200 -
+DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:26:57] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:26:57] "GET /status/Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn HTTP/1.1" 200 -
+DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:26:59] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:26:59] "GET /status/Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+DEBUG:root:Job running
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:27:14] "GET /status/Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:27:14] "GET /status/Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:27:14] "GET /status/Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:28:24] "GET /status/Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+DEBUG:root:Job running
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:28:24] "GET /status/Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:28:24] "GET /status/Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+WARNING:root:@status - Job ID not found
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:30:24] "GET /status/Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:30:24] "GET /status/Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+DEBUG:root:Job running
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:30:24] "GET /status/Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+WARNING:root:@status - Job ID not found
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:31:34] "GET /status/Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:31:34] "GET /status/Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2013 10:31:34] "GET /status/Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 HTTP/1.1" 200 -

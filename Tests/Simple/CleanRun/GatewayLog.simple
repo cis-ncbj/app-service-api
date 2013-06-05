@@ -9,10 +9,10 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:14] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X
+DEBUG:root:Return request id: Test_8e8acead-0f63-4b16-a44a-c5993afa041c_YQtaff
+INFO:werkzeug:127.0.0.1 - - [03/Jun/2013 15:26:57] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_8e8acead-0f63-4b16-a44a-c5993afa041c_YQtaff
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:14] "GET /status/Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:54] "GET /status/Test_51a714b4-06fb-4f00-bc2e-ab646c316611_jrX_0X HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [03/Jun/2013 15:26:57] "GET /status/Test_8e8acead-0f63-4b16-a44a-c5993afa041c_YQtaff HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_8e8acead-0f63-4b16-a44a-c5993afa041c_YQtaff
+INFO:werkzeug:127.0.0.1 - - [03/Jun/2013 15:27:37] "GET /status/Test_8e8acead-0f63-4b16-a44a-c5993afa041c_YQtaff HTTP/1.1" 200 -

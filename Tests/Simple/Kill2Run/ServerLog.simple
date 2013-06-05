@@ -1,15 +1,15 @@
-INFO 05-22 15:24:32 Daemon : Executing start
-INFO 05-22 15:24:32 Tools : Initialized service: MultiNest
-INFO 05-22 15:24:32 Tools : Initialized service: default
-INFO 05-22 15:24:32 Tools : Initialized service: Test
-INFO 05-22 15:24:32 Daemon : CISAppServer started with pid 5375
-INFO 05-22 15:24:36 Tools : Job successfully submitted: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb
-WARNING 05-22 15:25:03 Tools : @PBS - Unable to extract job exit code: Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb. Will continue with output extraction
+INFO 06-05 11:25:28 Daemon : Executing start
+INFO 06-05 11:25:28 Tools : Initialized service: MultiNest
+INFO 06-05 11:25:28 Tools : Initialized service: Test
+INFO 06-05 11:25:28 Tools : Initialized service: default
+INFO 06-05 11:25:28 Daemon : CISAppServer started with pid 22926
+INFO 06-05 11:25:32 Tools : Job successfully submitted: Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj
+WARNING 06-05 11:25:57 Tools : @PBS - Unable to extract job exit code: Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj. Will continue with output extraction
 Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 738, in finalise
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 799, in finalise
     with open(os.path.join(_work_dir, 'status.dat')) as _status_file:
-IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.22May152430.5354/simple/Kill2Run/PBS/Scratch/Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb/status.dat'
-INFO 05-22 15:25:03 Tools : Job Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb output retrived.
-INFO 05-22 15:25:03 JobManager : Job Test_59407fec-0e8a-4b3d-a064-0bf820c3d50d_2QJ0yb finished: killed
-INFO 05-22 15:25:14 Daemon : Received terminate command
-INFO 05-22 15:25:14 Daemon : Shutdown
+IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.05Jun112527.22913/simple/Kill2Run/PBS/Scratch/Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj/status.dat'
+INFO 06-05 11:25:57 Tools : Job Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj output retrived.
+INFO 06-05 11:25:57 JobManager : Job Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj finished: killed
+INFO 06-05 11:26:11 Daemon : Received terminate command
+INFO 06-05 11:26:11 Daemon : Shutdown

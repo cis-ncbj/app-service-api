@@ -1,10 +1,10 @@
-INFO 05-22 15:29:41 Daemon : Executing start
-INFO 05-22 15:29:41 Tools : Initialized service: MultiNest
-INFO 05-22 15:29:41 Tools : Initialized service: default
-INFO 05-22 15:29:41 Tools : Initialized service: Test
-INFO 05-22 15:29:41 Daemon : CISAppServer started with pid 6085
-INFO 05-22 15:29:45 Tools : Job successfully submitted: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
-INFO 05-22 15:30:28 Tools : Job Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO output retrived.
-INFO 05-22 15:30:28 JobManager : Job Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO finished: failed
-INFO 05-22 15:30:29 Daemon : Received terminate command
-INFO 05-22 15:30:29 Daemon : Shutdown
+INFO 06-03 15:57:29 Daemon : Executing start
+INFO 06-03 15:57:29 Tools : Initialized service: MultiNest
+INFO 06-03 15:57:29 Tools : Initialized service: Test
+INFO 06-03 15:57:29 Tools : Initialized service: default
+INFO 06-03 15:57:29 Daemon : CISAppServer started with pid 32413
+INFO 06-03 15:57:33 Tools : Job successfully submitted: Test_25932551-27c3-4d1d-bbc6-78ed470539cf_4eQJg3
+INFO 06-03 15:58:16 Tools : Job Test_25932551-27c3-4d1d-bbc6-78ed470539cf_4eQJg3 output retrived.
+INFO 06-03 15:58:16 JobManager : Job Test_25932551-27c3-4d1d-bbc6-78ed470539cf_4eQJg3 finished: failed
+INFO 06-03 15:58:17 Daemon : Received terminate command
+INFO 06-03 15:58:17 Daemon : Shutdown

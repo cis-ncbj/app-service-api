@@ -1,0 +1,21 @@
+INFO 06-05 10:26:50 Daemon : Executing start
+INFO 06-05 10:26:50 Tools : Initialized service: MultiNest
+INFO 06-05 10:26:50 Tools : Initialized service: default
+INFO 06-05 10:26:50 Tools : Initialized service: Test
+INFO 06-05 10:26:50 Daemon : CISAppServer started with pid 18028
+INFO 06-05 10:26:57 Tools : Job successfully submitted: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
+WARNING 06-05 10:27:00 JobManager : @JManager - Cannot collect garbage for service: Test
+INFO 06-05 10:28:01 Tools : Job Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg output retrived.
+INFO 06-05 10:28:01 JobManager : Job Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg finished: done
+INFO 06-05 10:28:05 Tools : Job successfully submitted: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
+WARNING 06-05 10:28:05 JobManager : @JManager - Cannot collect garbage for service: Test
+INFO 06-05 10:29:13 Tools : Job Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn output retrived.
+INFO 06-05 10:29:13 JobManager : Job Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn finished: done
+WARNING 06-05 10:29:16 JobManager : @JManager - Cannot collect garbage for service: Test
+INFO 06-05 10:30:04 JobManager : Garbage collect reclaimed 4.19527 MB of disk space.
+INFO 06-05 10:30:05 Tools : Job successfully submitted: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
+INFO 06-05 10:30:05 JobManager : @JManager - Job Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg removed with all data.
+INFO 06-05 10:31:06 Tools : Job Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 output retrived.
+INFO 06-05 10:31:06 JobManager : Job Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 finished: done
+INFO 06-05 10:31:35 Daemon : Received terminate command
+INFO 06-05 10:31:35 Daemon : Shutdown

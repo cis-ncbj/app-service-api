@@ -1,8 +1,8 @@
 {
     "config" : {
-        "min_lifetime" : 1,
-        "quota" : 10,
-        "job_size" : 8
+        "min_lifetime" : 2,
+        "quota" : 11,
+        "job_size" : 6
     },
     "variables" : {
         // Sleep interval
