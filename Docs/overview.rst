@@ -101,7 +101,22 @@ The service configuration is stored in JSON format in a file named exactly as
 the service. File consists of three dictionaries:
 
 * config - defines key:value pairs that modify service behaviour.
-  (Currently no options are implemented yet)
+
+  + quota - Maximum disk size utilisation by service output files in MB. When
+    quota is exceeded oldest results will be removed automatically.
+    (default: 10000 MB)
+  + job_size - Maximum size (in MB) of output for one job. This value is used
+    by the scheduler to predict required disk space when starting new jobs.
+    (default: 50 MB)
+  + min_lifetime - Time period in hours (fraction of hour is supported) when
+    job cannot be automatically removed when service quota is exceeded.
+    (default: 2 h)
+  + max_lifetime - Time period in hours (fraction of hour is supported) after
+    which a job is removed. If set to 0 the jobs are retained indefinately
+    until service quota is exceeded.
+    (default: 24 h)
+  + max_jobs - Maximum number of jobs running in parallel. (default: 50)
+
 * variables - defines allowed input variables for the service. Dcitionary keys
   specify variable names. Allowed variable names consist of any combination of
   small and large letters, numbers and an underscore. National characters are
