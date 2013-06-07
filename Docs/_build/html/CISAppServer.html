@@ -113,18 +113,16 @@ file.</p>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.calculate_size">
+<tt class="descname">calculate_size</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.calculate_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate size of output directory of the job if it exists.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="CISAppServer.JobManager.Job.data">
 <tt class="descname">data</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job parameters as specified in job request.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="CISAppServer.JobManager.Job.delete">
-<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mark job for removal.</p>
-<p>Active jobs will be killed. All data files including output files will
-be removed.</p>
 </dd></dl>
 
 <dl class="method">
@@ -166,6 +164,21 @@ can pass the job status and the message to clients.</p>
 &#8216;killed&#8217;</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.get_size">
+<tt class="descname">get_size</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the size of job output directory.
+Requires that calculate_size was called first.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Size of output directory in bytes.</td>
 </tr>
 </tbody>
 </table>
@@ -219,6 +232,12 @@ postprocessing,</p>
 <li><dl class="first docutils">
 <dt>killed:</dt>
 <dd><p class="first last">job execution was stopped by an user,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>delete:</dt>
+<dd><p class="first last">job is scheduled for removal</p>
 </dd>
 </dl>
 </li>
@@ -279,7 +298,7 @@ running kill it.</p>
 <dt id="CISAppServer.JobManager.JobManager.check_old_jobs">
 <tt class="descname">check_old_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_old_jobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check for jobs that exceed their life time.</p>
-<p>If found mark them for removal. [Not Implemented]</p>
+<p>If found mark them for removal.</p>
 </dd></dl>
 
 <dl class="method">
@@ -287,6 +306,33 @@ running kill it.</p>
 <tt class="descname">check_running_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_running_jobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check status of running jobs.</p>
 <p>If finished jobs are found perform finalisation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.collect_garbage">
+<tt class="descname">collect_garbage</tt><big>(</big><em>service</em>, <em>full=False</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.collect_garbage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if service quota is not exceeded. If yes remove oldest finished
+jobs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> &#8211; Service name for which garbage collection should be
+performed,</li>
+<li><strong>delta</strong> &#8211; Perform the quota check as if current disk usage was
+increased by delta MBs.</li>
+<li><strong>full</strong> &#8211; If True force garbage collection even if disk usage is
+not above alloted quota. In addition removes all jobs older than
+min job life time.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if quota is not reached or garbage collection succeeded.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -389,7 +435,7 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x35f0910&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x32b82c0&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -609,6 +655,59 @@ present in the work_path/job directory.</p>
 <dt id="CISAppServer.Tools.Service">
 <em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Service</tt><big>(</big><em>data</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
+<p>Class implementing a Service.</p>
+<p>Stores Service configuration and monitors its state.</p>
+<dl class="method">
+<dt id="CISAppServer.Tools.Service.add_job_proxy">
+<tt class="descname">add_job_proxy</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.add_job_proxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Service.config">
+<tt class="descname">config</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration options affecting service handling - like allowed
+diskspace and garbage collection</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Service.current_size">
+<tt class="descname">current_size</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.current_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Projection of space usage by service output files</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Service.real_size">
+<tt class="descname">real_size</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.real_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Real space usage by service output files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Service.remove_job">
+<tt class="descname">remove_job</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.remove_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Service.remove_job_proxy">
+<tt class="descname">remove_job_proxy</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.remove_job_proxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Service.sets">
+<tt class="descname">sets</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.sets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definitions of allowed variable sets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Service.update_job">
+<tt class="descname">update_job</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.update_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Service.variables">
+<tt class="descname">variables</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definitions of allowed variables</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -700,7 +799,8 @@ should be called.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.config_delete_interval">
 <tt class="descname">config_delete_interval</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_delete_interval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interval in hours after which job is automatically removed with all data</p>
+<dd><p>Interval in hours after which job is automatically removed with all
+data (supports fractions)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -712,7 +812,8 @@ should be called.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.config_kill_interval">
 <tt class="descname">config_kill_interval</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_kill_interval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interval in hours after which job is automatically killed if in running state</p>
+<dd><p>Interval in hours after which job is automatically killed if in
+running state (supports fractions)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -724,7 +825,7 @@ should be called.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.config_sleep_time">
 <tt class="descname">config_sleep_time</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_sleep_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sleep interval between job status queries</p>
+<dd><p>Sleep interval in seconds between job status queries</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -772,7 +873,8 @@ should be called.</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_dump">
 <tt class="descname">gate_path_dump</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_dump" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path where jobs output is moved before removal (aleviates problems</p>
+<dd><p>Path where jobs output is moved before removal (aleviates problems
+with files that are still in use)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -902,6 +1004,11 @@ provided hardcoded defaults are used.</td>
 <dd><p>Log output file name CLI override</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="CISAppServer.Config.Config.mkdir_p">
+<tt class="descname">mkdir_p</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#CISAppServer.Config.Config.mkdir_p" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.pbs_default_queue">
 <tt class="descname">pbs_default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.pbs_default_queue" title="Permalink to this definition">¶</a></dt>
@@ -927,6 +1034,35 @@ provided hardcoded defaults are used.</td>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_job_size">
+<tt class="descname">service_job_size</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_job_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default expected output size of a job in MB. It is used to estimate
+space requirements for jobs that are to be scheduled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_max_jobs">
+<tt class="descname">service_max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_max_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default maximum number of concurrent jobs allowed per dervice</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_max_lifetime">
+<tt class="descname">service_max_lifetime</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_max_lifetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default job maximum lifetime in hours (supports fractions). Jobs
+that are older then this will be removed by garbage collector.
+Setting this to zero means jobs can be immortal (at least until
+service quota is exceeded)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_min_lifetime">
+<tt class="descname">service_min_lifetime</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_min_lifetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default job minimum lifetime in hours (supports fractions). Jobs
+that are younger then this cannot be removed by garbage collector</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.service_path_conf">
 <tt class="descname">service_path_conf</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_path_conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path with services configuration files</p>
@@ -936,6 +1072,12 @@ provided hardcoded defaults are used.</td>
 <dt id="CISAppServer.Config.Config.service_path_data">
 <tt class="descname">service_path_data</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_path_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path with services scripts and input files</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_quota">
+<tt class="descname">service_quota</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_quota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defaul maximum disk size used by service output files in MB</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -955,7 +1097,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppServer.Config.conf">
-<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'log_level_cli': None, 'config_delete_interval': 48, 'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'gate_path_done': None, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'config_kill_interval': 24, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'waiting': None, 'killed': None, 'failed': None, 'running': None, 'done': None, 'aborted': None, 'queued': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'config_file': None, 'config_sleep_time': 3, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed'), 'config_progress_step': 2, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'log_level_cli': None, 'config_delete_interval': 48, 'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'config_kill_interval': 24, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>

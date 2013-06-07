@@ -100,7 +100,7 @@
 <p>CIŚ WebService REST API</p>
 <div class="section" id="job-submission">
 <h2>Job submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
-<p>Jobs are subbited via POST request on <a class="reference external" href="http://appgate.cis.gov.pl/submit">http://appgate.cis.gov.pl/submit</a>.
+<p>Jobs are submitted via POST request on <a class="reference external" href="http://appgate.cis.gov.pl/submit">http://appgate.cis.gov.pl/submit</a>.
 The POST request should contain job attributes either in JSON format or as
 FORM data. The data payload should contain key value pairs corresponding to
 variables supported by the service. In addition a reserved &#8220;service&#8221; keyword is
@@ -164,7 +164,7 @@ during submission. The request returns one of:</p>
 <li>Waiting - Job is waiting for validation by AppServer</li>
 <li>Queued - Job is submitted to PBS and awaiting in queue</li>
 <li>Running - Job is performing calculations</li>
-<li>Done - Job has finished successfuly</li>
+<li>Done - Job has finished successfully</li>
 <li>Failed - Job has finished with non zero exit code. The exit code is returned
 along with the status message e.g.: &#8220;Failed: 127&#8221;</li>
 <li>Aborted - Job execution was aborted due to an error - either malformed job
@@ -203,7 +203,7 @@ alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supporte
 <h2>Job removal<a class="headerlink" href="#job-removal" title="Permalink to this headline">¶</a></h2>
 <p>Job can be scheduled for removal. If a job is queued or running its execution
 by the queue system will be stopped. All files related with the job will be
-romoved. Delete request URL: <a class="reference external" href="http://appgate.cis.gov.pl/delete/[id">http://appgate.cis.gov.pl/delete/[id</a>]</p>
+removed. Delete request URL: <a class="reference external" href="http://appgate.cis.gov.pl/delete/[id">http://appgate.cis.gov.pl/delete/[id</a>]</p>
 </div>
 <div class="section" id="supported-services">
 <h2>Supported services<a class="headerlink" href="#supported-services" title="Permalink to this headline">¶</a></h2>

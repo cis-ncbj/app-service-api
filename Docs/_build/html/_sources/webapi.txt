@@ -7,7 +7,7 @@ CIŚ WebService REST API
 Job submission
 --------------
 
-Jobs are subbited via POST request on http://appgate.cis.gov.pl/submit.
+Jobs are submitted via POST request on http://appgate.cis.gov.pl/submit.
 The POST request should contain job attributes either in JSON format or as
 FORM data. The data payload should contain key value pairs corresponding to
 variables supported by the service. In addition a reserved "service" keyword is
@@ -73,7 +73,7 @@ during submission. The request returns one of:
 * Waiting - Job is waiting for validation by AppServer
 * Queued - Job is submitted to PBS and awaiting in queue
 * Running - Job is performing calculations
-* Done - Job has finished successfuly
+* Done - Job has finished successfully
 * Failed - Job has finished with non zero exit code. The exit code is returned
   along with the status message e.g.: "Failed: 127"
 * Aborted - Job execution was aborted due to an error - either malformed job
@@ -114,7 +114,7 @@ Job removal
 
 Job can be scheduled for removal. If a job is queued or running its execution
 by the queue system will be stopped. All files related with the job will be
-romoved. Delete request URL: http://appgate.cis.gov.pl/delete/[id]
+removed. Delete request URL: http://appgate.cis.gov.pl/delete/[id]
 
 Supported services
 ------------------

@@ -118,13 +118,13 @@ service designers</li>
 <p>The design of web service frontend remains at discretion of its developer.
 However it will usually consist of HTML web pages displayed by users web
 browser that communicate with web service dedicated web server (some usage
-of AJAX may by required for seamles user experience).</p>
+of AJAX may by required for seamless user experience).</p>
 <p>The server part of web service will communicate with an AppGateway over https
 using REST <a class="reference internal" href="webapi.html"><em>Web API</em></a>. It is viewed as the Client for the backend
 infrastructure, users web browser should not interact directly with the
 backend. The AppGateway is very lightweight and its purpose is to pass job
 requests to AppServer as well as to answer status requests from Clients (It is
-possible that the AppGateway could be extended to accomodate for instance user
+possible that the AppGateway could be extended to accommodate for instance user
 authentication). The AppGateway will be positioned inside the DMZ, however it
 should not be accessible from outside networks - the assumption is that Clients
 will also reside inside DMZ. The AppServer is placed inside the internal CIŚ
@@ -157,7 +157,7 @@ types of variables are available:<ul>
 <li>&#8220;set&#8221; - name of predefined set of variable values, allows to set several
 variables using one parameter. Also the only way for a job to influence
 internal variables like &#8220;PBS queue&#8221; or &#8220;number of PBS worker nodes&#8221;.
-Varliable of type &#8220;set&#8221; can only accept values 1 (int) or &#8220;1&#8221; (string&#8221;</li>
+Variable of type &#8220;set&#8221; can only accept values 1 (int) or &#8220;1&#8221; (string&#8221;</li>
 </ul>
 </li>
 <li>Each variable has predefined default value therefore jobs do not have to
@@ -168,7 +168,7 @@ specify values for all available variables</li>
 <li>Job status (&#8220;queued&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, ...) can be queried for each job</li>
 </ul>
 </li>
-<li>Retrival of job output<ul>
+<li>Retrieval of job output<ul>
 <li>Job output is stored on a dedicated http server. The URL where output files
 for a job are accessible is available through REST API call.</li>
 </ul>
@@ -178,7 +178,7 @@ for a job are accessible is available through REST API call.</li>
 </div>
 <div class="section" id="service-definition">
 <h2>Service definition<a class="headerlink" href="#service-definition" title="Permalink to this headline">¶</a></h2>
-<p>Each service besides the web interface will consist of two addictional
+<p>Each service besides the web interface will consist of two additional
 components.</p>
 <ul class="simple">
 <li>Service configuration - a file that defines allowed variables and their
@@ -191,16 +191,31 @@ client.</li>
 <p>The service configuration is stored in JSON format in a file named exactly as
 the service. File consists of three dictionaries:</p>
 <ul class="simple">
-<li>config - defines key:value pairs that modify service behaviour.
-(Currently no options are implemented yet)</li>
-<li>variables - defines allowed input variables for the service. Dcitionary keys
+<li>config - defines key:value pairs that modify service behaviour.<ul>
+<li>quota - Maximum disk size utilisation by service output files in MB. When
+quota is exceeded oldest results will be removed automatically.
+(default: 10000 MB)</li>
+<li>job_size - Maximum size (in MB) of output for one job. This value is used
+by the scheduler to predict required disk space when starting new jobs.
+(default: 50 MB)</li>
+<li>min_lifetime - Time period in hours (fraction of hour is supported) when
+job cannot be automatically removed when service quota is exceeded.
+(default: 2 h)</li>
+<li>max_lifetime - Time period in hours (fraction of hour is supported) after
+which a job is removed. If set to 0 the jobs are retained indefinitely
+until service quota is exceeded.
+(default: 24 h)</li>
+<li>max_jobs - Maximum number of jobs running in parallel. (default: 50)</li>
+</ul>
+</li>
+<li>variables - defines allowed input variables for the service. Dictionary keys
 specify variable names. Allowed variable names consist of any combination of
 small and large letters, numbers and an underscore. National characters are
 not allowed [TBC]. Each variable is defined as dictionary with three required
 keys.<ul>
 <li>type - defines type of variable, one of (&#8220;int&#8221;, &#8220;float&#8221;, &#8220;string&#8221;)</li>
 <li>default - default value</li>
-<li>values - array with allowed values. For int and float exactly two elemets
+<li>values - array with allowed values. For int and float exactly two elements
 are required: min and max. For string array defines a list of allowed
 values. Allowed strings can contain national characters [NOT IMPLEMENTED YET].</li>
 </ul>
@@ -208,8 +223,8 @@ values. Allowed strings can contain national characters [NOT IMPLEMENTED YET].</
 <li>sets - predefined sets of variable values. Each set is a dictionary of
 &#8220;variable name&#8221;:&#8221;value&#8221; pairs. Values have to be valid according to variable
 definition in &#8220;variables&#8221; dictionary. Variables not defined in a set will use
-default values unless provided explicitely. Values for variables defined in a
-set can be overriden by specifying them explicitely in the input data.</li>
+default values unless provided explicitly. Values for variables defined in a
+set can be overridden by specifying them explicitly in the input data.</li>
 </ul>
 <p>Keep in mind that JSON unlike Python does not allow dangling &#8216;,&#8217; separators.</p>
 <p>Example Test service configuration:</p>
@@ -255,9 +270,9 @@ They should contain at least two files &#8220;pbs.sh&#8221; and &#8220;epilogue.
 script after substitutions will be executed on Worker Node. The &#8220;epilogue.sh&#8221;
 script is executed after the job finishes and should create &#8220;status.dat&#8221; file
 in job working directory containing one line with jobs&#8217; exit code. Additional
-template files can be stored in arbitraty directory structure which will be
+template files can be stored in arbitrary directory structure which will be
 replicated at WORKDIR of running job. Each file will be parsed and all
-occurances of &#64;&#64;{variable_name} will be replaced with value specified for
+occurrences of &#64;&#64;{variable_name} will be replaced with value specified for
 variable &#8220;variable_name&#8221;.</p>
 <p>Example Test template pbs.sh script:</p>
 <div class="highlight-python"><pre>#!/bin/sh
@@ -276,19 +291,14 @@ sleep 10</pre>
 <ul class="simple">
 <li>No unicode support</li>
 <li>Lack of proper handling for all PBS job states e.g. &#8220;C&#8221;</li>
+<li>Some job output files are readable only for user account used to communicate
+with PBS. Should be readable by apache to properly serve to clients.</li>
 </ul>
 </div>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <p>List of planned / proposed features:</p>
 <ul class="simple">
-<li>Resource quota system:<ul>
-<li>Per service job life-time setting</li>
-<li>Per service disk quota</li>
-<li>Per service concurent jobs quota</li>
-<li>Garbage collector</li>
-</ul>
-</li>
 <li>Improved reaction time - implement inotify triggers</li>
 <li>Validation of config files structure</li>
 <li>Some additional anti DOS measures:<ul>
