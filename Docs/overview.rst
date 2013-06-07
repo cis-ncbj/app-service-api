@@ -24,14 +24,14 @@ Design
 The design of web service frontend remains at discretion of its developer.
 However it will usually consist of HTML web pages displayed by users web
 browser that communicate with web service dedicated web server (some usage
-of AJAX may by required for seamles user experience).
+of AJAX may by required for seamless user experience).
 
 The server part of web service will communicate with an AppGateway over https
 using REST :doc:`webapi`. It is viewed as the Client for the backend
 infrastructure, users web browser should not interact directly with the
 backend. The AppGateway is very lightweight and its purpose is to pass job
 requests to AppServer as well as to answer status requests from Clients (It is
-possible that the AppGateway could be extended to accomodate for instance user
+possible that the AppGateway could be extended to accommodate for instance user
 authentication). The AppGateway will be positioned inside the DMZ, however it
 should not be accessible from outside networks - the assumption is that Clients
 will also reside inside DMZ. The AppServer is placed inside the internal CIŚ
@@ -68,7 +68,7 @@ The Gateway API allows for:
     - "set" - name of predefined set of variable values, allows to set several
       variables using one parameter. Also the only way for a job to influence
       internal variables like "PBS queue" or "number of PBS worker nodes".
-      Varliable of type "set" can only accept values 1 (int) or "1" (string"
+      Variable of type "set" can only accept values 1 (int) or "1" (string"
 
   + Each variable has predefined default value therefore jobs do not have to
     specify values for all available variables
@@ -77,7 +77,7 @@ The Gateway API allows for:
 
   + Job status ("queued", "running", "done", ...) can be queried for each job
 
-* Retrival of job output
+* Retrieval of job output
 
   + Job output is stored on a dedicated http server. The URL where output files
     for a job are accessible is available through REST API call.
@@ -87,7 +87,7 @@ The Gateway API allows for:
 Service definition
 ------------------
 
-Each service besides the web interface will consist of two addictional
+Each service besides the web interface will consist of two additional
 components.
 
 * Service configuration - a file that defines allowed variables and their
@@ -112,12 +112,12 @@ the service. File consists of three dictionaries:
     job cannot be automatically removed when service quota is exceeded.
     (default: 2 h)
   + max_lifetime - Time period in hours (fraction of hour is supported) after
-    which a job is removed. If set to 0 the jobs are retained indefinately
+    which a job is removed. If set to 0 the jobs are retained indefinitely
     until service quota is exceeded.
     (default: 24 h)
   + max_jobs - Maximum number of jobs running in parallel. (default: 50)
 
-* variables - defines allowed input variables for the service. Dcitionary keys
+* variables - defines allowed input variables for the service. Dictionary keys
   specify variable names. Allowed variable names consist of any combination of
   small and large letters, numbers and an underscore. National characters are
   not allowed [TBC]. Each variable is defined as dictionary with three required
@@ -125,15 +125,15 @@ the service. File consists of three dictionaries:
 
   + type - defines type of variable, one of ("int", "float", "string")
   + default - default value
-  + values - array with allowed values. For int and float exactly two elemets
+  + values - array with allowed values. For int and float exactly two elements
     are required: min and max. For string array defines a list of allowed
     values. Allowed strings can contain national characters [NOT IMPLEMENTED YET].
 
 * sets - predefined sets of variable values. Each set is a dictionary of
   "variable name":"value" pairs. Values have to be valid according to variable
   definition in "variables" dictionary. Variables not defined in a set will use
-  default values unless provided explicitely. Values for variables defined in a
-  set can be overriden by specifying them explicitely in the input data.
+  default values unless provided explicitly. Values for variables defined in a
+  set can be overridden by specifying them explicitly in the input data.
 
 Keep in mind that JSON unlike Python does not allow dangling ',' separators.
 
@@ -181,9 +181,9 @@ They should contain at least two files "pbs.sh" and "epilogue.sh". The "pbs.sh"
 script after substitutions will be executed on Worker Node. The "epilogue.sh"
 script is executed after the job finishes and should create "status.dat" file
 in job working directory containing one line with jobs' exit code. Additional
-template files can be stored in arbitraty directory structure which will be
+template files can be stored in arbitrary directory structure which will be
 replicated at WORKDIR of running job. Each file will be parsed and all
-occurances of @@{variable_name} will be replaced with value specified for
+occurrences of @@{variable_name} will be replaced with value specified for
 variable "variable_name".
 
 Example Test template pbs.sh script::
@@ -204,18 +204,13 @@ Known Bugs
 
 * No unicode support
 * Lack of proper handling for all PBS job states e.g. "C"
+* Some job output files are readable only for user account used to communicate
+  with PBS. Should be readable by apache to properly serve to clients.
 
 TODO
 ----
 
 List of planned / proposed features:
-
-* Resource quota system:
-
-  + Per service job life-time setting
-  + Per service disk quota
-  + Per service concurent jobs quota
-  + Garbage collector
 
 * Improved reaction time - implement inotify triggers
 * Validation of config files structure
