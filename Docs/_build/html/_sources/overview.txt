@@ -115,6 +115,9 @@ the service. File consists of three dictionaries:
     which a job is removed. If set to 0 the jobs are retained indefinitely
     until service quota is exceeded.
     (default: 24 h)
+  + max_runtime - Time period in hours (fraction of hour is supported) a job
+    can spend in running state. When exceeded the job is killed and removed.
+    (default: 12h)
   + max_jobs - Maximum number of jobs running in parallel. (default: 50)
 
 * variables - defines allowed input variables for the service. Dictionary keys

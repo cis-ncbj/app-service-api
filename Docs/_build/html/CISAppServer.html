@@ -51,8 +51,8 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Implementation reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html">CISAppGateway Package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">CISAppServer Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#source-code">Source Code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#class-reference">Class reference</a></li>
 </ul>
 </li>
 </ul>
@@ -118,6 +118,11 @@ file.</p>
 <tt class="descname">calculate_size</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.calculate_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate size of output directory of the job if it exists.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.compact">
+<tt class="descname">compact</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.compact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.JobManager.Job.data">
@@ -248,6 +253,12 @@ postprocessing,</p>
 <dt id="CISAppServer.JobManager.Job.id">
 <tt class="descname">id</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique job ID string.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.Job.service">
+<tt class="descname">service</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jobs&#8217; Service</p>
 </dd></dl>
 
 <dl class="method">
@@ -435,7 +446,7 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x32b82c0&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x36696f0&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -797,23 +808,9 @@ messages, e.g. data dumps, output from subprocesses, etc.</p>
 However to finish the initialization <a class="reference internal" href="#CISAppServer.Config.Config.load" title="CISAppServer.Config.Config.load"><tt class="xref py py-meth docutils literal"><span class="pre">Config.load()</span></tt></a> method
 should be called.</p>
 <dl class="attribute">
-<dt id="CISAppServer.Config.Config.config_delete_interval">
-<tt class="descname">config_delete_interval</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_delete_interval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interval in hours after which job is automatically removed with all
-data (supports fractions)</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="CISAppServer.Config.Config.config_file">
 <tt class="descname">config_file</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Config file name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppServer.Config.Config.config_kill_interval">
-<tt class="descname">config_kill_interval</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_kill_interval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interval in hours after which job is automatically killed if in
-running state (supports fractions)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1056,6 +1053,14 @@ service quota is exceeded)</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_max_runtime">
+<tt class="descname">service_max_runtime</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_max_runtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default job maximum running time in hours (supports fractions). Jobs
+that are in running state longer then this will be killed and
+removed by garbage collector.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.service_min_lifetime">
 <tt class="descname">service_min_lifetime</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_min_lifetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default job minimum lifetime in hours (supports fractions). Jobs
@@ -1097,7 +1102,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppServer.Config.conf">
-<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'log_level_cli': None, 'config_delete_interval': 48, 'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'config_kill_interval': 24, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/opt/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>
