@@ -65,6 +65,11 @@ The Gateway API allows for:
     - "int" - an integer number with predefined validity range
     - "float" - a floating point number with predefined validity range
     - "string" - a string with predefined dictionary of allowed values
+    - "int_array" - a list of integer numbers that have common validity range
+    - "float_array" - a list of floating point numbers that have a common
+      validity range
+    - "string_array" - a list of chracter strings that have a common dictionary
+      of allowed values
     - "set" - name of predefined set of variable values, allows to set several
       variables using one parameter. Also the only way for a job to influence
       internal variables like "PBS queue" or "number of PBS worker nodes".
@@ -126,11 +131,16 @@ the service. File consists of three dictionaries:
   not allowed [TBC]. Each variable is defined as dictionary with three required
   keys.
 
-  + type - defines type of variable, one of ("int", "float", "string")
+  + type - defines type of variable, one of ("int", "float", "string",
+    "int_array", "float_array", "string_array")
   + default - default value
   + values - array with allowed values. For int and float exactly two elements
-    are required: min and max. For string array defines a list of allowed
-    values. Allowed strings can contain national characters [NOT IMPLEMENTED YET].
+    are required: min and max. For string the array defines a list of allowed
+    values. Allowed strings can contain national characters [NOT IMPLEMENTED
+    YET].  For the "*_array" variable types the first element of values array
+    defines maximum allowed length of user provided list. Rest of the elements
+    in the values array have the same meaning as for corresponding singluar
+    data types.
 
 * sets - predefined sets of variable values. Each set is a dictionary of
   "variable name":"value" pairs. Values have to be valid according to variable
@@ -150,17 +160,32 @@ Example Test service configuration::
             "A" : {
                 "type" : "int",
                 "default" : 100,
-                "values" : [0,10000]
+                "values" : [0, 10000]
             },
             "B" : {
                 "type" : "float",
                 "default" : 20.99,
-                "values" : [-100,100]
+                "values" : [-100, 100]
             },
             "C" : {
                 "type" : "string",
                 "default" : "alpha",
                 "values" : ["alpha", "beta", "gamma", "delta"]
+            },
+            "D" : {
+                "type" : "int_array",
+                "default" : [100, 10, 20, 30],
+                "values" : [100, 0, 10000]
+            },
+            "E" : {
+                "type" : "float_array",
+                "default" : [20.99, 11.11, 0.5, 6.3e-2],
+                "values" : [50, -1000, 1000]
+            },
+            "F" : {
+                "type" : "string_array",
+                "default" : ["alpha", "alpha", "delta", beta"],
+                "values" : [10, "alpha", "beta", "gamma", "delta"]
             }
         },
         "sets" : {
@@ -175,6 +200,9 @@ Example Test service configuration::
             },
             "Set3" : {
                 "C" : "beta"
+            },
+            "Set4" : {
+                "D" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             }
         }
     }
@@ -206,9 +234,6 @@ Known Bugs
 ----------
 
 * No unicode support
-* Lack of proper handling for all PBS job states e.g. "C"
-* Some job output files are readable only for user account used to communicate
-  with PBS. Should be readable by apache to properly serve to clients.
 
 TODO
 ----
@@ -217,7 +242,7 @@ List of planned / proposed features:
 
 * Improved reaction time - implement inotify triggers
 * Validation of config files structure
-* Some additional anti DOS measures:
+* Some additional anti-DoS measures:
 
   + Limit request / second?
   + Compiled python code?

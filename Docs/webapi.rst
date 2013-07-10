@@ -7,11 +7,13 @@ CIŚ WebService REST API
 Job submission
 --------------
 
-Jobs are submitted via POST request on http://appgate.cis.gov.pl/submit.
-The POST request should contain job attributes either in JSON format or as
-FORM data. The data payload should contain key value pairs corresponding to
-variables supported by the service. In addition a reserved "service" keyword is
-required with name of the service as a value.::
+Jobs are submitted via POST request on http://app-gw.cis.gov.pl/api/submit or
+https://app-gw.cis.gov.pl/api/submit. The non encrypted accesss point will be
+deprecated for prodcuction version of CIŚ WebServices.  The POST request should
+contain job attributes either in JSON format or as FORM data. The data payload
+should contain key value pairs corresponding to variables supported by the
+service. In addition a reserved "service" keyword is required with name of the
+service as a value.::
 
     {
         "service" : "MultiNest",
@@ -41,7 +43,7 @@ Example implementation in python::
         # Service name
         payload['service'] = "MultiNest"
         # API url
-        url = "http://appgate.cis.gov.pl/submit"
+        url = "http://app-gw.cis.gov.pl/api/submit"
         # The data will be sent as JSON payload
         headers = {'content-type': 'application/json'}
         # Send the POST request
@@ -67,7 +69,7 @@ Verifying job status
 --------------------
 
 Job status can be queried by GET request on
-http://appgate.cis.gov.pl/status/[id]. Where [id] is the Job ID returned
+http://app-gw.cis.gov.pl/api/status/[id]. Where [id] is the Job ID returned
 during submission. The request returns one of:
 
 * Waiting - Job is waiting for validation by AppServer
@@ -91,7 +93,7 @@ Example implementation in python::
         _jid = flask.request.cookies.get('CISMultiNestJobID')
         # Job ID stored - check status
         if _jid is not None:
-            url = "http://appgate.cis.gov.pl/status/" + _jid
+            url = "http://app-gw.cis.gov.pl/api/status/" + _jid
             r = requests.get(url)
             return r.text
 
@@ -101,20 +103,20 @@ Job output
 ----------
 
 The http base URL for the output files is retrieved as
-http://appgate.cis.gov.pl/output/[id]
+http://app-gw.cis.gov.pl/api/output/[id]
 
 Job progress
 ------------
 
 If service supports a job can be queried about it's current progress:
-http://appgate.cis.gov.pl/progress/[id]
+http://app-gw.cis.gov.pl/api/progress/[id]
 
 Job removal
 -----------
 
 Job can be scheduled for removal. If a job is queued or running its execution
 by the queue system will be stopped. All files related with the job will be
-removed. Delete request URL: http://appgate.cis.gov.pl/delete/[id]
+removed. Delete request URL: http://app-gw.cis.gov.pl/api/delete/[id]
 
 Supported services
 ------------------
@@ -126,8 +128,4 @@ Supported services
   + C : ["alpha", "beta", "gamma", "delta"]
 
 * MultiNest
-
-  + argument : float(-10,10)
-  + live_points : int(0,10000)
-  + function : ["sin", "cos", "log"]
 
