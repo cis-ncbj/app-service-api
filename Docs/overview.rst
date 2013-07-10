@@ -137,7 +137,7 @@ the service. File consists of three dictionaries:
   + values - array with allowed values. For int and float exactly two elements
     are required: min and max. For string the array defines a list of allowed
     values. Allowed strings can contain national characters [NOT IMPLEMENTED
-    YET].  For the "*_array" variable types the first element of values array
+    YET].  For the "\*_array" variable types the first element of values array
     defines maximum allowed length of user provided list. Rest of the elements
     in the values array have the same meaning as for corresponding singluar
     data types.

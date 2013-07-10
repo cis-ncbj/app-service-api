@@ -446,7 +446,7 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x36696f0&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x2a4e210&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -750,6 +750,16 @@ validated data.</p>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Validator.validate_float">
+<tt class="descname">validate_float</tt><big>(</big><em>key</em>, <em>value</em>, <em>min</em>, <em>max</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Validator.validate_float" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Validator.validate_int">
+<tt class="descname">validate_int</tt><big>(</big><em>key</em>, <em>value</em>, <em>min</em>, <em>max</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Validator.validate_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.Tools.Validator.validate_value">
@@ -1102,7 +1112,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppServer.Config.conf">
-<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/opt/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>

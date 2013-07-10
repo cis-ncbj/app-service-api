@@ -100,11 +100,13 @@
 <p>CIŚ WebService REST API</p>
 <div class="section" id="job-submission">
 <h2>Job submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
-<p>Jobs are submitted via POST request on <a class="reference external" href="http://appgate.cis.gov.pl/submit">http://appgate.cis.gov.pl/submit</a>.
-The POST request should contain job attributes either in JSON format or as
-FORM data. The data payload should contain key value pairs corresponding to
-variables supported by the service. In addition a reserved &#8220;service&#8221; keyword is
-required with name of the service as a value.:</p>
+<p>Jobs are submitted via POST request on <a class="reference external" href="http://app-gw.cis.gov.pl/api/submit">http://app-gw.cis.gov.pl/api/submit</a> or
+<a class="reference external" href="https://app-gw.cis.gov.pl/api/submit">https://app-gw.cis.gov.pl/api/submit</a>. The non encrypted accesss point will be
+deprecated for prodcuction version of CIŚ WebServices.  The POST request should
+contain job attributes either in JSON format or as FORM data. The data payload
+should contain key value pairs corresponding to variables supported by the
+service. In addition a reserved &#8220;service&#8221; keyword is required with name of the
+service as a value.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;service&quot;</span> <span class="p">:</span> <span class="s">&quot;MultiNest&quot;</span><span class="p">,</span>
     <span class="s">&quot;live_points&quot;</span> <span class="p">:</span> <span class="mi">100</span>
@@ -131,7 +133,7 @@ in the users we browser.</p>
     <span class="c"># Service name</span>
     <span class="n">payload</span><span class="p">[</span><span class="s">&#39;service&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;MultiNest&quot;</span>
     <span class="c"># API url</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://appgate.cis.gov.pl/submit&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://app-gw.cis.gov.pl/api/submit&quot;</span>
     <span class="c"># The data will be sent as JSON payload</span>
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
     <span class="c"># Send the POST request</span>
@@ -158,7 +160,7 @@ in the users we browser.</p>
 <div class="section" id="verifying-job-status">
 <h2>Verifying job status<a class="headerlink" href="#verifying-job-status" title="Permalink to this headline">¶</a></h2>
 <p>Job status can be queried by GET request on
-<a class="reference external" href="http://appgate.cis.gov.pl/status/[id">http://appgate.cis.gov.pl/status/[id</a>]. Where [id] is the Job ID returned
+<a class="reference external" href="http://app-gw.cis.gov.pl/api/status/[id">http://app-gw.cis.gov.pl/api/status/[id</a>]. Where [id] is the Job ID returned
 during submission. The request returns one of:</p>
 <ul class="simple">
 <li>Waiting - Job is waiting for validation by AppServer</li>
@@ -181,7 +183,7 @@ alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supporte
     <span class="n">_jid</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;CISMultiNestJobID&#39;</span><span class="p">)</span>
     <span class="c"># Job ID stored - check status</span>
     <span class="k">if</span> <span class="n">_jid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://appgate.cis.gov.pl/status/&quot;</span> <span class="o">+</span> <span class="n">_jid</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://app-gw.cis.gov.pl/api/status/&quot;</span> <span class="o">+</span> <span class="n">_jid</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
 
@@ -192,18 +194,18 @@ alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supporte
 <div class="section" id="job-output">
 <h2>Job output<a class="headerlink" href="#job-output" title="Permalink to this headline">¶</a></h2>
 <p>The http base URL for the output files is retrieved as
-<a class="reference external" href="http://appgate.cis.gov.pl/output/[id">http://appgate.cis.gov.pl/output/[id</a>]</p>
+<a class="reference external" href="http://app-gw.cis.gov.pl/api/output/[id">http://app-gw.cis.gov.pl/api/output/[id</a>]</p>
 </div>
 <div class="section" id="job-progress">
 <h2>Job progress<a class="headerlink" href="#job-progress" title="Permalink to this headline">¶</a></h2>
 <p>If service supports a job can be queried about it&#8217;s current progress:
-<a class="reference external" href="http://appgate.cis.gov.pl/progress/[id">http://appgate.cis.gov.pl/progress/[id</a>]</p>
+<a class="reference external" href="http://app-gw.cis.gov.pl/api/progress/[id">http://app-gw.cis.gov.pl/api/progress/[id</a>]</p>
 </div>
 <div class="section" id="job-removal">
 <h2>Job removal<a class="headerlink" href="#job-removal" title="Permalink to this headline">¶</a></h2>
 <p>Job can be scheduled for removal. If a job is queued or running its execution
 by the queue system will be stopped. All files related with the job will be
-removed. Delete request URL: <a class="reference external" href="http://appgate.cis.gov.pl/delete/[id">http://appgate.cis.gov.pl/delete/[id</a>]</p>
+removed. Delete request URL: <a class="reference external" href="http://app-gw.cis.gov.pl/api/delete/[id">http://app-gw.cis.gov.pl/api/delete/[id</a>]</p>
 </div>
 <div class="section" id="supported-services">
 <h2>Supported services<a class="headerlink" href="#supported-services" title="Permalink to this headline">¶</a></h2>
@@ -214,12 +216,7 @@ removed. Delete request URL: <a class="reference external" href="http://appgate.
 <li>C : [&#8220;alpha&#8221;, &#8220;beta&#8221;, &#8220;gamma&#8221;, &#8220;delta&#8221;]</li>
 </ul>
 </li>
-<li>MultiNest<ul>
-<li>argument : float(-10,10)</li>
-<li>live_points : int(0,10000)</li>
-<li>function : [&#8220;sin&#8221;, &#8220;cos&#8221;, &#8220;log&#8221;]</li>
-</ul>
-</li>
+<li>MultiNest</li>
 </ul>
 </div>
 </div>
