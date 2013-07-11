@@ -12,6 +12,9 @@ The source code is available through git repository::
     git submodule init
     git submodule update
 
+The repository contains code for AppGateway, AppServer and example service
+MultiNest as well as this documentation.
+
 Updating the code to the latest version::
 
     git pull
