@@ -16,7 +16,7 @@ sleep 2
 # Submit job
 # Use the FailSet option set - it specifies command to execute that returns non zero exit code
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "FailSet":"1"}')
+    '{"service":"Test", "api":"1.0", "input":{"FailSet":"1"}}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""

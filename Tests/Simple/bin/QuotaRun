@@ -16,7 +16,7 @@ sleep 5
 # Submit job
 # Use the default options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test"}')
+    '{"service":"Test", "api":"1.0"}')
 # Expect Waiting
 echo -n "Job1: "
 curl -s -S http://localhost:$PORT/status/$ID
@@ -27,7 +27,7 @@ sleep 2
 # Submit job
 # Use the default options
 ID2=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test"}')
+    '{"service":"Test", "api":"1.0"}')
 # Expect Waiting
 echo -n "Job2: "
 curl -s -S http://localhost:$PORT/status/$ID2
@@ -38,7 +38,7 @@ sleep 2
 # Submit job
 # Use the default options
 ID3=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test"}')
+    '{"service":"Test", "api":"1.0"}')
 # Expect Waiting
 echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3

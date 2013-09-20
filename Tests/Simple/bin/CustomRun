@@ -16,7 +16,7 @@ sleep 2
 # Submit job
 # Use custom options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "SLEEP":"1", "1Float":"0.5", "2Float":"5e-1"}')
+    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"5e-1"}}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""

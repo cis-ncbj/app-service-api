@@ -16,7 +16,7 @@ sleep 2
 # Submit job
 # Use default options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test"}')
+    '{"service":"Test", "api":"1.0"}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
