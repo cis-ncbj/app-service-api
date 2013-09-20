@@ -1,0 +1,50 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5010/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"api": "1.0", "service": "PartA"}
+DEBUG:root:Service defined: PartA
+DEBUG:root:Service selected: PartA
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:15] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:Request {"api": "1.0", "chain": ["PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN"], "service": "PartB"}
+DEBUG:root:Service defined: PartB
+DEBUG:root:Service selected: PartB
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:15] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:15] "GET /status/PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:17] "GET /status/PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:32] "GET /status/PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN HTTP/1.1" 200 -
+DEBUG:root:Request {"api": "1.0", "chain": ["PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN"], "service": "PartB"}
+DEBUG:root:Service defined: PartB
+DEBUG:root:Service selected: PartB
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:34] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:34] "GET /status/PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP HTTP/1.1" 200 -
+DEBUG:root:Request {"api": "1.0", "chain": ["PartA_miss"], "service": "PartB"}
+DEBUG:root:Service defined: PartB
+DEBUG:root:Service selected: PartB
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:34] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:36] "GET /status/PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 11:52:51] "GET /status/PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc HTTP/1.1" 200 -

@@ -59,7 +59,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 70
+sleep 30
 
 # Expect Done
 echo -n "Job1: "
@@ -74,7 +74,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 120
+sleep 30
 
 # Expect Done
 echo -n "Job1: "
@@ -89,7 +89,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 70
+sleep 150
 
 # Expect Missing
 echo -n "Job1: "

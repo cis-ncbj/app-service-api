@@ -4,33 +4,33 @@ INFO:werkzeug: * Running on http://127.0.0.1:5007/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Request {"api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:35] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
+DEBUG:root:Return request id: Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:39:25] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:35] "GET /status/Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:39:25] "GET /status/Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:24:50] "GET /status/Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:55] "GET /status/Test_e94bfa4a-41b4-4625-9784-546f3b4509f6__f3CKj HTTP/1.1" 200 -
-DEBUG:root:Request {"CleanSet": "1", "service": "Test"}
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:39:41] "GET /status/Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:40:46] "GET /status/Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B HTTP/1.1" 200 -
+DEBUG:root:Request {"input": {"CleanSet": "1"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:55] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
+DEBUG:root:Return request id: Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:40:46] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:25:55] "GET /status/Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:40:46] "GET /status/Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:26:10] "GET /status/Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:26:52] "GET /status/Test_90ab2ee8-7a24-41e3-86d6-1e5fe79aea92_5t8SDt HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:41:01] "GET /status/Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 12:41:42] "GET /status/Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq HTTP/1.1" 200 -

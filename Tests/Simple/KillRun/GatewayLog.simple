@@ -4,18 +4,18 @@ INFO:werkzeug: * Running on http://127.0.0.1:5006/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-DEBUG:root:Request {"LongSet": "1", "service": "Test"}
+DEBUG:root:Request {"input": {"LongSet": "1"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:29:43] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+DEBUG:root:Return request id: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:41:51] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:29:43] "GET /status/Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:41:51] "GET /status/Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:30:23] "GET /status/Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:30:28] "GET /status/Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:42:31] "GET /status/Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:42:36] "GET /status/Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh HTTP/1.1" 200 -

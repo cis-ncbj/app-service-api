@@ -1,0 +1,48 @@
+The following new files/directories were created:
+<Test Directory>
+----CISAppGateway.log
+----CISAppServer.log
+----Dump
+----Output
+--------PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+------------epilogue.sh
+------------output.log
+------------output_A.dat
+------------pbs.sh
+------------status.dat
+--------PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
+------------epilogue.sh
+------------output.log
+------------output_B.dat
+------------pbs.sh
+------------status.dat
+----PBS
+--------Scratch
+----Shared
+--------aborted
+------------PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc
+------------PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU
+--------delete
+--------done
+------------PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+------------PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
+--------exit
+------------PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+------------PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc
+------------PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU
+------------PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
+--------failed
+--------jobs
+------------PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
+------------PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc
+------------PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU
+------------PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
+--------killed
+--------queued
+--------running
+--------waiting
+
+The following existing files/directories changed their contents:
+<Test Directory>
+----PBS
+--------Queue

@@ -4,15 +4,15 @@ INFO:werkzeug: * Running on http://127.0.0.1:5008/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-DEBUG:root:Request {"service": "Test"}
+DEBUG:root:Request {"api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_a3f03d7c-de29-4520-9a18-25361f3b1447_hL7ZuR
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:14] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_a3f03d7c-de29-4520-9a18-25361f3b1447_hL7ZuR
+DEBUG:root:Return request id: Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:27:43] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:09:14] "GET /status/Test_a3f03d7c-de29-4520-9a18-25361f3b1447_hL7ZuR HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_a3f03d7c-de29-4520-9a18-25361f3b1447_hL7ZuR
-INFO:werkzeug:127.0.0.1 - - [22/May/2013 15:11:14] "GET /status/Test_a3f03d7c-de29-4520-9a18-25361f3b1447_hL7ZuR HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:27:43] "GET /status/Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu
+INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:29:43] "GET /status/Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu HTTP/1.1" 200 -

@@ -1,11 +1,12 @@
 # Ordered list of tests in test suite. Add as appropriate
 DryRun
 BadRun
-# DefaultRun 
-CleanRun
-CustomRun
+DefaultRun
+# CleanRun 
+# CustomRun 
 # FailRun 
 # KillRun 
 # Kill2Run 
 # MaintainanceRun 
 # QuotaRun 
+# ChainRun 
