@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Web API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#job-submission">Job submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-chaining">Job chaining</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#verifying-job-status">Verifying job status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-output">Job output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-progress">Job progress</a></li>
@@ -103,13 +104,30 @@
 <p>Jobs are submitted via POST request on <a class="reference external" href="http://app-gw.cis.gov.pl/api/submit">http://app-gw.cis.gov.pl/api/submit</a> or
 <a class="reference external" href="https://app-gw.cis.gov.pl/api/submit">https://app-gw.cis.gov.pl/api/submit</a>. The non encrypted accesss point will be
 deprecated for prodcuction version of CIŚ WebServices.  The POST request should
-contain job attributes either in JSON format or as FORM data. The data payload
-should contain key value pairs corresponding to variables supported by the
-service. In addition a reserved &#8220;service&#8221; keyword is required with name of the
-service as a value.:</p>
+contain job attributes either in JSON format. The data payload should be a JSON
+dictionary of key value pairs.  The only keys that are allowed are as follows:</p>
+<ul class="simple">
+<li>service - name of the service [required]</li>
+<li>api - API level that the client uderstands [required]. Currently only level
+1.0 is supported.</li>
+<li>input - dictionary of key value pairs corresponding to input variables
+supported by the service (see <a class="reference internal" href="overview.html#api-overview"><em>API overview</em></a>)</li>
+<li>chain - list of job IDs to use as an input (see <a class="reference internal" href="#job-chain"><em>Job chaining</em></a>)</li>
+<li>name - name of the job for easy identification by the user [NOT IMPLEMENTED]</li>
+</ul>
+<p>If the input dictionary is not specified the job will use default input values.
+All values provided by the client are verified. Example data payload.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;service&quot;</span> <span class="p">:</span> <span class="s">&quot;MultiNest&quot;</span><span class="p">,</span>
-    <span class="s">&quot;live_points&quot;</span> <span class="p">:</span> <span class="mi">100</span>
+    <span class="s">&quot;api&quot;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s">&quot;input&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;live_points&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="s">&quot;nodes_max&quot;</span> <span class="p">:</span> <span class="mi">100</span>
+    <span class="p">},</span>
+    <span class="s">&quot;chain&quot;</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;PreNestA_30ecad7d-41be-48bc-aaaa-131f894052a8_nlfsvY&quot;</span><span class="p">,</span>
+        <span class="s">&quot;PreNestB_50ecad7d-41be-48bc-bbbb-131f894052a8_nlfsvY&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -155,6 +173,27 @@ in the users we browser.</p>
     <span class="n">flask</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="job-chaining">
+<span id="job-chain"></span><h2>Job chaining<a class="headerlink" href="#job-chaining" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to chain several services together. For example one service
+performs the pre-processing step, second performs the actual calculations while
+third is responsible for post-preprocessing.</p>
+<p>A job can obtain access to the output of other jobs as long as they are in
+&#8220;Done&#8221; state and their IDs are known to the client. The IDs of input jobs
+should be specified in the request JSON data using the &#8220;chain&#8221; key. The format
+is a JSON list:</p>
+<div class="highlight-python"><pre>"chain" : ["Service1_ID1", "Service2_ID2"]</pre>
+</div>
+<p>The output of the requested jobs will be available in the working directory of
+the new jobi. Each one in its own subdirectory. Upon job completion they will
+be automatically removed. The subdirectory names can be accessed in the job
+script via &#8220;&#64;&#64;{CIS_CHAIN*}&#8221; keywords. Where &#8220;*&#8221; corresponds to the position in
+the &#8220;chain&#8221; list starting from 0.:</p>
+<div class="highlight-python"><pre>cd @@{CIS_CHAIN0} # Output data of first input job
+cd ..
+cd @@{CIS_CHAIN1} # Output data of second input job</pre>
 </div>
 </div>
 <div class="section" id="verifying-job-status">

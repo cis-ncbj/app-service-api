@@ -52,6 +52,8 @@ Communication between system components::
         ⇵ PBS / SSH
     Worker Nodes (LAN)
 
+.. _api_overview:
+
 API overview
 ------------
 
@@ -146,7 +148,9 @@ the service. File consists of three dictionaries:
   "variable name":"value" pairs. Values have to be valid according to variable
   definition in "variables" dictionary. Variables not defined in a set will use
   default values unless provided explicitly. Values for variables defined in a
-  set can be overridden by specifying them explicitly in the input data.
+  set can be overridden by specifying them explicitly in the input data. Sets
+  allow to override settings for certain reserved variables e.g.: CIS_QUEUE,
+  CIS_SCHEDULER
 
 Keep in mind that JSON unlike Python does not allow dangling ',' separators.
 
@@ -229,6 +233,24 @@ Example Test template pbs.sh script::
     /bin/hostname
     sleep 10
 
+Reserved variables
+------------------
+
+There is a set of variable names that are reserved for special purpose and
+cannot be used directly by the service. First class corresponds to variables
+that govern the execution of the jobs. They can be altered by the job using
+predefined values specified using "sets".
+
+* CIS_SCHEDULER - Select scheduler to use. Can be used for submission to
+  computing resources not managed by the central CIS scheduler. Currently only
+  PBS scheduler is supported (main CIS scheduler).
+* CIS_QUEUE - Queue used for job submission (default: test_slc6)
+
+Second class consists of automatic variables:
+
+* CIS_CHAIN* - name of a directory containing the output data files of an input
+  job. The "*" corresponds to the position of the job in the chain list (see
+  :ref:`job_chain`).
 
 Known Bugs
 ----------

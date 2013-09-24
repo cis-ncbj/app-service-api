@@ -83,6 +83,7 @@ Example implementation in python::
         return flask.redirect('/')
 
 .. _job_chain:
+
 Job chaining
 ------------
 
