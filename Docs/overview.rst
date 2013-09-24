@@ -241,8 +241,8 @@ that govern the execution of the jobs. They can be altered by the job using
 predefined values specified using "sets".
 
 * CIS_SCHEDULER - Select scheduler to use. Can be used for submission to
-  computing resources not managed by the central CIS scheduler. Currently only
-  PBS scheduler is supported (main CIS scheduler).
+  computing resources not managed by the central CIŚ scheduler. Currently only
+  "pbs" scheduler is supported (main CIŚ scheduler).
 * CIS_QUEUE - Queue used for job submission (default: test_slc6)
 
 Second class consists of automatic variables:
