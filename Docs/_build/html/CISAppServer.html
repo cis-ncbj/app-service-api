@@ -119,6 +119,12 @@ file.</p>
 <dd><p>Calculate size of output directory of the job if it exists.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.Job.chain">
+<tt class="descname">chain</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of job IDs whose output we would like to consume (job chaining)</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="CISAppServer.JobManager.Job.compact">
 <tt class="descname">compact</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.compact" title="Permalink to this definition">¶</a></dt>
@@ -370,6 +376,30 @@ created and added to the list,</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.get_job_ids">
+<tt class="descname">get_job_ids</tt><big>(</big><em>state='all'</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.get_job_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get IDs of existing jobs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> &#8211; State of the jobs to return. Valid values:</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>all</li>
+<li>waiting</li>
+<li>queued</li>
+<li>running</li>
+<li>done</li>
+<li>aborted</li>
+<li>killed</li>
+<li>delete</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.init">
 <tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize JobManager. Creates new instaces of Validator and
@@ -446,7 +476,7 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x2a4e210&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x2b10760&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -561,6 +591,24 @@ present in the pbs_work_path/job directory.</p>
 execution backends should derive from this class and implement defined
 interface.</p>
 <p>Allows for job submission, deletion and extraction of job status.</p>
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.chain_input_data">
+<tt class="descname">chain_input_data</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.chain_input_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chain output data of finished jobs as our input.</p>
+<p>Copies output data of specified job IDs into the working directory of
+current job.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance after validation</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Scheduler.default_queue">
 <tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.default_queue" title="Permalink to this definition">¶</a></dt>
@@ -723,11 +771,29 @@ diskspace and garbage collection</p>
 
 <dl class="class">
 <dt id="CISAppServer.Tools.Validator">
-<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Validator</tt><a class="headerlink" href="#CISAppServer.Tools.Validator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Validator</tt><big>(</big><em>jm</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Validator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Class responsible for validation of job input data.
 It is also responsible for preparation of PBS scripts.</p>
 <p>Upon initialisation load services configuration.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Validator.api_max">
+<tt class="descname">api_max</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Validator.api_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max API level</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Validator.api_min">
+<tt class="descname">api_min</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Validator.api_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Min API level</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Validator.jm">
+<tt class="descname">jm</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Validator.jm" title="Permalink to this definition">¶</a></dt>
+<dd><p>JobManager instance</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Validator.services">
 <tt class="descname">services</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Validator.services" title="Permalink to this definition">¶</a></dt>
@@ -750,6 +816,11 @@ validated data.</p>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.Validator.validate_chain">
+<tt class="descname">validate_chain</tt><big>(</big><em>chain</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Validator.validate_chain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.Tools.Validator.validate_float">
@@ -1041,6 +1112,12 @@ provided hardcoded defaults are used.</td>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_allowed_sections">
+<tt class="descname">service_allowed_sections</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_allowed_sections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowed sections in job submission JSON</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.service_job_size">
 <tt class="descname">service_job_size</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_job_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default expected output size of a job in MB. It is used to estimate
@@ -1112,7 +1189,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppServer.Config.conf">
-<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('service', 'name', 'scheduler', 'queue'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': 'konrad.klimaszewski&#64;gazeta.pl', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('CIS_SCHEDULER', 'CIS_QUEUE'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_allowed_sections': ('service', 'api', 'input', 'chain'), 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>

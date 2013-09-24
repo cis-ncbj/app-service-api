@@ -10,14 +10,31 @@ Job submission
 Jobs are submitted via POST request on http://app-gw.cis.gov.pl/api/submit or
 https://app-gw.cis.gov.pl/api/submit. The non encrypted accesss point will be
 deprecated for prodcuction version of CIŚ WebServices.  The POST request should
-contain job attributes either in JSON format or as FORM data. The data payload
-should contain key value pairs corresponding to variables supported by the
-service. In addition a reserved "service" keyword is required with name of the
-service as a value.::
+contain job attributes either in JSON format. The data payload should be a JSON
+dictionary of key value pairs.  The only keys that are allowed are as follows:
+
+* service - name of the service [required]
+* api - API level that the client uderstands [required]. Currently only level
+  1.0 is supported.
+* input - dictionary of key value pairs corresponding to input variables
+  supported by the service (see :ref:`api_overview`)
+* chain - list of job IDs to use as an input (see :ref:`job_chain`)
+* name - name of the job for easy identification by the user [NOT IMPLEMENTED]
+
+If the input dictionary is not specified the job will use default input values.
+All values provided by the client are verified. Example data payload.::
 
     {
         "service" : "MultiNest",
-        "live_points" : 100
+        "api" : 1.0,
+        "input" : {
+            "live_points" : 10000,
+            "nodes_max" : 100
+        },
+        "chain" : [
+            "PreNestA_30ecad7d-41be-48bc-aaaa-131f894052a8_nlfsvY",
+            "PreNestB_50ecad7d-41be-48bc-bbbb-131f894052a8_nlfsvY",
+        ]
     }
 
 The request will return an Job ID e.g.:
@@ -64,6 +81,32 @@ Example implementation in python::
         # Error returned
         flask.flash(r.text)
         return flask.redirect('/')
+
+.. _job_chain:
+
+Job chaining
+------------
+
+It is possible to chain several services together. For example one service
+performs the pre-processing step, second performs the actual calculations while
+third is responsible for post-preprocessing.
+
+A job can obtain access to the output of other jobs as long as they are in
+"Done" state and their IDs are known to the client. The IDs of input jobs
+should be specified in the request JSON data using the "chain" key. The format
+is a JSON list::
+
+    "chain" : ["Service1_ID1", "Service2_ID2"]
+
+The output of the requested jobs will be available in the working directory of
+the new jobi. Each one in its own subdirectory. Upon job completion they will
+be automatically removed. The subdirectory names can be accessed in the job
+script via "@@{CIS_CHAIN*}" keywords. Where "*" corresponds to the position in
+the "chain" list starting from 0.::
+
+    cd @@{CIS_CHAIN0} # Output data of first input job
+    cd ..
+    cd @@{CIS_CHAIN1} # Output data of second input job
 
 Verifying job status
 --------------------

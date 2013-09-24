@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-overview">API overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#service-definition">Service definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reserved-variables">Reserved variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#known-bugs">Known Bugs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#todo">TODO</a></li>
 </ul>
@@ -145,7 +146,7 @@ Worker Nodes (LAN)</pre>
 </div>
 </div>
 <div class="section" id="api-overview">
-<h2>API overview<a class="headerlink" href="#api-overview" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>API overview<a class="headerlink" href="#api-overview" title="Permalink to this headline">¶</a></h2>
 <p>The Gateway API allows for:</p>
 <ul class="simple">
 <li>Job submission<ul>
@@ -237,7 +238,9 @@ data types.</li>
 &#8220;variable name&#8221;:&#8221;value&#8221; pairs. Values have to be valid according to variable
 definition in &#8220;variables&#8221; dictionary. Variables not defined in a set will use
 default values unless provided explicitly. Values for variables defined in a
-set can be overridden by specifying them explicitly in the input data.</li>
+set can be overridden by specifying them explicitly in the input data. Sets
+allow to override settings for certain reserved variables e.g.: CIS_QUEUE,
+CIS_SCHEDULER</li>
 </ul>
 <p>Keep in mind that JSON unlike Python does not allow dangling &#8216;,&#8217; separators.</p>
 <p>Example Test service configuration:</p>
@@ -316,6 +319,25 @@ echo $A $B $C
 /bin/hostname
 sleep 10</pre>
 </div>
+</div>
+<div class="section" id="reserved-variables">
+<h2>Reserved variables<a class="headerlink" href="#reserved-variables" title="Permalink to this headline">¶</a></h2>
+<p>There is a set of variable names that are reserved for special purpose and
+cannot be used directly by the service. First class corresponds to variables
+that govern the execution of the jobs. They can be altered by the job using
+predefined values specified using &#8220;sets&#8221;.</p>
+<ul class="simple">
+<li>CIS_SCHEDULER - Select scheduler to use. Can be used for submission to
+computing resources not managed by the central CIS scheduler. Currently only
+PBS scheduler is supported (main CIS scheduler).</li>
+<li>CIS_QUEUE - Queue used for job submission (default: test_slc6)</li>
+</ul>
+<p>Second class consists of automatic variables:</p>
+<ul class="simple">
+<li>CIS_CHAIN* - name of a directory containing the output data files of an input
+job. The &#8220;*&#8221; corresponds to the position of the job in the chain list (see
+<a class="reference internal" href="webapi.html#job-chain"><em>Job chaining</em></a>).</li>
+</ul>
 </div>
 <div class="section" id="known-bugs">
 <h2>Known Bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline">¶</a></h2>
