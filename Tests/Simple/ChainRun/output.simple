@@ -1,0 +1,8 @@
+PartA: Waiting
+PartB input not ready: Waiting
+PartA: Done: 0
+
+PartB: Waiting
+PartB missing input: Waiting
+PartB: Aborted: @Validator - Bad job chain IDs.
+

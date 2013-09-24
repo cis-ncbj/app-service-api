@@ -1,0 +1,8 @@
+#!/bin/sh
+#PBS -q test_slc6
+
+echo "Hello World from PartA" > output_A.dat
+sleep 2
+
+exit $?
+

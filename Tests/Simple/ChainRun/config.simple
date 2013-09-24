@@ -1,0 +1,20 @@
+# Full path to the System Under Test
+executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/ChainRun
+
+[collate_file]
+Script:Output/*/pbs.sh
+ScriptEpilogue:Output/*/epilogue.sh
+APartOut:Output/*/output_A.dat
+BPartOut:Output/*/output_B.dat
+
+[run_dependent_text]
+GatewayLog:INFO:werkzeug:127.0.0.1
+GatewayLog:Test_[\w_\-]+{REPLACE Test}
+ServerLog:Test_[\w_\-]+{REPLACE Test}
+catalogue:Test_[\w_\-]+{REPLACE Test}
+GatewayLog:PartA_[\w_\-]+{REPLACE PartA}
+ServerLog:PartA_[\w_\-]+{REPLACE PartA}
+catalogue:PartA_[\w_\-]+{REPLACE PartA}
+GatewayLog:PartB_[\w_\-]+{REPLACE PartB}
+ServerLog:PartB_[\w_\-]+{REPLACE PartB}
+catalogue:PartB_[\w_\-]+{REPLACE PartB}

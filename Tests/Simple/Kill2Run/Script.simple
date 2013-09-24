@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -q short
+#PBS -q test_slc6
 #PBS -l nodes=30
 
 echo "Commencing test: WaitRun" | tee -a progress.log

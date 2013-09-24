@@ -1,0 +1,16 @@
+{
+    "config" : {},
+    "variables" : {
+        "CIS_SCHEDULER" : {
+            "type" : "string",
+            "default" : "pbs",
+            "values" : ["pbs"]
+        },
+        "CIS_QUEUE" : {
+            "type" : "string",
+            "default" : "test_slc6",
+            "values" : ["short", "long", "test_slc6"]
+        }
+    },
+    "sets" : {}
+}

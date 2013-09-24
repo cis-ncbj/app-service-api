@@ -49,7 +49,7 @@
         // Clean execution set
         "CleanSet" : {
             "TestName" : "CleanRun",
-            "queue" : "short",
+            "CIS_QUEUE" : "short",
             "COMMAND" : "/bin/ls",
             "PBS_OPTS" : "",
             "SLEEP" : 1
@@ -57,7 +57,7 @@
         // Failed execution set
         "FailSet" : {
             "TestName" : "FailRun",
-            "queue" : "short",
+            "CIS_QUEUE" : "short",
             "COMMAND" : "/bin/ls NieIstniejącyPlik",
             "PBS_OPTS" : "",
             "SLEEP" : 1
@@ -65,7 +65,7 @@
         // Long execution set
         "LongSet" : {
             "TestName" : "LongRun",
-            "queue" : "short",
+            "CIS_QUEUE" : "short",
             "COMMAND" : "/bin/ls",
             "PBS_OPTS" : "",
             "SLEEP" : 5,
@@ -75,7 +75,7 @@
         // Stuck in queue set
         "WaitSet" : {
             "TestName" : "WaitRun",
-            "queue" : "short",
+            "CIS_QUEUE" : "short",
             "COMMAND" : "/bin/ls",
             "PBS_OPTS" : "PBS -l nodes=30",
             "SLEEP" : 1,

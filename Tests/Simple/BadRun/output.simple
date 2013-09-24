@@ -1,4 +1,10 @@
 Error: Unsupported service
+Aborted: @Validator - Job did not specify API level.
+
+Aborted: @Validator - API level 0.1 is not supported.
+
+Aborted: @Validator - Section '2Float' is not allowed in job definition.
+
 Aborted: @Validator - Variable value not allowed: SLEEP - 0.1.
 
 Aborted: @Validator - Variable value not allowed: 1Float - string.

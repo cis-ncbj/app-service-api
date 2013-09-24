@@ -1,17 +1,12 @@
 {
     "config" : {},
     "variables" : {
-        "service" : {
-            "type" : "string",
-            "default" : "",
-            "values" : ["MultiNest", "Test", "EPRCore"]
-        },
-        "scheduler" : {
+        "CIS_SCHEDULER" : {
             "type" : "string",
             "default" : "pbs",
             "values" : ["pbs"]
         },
-        "queue" : {
+        "CIS_QUEUE" : {
             "type" : "string",
             "default" : "short",
             "values" : ["short", "long"]

@@ -1,15 +1,15 @@
-INFO 06-05 11:25:28 Daemon : Executing start
-INFO 06-05 11:25:28 Tools : Initialized service: MultiNest
-INFO 06-05 11:25:28 Tools : Initialized service: Test
-INFO 06-05 11:25:28 Tools : Initialized service: default
-INFO 06-05 11:25:28 Daemon : CISAppServer started with pid 22926
-INFO 06-05 11:25:32 Tools : Job successfully submitted: Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj
-WARNING 06-05 11:25:57 Tools : @PBS - Unable to extract job exit code: Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj. Will continue with output extraction
+INFO 09-20 10:57:11 Daemon : Executing start
+INFO 09-20 10:57:11 Tools : Initialized service: MultiNest
+INFO 09-20 10:57:11 Tools : Initialized service: default
+INFO 09-20 10:57:11 Tools : Initialized service: Test
+INFO 09-20 10:57:11 Daemon : CISAppServer started with pid 4640
+INFO 09-20 10:57:15 Tools : Job successfully submitted: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
+WARNING 09-20 10:57:33 Tools : @PBS - Unable to extract job exit code: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp. Will continue with output extraction
 Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 799, in finalise
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 1039, in finalise
     with open(os.path.join(_work_dir, 'status.dat')) as _status_file:
-IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.05Jun112527.22913/simple/Kill2Run/PBS/Scratch/Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj/status.dat'
-INFO 06-05 11:25:57 Tools : Job Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj output retrived.
-INFO 06-05 11:25:57 JobManager : Job Test_c5c3d992-2486-48c8-b7f3-575b4dbb6805_6esixj finished: killed
-INFO 06-05 11:26:11 Daemon : Received terminate command
-INFO 06-05 11:26:11 Daemon : Shutdown
+IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.20Sep103605.4344/simple/Kill2Run/PBS/Scratch/Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp/status.dat'
+INFO 09-20 10:57:33 Tools : Job Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp output retrived.
+INFO 09-20 10:57:33 JobManager : Job Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp finished: killed
+INFO 09-20 10:57:53 Daemon : Received terminate command
+INFO 09-20 10:57:53 Daemon : Shutdown

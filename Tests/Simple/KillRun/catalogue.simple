@@ -4,7 +4,7 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
---------Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+--------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 ------------epilogue.sh
 ------------output.log
 ------------pbs.sh
@@ -17,11 +17,11 @@ The following new files/directories were created:
 --------delete
 --------done
 --------exit
-------------Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+------------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 --------failed
-------------Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+------------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 --------jobs
-------------Test_a54c9e52-4719-4faa-944f-d0b5bdd99dd4_lJjzlO
+------------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 --------killed
 --------queued
 --------running

@@ -1,38 +1,45 @@
-INFO 06-05 11:28:37 Daemon : Executing start
-INFO 06-05 11:28:37 Tools : Initialized service: MultiNest
-INFO 06-05 11:28:37 Tools : Initialized service: Test
-INFO 06-05 11:28:37 Tools : Initialized service: default
-INFO 06-05 11:28:37 Daemon : CISAppServer started with pid 23258
-WARNING 06-05 11:28:40 Tools : @Validator - Value is not a proper int.
+INFO 09-20 10:04:16 Daemon : Executing start
+INFO 09-20 10:04:16 Tools : Initialized service: MultiNest
+INFO 09-20 10:04:16 Tools : Initialized service: Test
+INFO 09-20 10:04:16 Tools : Initialized service: default
+INFO 09-20 10:04:16 Daemon : CISAppServer started with pid 3472
+INFO 09-20 10:04:19 JobManager : Job Test_f2ec44ba-98f8-45fc-a99f-375277db04a8_GrfVo0 finished: aborted
+WARNING 09-20 10:04:19 JobManager : @Validator - Job did not specify API level.
+WARNING 09-20 10:04:26 Tools : @Validator - Value not in allowed range: api - 0.1
+INFO 09-20 10:04:26 JobManager : Job Test_6a3176de-7b32-41ad-9eb8-9b294e6b5594_krqv1b finished: aborted
+WARNING 09-20 10:04:26 JobManager : @Validator - API level 0.1 is not supported.
+INFO 09-20 10:04:29 JobManager : Job Test_576c767c-be38-4133-88cd-794718db8faa_7G5U3w finished: aborted
+WARNING 09-20 10:04:29 JobManager : @Validator - Section '2Float' is not allowed in job definition.
+WARNING 09-20 10:04:35 Tools : @Validator - Value is not a proper int.
 Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 303, in validate_value
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 476, in validate_int
     _v = int(value)
 ValueError: invalid literal for int() with base 10: '0.1'
-INFO 06-05 11:28:40 JobManager : Job Test_4ec88f93-48a2-42f9-8dcb-30c01b759ab4_lzcdNN finished: aborted
-WARNING 06-05 11:28:40 JobManager : @Validator - Variable value not allowed: SLEEP - 0.1.
-WARNING 06-05 11:28:46 Tools : @Validator - Value is not a proper float
+INFO 09-20 10:04:35 JobManager : Job Test_53411bee-b94d-4556-9bb9-d786b43058a7_fXCqTT finished: aborted
+WARNING 09-20 10:04:35 JobManager : @Validator - Variable value not allowed: SLEEP - 0.1.
+WARNING 09-20 10:04:41 Tools : @Validator - Value is not a proper float
 Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 335, in validate_value
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 503, in validate_float
     _v = float(value)
 ValueError: could not convert string to float: string
-INFO 06-05 11:28:46 JobManager : Job Test_ae6063e9-7826-4f9e-bd3b-7bb9c5fb5959_8tFor1 finished: aborted
-WARNING 06-05 11:28:46 JobManager : @Validator - Variable value not allowed: 1Float - string.
-INFO 06-05 11:28:52 JobManager : Job Test_a655d178-f9a9-4d48-87d2-c025dce8b610_3ltEqA finished: aborted
-WARNING 06-05 11:28:52 JobManager : @Validator - Not supported variable: 11Float.
-WARNING 06-05 11:28:55 Tools : @Validator - Value not in allowed range: SLEEP - 100000
-INFO 06-05 11:28:55 JobManager : Job Test_ca4f014a-3c9c-478b-b3d2-1a7948980de3_GHWbp1 finished: aborted
-WARNING 06-05 11:28:55 JobManager : @Validator - Variable value not allowed: SLEEP - 100000.
-WARNING 06-05 11:29:01 Tools : @Validator - Value not in allowed range: SLEEP - -100000
-INFO 06-05 11:29:01 JobManager : Job Test_21374e12-6ba6-4a9b-b52c-8a6f30bfd776__t4E7e finished: aborted
-WARNING 06-05 11:29:01 JobManager : @Validator - Variable value not allowed: SLEEP - -100000.
-WARNING 06-05 11:29:07 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
-INFO 06-05 11:29:07 JobManager : Job Test_07070cb4-4e45-47ac-a073-c4b9937d6cda_ET6NIp finished: aborted
-WARNING 06-05 11:29:07 JobManager : @Validator - Variable value not allowed: 1Float - 900000.
-WARNING 06-05 11:29:10 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
-INFO 06-05 11:29:10 JobManager : Job Test_07b06bad-4460-47cd-9046-e2e207bbb89c_nv2kCL finished: aborted
-WARNING 06-05 11:29:10 JobManager : @Validator - Variable value not allowed: 1Float - -900000.
-WARNING 06-05 11:29:16 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
-INFO 06-05 11:29:17 JobManager : Job Test_e34c5bdc-a4ed-4b7f-b59b-c2e8ab5d80aa_yd6RSU finished: aborted
-WARNING 06-05 11:29:17 JobManager : @Validator - Variable value not allowed: COMMAND - /bin/true.
-INFO 06-05 11:29:22 Daemon : Received terminate command
-INFO 06-05 11:29:22 Daemon : Shutdown
+INFO 09-20 10:04:41 JobManager : Job Test_4385d371-a44d-4285-8877-4cfeca595f31_8rrFKw finished: aborted
+WARNING 09-20 10:04:41 JobManager : @Validator - Variable value not allowed: 1Float - string.
+INFO 09-20 10:04:44 JobManager : Job Test_f02a8f55-ee2e-4100-88ce-b7fc4d1074f4_9cRjIp finished: aborted
+WARNING 09-20 10:04:44 JobManager : @Validator - Not supported variable: 11Float.
+WARNING 09-20 10:04:50 Tools : @Validator - Value not in allowed range: SLEEP - 100000
+INFO 09-20 10:04:50 JobManager : Job Test_d995e332-615f-4dba-a2e0-388442111e71_DHkCZS finished: aborted
+WARNING 09-20 10:04:50 JobManager : @Validator - Variable value not allowed: SLEEP - 100000.
+WARNING 09-20 10:04:56 Tools : @Validator - Value not in allowed range: SLEEP - -100000
+INFO 09-20 10:04:56 JobManager : Job Test_3efd0d26-5398-428d-8944-324dc1345ff0_W8A9ml finished: aborted
+WARNING 09-20 10:04:56 JobManager : @Validator - Variable value not allowed: SLEEP - -100000.
+WARNING 09-20 10:04:59 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
+INFO 09-20 10:04:59 JobManager : Job Test_0f20c25a-d7da-4997-afcc-dfde371c9d1e_cL6js0 finished: aborted
+WARNING 09-20 10:04:59 JobManager : @Validator - Variable value not allowed: 1Float - 900000.
+WARNING 09-20 10:05:05 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
+INFO 09-20 10:05:05 JobManager : Job Test_14ea691c-82ab-47f1-9fda-9ef700632bbf_SJ4ehh finished: aborted
+WARNING 09-20 10:05:05 JobManager : @Validator - Variable value not allowed: 1Float - -900000.
+WARNING 09-20 10:05:11 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
+INFO 09-20 10:05:11 JobManager : Job Test_949871e4-8f44-462a-9181-dc8123868917_FSJeMw finished: aborted
+WARNING 09-20 10:05:11 JobManager : @Validator - Variable value not allowed: COMMAND - /bin/true.
+INFO 09-20 10:05:16 Daemon : Received terminate command
+INFO 09-20 10:05:16 Daemon : Shutdown
