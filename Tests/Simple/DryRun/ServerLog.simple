@@ -1,19 +1,19 @@
-INFO 05-22 12:58:53 Daemon : Executing start
-INFO 05-22 12:58:53 Tools : Initialized service: MultiNest
-INFO 05-22 12:58:53 Tools : Initialized service: Test
-INFO 05-22 12:58:53 Tools : Initialized service: default
-INFO 05-22 12:58:53 Daemon : CISAppServer started with pid 23495
-INFO 05-22 12:58:55 Daemon : Received pause command
-INFO 05-22 12:58:56 Daemon : Received run command
-INFO 05-22 12:58:56 Daemon : Received reload command
-INFO 05-22 12:58:56 Tools : Initialized service: MultiNest
-INFO 05-22 12:58:56 Tools : Initialized service: Test
-INFO 05-22 12:58:56 Tools : Initialized service: default
-INFO 05-22 12:58:56 Daemon : Reload complete
-INFO 05-22 12:58:56 Daemon : Executing restart
-INFO 05-22 12:58:57 Tools : Initialized service: MultiNest
-INFO 05-22 12:58:57 Tools : Initialized service: Test
-INFO 05-22 12:58:57 Tools : Initialized service: default
-INFO 05-22 12:58:57 Daemon : CISAppServer started with pid 23518
-INFO 05-22 12:58:57 Daemon : Received terminate command
-INFO 05-22 12:58:57 Daemon : Shutdown
+INFO 10-16 12:00:10 Daemon : Executing start
+INFO 10-16 12:00:10 Tools : Initialized service: MultiNest
+INFO 10-16 12:00:10 Tools : Initialized service: default
+INFO 10-16 12:00:10 Tools : Initialized service: Test
+INFO 10-16 12:00:10 Daemon : CISAppServer started with pid 26714
+INFO 10-16 12:00:13 Daemon : Received pause command
+INFO 10-16 12:00:13 Daemon : Received run command
+INFO 10-16 12:00:13 Daemon : Received reload command
+INFO 10-16 12:00:13 Tools : Initialized service: MultiNest
+INFO 10-16 12:00:13 Tools : Initialized service: default
+INFO 10-16 12:00:13 Tools : Initialized service: Test
+INFO 10-16 12:00:13 Daemon : Reload complete
+INFO 10-16 12:00:13 Daemon : Executing restart
+INFO 10-16 12:00:14 Tools : Initialized service: MultiNest
+INFO 10-16 12:00:14 Tools : Initialized service: default
+INFO 10-16 12:00:14 Tools : Initialized service: Test
+INFO 10-16 12:00:14 Daemon : CISAppServer started with pid 26754
+INFO 10-16 12:00:15 Daemon : Received terminate command
+INFO 10-16 12:00:15 Daemon : Shutdown

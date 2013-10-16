@@ -16,4 +16,5 @@ The following new files/directories were created:
 --------killed
 --------queued
 --------running
+--------stop
 --------waiting

@@ -1,0 +1,9 @@
+INFO 10-16 15:42:11 Daemon : Executing start
+INFO 10-16 15:42:11 Tools : Initialized service: MultiNest
+INFO 10-16 15:42:11 Tools : Initialized service: default
+INFO 10-16 15:42:11 Tools : Initialized service: Test
+INFO 10-16 15:42:12 Daemon : CISAppServer started with pid 28472
+INFO 10-16 15:42:16 Tools : Job successfully submitted: Test_905f4fd2-7699-4b47-a201-44d47cc70ce5_GdRULi
+INFO 10-16 15:42:56 JobManager : Job Test_905f4fd2-7699-4b47-a201-44d47cc70ce5_GdRULi finished: killed
+INFO 10-16 15:43:04 Daemon : Received terminate command
+INFO 10-16 15:43:04 Daemon : Shutdown
