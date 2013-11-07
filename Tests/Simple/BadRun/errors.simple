@@ -1,17 +1,14 @@
- 'binutils/2.22' load complete.
- 'gcc/4.6.3' load complete.
- 'python/2.7.2-x86_64-gcc46' load complete.
  'python-tools/1.6-x86_64-gcc46-python27' load complete.
-INFO     CISAppS 0.2
+INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
 INFO Executing start
 INFO Initialized service: MultiNest
-INFO Initialized service: default
 INFO Initialized service: Test
-INFO CISAppServer started with pid 28609
-INFO     CISAppS 0.2
+INFO Initialized service: default
+INFO CISAppServer started with pid 26626
+INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO

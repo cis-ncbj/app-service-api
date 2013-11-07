@@ -6,103 +6,103 @@ DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "0.5", "SLEEP": "1"}, "api": "1.0", "service": "WrongTest"}
 DEBUG:root:Service defined: WrongTest
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:18] "POST /submit HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:39] "POST /submit HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "0.5", "SLEEP": "0.1"}, "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_f2ec44ba-98f8-45fc-a99f-375277db04a8_GrfVo0
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:18] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_f2ec44ba-98f8-45fc-a99f-375277db04a8_GrfVo0
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:23] "GET /status/Test_f2ec44ba-98f8-45fc-a99f-375277db04a8_GrfVo0 HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_38688f7a-a4b6-41a2-8c56-59b76fd89570_rXDcpD
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:39] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_38688f7a-a4b6-41a2-8c56-59b76fd89570_rXDcpD
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:44] "GET /status/Test_38688f7a-a4b6-41a2-8c56-59b76fd89570_rXDcpD HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "0.5", "SLEEP": "0.1"}, "api": "0.1", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_6a3176de-7b32-41ad-9eb8-9b294e6b5594_krqv1b
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:23] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6a3176de-7b32-41ad-9eb8-9b294e6b5594_krqv1b
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:28] "GET /status/Test_6a3176de-7b32-41ad-9eb8-9b294e6b5594_krqv1b HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_1b21a101-3264-4d9a-beda-d42184a78474_VWFM8a
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:44] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_1b21a101-3264-4d9a-beda-d42184a78474_VWFM8a
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:49] "GET /status/Test_1b21a101-3264-4d9a-beda-d42184a78474_VWFM8a HTTP/1.1" 200 -
 DEBUG:root:Request {"1Float": "0.5", "api": "1.0", "SLEEP": "0.1", "2Float": "0.5", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_576c767c-be38-4133-88cd-794718db8faa_7G5U3w
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:28] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_576c767c-be38-4133-88cd-794718db8faa_7G5U3w
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:34] "GET /status/Test_576c767c-be38-4133-88cd-794718db8faa_7G5U3w HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_3ef6f996-1db0-4930-9d23-0a16fedeb4a4_VebSNx
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:49] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_3ef6f996-1db0-4930-9d23-0a16fedeb4a4_VebSNx
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:54] "GET /status/Test_3ef6f996-1db0-4930-9d23-0a16fedeb4a4_VebSNx HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "0.5", "SLEEP": "0.1"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_53411bee-b94d-4556-9bb9-d786b43058a7_fXCqTT
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:34] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_53411bee-b94d-4556-9bb9-d786b43058a7_fXCqTT
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:39] "GET /status/Test_53411bee-b94d-4556-9bb9-d786b43058a7_fXCqTT HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_c19c9d91-c944-4bca-9446-03b061b767fa__dS8nG
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:54] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c19c9d91-c944-4bca-9446-03b061b767fa__dS8nG
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:54:59] "GET /status/Test_c19c9d91-c944-4bca-9446-03b061b767fa__dS8nG HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "string", "SLEEP": "2"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_4385d371-a44d-4285-8877-4cfeca595f31_8rrFKw
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:39] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_4385d371-a44d-4285-8877-4cfeca595f31_8rrFKw
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:44] "GET /status/Test_4385d371-a44d-4285-8877-4cfeca595f31_8rrFKw HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_3e38cfc1-7288-4664-ada5-b33bab1a5794_tkkyx6
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:00] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_3e38cfc1-7288-4664-ada5-b33bab1a5794_tkkyx6
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:05] "GET /status/Test_3e38cfc1-7288-4664-ada5-b33bab1a5794_tkkyx6 HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "11Float": "0.5"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_f02a8f55-ee2e-4100-88ce-b7fc4d1074f4_9cRjIp
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:44] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_f02a8f55-ee2e-4100-88ce-b7fc4d1074f4_9cRjIp
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:49] "GET /status/Test_f02a8f55-ee2e-4100-88ce-b7fc4d1074f4_9cRjIp HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_2094b8ee-1b2e-437e-9690-51ad5d0b5d10_dWlXeN
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:05] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_2094b8ee-1b2e-437e-9690-51ad5d0b5d10_dWlXeN
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:10] "GET /status/Test_2094b8ee-1b2e-437e-9690-51ad5d0b5d10_dWlXeN HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "0.5", "SLEEP": "100000"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_d995e332-615f-4dba-a2e0-388442111e71_DHkCZS
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:49] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_d995e332-615f-4dba-a2e0-388442111e71_DHkCZS
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:54] "GET /status/Test_d995e332-615f-4dba-a2e0-388442111e71_DHkCZS HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_3f804da3-5e2e-42d0-9ee1-02fb80d73e37_HphoQC
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:10] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_3f804da3-5e2e-42d0-9ee1-02fb80d73e37_HphoQC
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:15] "GET /status/Test_3f804da3-5e2e-42d0-9ee1-02fb80d73e37_HphoQC HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "0.5", "SLEEP": "-100000"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_3efd0d26-5398-428d-8944-324dc1345ff0_W8A9ml
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:54] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_3efd0d26-5398-428d-8944-324dc1345ff0_W8A9ml
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:59] "GET /status/Test_3efd0d26-5398-428d-8944-324dc1345ff0_W8A9ml HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_e51734c6-17b4-41bc-a495-9173838121e2_OhdiLg
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:15] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_e51734c6-17b4-41bc-a495-9173838121e2_OhdiLg
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:20] "GET /status/Test_e51734c6-17b4-41bc-a495-9173838121e2_OhdiLg HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "900000", "SLEEP": "1"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_0f20c25a-d7da-4997-afcc-dfde371c9d1e_cL6js0
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:04:59] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_0f20c25a-d7da-4997-afcc-dfde371c9d1e_cL6js0
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:05:04] "GET /status/Test_0f20c25a-d7da-4997-afcc-dfde371c9d1e_cL6js0 HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_b369e5cd-abd6-4ee9-b0f2-64f2379cb193_yF2s43
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:20] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b369e5cd-abd6-4ee9-b0f2-64f2379cb193_yF2s43
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:25] "GET /status/Test_b369e5cd-abd6-4ee9-b0f2-64f2379cb193_yF2s43 HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"2Float": "0.5", "1Float": "-900000", "SLEEP": "1"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_14ea691c-82ab-47f1-9fda-9ef700632bbf_SJ4ehh
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:05:04] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_14ea691c-82ab-47f1-9fda-9ef700632bbf_SJ4ehh
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:05:09] "GET /status/Test_14ea691c-82ab-47f1-9fda-9ef700632bbf_SJ4ehh HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_35b5f8f3-a8a6-487e-a7e6-a2648cc359f3_FsI9cu
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:25] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_35b5f8f3-a8a6-487e-a7e6-a2648cc359f3_FsI9cu
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:30] "GET /status/Test_35b5f8f3-a8a6-487e-a7e6-a2648cc359f3_FsI9cu HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"COMMAND": "/bin/true", "2Float": "0.5", "1Float": "1.0", "SLEEP": "1"}, "api": "1.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_949871e4-8f44-462a-9181-dc8123868917_FSJeMw
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:05:09] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_949871e4-8f44-462a-9181-dc8123868917_FSJeMw
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:05:14] "GET /status/Test_949871e4-8f44-462a-9181-dc8123868917_FSJeMw HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_c33b2cb5-8e1f-43b8-b49d-2773b7704e6f_FDQSdZ
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:30] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c33b2cb5-8e1f-43b8-b49d-2773b7704e6f_FDQSdZ
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2013 12:55:35] "GET /status/Test_c33b2cb5-8e1f-43b8-b49d-2773b7704e6f_FDQSdZ HTTP/1.1" 200 -

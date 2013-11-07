@@ -11,7 +11,7 @@ $HOME/Soft/WebServices/AppServer/cisapps start
 (setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
-sleep 2
+sleep 5
 
 # Submit bad jobs
 
@@ -92,3 +92,5 @@ sleep 2
 $HOME/Soft/WebServices/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
+
+sleep 3
