@@ -4,13 +4,13 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
---------Test_b2be4ce5-8c03-468b-b14c-b049b78efb2a_o_cKwq
+--------Test_ba63a7d5-dd41-4197-a180-da8719083d77_HDRdSx
 ------------epilogue.sh
 ------------output.log
 ------------pbs.sh
 ------------progress.log
+------------status.dat
 ----PBS
---------Queue
 --------Scratch
 ----SSH
 --------Queue
@@ -21,16 +21,21 @@ The following new files/directories were created:
 --------closing
 --------delete
 --------done
-------------Test_b2be4ce5-8c03-468b-b14c-b049b78efb2a_o_cKwq
+------------Test_ba63a7d5-dd41-4197-a180-da8719083d77_HDRdSx
 --------exit
-------------Test_b2be4ce5-8c03-468b-b14c-b049b78efb2a_o_cKwq
+------------Test_ba63a7d5-dd41-4197-a180-da8719083d77_HDRdSx
 --------failed
 --------jobs
-------------Test_b2be4ce5-8c03-468b-b14c-b049b78efb2a_o_cKwq
+------------Test_ba63a7d5-dd41-4197-a180-da8719083d77_HDRdSx
 --------killed
 --------opts
-------------Test_b2be4ce5-8c03-468b-b14c-b049b78efb2a_o_cKwq
+------------Test_ba63a7d5-dd41-4197-a180-da8719083d77_HDRdSx
 --------queued
 --------running
 --------stop
 --------waiting
+
+The following existing files/directories changed their contents:
+<Test Directory>
+----PBS
+--------Queue

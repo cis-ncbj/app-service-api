@@ -79,6 +79,7 @@
     // working directory (default: Services/Data)
     //"service_path_data" : "Services/Data"
     //"service_username" : "konrad",
+    "service_username" : "kklimaszewski",
     //
     // ****************
     // Gateway settings

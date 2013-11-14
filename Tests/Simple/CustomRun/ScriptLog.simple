@@ -11,6 +11,5 @@ Commencing test: CleanRun
 1
 1.0
 epilogue.sh
-output.log
 pbs.sh
 progress.log

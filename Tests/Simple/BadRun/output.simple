@@ -1,23 +1,12 @@
 Error: Unsupported service
 Aborted:-95 @Validator - Job did not specify API level.
-
 Aborted:-95 @Validator - API level 0.1 is not supported.
-
 Aborted:-95 @Validator - Section '2Float' is not allowed in job definition.
-
 Aborted:-95 @Validator - Variable value not allowed: SLEEP - 0.1.
-
 Aborted:-95 @Validator - Variable value not allowed: 1Float - string.
-
 Aborted:-95 @Validator - Not supported variable: 11Float.
-
 Aborted:-95 @Validator - Variable value not allowed: SLEEP - 100000.
-
 Aborted:-95 @Validator - Variable value not allowed: SLEEP - -100000.
-
 Aborted:-95 @Validator - Variable value not allowed: 1Float - 900000.
-
 Aborted:-95 @Validator - Variable value not allowed: 1Float - -900000.
-
 Aborted:-95 @Validator - Variable value not allowed: COMMAND - /bin/true.
-

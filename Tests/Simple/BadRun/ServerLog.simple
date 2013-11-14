@@ -1,147 +1,45 @@
-INFO 11-08 09:15:41 Daemon : Executing start
-DEBUG 11-08 09:15:41 Tools : @Validator - Loading services configurations.
-INFO 11-08 09:15:41 Tools : Initialized service: default
-INFO 11-08 09:15:41 Tools : Initialized service: MultiNest
-INFO 11-08 09:15:41 Tools : Initialized service: Test
-INFO 11-08 09:15:41 Daemon : CISAppServer started with pid 4936
-DEBUG 11-08 09:15:47 JobManager : @JManager - Detected new job Test_92f8806c-e121-41a2-862f-67bc1d3b8bb5_X4Su_b.
-DEBUG 11-08 09:15:47 JobManager : @Job - Loaded data file Test_92f8806c-e121-41a2-862f-67bc1d3b8bb5_X4Su_b.
-DEBUG 11-08 09:15:47 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'0.5', u'SLEEP': u'0.1'}, u'service': u'Test'}
-WARNING 11-08 09:15:47 JobManager : @Validator - Job did not specify API level.
-DEBUG 11-08 09:15:47 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:15:47 JobManager : @JManager - Detected cleanup job Test_92f8806c-e121-41a2-862f-67bc1d3b8bb5_X4Su_b.
-DEBUG 11-08 09:15:47 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:15:47 JobManager : Job Test_92f8806c-e121-41a2-862f-67bc1d3b8bb5_X4Su_b finished: aborted
-DEBUG 11-08 09:15:53 JobManager : @JManager - Detected new job Test_c5cf00b2-9087-48dc-857d-81cb4e70f0bf_0QM3tG.
-DEBUG 11-08 09:15:53 JobManager : @Job - Loaded data file Test_c5cf00b2-9087-48dc-857d-81cb4e70f0bf_0QM3tG.
-DEBUG 11-08 09:15:53 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'0.5', u'SLEEP': u'0.1'}, u'api': u'0.1', u'service': u'Test'}
-WARNING 11-08 09:15:53 Tools : @Validator - Value not in allowed range: api - 0.1
-WARNING 11-08 09:15:53 JobManager : @Validator - API level 0.1 is not supported.
-DEBUG 11-08 09:15:53 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:15:53 JobManager : @JManager - Detected cleanup job Test_c5cf00b2-9087-48dc-857d-81cb4e70f0bf_0QM3tG.
-DEBUG 11-08 09:15:53 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:15:53 JobManager : Job Test_c5cf00b2-9087-48dc-857d-81cb4e70f0bf_0QM3tG finished: aborted
-DEBUG 11-08 09:15:59 JobManager : @JManager - Detected new job Test_861004d5-e630-4981-b2ca-49c21f79e542_ogPKc8.
-DEBUG 11-08 09:15:59 JobManager : @Job - Loaded data file Test_861004d5-e630-4981-b2ca-49c21f79e542_ogPKc8.
-DEBUG 11-08 09:15:59 JobManager : {u'api': u'1.0', u'2Float': u'0.5', u'1Float': u'0.5', u'SLEEP': u'0.1', u'service': u'Test'}
-WARNING 11-08 09:15:59 JobManager : @Validator - Section '2Float' is not allowed in job definition.
-DEBUG 11-08 09:15:59 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:15:59 JobManager : @JManager - Detected cleanup job Test_861004d5-e630-4981-b2ca-49c21f79e542_ogPKc8.
-DEBUG 11-08 09:15:59 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:15:59 JobManager : Job Test_861004d5-e630-4981-b2ca-49c21f79e542_ogPKc8 finished: aborted
-DEBUG 11-08 09:16:02 JobManager : @JManager - Detected new job Test_3951655f-85a1-4e91-9c89-24a270b13b16_eyLFXA.
-DEBUG 11-08 09:16:02 JobManager : @Job - Loaded data file Test_3951655f-85a1-4e91-9c89-24a270b13b16_eyLFXA.
-DEBUG 11-08 09:16:02 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'0.5', u'SLEEP': u'0.1'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:02 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:02 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:02 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:02 Tools : @Validator - Value passed validation: TestName - CleanRun
-WARNING 11-08 09:16:02 Tools : @Validator - Value is not a proper int.
+INFO 11-14 11:11:57 Daemon : Executing start
+INFO 11-14 11:11:57 Tools : Initialized service: MultiNest
+INFO 11-14 11:11:57 Tools : Initialized service: Test
+INFO 11-14 11:11:57 Tools : Initialized service: default
+INFO 11-14 11:11:57 Daemon : CISAppServer started with pid 18013
+WARNING 11-14 11:12:03 JobManager : @Validator - Job did not specify API level.
+INFO 11-14 11:12:04 JobManager : Job Test_9c4c7b58-955e-4fb0-8bd0-cff944d54ede_odwfQv finished: aborted
+WARNING 11-14 11:12:10 Tools : @Validator - Value not in allowed range: api - 0.1
+WARNING 11-14 11:12:10 JobManager : @Validator - API level 0.1 is not supported.
+INFO 11-14 11:12:10 JobManager : Job Test_a0249619-fd95-43cd-9580-c1312dd563b0_NVdS_c finished: aborted
+WARNING 11-14 11:12:13 JobManager : @Validator - Section '2Float' is not allowed in job definition.
+INFO 11-14 11:12:13 JobManager : Job Test_547d8c40-00d9-428a-8660-2f7e3d385295_lO3PDt finished: aborted
+WARNING 11-14 11:12:19 Tools : @Validator - Value is not a proper int.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 487, in validate_int
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 538, in validate_int
     _v = int(value)
 ValueError: invalid literal for int() with base 10: '0.1'
-WARNING 11-08 09:16:02 JobManager : @Validator - Variable value not allowed: SLEEP - 0.1.
-DEBUG 11-08 09:16:02 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:02 JobManager : @JManager - Detected cleanup job Test_3951655f-85a1-4e91-9c89-24a270b13b16_eyLFXA.
-DEBUG 11-08 09:16:02 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:02 JobManager : Job Test_3951655f-85a1-4e91-9c89-24a270b13b16_eyLFXA finished: aborted
-DEBUG 11-08 09:16:08 JobManager : @JManager - Detected new job Test_096cf82d-8fe3-4d4f-a949-d17e5e0d9939_7Lh1ZO.
-DEBUG 11-08 09:16:08 JobManager : @Job - Loaded data file Test_096cf82d-8fe3-4d4f-a949-d17e5e0d9939_7Lh1ZO.
-DEBUG 11-08 09:16:08 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'string', u'SLEEP': u'2'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:08 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:08 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:08 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:08 Tools : @Validator - Value passed validation: TestName - CleanRun
-DEBUG 11-08 09:16:08 Tools : @Validator - Value passed validation: SLEEP - 2
-DEBUG 11-08 09:16:08 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
-WARNING 11-08 09:16:08 Tools : @Validator - Value is not a proper float
+WARNING 11-14 11:12:19 JobManager : @Validator - Variable value not allowed: SLEEP - 0.1.
+INFO 11-14 11:12:19 JobManager : Job Test_70e34f7a-a496-4797-bb54-fd48c07ba550_Ju_bqi finished: aborted
+WARNING 11-14 11:12:25 Tools : @Validator - Value is not a proper float
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 514, in validate_float
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 565, in validate_float
     _v = float(value)
 ValueError: could not convert string to float: string
-WARNING 11-08 09:16:08 JobManager : @Validator - Variable value not allowed: 1Float - string.
-DEBUG 11-08 09:16:08 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:08 JobManager : @JManager - Detected cleanup job Test_096cf82d-8fe3-4d4f-a949-d17e5e0d9939_7Lh1ZO.
-DEBUG 11-08 09:16:08 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:08 JobManager : Job Test_096cf82d-8fe3-4d4f-a949-d17e5e0d9939_7Lh1ZO finished: aborted
-DEBUG 11-08 09:16:14 JobManager : @JManager - Detected new job Test_b73779a5-51f9-4424-a7f3-56c40c343bfa_xey9NV.
-DEBUG 11-08 09:16:14 JobManager : @Job - Loaded data file Test_b73779a5-51f9-4424-a7f3-56c40c343bfa_xey9NV.
-DEBUG 11-08 09:16:14 JobManager : {u'input': {u'2Float': u'0.5', u'11Float': u'0.5'}, u'api': u'1.0', u'service': u'Test'}
-WARNING 11-08 09:16:14 JobManager : @Validator - Not supported variable: 11Float.
-DEBUG 11-08 09:16:14 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:14 JobManager : @JManager - Detected cleanup job Test_b73779a5-51f9-4424-a7f3-56c40c343bfa_xey9NV.
-DEBUG 11-08 09:16:14 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:14 JobManager : Job Test_b73779a5-51f9-4424-a7f3-56c40c343bfa_xey9NV finished: aborted
-DEBUG 11-08 09:16:17 JobManager : @JManager - Detected new job Test_19206bfe-14af-4a7c-a8a0-c0aaaac82f90_snCfdl.
-DEBUG 11-08 09:16:17 JobManager : @Job - Loaded data file Test_19206bfe-14af-4a7c-a8a0-c0aaaac82f90_snCfdl.
-DEBUG 11-08 09:16:17 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'0.5', u'SLEEP': u'100000'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:17 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:17 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:17 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:17 Tools : @Validator - Value passed validation: TestName - CleanRun
-WARNING 11-08 09:16:17 Tools : @Validator - Value not in allowed range: SLEEP - 100000
-WARNING 11-08 09:16:17 JobManager : @Validator - Variable value not allowed: SLEEP - 100000.
-DEBUG 11-08 09:16:17 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:17 JobManager : @JManager - Detected cleanup job Test_19206bfe-14af-4a7c-a8a0-c0aaaac82f90_snCfdl.
-DEBUG 11-08 09:16:17 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:17 JobManager : Job Test_19206bfe-14af-4a7c-a8a0-c0aaaac82f90_snCfdl finished: aborted
-DEBUG 11-08 09:16:23 JobManager : @JManager - Detected new job Test_14617196-e4c1-482f-893d-7fef0b211c57_2hgslg.
-DEBUG 11-08 09:16:23 JobManager : @Job - Loaded data file Test_14617196-e4c1-482f-893d-7fef0b211c57_2hgslg.
-DEBUG 11-08 09:16:23 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'0.5', u'SLEEP': u'-100000'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:23 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:23 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:23 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:23 Tools : @Validator - Value passed validation: TestName - CleanRun
-WARNING 11-08 09:16:23 Tools : @Validator - Value not in allowed range: SLEEP - -100000
-WARNING 11-08 09:16:23 JobManager : @Validator - Variable value not allowed: SLEEP - -100000.
-DEBUG 11-08 09:16:23 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:23 JobManager : @JManager - Detected cleanup job Test_14617196-e4c1-482f-893d-7fef0b211c57_2hgslg.
-DEBUG 11-08 09:16:23 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:23 JobManager : Job Test_14617196-e4c1-482f-893d-7fef0b211c57_2hgslg finished: aborted
-DEBUG 11-08 09:16:29 JobManager : @JManager - Detected new job Test_04daf876-51cd-476a-9326-163266b4817c_tciAh5.
-DEBUG 11-08 09:16:29 JobManager : @Job - Loaded data file Test_04daf876-51cd-476a-9326-163266b4817c_tciAh5.
-DEBUG 11-08 09:16:29 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'900000', u'SLEEP': u'1'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:29 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:29 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:29 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:29 Tools : @Validator - Value passed validation: TestName - CleanRun
-DEBUG 11-08 09:16:29 Tools : @Validator - Value passed validation: SLEEP - 1
-DEBUG 11-08 09:16:29 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
-WARNING 11-08 09:16:29 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
-WARNING 11-08 09:16:29 JobManager : @Validator - Variable value not allowed: 1Float - 900000.
-DEBUG 11-08 09:16:29 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:29 JobManager : @JManager - Detected cleanup job Test_04daf876-51cd-476a-9326-163266b4817c_tciAh5.
-DEBUG 11-08 09:16:29 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:29 JobManager : Job Test_04daf876-51cd-476a-9326-163266b4817c_tciAh5 finished: aborted
-DEBUG 11-08 09:16:32 JobManager : @JManager - Detected new job Test_8b25a430-8ae2-494d-87c3-71bcc5ac9f00_Qz9nc8.
-DEBUG 11-08 09:16:32 JobManager : @Job - Loaded data file Test_8b25a430-8ae2-494d-87c3-71bcc5ac9f00_Qz9nc8.
-DEBUG 11-08 09:16:32 JobManager : {u'input': {u'2Float': u'0.5', u'1Float': u'-900000', u'SLEEP': u'1'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:32 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:32 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:32 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:32 Tools : @Validator - Value passed validation: TestName - CleanRun
-DEBUG 11-08 09:16:32 Tools : @Validator - Value passed validation: SLEEP - 1
-DEBUG 11-08 09:16:32 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
-WARNING 11-08 09:16:32 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
-WARNING 11-08 09:16:32 JobManager : @Validator - Variable value not allowed: 1Float - -900000.
-DEBUG 11-08 09:16:32 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:32 JobManager : @JManager - Detected cleanup job Test_8b25a430-8ae2-494d-87c3-71bcc5ac9f00_Qz9nc8.
-DEBUG 11-08 09:16:32 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:32 JobManager : Job Test_8b25a430-8ae2-494d-87c3-71bcc5ac9f00_Qz9nc8 finished: aborted
-DEBUG 11-08 09:16:38 JobManager : @JManager - Detected new job Test_600011d5-0f05-4b29-9b81-e4de525be5f6_WD1Blj.
-DEBUG 11-08 09:16:38 JobManager : @Job - Loaded data file Test_600011d5-0f05-4b29-9b81-e4de525be5f6_WD1Blj.
-DEBUG 11-08 09:16:38 JobManager : {u'input': {u'SLEEP': u'1', u'2Float': u'0.5', u'1Float': u'1.0', u'COMMAND': u'/bin/true'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG 11-08 09:16:38 Tools : @Validator - Value passed validation: 2Float - 0.5
-DEBUG 11-08 09:16:38 Tools : @Validator - Value passed validation: CIS_SCHEDULER - pbs
-DEBUG 11-08 09:16:38 Tools : @Validator - Value passed validation: PBS_OPTS - 
-DEBUG 11-08 09:16:38 Tools : @Validator - Value passed validation: TestName - CleanRun
-DEBUG 11-08 09:16:38 Tools : @Validator - Value passed validation: SLEEP - 1
-WARNING 11-08 09:16:38 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
-WARNING 11-08 09:16:38 JobManager : @Validator - Variable value not allowed: COMMAND - /bin/true.
-DEBUG 11-08 09:16:38 JobManager : @Job - Set new state: closing
-DEBUG 11-08 09:16:38 JobManager : @JManager - Detected cleanup job Test_600011d5-0f05-4b29-9b81-e4de525be5f6_WD1Blj.
-DEBUG 11-08 09:16:38 JobManager : @Job - Set new state: aborted
-INFO 11-08 09:16:38 JobManager : Job Test_600011d5-0f05-4b29-9b81-e4de525be5f6_WD1Blj finished: aborted
-INFO 11-08 09:16:44 Daemon : Received terminate command
-INFO 11-08 09:16:46 Daemon : Shutdown
+WARNING 11-14 11:12:25 JobManager : @Validator - Variable value not allowed: 1Float - string.
+INFO 11-14 11:12:25 JobManager : Job Test_657a16ac-6f59-4429-a017-07d6f5e424de_7Jiy30 finished: aborted
+WARNING 11-14 11:12:28 JobManager : @Validator - Not supported variable: 11Float.
+INFO 11-14 11:12:28 JobManager : Job Test_f8aabc7d-c93c-43c8-80fd-7c78dba13ce6_EY06Hk finished: aborted
+WARNING 11-14 11:12:34 Tools : @Validator - Value not in allowed range: SLEEP - 100000
+WARNING 11-14 11:12:34 JobManager : @Validator - Variable value not allowed: SLEEP - 100000.
+INFO 11-14 11:12:35 JobManager : Job Test_fa5bfc09-cc0a-4a16-b9f1-9f14b5625f38_ThWXPC finished: aborted
+WARNING 11-14 11:12:41 Tools : @Validator - Value not in allowed range: SLEEP - -100000
+WARNING 11-14 11:12:41 JobManager : @Validator - Variable value not allowed: SLEEP - -100000.
+INFO 11-14 11:12:41 JobManager : Job Test_8f40dc84-a844-497b-b8c9-1f8c01806bf1_rKiSOe finished: aborted
+WARNING 11-14 11:12:44 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
+WARNING 11-14 11:12:44 JobManager : @Validator - Variable value not allowed: 1Float - 900000.
+INFO 11-14 11:12:44 JobManager : Job Test_9207c6aa-c5a8-44d6-a1de-91866365c60e_hGGyI1 finished: aborted
+WARNING 11-14 11:12:50 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
+WARNING 11-14 11:12:50 JobManager : @Validator - Variable value not allowed: 1Float - -900000.
+INFO 11-14 11:12:50 JobManager : Job Test_04889629-af87-4e6a-857c-4121f1549749_uEhum8 finished: aborted
+WARNING 11-14 11:12:56 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
+WARNING 11-14 11:12:56 JobManager : @Validator - Variable value not allowed: COMMAND - /bin/true.
+INFO 11-14 11:12:56 JobManager : Job Test_e33d0f8e-794a-4bc4-9bc3-de434b188ffe_61m_kQ finished: aborted
+INFO 11-14 11:13:01 Daemon : Received terminate command
+INFO 11-14 11:13:03 Daemon : Shutdown

@@ -4,13 +4,13 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
---------Test_9c25f0ae-6e15-4703-be56-cd5de34661c0_UfVrxi
+--------Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm
 ------------epilogue.sh
 ------------output.log
 ------------pbs.sh
 ------------progress.log
+------------status.dat
 ----PBS
---------Queue
 --------Scratch
 ----SSH
 --------Queue
@@ -21,16 +21,21 @@ The following new files/directories were created:
 --------closing
 --------delete
 --------done
-------------Test_9c25f0ae-6e15-4703-be56-cd5de34661c0_UfVrxi
+------------Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm
 --------exit
-------------Test_9c25f0ae-6e15-4703-be56-cd5de34661c0_UfVrxi
+------------Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm
 --------failed
 --------jobs
-------------Test_9c25f0ae-6e15-4703-be56-cd5de34661c0_UfVrxi
+------------Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm
 --------killed
 --------opts
-------------Test_9c25f0ae-6e15-4703-be56-cd5de34661c0_UfVrxi
+------------Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm
 --------queued
 --------running
 --------stop
 --------waiting
+
+The following existing files/directories changed their contents:
+<Test Directory>
+----PBS
+--------Queue

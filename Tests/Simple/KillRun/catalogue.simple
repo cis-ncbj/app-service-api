@@ -4,7 +4,7 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
---------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+--------Test_a54ab1f1-84cf-4a1a-a4da-deb6aaacf265_gy6Y6D
 ------------epilogue.sh
 ------------output.log
 ------------pbs.sh
@@ -12,19 +12,27 @@ The following new files/directories were created:
 ------------status.dat
 ----PBS
 --------Scratch
+----SSH
+--------Queue
+--------Scratch
 ----Shared
 --------aborted
+--------cleanup
+--------closing
 --------delete
 --------done
 --------exit
-------------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+------------Test_a54ab1f1-84cf-4a1a-a4da-deb6aaacf265_gy6Y6D
 --------failed
-------------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
 --------jobs
-------------Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+------------Test_a54ab1f1-84cf-4a1a-a4da-deb6aaacf265_gy6Y6D
 --------killed
+------------Test_a54ab1f1-84cf-4a1a-a4da-deb6aaacf265_gy6Y6D
+--------opts
+------------Test_a54ab1f1-84cf-4a1a-a4da-deb6aaacf265_gy6Y6D
 --------queued
 --------running
+--------stop
 --------waiting
 
 The following existing files/directories changed their contents:
