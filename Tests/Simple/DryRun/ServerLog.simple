@@ -1,19 +1,25 @@
-INFO 11-06 10:46:20 Daemon : Executing start
-INFO 11-06 10:46:20 Tools : Initialized service: MultiNest
-INFO 11-06 10:46:20 Tools : Initialized service: Test
-INFO 11-06 10:46:20 Tools : Initialized service: default
-INFO 11-06 10:46:20 Daemon : CISAppServer started with pid 18851
-INFO 11-06 10:46:22 Daemon : Received pause command
-INFO 11-06 10:46:23 Daemon : Received run command
-INFO 11-06 10:46:23 Daemon : Received reload command
-INFO 11-06 10:46:23 Tools : Initialized service: MultiNest
-INFO 11-06 10:46:23 Tools : Initialized service: Test
-INFO 11-06 10:46:23 Tools : Initialized service: default
-INFO 11-06 10:46:23 Daemon : Reload complete
-INFO 11-06 10:46:24 Daemon : Executing restart
-INFO 11-06 10:46:25 Tools : Initialized service: MultiNest
-INFO 11-06 10:46:25 Tools : Initialized service: Test
-INFO 11-06 10:46:25 Tools : Initialized service: default
-INFO 11-06 10:46:25 Daemon : CISAppServer started with pid 18887
-INFO 11-06 10:46:25 Daemon : Received terminate command
-INFO 11-06 10:46:25 Daemon : Shutdown
+INFO 11-08 09:11:05 Daemon : Executing start
+DEBUG 11-08 09:11:05 Tools : @Validator - Loading services configurations.
+INFO 11-08 09:11:05 Tools : Initialized service: default
+INFO 11-08 09:11:05 Tools : Initialized service: MultiNest
+INFO 11-08 09:11:05 Tools : Initialized service: Test
+INFO 11-08 09:11:05 Daemon : CISAppServer started with pid 4581
+INFO 11-08 09:11:10 Daemon : Received pause command
+INFO 11-08 09:11:10 Daemon : Received run command
+INFO 11-08 09:11:11 Daemon : Received reload command
+DEBUG 11-08 09:11:11 Daemon : PWD: /home/konrad/.texttest/tmp/console.08Nov091104.4572/simple/DryRun
+DEBUG 11-08 09:11:11 Config : @Config - Loading global configuration: CISAppServer.json
+DEBUG 11-08 09:11:11 Config : @Config - Finalise configuration initialisation
+DEBUG 11-08 09:11:11 Tools : @Validator - Loading services configurations.
+INFO 11-08 09:11:11 Tools : Initialized service: default
+INFO 11-08 09:11:11 Tools : Initialized service: MultiNest
+INFO 11-08 09:11:11 Tools : Initialized service: Test
+INFO 11-08 09:11:11 Daemon : Reload complete
+INFO 11-08 09:11:11 Daemon : Executing restart
+DEBUG 11-08 09:11:12 Tools : @Validator - Loading services configurations.
+INFO 11-08 09:11:12 Tools : Initialized service: default
+INFO 11-08 09:11:12 Tools : Initialized service: MultiNest
+INFO 11-08 09:11:12 Tools : Initialized service: Test
+INFO 11-08 09:11:12 Daemon : CISAppServer started with pid 4620
+INFO 11-08 09:11:12 Daemon : Received terminate command
+INFO 11-08 09:11:14 Daemon : Shutdown

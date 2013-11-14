@@ -4,17 +4,17 @@ Job3: Waiting
 Job1: Running
 Job2: Waiting
 Job3: Waiting
-Job1: Done: 0
+Job1: Done:0 Job finished succesfully
 
-Job2: Running
-Job3: Waiting
-Job1: Done: 0
+Job2: Waiting
+Job3: Running
+Job1: Done:0 Job finished succesfully
 
-Job2: Done: 0
+Job2: Waiting
+Job3: Done:0 Job finished succesfully
 
-Job3: Waiting
-Job1: Error: Job with ID:Test_92cd48ca-b485-4ae3-a0be-463cca13c70d_ojzrOq not found
-Job2: Done: 0
+Job1: Error: Job with ID:Test_a8717488-f5ab-4031-96d1-66aafd399b3c_VFBOT0 not found
+Job2: Done:0 Job finished succesfully
 
-Job3: Done: 0
+Job3: Done:0 Job finished succesfully
 

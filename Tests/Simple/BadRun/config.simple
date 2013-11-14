@@ -1,5 +1,5 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/BadRun
+executable:$TEXTTEST_ROOT/bin/BadRun
 
 [collate_file]
 Script:Output/*/pbs.sh

@@ -9,10 +9,10 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:27:43] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu
+DEBUG:root:Return request id: Test_503abd69-9b0f-4344-87b5-4a8b053b5aa1_NM5NZB
+INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 10:01:12] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_503abd69-9b0f-4344-87b5-4a8b053b5aa1_NM5NZB
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:27:43] "GET /status/Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:29:43] "GET /status/Test_450e2169-d64c-4bc3-b65e-0c371347f09d_MAGzXu HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 10:01:12] "GET /status/Test_503abd69-9b0f-4344-87b5-4a8b053b5aa1_NM5NZB HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_503abd69-9b0f-4344-87b5-4a8b053b5aa1_NM5NZB
+INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 10:01:42] "GET /status/Test_503abd69-9b0f-4344-87b5-4a8b053b5aa1_NM5NZB HTTP/1.1" 200 -

@@ -1,2 +1,2 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/DryRun
+executable:$TEXTTEST_ROOT/bin/DryRun

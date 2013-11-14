@@ -3,12 +3,18 @@
 # Test clean test job execution with default options
 
 PORT=5008
+ROOT="$TEXTTEST_ROOT/../.."
 
-module load python-tools
+type -t module > /dev/null 2>&1
+if [[ $? == 0 ]]
+then
+    module load python-tools
+fi
+
 # Start server
-$HOME/Soft/WebServices/AppServer/cisapps start
+$ROOT/AppServer/cisapps start
 # Start gateway
-(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+(setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
 sleep 5
@@ -21,13 +27,15 @@ ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PO
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
-sleep 120
+sleep 30
 
 # Expect Done
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Stop server
-$HOME/Soft/WebServices/AppServer/cisapps terminate
+$ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
+
+sleep 3

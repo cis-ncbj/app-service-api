@@ -1,5 +1,5 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/simple
+executable:$TEXTTEST_ROOT/bin/simple
 
 # Disable parallel runs until it is possible to adjust server port from config
 #config_module:default

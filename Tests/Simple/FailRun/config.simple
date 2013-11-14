@@ -1,5 +1,5 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/FailRun
+executable:$TEXTTEST_ROOT/bin/FailRun
 
 [collate_file]
 Script:Output/*/pbs.sh

@@ -1,15 +1,16 @@
- 'python-tools/1.6-x86_64-gcc46-python27' load complete.
+/home/konrad/Work/Soft/WebServices/Tests/Simple/bin/BadRun: line 8: module: nie znaleziono polecenia
 INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: INFO
+INFO     Logging level: DEBUG
 INFO Executing start
+DEBUG @Validator - Loading services configurations.
+INFO Initialized service: default
 INFO Initialized service: MultiNest
 INFO Initialized service: Test
-INFO Initialized service: default
-INFO CISAppServer started with pid 26626
+INFO CISAppServer started with pid 4936
 INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: INFO
+INFO     Logging level: DEBUG
 INFO     Executing terminate

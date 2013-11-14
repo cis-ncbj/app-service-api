@@ -1,19 +1,113 @@
-INFO 09-20 12:39:22 Daemon : Executing start
-INFO 09-20 12:39:22 Tools : Initialized service: MultiNest
-INFO 09-20 12:39:22 Tools : Initialized service: default
-INFO 09-20 12:39:22 Tools : Initialized service: Test
-INFO 09-20 12:39:22 Daemon : CISAppServer started with pid 6284
-INFO 09-20 12:39:30 Tools : Job successfully submitted: Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B
-INFO 09-20 12:39:41 Daemon : Received pause command
-INFO 09-20 12:40:02 Tools : Job Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B output retrived.
-INFO 09-20 12:40:02 JobManager : Job Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B finished: done
-INFO 09-20 12:41:01 Daemon : Executing restart
-INFO 09-20 12:41:02 Tools : Initialized service: MultiNest
-INFO 09-20 12:41:02 Tools : Initialized service: default
-INFO 09-20 12:41:02 Tools : Initialized service: Test
-INFO 09-20 12:41:02 Daemon : CISAppServer started with pid 6370
-INFO 09-20 12:41:06 Tools : Job successfully submitted: Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq
-INFO 09-20 12:41:19 Tools : Job Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq output retrived.
-INFO 09-20 12:41:19 JobManager : Job Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq finished: done
-INFO 09-20 12:41:42 Daemon : Received terminate command
-INFO 09-20 12:41:42 Daemon : Shutdown
+INFO 11-13 12:25:11 Daemon : Executing start
+DEBUG 11-13 12:25:11 Tools : @Validator - Loading services configurations.
+INFO 11-13 12:25:11 Tools : Initialized service: default
+INFO 11-13 12:25:11 Tools : Initialized service: MultiNest
+INFO 11-13 12:25:11 Tools : Initialized service: Test
+INFO 11-13 12:25:11 Daemon : CISAppServer started with pid 29795
+DEBUG 11-13 12:25:17 JobManager : @JManager - Detected new job Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
+DEBUG 11-13 12:25:17 JobManager : @Job - Loaded data file Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
+DEBUG 11-13 12:25:17 JobManager : {u'api': u'1.0', u'service': u'Test'}
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: 2Float - 20.99
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: PBS_OPTS - 
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: TestName - CleanRun
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: SLEEP - 3
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: 1Float - 1.0
+DEBUG 11-13 12:25:17 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+DEBUG 11-13 12:25:17 Tools : @Scheduler - generate scripts
+DEBUG 11-13 12:25:17 Tools : @Scheduler - Sub dir: 
+DEBUG 11-13 12:25:17 Tools : @Scheduler - Chaining input data
+DEBUG 11-13 12:25:17 Tools : @SSH - Submitting new job
+DEBUG 11-13 12:25:17 Tools : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shsub -i Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh -d /home/konrad/.texttest/tmp/console.13Nov122510.29786/simple/MaintainanceRun/SSH/Scratch/Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh -o /home/konrad/.texttest/tmp/console.13Nov122510.29786/simple/MaintainanceRun/SSH/Scratch/Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh/output.log /home/konrad/.texttest/tmp/console.13Nov122510.29786/simple/MaintainanceRun/SSH/Scratch/Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh/pbs.sh']
+INFO 11-13 12:25:18 Tools : Job successfully submitted: Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
+DEBUG 11-13 12:25:18 JobManager : @Job - Set new state: queued
+DEBUG 11-13 12:25:18 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:18 JobManager : @Job - Set new state: running
+DEBUG 11-13 12:25:21 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:25 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:26 Tools : @Scheduler - Extracting progress log
+DEBUG 11-13 12:25:26 Tools : @Scheduler - Progress log extracted
+DEBUG 11-13 12:25:29 Tools : @SSH - Check jobs state for user konrad @ host localhost
+INFO 11-13 12:25:31 Daemon : Received pause command
+DEBUG 11-13 12:25:31 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:35 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:36 Tools : @Scheduler - Extracting progress log
+DEBUG 11-13 12:25:36 Tools : @Scheduler - Progress log extracted
+DEBUG 11-13 12:25:39 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:42 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:46 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:47 Tools : @Scheduler - Extracting progress log
+DEBUG 11-13 12:25:47 Tools : @Scheduler - Progress log extracted
+DEBUG 11-13 12:25:50 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:25:50 JobManager : @Job - Set new state: closing
+DEBUG 11-13 12:25:50 JobManager : @JManager - Detected cleanup job Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
+DEBUG 11-13 12:25:50 JobManager : @Job - Set new state: cleanup
+DEBUG 11-13 12:25:50 JobManager : @JManager - Finalise cleanup thread started for job Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
+DEBUG 11-13 12:25:50 Tools : @Scheduler - Retrive job output: Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
+DEBUG 11-13 12:25:50 Tools : @Scheduler - Remove existing output directory
+DEBUG 11-13 12:25:50 Tools : @Scheduler - Make output directory world readable
+DEBUG 11-13 12:25:50 JobManager : @Job - Set new state: done
+INFO 11-13 12:25:50 JobManager : Job Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh finished: done
+DEBUG 11-13 12:25:53 JobManager : @JManager - Removed finished cleanup thread.
+DEBUG 11-13 12:26:38 JobManager : @Job - Loaded data file Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
+DEBUG 11-13 12:26:38 JobManager : {u'input': {u'CleanSet': u'1'}, u'api': u'1.0', u'service': u'Test'}
+INFO 11-13 12:26:51 Daemon : Executing restart
+DEBUG 11-13 12:26:52 Tools : @Validator - Loading services configurations.
+INFO 11-13 12:26:52 Tools : Initialized service: default
+INFO 11-13 12:26:52 Tools : Initialized service: MultiNest
+INFO 11-13 12:26:52 Tools : Initialized service: Test
+DEBUG 11-13 12:26:52 JobManager : @JManager - Detected active job Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
+DEBUG 11-13 12:26:52 JobManager : @Job - Loaded data file Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
+DEBUG 11-13 12:26:52 JobManager : {u'api': u'1.0', u'service': u'Test'}
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: 2Float - 20.99
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: PBS_OPTS - 
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: TestName - CleanRun
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: SLEEP - 3
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: 1Float - 1.0
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+DEBUG 11-13 12:26:52 JobManager : @Job - Job output size calculated: 4882
+DEBUG 11-13 12:26:52 JobManager : @JManager - Detected active job Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
+DEBUG 11-13 12:26:52 JobManager : @Job - Loaded data file Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
+DEBUG 11-13 12:26:52 JobManager : {u'input': {u'CleanSet': u'1'}, u'api': u'1.0', u'service': u'Test'}
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: 2Float - 20.99
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: PBS_OPTS - 
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: TestName - CleanRun
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: SLEEP - 1
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: 1Float - 1.0
+DEBUG 11-13 12:26:52 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+INFO 11-13 12:26:52 Daemon : CISAppServer started with pid 31842
+DEBUG 11-13 12:26:55 JobManager : @JManager - Detected new job Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
+DEBUG 11-13 12:26:55 Tools : @Scheduler - generate scripts
+DEBUG 11-13 12:26:56 Tools : @Scheduler - Sub dir: 
+DEBUG 11-13 12:26:56 Tools : @Scheduler - Chaining input data
+DEBUG 11-13 12:26:56 Tools : @SSH - Submitting new job
+DEBUG 11-13 12:26:56 Tools : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shsub -i Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf -d /home/konrad/.texttest/tmp/console.13Nov122510.29786/simple/MaintainanceRun/SSH/Scratch/Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf -o /home/konrad/.texttest/tmp/console.13Nov122510.29786/simple/MaintainanceRun/SSH/Scratch/Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf/output.log /home/konrad/.texttest/tmp/console.13Nov122510.29786/simple/MaintainanceRun/SSH/Scratch/Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf/pbs.sh']
+INFO 11-13 12:26:56 Tools : Job successfully submitted: Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
+DEBUG 11-13 12:26:56 JobManager : @Job - Set new state: queued
+DEBUG 11-13 12:26:56 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:26:57 JobManager : @Job - Set new state: running
+DEBUG 11-13 12:27:00 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:27:04 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:27:04 Tools : @Scheduler - Extracting progress log
+DEBUG 11-13 12:27:04 Tools : @Scheduler - Progress log extracted
+DEBUG 11-13 12:27:07 Tools : @SSH - Check jobs state for user konrad @ host localhost
+DEBUG 11-13 12:27:08 JobManager : @Job - Set new state: closing
+DEBUG 11-13 12:27:08 JobManager : @JManager - Detected cleanup job Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
+DEBUG 11-13 12:27:08 JobManager : @Job - Set new state: cleanup
+DEBUG 11-13 12:27:08 JobManager : @JManager - Finalise cleanup thread started for job Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
+DEBUG 11-13 12:27:08 Tools : @Scheduler - Retrive job output: Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
+DEBUG 11-13 12:27:08 Tools : @Scheduler - Remove existing output directory
+DEBUG 11-13 12:27:08 Tools : @Scheduler - Make output directory world readable
+DEBUG 11-13 12:27:08 JobManager : @Job - Set new state: done
+INFO 11-13 12:27:08 JobManager : Job Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf finished: done
+DEBUG 11-13 12:27:11 JobManager : @JManager - Removed finished cleanup thread.
+INFO 11-13 12:27:33 Daemon : Received terminate command
+INFO 11-13 12:27:35 Daemon : Shutdown

@@ -3,12 +3,18 @@
 # Test system behaviour for jobs that are killed while queued
 
 PORT=5005
+ROOT="$TEXTTEST_ROOT/../.."
 
-module load python-tools
+type -t module > /dev/null 2>&1
+if [[ $? == 0 ]]
+then
+    module load python-tools
+fi
+
 # Start server
-$HOME/Soft/WebServices/AppServer/cisapps start
+$ROOT/AppServer/cisapps start
 # Start gateway
-(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+(setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
 sleep 5
@@ -36,7 +42,8 @@ sleep 20
 curl -s -S http://localhost:$PORT/status/$ID
 
 # Stop server
-$HOME/Soft/WebServices/AppServer/cisapps terminate
+$ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
+sleep 3

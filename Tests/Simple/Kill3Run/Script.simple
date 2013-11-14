@@ -2,29 +2,29 @@
 #PBS -q test_slc6
 #
 
-echo "Commencing test: CleanRun" | tee -a progress.log
-sleep 1
+echo "Commencing test: LongRun" | tee -a progress.log
+sleep 5
 echo 10 | tee -a progress.log
-sleep 1
+sleep 5
 echo 9 | tee -a progress.log
-sleep 1
+sleep 5
 echo 8 | tee -a progress.log
-sleep 1
+sleep 5
 echo 7 | tee -a progress.log
-sleep 1
+sleep 5
 echo 6 | tee -a progress.log
-sleep 1
+sleep 5
 echo 5 | tee -a progress.log
-sleep 1
+sleep 5
 echo 4 | tee -a progress.log
-sleep 1
+sleep 5
 echo 3 | tee -a progress.log
-sleep 1
+sleep 5
 echo 2 | tee -a progress.log
-sleep 1
+sleep 5
 echo 1 | tee -a progress.log
 
-python -c "print 1.0 / 20.99"
+python -c "print 22.5 / 39.67"
 /bin/ls
 
 exit $?
