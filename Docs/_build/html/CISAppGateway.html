@@ -56,6 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Implementation reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modules.html#source-code">Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#running-webservice-locally">Running Webservice locally</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html#class-reference">Class reference</a></li>
 </ul>
 </li>
@@ -113,6 +114,14 @@ exist returns an error.</p>
 <dt id="CISAppGateway.Views.index">
 <tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">index</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppGateway.Views.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="CISAppGateway.Views.kill">
+<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">kill</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Views.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Job kill request. Expects GET request on /kill/&lt;id&gt; URL, where &lt;id&gt; is
+the Job ID returned during submission. If job is queued or running it will
+be killed. If job does not exist or has finished returns an error.</p>
 </dd></dl>
 
 <dl class="function">
@@ -178,6 +187,20 @@ service.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; ID of job to be removed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="CISAppGateway.Server.kill">
+<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">kill</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request job idendified with id to be killed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; ID of job to be killed</td>
 </tr>
 </tbody>
 </table>
@@ -366,7 +389,7 @@ that are used to monitor job states</p>
 
 <dl class="data">
 <dt id="CISAppGateway.Config.conf">
-<tt class="descclassname">CISAppGateway.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'gate_path_aborted': None, 'gate_path_queued': None, 'log_level': 'INFO', 'gate_path_done': None, 'gate_path_failed': None, 'gate_path_delete': None, 'gate_path_killed': None, 'gate_path_waiting': None, 'config_file': None, 'gate_url_output': 'http://localhost:8000/', 'allowed_services': ('Test', 'MultiNest', 'EPRCore'), 'gate_path_running': None, 'gate_path_output': 'Output', 'log_output': None, 'gate_path_jobs': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed'), 'gate_path_shared': 'Shared', 'gate_path': {'waiting': None, 'killed': None, 'failed': None, 'running': None, 'done': None, 'aborted': None, 'queued': None}, 'gate_path_exit': None}</em><a class="headerlink" href="#CISAppGateway.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppGateway.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'gate_path_aborted': None, 'gate_path_queued': None, 'log_level': 'INFO', 'gate_path_stop': None, 'gate_path_failed': None, 'gate_path_delete': None, 'gate_path_killed': None, 'gate_path_waiting': None, 'config_file': None, 'gate_url_output': 'http://localhost:8000/', 'allowed_services': ('Test', 'MultiNest', 'EPRCore'), 'gate_path_running': None, 'gate_path_output': 'Output', 'log_output': None, 'gate_path_jobs': None, 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed'), 'gate_path_shared': 'Shared', 'gate_path': {'waiting': None, 'killed': None, 'failed': None, 'running': None, 'done': None, 'aborted': None, 'queued': None}, 'gate_path_exit': None, 'gate_path_done': None}</em><a class="headerlink" href="#CISAppGateway.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>

@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="webapi.html">Web API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Implementation reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#source-code">Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-webservice-locally">Running Webservice locally</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-reference">Class reference</a></li>
 </ul>
 </li>
@@ -94,7 +95,7 @@
   <div class="section" id="implementation-reference">
 <h1>Implementation reference<a class="headerlink" href="#implementation-reference" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="source-code">
-<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <p>The source code is available through git repository:</p>
 <div class="highlight-python"><pre>git clone ssh://&lt;user_name&gt;@usrint.cis.gov.pl/mnt/home/kklimaszewski/GitRepos/WebServices
 cd WebServices
@@ -106,6 +107,61 @@ MultiNest as well as this documentation.</p>
 <p>Updating the code to the latest version:</p>
 <div class="highlight-python"><pre>git pull
 git submodule update</pre>
+</div>
+</div>
+<div class="section" id="running-webservice-locally">
+<h2>Running Webservice locally<a class="headerlink" href="#running-webservice-locally" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<p>First checkout the source code (see <a class="reference internal" href="#source-code"><em>Source Code</em></a>).</p>
+<p>Then we create a working directory:</p>
+<div class="highlight-python"><pre>mkdir WebServicesRun
+cd WebServicesRun
+cp -r ../WebServices/AppServer/Services .
+cp ../WebServices/AppServer/CISAppServer.json .
+cp ../WebServices/AppGateway/CISAppGateway.json .</pre>
+</div>
+<p>To test new service put it&#8217;s configuration files into WebServicesRun/Services.
+Edit the CISAppGateway.json configuration file and add the new service to
+&#8220;allowed_services&#8221; list.</p>
+<p>To change where the logs of AppGateway and AppServer are stored edit the
+CISAppGateway.json and CISAppServer.json configuration files.</p>
+</div>
+<div class="section" id="start">
+<h3>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h3>
+<p>Now we can start the AppServer and the AppGateway:</p>
+<div class="highlight-python"><pre>cd WebServicesRun
+../WebServices/AppServer/cisapps start
+../WebServices/AppGateway/cisappg</pre>
+</div>
+<p>The AppServer will run in background. To see what is going check the log file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">CISAppServer</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
+<p>For job submission we can use curl. The AppGateway listens on port 5000 by
+default:</p>
+<div class="highlight-python"><pre>curl -i -H "Content-Type: application/json" -X POST \
+    -d '{"service":"Test","api":1.0, "input":{"2Float":10.0}}' \
+    http://localhost:5000/submit</pre>
+</div>
+<p>As a result we will obtain a JOBID. To check the job status:</p>
+<div class="highlight-python"><pre>curl -i http://localhost:5000/status/&lt;JOBID&gt;</pre>
+</div>
+<p>More API calls are described in <a class="reference internal" href="webapi.html"><em>Web API</em></a>.</p>
+</div>
+<div class="section" id="stop">
+<h3>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
+<p>The AppGateway is stopped by sending the interrupt signal ([ctrl] + C).
+The AppServer is stopped with stop command:</p>
+<div class="highlight-python"><pre>cd WebServicesRun
+../WebServices/AppServer/cisapps stop</pre>
+</div>
+<p>Information about other commands and options can be displayed:</p>
+<div class="highlight-python"><pre>../WebServices/AppServer/cisapps --help</pre>
+</div>
 </div>
 </div>
 <div class="section" id="class-reference">
