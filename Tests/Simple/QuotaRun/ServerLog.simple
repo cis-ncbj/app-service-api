@@ -1,21 +1,18 @@
-INFO 06-05 10:26:50 Daemon : Executing start
-INFO 06-05 10:26:50 Tools : Initialized service: MultiNest
-INFO 06-05 10:26:50 Tools : Initialized service: default
-INFO 06-05 10:26:50 Tools : Initialized service: Test
-INFO 06-05 10:26:50 Daemon : CISAppServer started with pid 18028
-INFO 06-05 10:26:57 Tools : Job successfully submitted: Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg
-WARNING 06-05 10:27:00 JobManager : @JManager - Cannot collect garbage for service: Test
-INFO 06-05 10:28:01 Tools : Job Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg output retrived.
-INFO 06-05 10:28:01 JobManager : Job Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg finished: done
-INFO 06-05 10:28:05 Tools : Job successfully submitted: Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn
-WARNING 06-05 10:28:05 JobManager : @JManager - Cannot collect garbage for service: Test
-INFO 06-05 10:29:13 Tools : Job Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn output retrived.
-INFO 06-05 10:29:13 JobManager : Job Test_07751969-f4e3-4798-9f1a-cabe6f902021_c3XkZn finished: done
-WARNING 06-05 10:29:16 JobManager : @JManager - Cannot collect garbage for service: Test
-INFO 06-05 10:30:04 JobManager : Garbage collect reclaimed 4.19527 MB of disk space.
-INFO 06-05 10:30:05 Tools : Job successfully submitted: Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16
-INFO 06-05 10:30:05 JobManager : @JManager - Job Test_c11de0db-1418-4807-920f-707ebffe12ff_XwZ_gg removed with all data.
-INFO 06-05 10:31:06 Tools : Job Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 output retrived.
-INFO 06-05 10:31:06 JobManager : Job Test_b9e55c83-e48a-4566-8191-607eb92da17f_GNUi16 finished: done
-INFO 06-05 10:31:35 Daemon : Received terminate command
-INFO 06-05 10:31:35 Daemon : Shutdown
+INFO 11-20 14:29:25 Daemon : Executing start
+INFO 11-20 14:29:25 Tools : Initialized service: MultiNest
+INFO 11-20 14:29:25 Tools : Initialized service: Test
+INFO 11-20 14:29:25 Tools : Initialized service: default
+INFO 11-20 14:29:25 Daemon : CISAppServer started with pid 19222
+INFO 11-20 14:29:33 Tools : Job successfully submitted: Test_10cef9f9-ec4f-41a3-bf5b-6012449e0a85_FaJk1U
+WARNING 11-20 14:29:36 JobManager : @JManager - Cannot collect garbage for service: Test
+INFO 11-20 14:30:08 JobManager : Job Test_10cef9f9-ec4f-41a3-bf5b-6012449e0a85_FaJk1U finished: done
+INFO 11-20 14:30:11 Tools : Job successfully submitted: Test_892abcec-a3ba-4e10-bf2f-d79ee6abbb78_8Giqp_
+WARNING 11-20 14:30:11 JobManager : @JManager - Cannot collect garbage for service: Test
+INFO 11-20 14:30:46 JobManager : Job Test_892abcec-a3ba-4e10-bf2f-d79ee6abbb78_8Giqp_ finished: done
+WARNING 11-20 14:30:49 JobManager : @JManager - Cannot collect garbage for service: Test
+INFO 11-20 14:32:10 JobManager : Garbage collect reclaimed 4.195274 MB of disk space.
+INFO 11-20 14:32:10 Tools : Job successfully submitted: Test_229f0bc6-f9ac-49d6-a78a-a16878b5ca20_g9J4L4
+INFO 11-20 14:32:11 JobManager : @JManager - Job Test_10cef9f9-ec4f-41a3-bf5b-6012449e0a85_FaJk1U removed with all data.
+INFO 11-20 14:32:45 JobManager : Job Test_229f0bc6-f9ac-49d6-a78a-a16878b5ca20_g9J4L4 finished: done
+INFO 11-20 14:33:22 Daemon : Received terminate command
+INFO 11-20 14:33:24 Daemon : Shutdown

@@ -1,19 +1,17 @@
-INFO 09-20 12:39:22 Daemon : Executing start
-INFO 09-20 12:39:22 Tools : Initialized service: MultiNest
-INFO 09-20 12:39:22 Tools : Initialized service: default
-INFO 09-20 12:39:22 Tools : Initialized service: Test
-INFO 09-20 12:39:22 Daemon : CISAppServer started with pid 6284
-INFO 09-20 12:39:30 Tools : Job successfully submitted: Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B
-INFO 09-20 12:39:41 Daemon : Received pause command
-INFO 09-20 12:40:02 Tools : Job Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B output retrived.
-INFO 09-20 12:40:02 JobManager : Job Test_9bac0274-aa34-481a-be27-58ec73a80697_oTWz_B finished: done
-INFO 09-20 12:41:01 Daemon : Executing restart
-INFO 09-20 12:41:02 Tools : Initialized service: MultiNest
-INFO 09-20 12:41:02 Tools : Initialized service: default
-INFO 09-20 12:41:02 Tools : Initialized service: Test
-INFO 09-20 12:41:02 Daemon : CISAppServer started with pid 6370
-INFO 09-20 12:41:06 Tools : Job successfully submitted: Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq
-INFO 09-20 12:41:19 Tools : Job Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq output retrived.
-INFO 09-20 12:41:19 JobManager : Job Test_c60c86ae-d140-4344-915e-683ccb6eaffd_F2A6hq finished: done
-INFO 09-20 12:41:42 Daemon : Received terminate command
-INFO 09-20 12:41:42 Daemon : Shutdown
+INFO 11-20 14:18:07 Daemon : Executing start
+INFO 11-20 14:18:07 Tools : Initialized service: MultiNest
+INFO 11-20 14:18:07 Tools : Initialized service: Test
+INFO 11-20 14:18:07 Tools : Initialized service: default
+INFO 11-20 14:18:07 Daemon : CISAppServer started with pid 11173
+INFO 11-20 14:18:14 Tools : Job successfully submitted: Test_431b5c8b-da52-4d02-a0a2-f467923fe77d___fAjl
+INFO 11-20 14:18:28 Daemon : Received pause command
+INFO 11-20 14:18:47 JobManager : Job Test_431b5c8b-da52-4d02-a0a2-f467923fe77d___fAjl finished: done
+INFO 11-20 14:19:49 Daemon : Executing restart
+INFO 11-20 14:19:50 Tools : Initialized service: MultiNest
+INFO 11-20 14:19:50 Tools : Initialized service: Test
+INFO 11-20 14:19:50 Tools : Initialized service: default
+INFO 11-20 14:19:50 Daemon : CISAppServer started with pid 14614
+INFO 11-20 14:19:55 Tools : Job successfully submitted: Test_ce036a0d-a8b9-4f3c-bdd7-4ceb5d6eae53_zeU4op
+INFO 11-20 14:20:08 JobManager : Job Test_ce036a0d-a8b9-4f3c-bdd7-4ceb5d6eae53_zeU4op finished: done
+INFO 11-20 14:20:31 Daemon : Received terminate command
+INFO 11-20 14:20:33 Daemon : Shutdown

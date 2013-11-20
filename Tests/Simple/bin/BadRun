@@ -3,15 +3,21 @@
 # Test wrong input detection
 
 PORT=5000
+ROOT="$TEXTTEST_ROOT/../.."
 
-module load python-tools
+type -t module > /dev/null 2>&1
+if [[ $? == 0 ]]
+then
+    module load python-tools
+fi
+
 # Start server
-$HOME/Soft/WebServices/AppServer/cisapps start
+$ROOT/AppServer/cisapps start
 # Start gateway
-(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+(setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
-sleep 2
+sleep 5
 
 # Submit bad jobs
 
@@ -89,6 +95,8 @@ echo ""
 sleep 2
 
 # Stop server
-$HOME/Soft/WebServices/AppServer/cisapps terminate
+$ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
+
+sleep 3

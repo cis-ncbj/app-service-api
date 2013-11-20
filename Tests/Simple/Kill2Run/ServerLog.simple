@@ -1,15 +1,9 @@
-INFO 09-20 10:57:11 Daemon : Executing start
-INFO 09-20 10:57:11 Tools : Initialized service: MultiNest
-INFO 09-20 10:57:11 Tools : Initialized service: default
-INFO 09-20 10:57:11 Tools : Initialized service: Test
-INFO 09-20 10:57:11 Daemon : CISAppServer started with pid 4640
-INFO 09-20 10:57:15 Tools : Job successfully submitted: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
-WARNING 09-20 10:57:33 Tools : @PBS - Unable to extract job exit code: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp. Will continue with output extraction
-Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 1039, in finalise
-    with open(os.path.join(_work_dir, 'status.dat')) as _status_file:
-IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.20Sep103605.4344/simple/Kill2Run/PBS/Scratch/Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp/status.dat'
-INFO 09-20 10:57:33 Tools : Job Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp output retrived.
-INFO 09-20 10:57:33 JobManager : Job Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp finished: killed
-INFO 09-20 10:57:53 Daemon : Received terminate command
-INFO 09-20 10:57:53 Daemon : Shutdown
+INFO 11-20 12:18:56 Daemon : Executing start
+INFO 11-20 12:18:56 Tools : Initialized service: MultiNest
+INFO 11-20 12:18:56 Tools : Initialized service: default
+INFO 11-20 12:18:56 Tools : Initialized service: Test
+INFO 11-20 12:18:56 Daemon : CISAppServer started with pid 26630
+INFO 11-20 12:19:03 Tools : Job successfully submitted: Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+INFO 11-20 12:19:22 JobManager : Job Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY finished: killed
+INFO 11-20 12:19:42 Daemon : Received terminate command
+INFO 11-20 12:19:44 Daemon : Shutdown

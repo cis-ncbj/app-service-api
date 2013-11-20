@@ -3,22 +3,30 @@
 # Test server start, pause, run, reload, restart and terminate commands
 
 PORT=5001
+ROOT="$TEXTTEST_ROOT/../.."
 
-module load python-tools
+type -t module > /dev/null 2>&1
+if [[ $? == 0 ]]
+then
+    module load python-tools
+fi
+
 # Start server
-$HOME/Soft/WebServices/AppServer/cisapps start
+$ROOT/AppServer/cisapps start
 # Start gateway (start ne process group)
-(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+(setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$! # Pid of gateway and also group id
 
-sleep 2
+sleep 5
 
-$HOME/Soft/WebServices/AppServer/cisapps pause
-$HOME/Soft/WebServices/AppServer/cisapps run
-$HOME/Soft/WebServices/AppServer/cisapps reload
-$HOME/Soft/WebServices/AppServer/cisapps restart
+$ROOT/AppServer/cisapps pause
+$ROOT/AppServer/cisapps run
+$ROOT/AppServer/cisapps reload
+$ROOT/AppServer/cisapps restart
 
 # Stop server
-$HOME/Soft/WebServices/AppServer/cisapps terminate
+$ROOT/AppServer/cisapps terminate
 # Stop gateway (kill the whole process group)
 kill -TERM -$GATEPID
+
+sleep 3

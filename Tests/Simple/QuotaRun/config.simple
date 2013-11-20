@@ -1,5 +1,5 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/QuotaRun
+executable:$TEXTTEST_ROOT/bin/QuotaRun
 
 [run_dependent_text]
 GatewayLog:INFO:werkzeug:127.0.0.1

@@ -3,15 +3,21 @@
 # Test clean test job execution with options from option set. Simulate service restart.
 
 PORT=5007
+ROOT="$TEXTTEST_ROOT/../.."
 
-module load python-tools
+type -t module > /dev/null 2>&1
+if [[ $? == 0 ]]
+then
+    module load python-tools
+fi
+
 # Start server
-$HOME/Soft/WebServices/AppServer/cisapps start
+$ROOT/AppServer/cisapps start
 # Start gateway
-(setsid $HOME/Soft/WebServices/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+(setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
-sleep 3
+sleep 5
 
 # Submit job
 # Use the default options
@@ -28,7 +34,7 @@ curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Simulate clean restart - pause queue
-$HOME/Soft/WebServices/AppServer/cisapps pause
+$ROOT/AppServer/cisapps pause
 
 sleep 65
 
@@ -51,7 +57,7 @@ curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Simulate clean restart - restart
-$HOME/Soft/WebServices/AppServer/cisapps restart
+$ROOT/AppServer/cisapps restart
 
 sleep 40
 
@@ -60,7 +66,8 @@ curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Stop server
-$HOME/Soft/WebServices/AppServer/cisapps terminate
+$ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
+sleep 3

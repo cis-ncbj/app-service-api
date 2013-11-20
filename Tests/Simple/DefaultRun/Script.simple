@@ -3,25 +3,25 @@
 #
 
 echo "Commencing test: CleanRun" | tee -a progress.log
-sleep 3
+sleep 1
 echo 10 | tee -a progress.log
-sleep 3
+sleep 1
 echo 9 | tee -a progress.log
-sleep 3
+sleep 1
 echo 8 | tee -a progress.log
-sleep 3
+sleep 1
 echo 7 | tee -a progress.log
-sleep 3
+sleep 1
 echo 6 | tee -a progress.log
-sleep 3
+sleep 1
 echo 5 | tee -a progress.log
-sleep 3
+sleep 1
 echo 4 | tee -a progress.log
-sleep 3
+sleep 1
 echo 3 | tee -a progress.log
-sleep 3
+sleep 1
 echo 2 | tee -a progress.log
-sleep 3
+sleep 1
 echo 1 | tee -a progress.log
 
 python -c "print 1.0 / 20.99"

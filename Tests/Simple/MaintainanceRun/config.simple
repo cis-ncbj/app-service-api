@@ -1,5 +1,5 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/MaintainanceRun
+executable:$TEXTTEST_ROOT/bin/MaintainanceRun
 
 [run_dependent_text]
 GatewayLog:INFO:werkzeug:127.0.0.1

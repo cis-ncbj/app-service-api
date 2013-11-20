@@ -1,5 +1,5 @@
 # Full path to the System Under Test
-executable:/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/bin/KillRun
+executable:$TEXTTEST_ROOT/bin/KillRun
 
 [collate_file]
 Script:Output/*/pbs.sh

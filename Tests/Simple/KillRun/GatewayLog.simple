@@ -9,13 +9,13 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:41:51] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+DEBUG:root:Return request id: Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 10:38:19] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:41:51] "GET /status/Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 10:38:19] "GET /status/Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:42:31] "GET /status/Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:42:36] "GET /status/Test_f9b3d6c2-b782-4ec2-aa5a-f01e4a028ba1_Aidplh HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 10:38:59] "GET /status/Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 10:39:04] "GET /status/Test_5a3bfb0d-3982-42c1-989f-6820d8c396b1_BdSdGU HTTP/1.1" 200 -
