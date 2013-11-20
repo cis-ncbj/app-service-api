@@ -17,7 +17,7 @@ $ROOT/AppServer/cisapps start
 (setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
-sleep 5
+sleep 10
 
 # Submit job
 # Use the default options
@@ -31,13 +31,13 @@ ID2=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$P
 echo -n "PartA: "
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
-sleep 2
+sleep 5
 # Expect Error
 echo -n "PartB input not ready: "
 curl -s -S http://localhost:$PORT/status/$ID2
 echo ""
 
-sleep 15
+sleep 12
 
 # Expect Done
 echo -n "PartA: "
@@ -59,17 +59,17 @@ echo ""
 # Use the default options
 ID4=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     "{\"service\":\"PartB\", \"api\":\"1.0\", \"chain\":[\"PartA_miss\"]}")
-sleep 2
+sleep 5
 # Expect Error
 echo -n "PartB missing input: "
 curl -s -S http://localhost:$PORT/status/$ID4
 echo ""
 
-sleep 15
+sleep 12
 
 # Expect Done
 echo -n "PartB: "
-curl -s -S http://localhost:$PORT/status/$ID4
+curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
 sleep 2

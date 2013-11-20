@@ -4,24 +4,32 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
---------Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
+--------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
 ------------epilogue.sh
 ------------pbs.sh
 ----PBS
 --------Scratch
+----SSH
+--------Queue
+--------Scratch
 ----Shared
 --------aborted
+--------cleanup
+--------closing
 --------delete
 --------done
 --------exit
-------------Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
+------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
 --------failed
 --------jobs
-------------Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
+------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
 --------killed
-------------Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
+------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+--------opts
+------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
 --------queued
 --------running
+--------stop
 --------waiting
 
 The following existing files/directories changed their contents:

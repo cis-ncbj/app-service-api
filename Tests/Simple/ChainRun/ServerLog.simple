@@ -1,21 +1,19 @@
-INFO 09-20 11:52:09 Daemon : Executing start
-INFO 09-20 11:52:09 Tools : Initialized service: MultiNest
-INFO 09-20 11:52:09 Tools : Initialized service: default
-INFO 09-20 11:52:09 Tools : Initialized service: Test
-INFO 09-20 11:52:09 Tools : Initialized service: PartA
-INFO 09-20 11:52:09 Tools : Initialized service: PartB
-INFO 09-20 11:52:10 Daemon : CISAppServer started with pid 5635
-INFO 09-20 11:52:17 Tools : Job successfully submitted: PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
-WARNING 09-20 11:52:17 Tools : @Validator - Job PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN did not finish or does not exist. Unable to chain output.
-INFO 09-20 11:52:17 JobManager : Job PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU finished: aborted
-WARNING 09-20 11:52:17 JobManager : @Validator - Bad job chain IDs.
-INFO 09-20 11:52:23 Tools : Job PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN output retrived.
-INFO 09-20 11:52:23 JobManager : Job PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN finished: done
-INFO 09-20 11:52:36 Tools : Job successfully submitted: PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
-WARNING 09-20 11:52:36 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
-INFO 09-20 11:52:36 JobManager : Job PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc finished: aborted
-WARNING 09-20 11:52:36 JobManager : @Validator - Bad job chain IDs.
-INFO 09-20 11:52:44 Tools : Job PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP output retrived.
-INFO 09-20 11:52:44 JobManager : Job PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP finished: done
-INFO 09-20 11:52:53 Daemon : Received terminate command
-INFO 09-20 11:52:53 Daemon : Shutdown
+INFO 11-20 15:35:30 Daemon : Executing start
+INFO 11-20 15:35:30 Tools : Initialized service: MultiNest
+INFO 11-20 15:35:30 Tools : Initialized service: PartA
+INFO 11-20 15:35:30 Tools : Initialized service: PartB
+INFO 11-20 15:35:30 Tools : Initialized service: Test
+INFO 11-20 15:35:31 Tools : Initialized service: default
+INFO 11-20 15:35:31 Daemon : CISAppServer started with pid 12922
+INFO 11-20 15:35:44 Tools : Job successfully submitted: PartA_acc8a4d1-f7fb-4af5-ba5a-96c66f56ff9c_beqNLV
+WARNING 11-20 15:35:44 Tools : @Validator - Job PartA_acc8a4d1-f7fb-4af5-ba5a-96c66f56ff9c_beqNLV did not finish or does not exist. Unable to chain output.
+WARNING 11-20 15:35:44 JobManager : @Validator - Bad job chain IDs.
+INFO 11-20 15:35:45 JobManager : Job PartB_af72908c-ad06-438d-af8c-1ec9d9c0358d_HjgrSx finished: aborted
+INFO 11-20 15:35:51 JobManager : Job PartA_acc8a4d1-f7fb-4af5-ba5a-96c66f56ff9c_beqNLV finished: done
+INFO 11-20 15:36:01 Tools : Job successfully submitted: PartB_e4d6cbae-7737-4966-b9ba-16fba8cdb5f2_5ZGQv7
+WARNING 11-20 15:36:05 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
+WARNING 11-20 15:36:05 JobManager : @Validator - Bad job chain IDs.
+INFO 11-20 15:36:05 JobManager : Job PartB_52ad01e5-9fc4-47bb-a7ff-767b23001a51_SxjuHr finished: aborted
+INFO 11-20 15:36:11 JobManager : Job PartB_e4d6cbae-7737-4966-b9ba-16fba8cdb5f2_5ZGQv7 finished: done
+INFO 11-20 15:36:21 Daemon : Received terminate command
+INFO 11-20 15:36:23 Daemon : Shutdown

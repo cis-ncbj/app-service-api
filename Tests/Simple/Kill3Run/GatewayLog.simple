@@ -9,15 +9,15 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 11:46:18] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3
+DEBUG:root:Return request id: Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 14:08:57] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 11:46:18] "GET /status/Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 14:08:57] "GET /status/Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 11:46:58] "GET /status/Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3 HTTP/1.1" 200 -
-DEBUG:root:@kill - Job remove request Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 11:46:58] "GET /kill/Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 11:47:08] "GET /status/Test_efaa420e-43c4-4c74-8e11-35dbbd9a9875_duljV3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 14:09:37] "GET /status/Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS HTTP/1.1" 200 -
+DEBUG:root:@kill - Job remove request Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 14:09:37] "GET /kill/Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 14:09:52] "GET /status/Test_499fb502-966c-432c-aaa0-9056de7afb27_6sn7KS HTTP/1.1" 200 -
