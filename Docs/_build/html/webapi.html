@@ -57,6 +57,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#verifying-job-status">Verifying job status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-output">Job output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-progress">Job progress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-stop">Job stop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-removal">Job removal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#supported-services">Supported services</a></li>
 </ul>
@@ -103,9 +104,12 @@
 <h2>Job submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
 <p>Jobs are submitted via POST request on <a class="reference external" href="http://app-gw.cis.gov.pl/api/submit">http://app-gw.cis.gov.pl/api/submit</a> or
 <a class="reference external" href="https://app-gw.cis.gov.pl/api/submit">https://app-gw.cis.gov.pl/api/submit</a>. The non encrypted accesss point will be
-deprecated for prodcuction version of CIŚ WebServices.  The POST request should
-contain job attributes either in JSON format. The data payload should be a JSON
-dictionary of key value pairs.  The only keys that are allowed are as follows:</p>
+deprecated for production version of CIŚ WebServices. For testing purposes
+developement version of the API is available at:
+<a class="reference external" href="https://app-gw.cis.gov.pl/api-devel/submit">https://app-gw.cis.gov.pl/api-devel/submit</a></p>
+<p>The POST request should contain job attributes either in JSON format. The data
+payload should be a JSON dictionary of key value pairs. The only keys that are
+allowed are as follows:</p>
 <ul class="simple">
 <li>service - name of the service [required]</li>
 <li>api - API level that the client uderstands [required]. Currently only level
@@ -156,7 +160,11 @@ in the users we browser.</p>
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
     <span class="c"># Send the POST request</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="c"># For testing set verify=False as we use self signed cert.</span>
+        <span class="c"># For production provide CA bundle path as value of the verify</span>
+        <span class="c"># attribute</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">req_data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                          <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="n">flask</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="s">u&quot;Cannot communicate with AppGateway.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
@@ -205,13 +213,18 @@ during submission. The request returns one of:</p>
 <li>Waiting - Job is waiting for validation by AppServer</li>
 <li>Queued - Job is submitted to PBS and awaiting in queue</li>
 <li>Running - Job is performing calculations</li>
+<li>Closing - Job has finished computations and is waiting for cleanup</li>
+<li>Cleanup - Job started the cleanup stage (extraction of results etc.)</li>
 <li>Done - Job has finished successfully</li>
 <li>Failed - Job has finished with non zero exit code. The exit code is returned
-along with the status message e.g.: &#8220;Failed: 127&#8221;</li>
+along with the status message e.g.: &#8220;Failed:127&#8221;</li>
 <li>Aborted - Job execution was aborted due to an error - either malformed job
 request or internal AppGateway/AppServer error. The type of error is returned
-alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supported variable: bad_variable&#8221;</li>
-<li>Killed - Job was killed either by the user or by the underlying queue system.</li>
+alongside the status message e.g.:
+&#8220;Aborted:-94 &#64;Validator - Not supported variable: bad_variable&#8221;</li>
+<li>Killed - Job was killed either by the user or by the underlying queue system.
+The exit code is returned alonng with the status message e.g.:
+&#8220;Killed:271 Job was killed by the scheduler&#8221;</li>
 </ul>
 <p>Example implementation in python:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
@@ -229,6 +242,39 @@ alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supporte
     <span class="k">return</span> <span class="s">&quot;No job submitted yet ...&quot;</span>
 </pre></div>
 </div>
+<div class="section" id="exit-codes">
+<h3>Exit codes<a class="headerlink" href="#exit-codes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Value 0 corresponds to successful execution</li>
+<li>Large negative values &lt;-100,-90&gt; correspond to errors encountered by the CIŚ AppServer:<ul>
+<li>-100: Undefined - this should not happen</li>
+<li>-99: Abort - default job abort exit code</li>
+<li>-98: Shutdown - Server shutdown</li>
+<li>-97: Delete - User delete request</li>
+<li>-96: UserKill - User kill request</li>
+<li>-95: SchedulerKill - Job killed by Scheduler</li>
+<li>-94: Validate - Validator error</li>
+</ul>
+</li>
+<li>Small negative values &lt;-10,-1&gt; corrspond to scheduler errors:<ul>
+<li>-1: JOB_EXEC_FAIL1    - job exec failed, before files, no retry</li>
+<li>-2: JOB_EXEC_FAIL2    - job exec failed, after files, no retry</li>
+<li>-3: JOB_EXEC_RETRY    - job execution failed, do retry</li>
+<li>-4: JOB_EXEC_INITABT  - job aborted on MOM initialization</li>
+<li>-5: JOB_EXEC_INITRST  - job aborted on MOM init, chkpt, no migrate</li>
+<li>-6: JOB_EXEC_INITRMG  - job aborted on MOM init, chkpt, ok migrate</li>
+<li>-7: JOB_EXEC_BADRESRT - job restart failed</li>
+<li>-8: JOB_EXEC_CMDFAIL  - exec() of user command failed</li>
+</ul>
+</li>
+<li>Positive values &lt;1,255&gt; correspond to exit code of the application executed
+inside the job. By convention values &lt;1-127&gt; are used by the application to
+indicate the encountered error. Values &lt;128-255&gt; correspond to a signal which
+killed the application e.g. for signal 9 this would be 128+9=137.</li>
+<li>Positive values &gt;= 256 correspond to the signal used by the scheduler to kill
+the job.</li>
+</ul>
+</div>
 </div>
 <div class="section" id="job-output">
 <h2>Job output<a class="headerlink" href="#job-output" title="Permalink to this headline">¶</a></h2>
@@ -239,6 +285,12 @@ alongside the status message e.g.: &#8220;Aborted: &#64;Validator - Not supporte
 <h2>Job progress<a class="headerlink" href="#job-progress" title="Permalink to this headline">¶</a></h2>
 <p>If service supports a job can be queried about it&#8217;s current progress:
 <a class="reference external" href="http://app-gw.cis.gov.pl/api/progress/[id">http://app-gw.cis.gov.pl/api/progress/[id</a>]</p>
+</div>
+<div class="section" id="job-stop">
+<h2>Job stop<a class="headerlink" href="#job-stop" title="Permalink to this headline">¶</a></h2>
+<p>Job execution can be terminated. It will finish with a &#8220;Killed&#8221; status. The
+produced output will be made available for user access. Kill request URL:
+<a class="reference external" href="http://app-gw.cis.gov.pl/api/kill/[id">http://app-gw.cis.gov.pl/api/kill/[id</a>]</p>
 </div>
 <div class="section" id="job-removal">
 <h2>Job removal<a class="headerlink" href="#job-removal" title="Permalink to this headline">¶</a></h2>

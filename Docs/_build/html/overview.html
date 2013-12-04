@@ -171,7 +171,7 @@ specify values for all available variables</li>
 </ul>
 </li>
 <li>Status query<ul>
-<li>Job status (&#8220;queued&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, ...) can be queried for each job</li>
+<li>Job status (&#8220;Queued&#8221;, &#8220;Running&#8221;, &#8220;Done&#8221;, ...) can be queried for each job</li>
 </ul>
 </li>
 <li>Retrieval of job output<ul>
@@ -330,7 +330,8 @@ predefined values specified using &#8220;sets&#8221;.</p>
 <li>CIS_SCHEDULER - Select scheduler to use. Can be used for submission to
 computing resources not managed by the central CIŚ scheduler. Currently only
 &#8220;pbs&#8221; scheduler is supported (main CIŚ scheduler).</li>
-<li>CIS_QUEUE - Queue used for job submission (default: test_slc6)</li>
+<li>CIS_QUEUE - Queue used by PBS scheduler (default: test_slc6)</li>
+<li>CIS_SSH_HOST - Host name used by SSH scheduler (default: localhost)</li>
 </ul>
 <p>Second class consists of automatic variables:</p>
 <ul class="simple">

@@ -9,9 +9,13 @@ Job submission
 
 Jobs are submitted via POST request on http://app-gw.cis.gov.pl/api/submit or
 https://app-gw.cis.gov.pl/api/submit. The non encrypted accesss point will be
-deprecated for prodcuction version of CIŚ WebServices.  The POST request should
-contain job attributes either in JSON format. The data payload should be a JSON
-dictionary of key value pairs.  The only keys that are allowed are as follows:
+deprecated for production version of CIŚ WebServices. For testing purposes
+developement version of the API is available at:
+https://app-gw.cis.gov.pl/api-devel/submit
+
+The POST request should contain job attributes either in JSON format. The data
+payload should be a JSON dictionary of key value pairs. The only keys that are
+allowed are as follows:
 
 * service - name of the service [required]
 * api - API level that the client uderstands [required]. Currently only level
@@ -65,7 +69,11 @@ Example implementation in python::
         headers = {'content-type': 'application/json'}
         # Send the POST request
         try:
-            r = requests.post(url, data=json.dumps(payload), headers=headers)
+            # For testing set verify=False as we use self signed cert.
+            # For production provide CA bundle path as value of the verify
+            # attribute
+            r = requests.post(url, data=json.dumps(req_data), headers=headers,
+                              verify=False)
         except:
             flask.flash(u"Cannot communicate with AppGateway.")
             return flask.redirect('/')
@@ -118,13 +126,18 @@ during submission. The request returns one of:
 * Waiting - Job is waiting for validation by AppServer
 * Queued - Job is submitted to PBS and awaiting in queue
 * Running - Job is performing calculations
+* Closing - Job has finished computations and is waiting for cleanup
+* Cleanup - Job started the cleanup stage (extraction of results etc.)
 * Done - Job has finished successfully
 * Failed - Job has finished with non zero exit code. The exit code is returned
-  along with the status message e.g.: "Failed: 127"
+  along with the status message e.g.: "Failed:127"
 * Aborted - Job execution was aborted due to an error - either malformed job
   request or internal AppGateway/AppServer error. The type of error is returned
-  alongside the status message e.g.: "Aborted: @Validator - Not supported variable: bad_variable"
+  alongside the status message e.g.: 
+  "Aborted:-94 @Validator - Not supported variable: bad_variable"
 * Killed - Job was killed either by the user or by the underlying queue system.
+  The exit code is returned alonng with the status message e.g.:
+  "Killed:271 Job was killed by the scheduler"
 
 Example implementation in python::
 
@@ -142,6 +155,39 @@ Example implementation in python::
 
         return "No job submitted yet ..."
 
+Exit codes
+++++++++++
+
+* Value 0 corresponds to successful execution
+* Large negative values <-100,-90> correspond to errors encountered by the CIŚ AppServer:
+
+  * -100: Undefined - this should not happen
+  *  -99: Abort - default job abort exit code
+  *  -98: Shutdown - Server shutdown
+  *  -97: Delete - User delete request
+  *  -96: UserKill - User kill request
+  *  -95: SchedulerKill - Job killed by Scheduler
+  *  -94: Validate - Validator error
+
+* Small negative values <-10,-1> corrspond to scheduler errors:
+
+  * -1: JOB_EXEC_FAIL1    - job exec failed, before files, no retry
+  * -2: JOB_EXEC_FAIL2    - job exec failed, after files, no retry
+  * -3: JOB_EXEC_RETRY    - job execution failed, do retry
+  * -4: JOB_EXEC_INITABT  - job aborted on MOM initialization
+  * -5: JOB_EXEC_INITRST  - job aborted on MOM init, chkpt, no migrate
+  * -6: JOB_EXEC_INITRMG  - job aborted on MOM init, chkpt, ok migrate
+  * -7: JOB_EXEC_BADRESRT - job restart failed
+  * -8: JOB_EXEC_CMDFAIL  - exec() of user command failed
+
+* Positive values <1,255> correspond to exit code of the application executed
+  inside the job. By convention values <1-127> are used by the application to
+  indicate the encountered error. Values <128-255> correspond to a signal which
+  killed the application e.g. for signal 9 this would be 128+9=137.
+
+* Positive values >= 256 correspond to the signal used by the scheduler to kill
+  the job.
+
 Job output
 ----------
 
@@ -153,6 +199,13 @@ Job progress
 
 If service supports a job can be queried about it's current progress:
 http://app-gw.cis.gov.pl/api/progress/[id]
+
+Job stop
+--------
+
+Job execution can be terminated. It will finish with a "Killed" status. The
+produced output will be made available for user access. Kill request URL:
+http://app-gw.cis.gov.pl/api/kill/[id]
 
 Job removal
 -----------

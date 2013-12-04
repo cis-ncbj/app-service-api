@@ -82,7 +82,7 @@ The Gateway API allows for:
 
 * Status query
 
-  + Job status ("queued", "running", "done", ...) can be queried for each job
+  + Job status ("Queued", "Running", "Done", ...) can be queried for each job
 
 * Retrieval of job output
 
@@ -244,7 +244,8 @@ predefined values specified using "sets".
 * CIS_SCHEDULER - Select scheduler to use. Can be used for submission to
   computing resources not managed by the central CIŚ scheduler. Currently only
   "pbs" scheduler is supported (main CIŚ scheduler).
-* CIS_QUEUE - Queue used for job submission (default: test_slc6)
+* CIS_QUEUE - Queue used by PBS scheduler (default: test_slc6)
+* CIS_SSH_HOST - Host name used by SSH scheduler (default: localhost)
 
 Second class consists of automatic variables:
 

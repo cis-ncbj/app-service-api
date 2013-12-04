@@ -127,9 +127,16 @@ file.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="CISAppServer.JobManager.Job.cleanup">
+<tt class="descname">cleanup</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job as in cleanup state.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="CISAppServer.JobManager.Job.compact">
 <tt class="descname">compact</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.compact" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Release resources allocated for the job (data, valid_data).</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.JobManager.Job.data">
@@ -138,17 +145,24 @@ file.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="CISAppServer.JobManager.Job.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job for removal.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="CISAppServer.JobManager.Job.die">
-<tt class="descname">die</tt><big>(</big><em>message</em>, <em>err=True</em>, <em>exc_info=False</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.die" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">die</tt><big>(</big><em>message</em>, <em>exit_code=-99</em>, <em>err=True</em>, <em>exc_info=False</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.die" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abort further job execution with proper error in AppServer log as well
-as with proper message for clinet in the job output status file. Sets
-job state as <em>aborted</em>.</p>
+as with proper message for client in the job output status file. Sets
+job state as <em>closing</em>. After cleanup the job state will be <em>aborted</em>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>message</strong> &#8211; Message to be passed to logs and client,</li>
+<li><strong>exit_code</strong> &#8211; One of <tt class="xref py py-class docutils literal"><span class="pre">ExitCodes</span></tt>,</li>
 <li><strong>err</strong> &#8211; if True use log as ERROR otherwise use WARNING priority,</li>
 <li><strong>exc_info</strong> &#8211; if True logging will extract current exception info
 (use in except block to provide additional information to the
@@ -162,18 +176,69 @@ logger).</li>
 
 <dl class="method">
 <dt id="CISAppServer.JobManager.Job.exit">
-<tt class="descname">exit</tt><big>(</big><em>message</em>, <em>state='done'</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.exit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set one of job finished states and generate job output status file.</p>
-<p>The output file is created on the shared storage so that the AppGateway
-can pass the job status and the message to clients.</p>
+<tt class="descname">exit</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finalise job cleanup by setting the state and passing the exit message
+to the user. Should be called only after Job.finish() method was
+called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.finish">
+<tt class="descname">finish</tt><big>(</big><em>message</em>, <em>state='done'</em>, <em>exit_code=0</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job as finished. Job will be set into <em>closing</em> state. When
+cleanup is finished the <a class="reference internal" href="#CISAppServer.JobManager.Job.exit" title="CISAppServer.JobManager.Job.exit"><tt class="xref py py-meth docutils literal"><span class="pre">exit()</span></tt></a> method should be called to set
+the job into its &#8220;exit state&#8221;.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>message</strong> &#8211; Message that will be written to the output status file.</li>
-<li><strong>state</strong> &#8211; Job state to set. Valid values are &#8216;done&#8217;, aborted&#8217;,
-&#8216;killed&#8217;</li>
+<li><strong>message</strong> &#8211; that will be passed to user,</li>
+<li><strong>state</strong> &#8211; Job state after cleanup will finish. One of:
+[&#8216;done&#8217;, &#8216;failed&#8217;, &#8216;aborted&#8217;, &#8216;killed&#8217;],
+:param exit_code: one of <tt class="xref py py-class docutils literal"><span class="pre">ExitCodes</span></tt>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.get_exit_state">
+<tt class="descname">get_exit_state</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.get_exit_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get job &#8220;exit state&#8221; - the state that job will be put into after it is
+finalised. The &#8220;exit state&#8221; is set using <a class="reference internal" href="#CISAppServer.JobManager.Job.finish" title="CISAppServer.JobManager.Job.finish"><tt class="xref py py-meth docutils literal"><span class="pre">finish()</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>One of valid job exit states or None if the &#8220;exit state&#8221; is</dt>
+<dd>not yet defined:</dd>
+</dl>
+<ul>
+<li><dl class="first docutils">
+<dt>done:</dt>
+<dd>job has finished,</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>failed:</dt>
+<dd>job has finished with non zero exit code,</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>aborted:</dt>
+<dd>an error occurred during job preprocessing, submission or
+postprocessing,</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>killed:</dt>
+<dd>job was killed,</dd>
+</dl>
+</li>
 </ul>
 </td>
 </tr>
@@ -229,8 +294,26 @@ it,</p>
 </dl>
 </li>
 <li><dl class="first docutils">
+<dt>closing:</dt>
+<dd><p class="first last">job has finished and is waiting for cleanup,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>cleanup:</dt>
+<dd><p class="first last">job has finished and cleanup of resources is performed,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
 <dt>done:</dt>
 <dd><p class="first last">job has finished,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>failed:</dt>
+<dd><p class="first last">job has finished with non zero exit code,</p>
 </dd>
 </dl>
 </li>
@@ -243,13 +326,7 @@ postprocessing,</p>
 </li>
 <li><dl class="first docutils">
 <dt>killed:</dt>
-<dd><p class="first last">job execution was stopped by an user,</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>delete:</dt>
-<dd><p class="first last">job is scheduled for removal</p>
+<dd><p class="first last">job was killed,</p>
 </dd>
 </dl>
 </li>
@@ -262,25 +339,40 @@ postprocessing,</p>
 <dd><p>Unique job ID string.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="CISAppServer.JobManager.Job.service">
-<tt class="descname">service</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.service" title="Permalink to this definition">¶</a></dt>
-<dd><p>Jobs&#8217; Service</p>
-</dd></dl>
-
 <dl class="method">
-<dt id="CISAppServer.JobManager.Job.set_state">
-<tt class="descname">set_state</tt><big>(</big><em>new_state</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.set_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change job state.</p>
+<dt id="CISAppServer.JobManager.Job.mark">
+<tt class="descname">mark</tt><big>(</big><em>message</em>, <em>exit_code=-96</em><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.mark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job as killed by user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_state</strong> &#8211; new sate for the job. For valid states see
-<a class="reference internal" href="#CISAppServer.JobManager.Job.get_state" title="CISAppServer.JobManager.Job.get_state"><tt class="xref py py-meth docutils literal"><span class="pre">get_state()</span></tt></a>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> &#8211; that will be passed to user,</li>
+<li><strong>exit_code</strong> &#8211; one of <tt class="xref py py-class docutils literal"><span class="pre">ExitCodes</span></tt>.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.queue">
+<tt class="descname">queue</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job as queued.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.JobManager.Job.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.Job.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark job as running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.JobManager.Job.service">
+<tt class="descname">service</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.JobManager.Job.service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jobs&#8217; Service</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -297,6 +389,13 @@ postprocessing,</p>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Main calss of CISAppServer. It is responsible for job management.</p>
 <p>Upon initialization stes up Validator and Sheduler interfaces.</p>
+<dl class="method">
+<dt id="CISAppServer.JobManager.JobManager.check_cleanup">
+<tt class="descname">check_cleanup</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check jobs marked for cleanup.</p>
+<p>Starts the cleanup for the jobs in separate threads.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.check_deleted_jobs">
 <tt class="descname">check_deleted_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_deleted_jobs" title="Permalink to this definition">¶</a></dt>
@@ -330,7 +429,7 @@ running kill it.</p>
 <dt id="CISAppServer.JobManager.JobManager.check_running_jobs">
 <tt class="descname">check_running_jobs</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.check_running_jobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check status of running jobs.</p>
-<p>If finished jobs are found perform finalisation.</p>
+<p>Finished jobs will be marked for finalisation</p>
 </dd></dl>
 
 <dl class="method">
@@ -400,10 +499,12 @@ created and added to the list,</li>
 <li>waiting</li>
 <li>queued</li>
 <li>running</li>
+<li>closing</li>
+<li>cleanup</li>
 <li>done</li>
+<li>failed</li>
 <li>aborted</li>
 <li>killed</li>
-<li>delete</li>
 </ul>
 </dd></dl>
 
@@ -430,17 +531,20 @@ Schedulers. Loads existing jobs from file system.</p>
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.shutdown">
 <tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.shutdown" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stop all running jobs.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.start">
 <tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Restart the queue.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.stop">
 <tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppServer.JobManager.JobManager.stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Pause the queue. New jobs will not be processed.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.JobManager.JobManager.submit">
@@ -484,14 +588,14 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.CTemplate.pattern">
-<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x3abf380&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pattern</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x26dff10&gt;</em><a class="headerlink" href="#CISAppServer.Tools.CTemplate.pattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="CISAppServer.Tools.PbsScheduler">
-<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">PbsScheduler</tt><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">PbsScheduler</tt><big>(</big><em>jm</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#CISAppServer.Tools.Scheduler" title="CISAppServer.Tools.Scheduler"><tt class="xref py py-class docutils literal"><span class="pre">CISAppServer.Tools.Scheduler</span></tt></a></p>
 <p>Class implementing simple interface for PBS queue system.</p>
 <p>Allows for job submission, deletion and extraction of job status.</p>
@@ -499,23 +603,6 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 <dt id="CISAppServer.Tools.PbsScheduler.default_queue">
 <tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.default_queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default PBS queue</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="CISAppServer.Tools.PbsScheduler.finalise">
-<tt class="descname">finalise</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.finalise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prepare output of finished job.</p>
-<p>Job working directory is moved to the external_data_path directory.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -531,35 +618,17 @@ The placeholders have following form: &#64;&#64;{KEY}.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="CISAppServer.Tools.PbsScheduler.status">
-<tt class="descname">status</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return status of the job in PBS queue.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
-</tr>
-</tbody>
-</table>
-<p>Returns one of &#8220;waiting&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, &#8220;unknown&#8221;.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="CISAppServer.Tools.PbsScheduler.stop">
-<tt class="descname">stop</tt><big>(</big><em>job</em>, <em>msg</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.stop" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">stop</tt><big>(</big><em>job</em>, <em>msg</em>, <em>exit_code</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop running job and remove it from PBS queue.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
 <li><strong>msg</strong> &#8211; Message that will be passed to the user</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True on success and False otherwise.</p>
 </td>
 </tr>
 </tbody>
@@ -583,6 +652,20 @@ present in the pbs_work_path/job directory.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="CISAppServer.Tools.PbsScheduler.update">
+<tt class="descname">update</tt><big>(</big><em>jobs</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update job states to match their current state in PBS queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>jobs</strong> &#8211; A list of Job instances for jobs to be updated.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="CISAppServer.Tools.PbsScheduler.work_path">
 <tt class="descname">work_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.PbsScheduler.work_path" title="Permalink to this definition">¶</a></dt>
@@ -593,12 +676,27 @@ present in the pbs_work_path/job directory.</p>
 
 <dl class="class">
 <dt id="CISAppServer.Tools.Scheduler">
-<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Scheduler</tt><a class="headerlink" href="#CISAppServer.Tools.Scheduler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Scheduler</tt><big>(</big><em>jm</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Virtual Class implementing simple interface for execution backend. Actual
 execution backends should derive from this class and implement defined
 interface.</p>
 <p>Allows for job submission, deletion and extraction of job status.</p>
+<dl class="method">
+<dt id="CISAppServer.Tools.Scheduler.abort">
+<tt class="descname">abort</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleanup aborted job.</p>
+<p>Removes working and output directories.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="CISAppServer.Tools.Scheduler.chain_input_data">
 <tt class="descname">chain_input_data</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.chain_input_data" title="Permalink to this definition">¶</a></dt>
@@ -627,14 +725,12 @@ current job.</p>
 <dt id="CISAppServer.Tools.Scheduler.finalise">
 <tt class="descname">finalise</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.finalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepare output of finished job.</p>
-<p>Job working directory is moved to the output_path directory.</p>
+<p>Job working directory is moved to the external_data_path directory.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
 </tr>
 </tbody>
 </table>
@@ -661,21 +757,21 @@ substitute all occurences of &#64;&#64;{atribute_name} with specified values.</p
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Tools.Scheduler.jm">
+<tt class="descname">jm</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.jm" title="Permalink to this definition">¶</a></dt>
+<dd><p>JobManager instance</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Tools.Scheduler.max_jobs">
 <tt class="descname">max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of concurent jobs</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="CISAppServer.Tools.Scheduler.queue_path">
-<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.queue_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path where submitted job IDs are stored</p>
-</dd></dl>
-
 <dl class="method">
-<dt id="CISAppServer.Tools.Scheduler.status">
-<tt class="descname">status</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return status of the job in execution queue.</p>
+<dt id="CISAppServer.Tools.Scheduler.progress">
+<tt class="descname">progress</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Scheduler.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the job progress log and expose it to the user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -684,7 +780,12 @@ substitute all occurences of &#64;&#64;{atribute_name} with specified values.</p
 </tr>
 </tbody>
 </table>
-<p>Returns one of &#8220;waiting&#8221;, &#8220;running&#8221;, &#8220;done&#8221;, &#8220;unknown&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.Scheduler.queue_path">
+<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Scheduler.queue_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where submitted job IDs are stored</p>
 </dd></dl>
 
 <dl class="method">
@@ -720,14 +821,38 @@ present in the work_path/job directory.</p>
 
 <dl class="class">
 <dt id="CISAppServer.Tools.Service">
-<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Service</tt><big>(</big><em>data</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">Service</tt><big>(</big><em>name</em>, <em>data</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
 <p>Class implementing a Service.</p>
 <p>Stores Service configuration and monitors its state.</p>
+<p>Service C-tor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; The name of the service.</li>
+<li><strong>data</strong> &#8211; Dict with service config read from JSON data file.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Other arguments are passed to dict parent class.</p>
 <dl class="method">
 <dt id="CISAppServer.Tools.Service.add_job_proxy">
 <tt class="descname">add_job_proxy</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.add_job_proxy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add new job proxy. The current service quota usage will increase by the
+amount defined in service config by job_size variable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Service.config">
@@ -743,6 +868,12 @@ diskspace and garbage collection</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Tools.Service.name">
+<tt class="descname">name</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Service name</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Tools.Service.real_size">
 <tt class="descname">real_size</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.real_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Real space usage by service output files</p>
@@ -751,12 +882,32 @@ diskspace and garbage collection</p>
 <dl class="method">
 <dt id="CISAppServer.Tools.Service.remove_job">
 <tt class="descname">remove_job</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.remove_job" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove the job and its proxy. Adjust the usage of the service quota.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="CISAppServer.Tools.Service.remove_job_proxy">
 <tt class="descname">remove_job_proxy</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.remove_job_proxy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove a job proxy. The current service quota usage will decrease by
+the job size. Job size should have been determined by the update_job
+call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Service.sets">
@@ -767,12 +918,103 @@ diskspace and garbage collection</p>
 <dl class="method">
 <dt id="CISAppServer.Tools.Service.update_job">
 <tt class="descname">update_job</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.Service.update_job" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Calculate the current size of the output files of the job. Adjusts
+usage of the current and real quotas for the service.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Tools.Service.variables">
 <tt class="descname">variables</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.Service.variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definitions of allowed variables</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CISAppServer.Tools.SshScheduler">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Tools.</tt><tt class="descname">SshScheduler</tt><big>(</big><em>jm</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.SshScheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#CISAppServer.Tools.Scheduler" title="CISAppServer.Tools.Scheduler"><tt class="xref py py-class docutils literal"><span class="pre">CISAppServer.Tools.Scheduler</span></tt></a></p>
+<p>Class implementing simple interface for job execution through SSH.</p>
+<p>Allows for job submission, deletion and extraction of job status.</p>
+<dl class="attribute">
+<dt id="CISAppServer.Tools.SshScheduler.default_queue">
+<tt class="descname">default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.default_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default SSH execute host</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.SshScheduler.max_jobs">
+<tt class="descname">max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.max_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dict of maximum number of concurent jobs per execution host</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.SshScheduler.queue_path">
+<tt class="descname">queue_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.queue_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where submitted SSH job IDs are stored</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.SshScheduler.stop">
+<tt class="descname">stop</tt><big>(</big><em>job</em>, <em>msg</em>, <em>exit_code</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop running job and remove it from SSH queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</li>
+<li><strong>msg</strong> &#8211; Message that will be passed to the user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.SshScheduler.submit">
+<tt class="descname">submit</tt><big>(</big><em>job</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a job to execution host via SSH queue. The &#8220;pbs.sh&#8221; script
+should be already present in the ssh_work_path/job directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job</strong> &#8211; <tt class="xref py py-class docutils literal"><span class="pre">Job</span></tt> instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success and False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppServer.Tools.SshScheduler.update">
+<tt class="descname">update</tt><big>(</big><em>jobs</em><big>)</big><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update job states to match their current state on SSH execution host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>jobs</strong> &#8211; A list of Job instances for jobs to be updated.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Tools.SshScheduler.work_path">
+<tt class="descname">work_path</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Tools.SshScheduler.work_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>SSH Working directory path</p>
 </dd></dl>
 
 </dd></dl>
@@ -909,9 +1151,27 @@ should be called.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.config_schedulers">
+<tt class="descname">config_schedulers</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_schedulers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enabled schedulers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.config_shutdown_time">
+<tt class="descname">config_shutdown_time</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_shutdown_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout for job cleanup before forcing shutdown</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.config_sleep_time">
 <tt class="descname">config_sleep_time</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.config_sleep_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sleep interval in seconds between job status queries</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.daemon_path_installdir">
+<tt class="descname">daemon_path_installdir</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.daemon_path_installdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>AppServer install directory</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -945,6 +1205,18 @@ should be called.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_cleanup">
+<tt class="descname">gate_path_cleanup</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where jobs during cleanup are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_closing">
+<tt class="descname">gate_path_closing</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_closing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where jobs waiting for cleanup are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_delete">
 <tt class="descname">gate_path_delete</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path were where jobs scheduled for removal are symlinked</p>
@@ -966,7 +1238,7 @@ with files that are still in use)</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_exit">
 <tt class="descname">gate_path_exit</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_exit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path were jobs exit status is stored</p>
+<dd><p>Path where jobs exit status is stored</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -978,13 +1250,19 @@ with files that are still in use)</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_jobs">
 <tt class="descname">gate_path_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_jobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path were jobs description is stored</p>
+<dd><p>Path where jobs description is stored</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_killed">
 <tt class="descname">gate_path_killed</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_killed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path were where killed jobs are symlinked</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.gate_path_opts">
+<tt class="descname">gate_path_opts</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_opts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where jobs internal state is stored</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -996,13 +1274,13 @@ with files that are still in use)</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_queued">
 <tt class="descname">gate_path_queued</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_queued" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path were where queued jobs are symlinked</p>
+<dd><p>Path where queued jobs are symlinked</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_running">
 <tt class="descname">gate_path_running</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_running" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path were where running jobs are symlinked</p>
+<dd><p>Path where running jobs are symlinked</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1021,7 +1299,7 @@ AppGateway</p>
 <dl class="attribute">
 <dt id="CISAppServer.Config.Config.gate_path_waiting">
 <tt class="descname">gate_path_waiting</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.gate_path_waiting" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path were where waiting jobs are symlinked</p>
+<dd><p>Path where waiting jobs are symlinked</p>
 </dd></dl>
 
 <dl class="method">
@@ -1205,11 +1483,91 @@ that are younger then this cannot be removed by garbage collector</p>
 that are used to monitor job states</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.service_username">
+<tt class="descname">service_username</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.service_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default user name for job execution</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.ssh_default_queue">
+<tt class="descname">ssh_default_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.ssh_default_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of default SSH execution host</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.ssh_max_jobs">
+<tt class="descname">ssh_max_jobs</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.ssh_max_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of concurent jobs per SSH execution host</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.ssh_path_queue">
+<tt class="descname">ssh_path_queue</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.ssh_path_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where SSH backend will store job IDs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.Config.ssh_path_work">
+<tt class="descname">ssh_path_work</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppServer.Config.Config.ssh_path_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where SSH backeng will create job working directories</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CISAppServer.Config.ExitCodes">
+<em class="property">class </em><tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">ExitCodes</tt><a class="headerlink" href="#CISAppServer.Config.ExitCodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Job exit codes enum:</p>
+<ul class="simple">
+<li>-100: Undefined (this should not happen)</li>
+<li>-99: Abort (default)</li>
+<li>-98: Shutdown</li>
+<li>-97: Delete</li>
+<li>-96: UserKill</li>
+<li>-95: SchedulerKill</li>
+<li>-94: Validate</li>
+</ul>
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.Abort">
+<tt class="descname">Abort</tt><em class="property"> = -99</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.Abort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.Delete">
+<tt class="descname">Delete</tt><em class="property"> = -97</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.Delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.SchedulerKill">
+<tt class="descname">SchedulerKill</tt><em class="property"> = -95</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.SchedulerKill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.Shutdown">
+<tt class="descname">Shutdown</tt><em class="property"> = -98</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.Shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.Undefined">
+<tt class="descname">Undefined</tt><em class="property"> = -100</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.Undefined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.UserKill">
+<tt class="descname">UserKill</tt><em class="property"> = -96</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.UserKill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppServer.Config.ExitCodes.Validate">
+<tt class="descname">Validate</tt><em class="property"> = -94</em><a class="headerlink" href="#CISAppServer.Config.ExitCodes.Validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="data">
 <dt id="CISAppServer.Config.conf">
-<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'service_max_lifetime': 24, 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'log_config': {'handlers': {'mail': {'toaddrs': '', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'service_min_lifetime': 2, 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('CIS_SCHEDULER', 'CIS_QUEUE'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'done': None, 'aborted': None, 'delete': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'log_email': '', 'config_file': None, 'gate_path_stop': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'pbs_path_queue': 'PBS/Queue', 'gate_path_waiting': None, 'service_allowed_sections': ('service', 'api', 'input', 'chain'), 'service_states': ('waiting', 'queued', 'running', 'done', 'failed', 'aborted', 'killed', 'delete'), 'config_progress_step': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">CISAppServer.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'pbs_path_work': 'PBS/Scratch', 'gate_path_dump': 'Dump', 'service_max_jobs': 80, 'service_max_runtime': 12, 'daemon_pidfile_timeout': -1, 'gate_path_running': None, 'config_schedulers': ('pbs', 'ssh'), 'log_config': {'handlers': {'mail': {'toaddrs': '', 'level': 'ERROR', 'fromaddr': 'kklimaszewski&#64;cis.gov.pl', 'mailhost': 'localhost', 'formatter': 'verbose', 'class': 'logging.handlers.SMTPHandler', 'subject': 'AppServer Error'}, 'console': {'formatter': 'simple', 'class': 'logging.StreamHandler', 'level': 'INFO'}, 'file': {'backupCount': 5, 'level': 'INFO', 'filename': '/tmp/CISAppServer.log', 'formatter': 'verbose', 'class': 'logging.handlers.RotatingFileHandler', 'maxBytes': 10000000}}, 'version': 1, 'root': {'level': 'INFO', 'handlers': ['console', 'file', 'mail']}, 'disable_existing_loggers': False, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'datefmt': '%m-%d %H:%M:%S', 'format': '%(levelname)s %(asctime)s %(module)s : %(message)s'}}}, 'log_email': '', 'daemon_path_workdir': '/mnt/home/kklimaszewski/Soft/WebServices/Docs', 'daemon_path_pidfile': '/tmp/CISAppServer.pid', 'service_reserved_keys': ('CIS_SCHEDULER', 'CIS_QUEUE', 'CIS_SSH_HOST'), 'log_level_cli': None, 'log_level': 'INFO', 'gate_path_cleanup': None, 'service_min_lifetime': 2, 'gate_path_failed': None, 'ssh_max_jobs': {'localhost': 2}, 'gate_path_shared': 'Shared', 'ssh_default_queue': 'localhost', 'pbs_max_jobs': 100, 'service_path_conf': 'Services', 'gate_path_opts': None, 'gate_path': {'stop': None, 'running': None, 'done': None, 'aborted': None, 'killed': None, 'failed': None, 'waiting': None, 'cleanup': None, 'closing': None, 'queued': None, 'delete': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'service_max_lifetime': 24, 'config_file': None, 'gate_path_stop': None, 'config_sleep_time': 3, 'service_quota': 10000, 'pbs_default_queue': 'short', 'gate_path_killed': None, 'gate_path_jobs': None, 'daemon_path_installdir': '/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer', 'pbs_path_queue': 'PBS/Queue', 'ssh_path_work': 'SSH/Scratch', 'gate_path_waiting': None, 'service_username': 'apprunner', 'ssh_path_queue': 'SSH/Queue', 'config_progress_step': 2, 'service_allowed_sections': ('service', 'api', 'input', 'chain'), 'service_states': ('waiting', 'queued', 'running', 'closing', 'cleanup', 'done', 'failed', 'aborted', 'killed'), 'config_shutdown_time': 2, 'gate_path_done': None, 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_closing': None, 'gate_path_output': 'Output', 'service_job_size': 50, 'log_output': '/tmp/CISAppServer.log', 'service_path_data': 'Services/Data', 'log_output_cli': None}</em><a class="headerlink" href="#CISAppServer.Config.conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global Config class instance. Use it to access the CISAppGateway
 configuration.</p>
 </dd></dl>
