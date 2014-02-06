@@ -1,4 +1,4 @@
-Commencing test: CleanRun
+Commencing test: WaitRun
 10
 9
 8
@@ -9,7 +9,7 @@ Commencing test: CleanRun
 3
 2
 1
-1.0
+-1.29399585921
 epilogue.sh
 output.log
 pbs.sh

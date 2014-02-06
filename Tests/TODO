@@ -1,0 +1,3 @@
+- Terminate test (terminate server with running, waiting, and queued jobs)
+- Terminate hang test (terminate server with running jobs, job cleanup should hang)
+- Deprecated API test (test for API 1.0 output status values)

@@ -1,55 +1,28 @@
 INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: DEBUG
+INFO     Logging level: INFO
 INFO Executing start
-DEBUG @Validator - Loading services configurations.
 INFO Initialized service: default
-INFO Initialized service: MultiNest
 INFO Initialized service: Test
-INFO CISAppServer started with pid 29795
+INFO Initialized service: MultiNest
+INFO CISAppServer started with pid 9252
 INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: DEBUG
+INFO     Logging level: INFO
 INFO     Executing pause
 INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: DEBUG
+INFO     Logging level: INFO
 INFO Executing restart
-DEBUG @Validator - Loading services configurations.
 INFO Initialized service: default
-INFO Initialized service: MultiNest
 INFO Initialized service: Test
-DEBUG @JManager - Detected active job Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
-DEBUG @Job - Loaded data file Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh.
-DEBUG {u'api': u'1.0', u'service': u'Test'}
-DEBUG @Validator - Value passed validation: 2Float - 20.99
-DEBUG @Validator - Value passed validation: CIS_SCHEDULER - ssh
-DEBUG @Validator - Value passed validation: PBS_OPTS - 
-DEBUG @Validator - Value passed validation: TestName - CleanRun
-DEBUG @Validator - Value passed validation: SLEEP - 3
-DEBUG @Validator - Value passed validation: CIS_SSH_HOST - localhost
-DEBUG @Validator - Value passed validation: COMMAND - /bin/ls
-DEBUG @Validator - Value passed validation: 1Float - 1.0
-DEBUG @Validator - Value passed validation: CIS_QUEUE - test_slc6
-DEBUG @Job - Job output size calculated: 4882
-DEBUG @JManager - Detected active job Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
-DEBUG @Job - Loaded data file Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf.
-DEBUG {u'input': {u'CleanSet': u'1'}, u'api': u'1.0', u'service': u'Test'}
-DEBUG @Validator - Value passed validation: 2Float - 20.99
-DEBUG @Validator - Value passed validation: CIS_SCHEDULER - ssh
-DEBUG @Validator - Value passed validation: PBS_OPTS - 
-DEBUG @Validator - Value passed validation: TestName - CleanRun
-DEBUG @Validator - Value passed validation: SLEEP - 1
-DEBUG @Validator - Value passed validation: CIS_SSH_HOST - localhost
-DEBUG @Validator - Value passed validation: COMMAND - /bin/ls
-DEBUG @Validator - Value passed validation: 1Float - 1.0
-DEBUG @Validator - Value passed validation: CIS_QUEUE - test_slc6
-INFO CISAppServer started with pid 31842
+INFO Initialized service: MultiNest
+INFO CISAppServer started with pid 10859
 INFO     CISAppS 0.3
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: DEBUG
+INFO     Logging level: INFO
 INFO     Executing terminate

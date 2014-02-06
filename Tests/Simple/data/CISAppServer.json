@@ -17,8 +17,8 @@
     // state (default: 24)
     //"config_kill_interval" : 24,
     //
-    //"config_schedulers" : ["ssh"],
-    "config_schedulers" : ["pbs"],
+    "config_schedulers" : ["ssh"],
+    //"config_schedulers" : ["pbs"],
     //
     // ***************
     // Daemon settings
@@ -42,9 +42,9 @@
     // ****************
     //
     // Logging level: VERBOSE, DEBUG, INFO, WARNING, ERROR (default: INFO)
-    "log_level" : "INFO",
+    //"log_level" : "INFO",
     //"log_level" : "DEBUG",
-    //"log_level" : "VERBOSE",
+    "log_level" : "VERBOSE",
     //
     // Log output file name (default: /tmp/CISAppServer.log)
     "log_output" : "CISAppServer.log",
@@ -78,8 +78,8 @@
     // Path with services scripts and input files, can be relative to Daemon
     // working directory (default: Services/Data)
     //"service_path_data" : "Services/Data"
-    //"service_username" : "konrad",
-    "service_username" : "kklimaszewski",
+    "service_username" : "konrad",
+    //"service_username" : "kklimaszewski",
     //
     // ****************
     // Gateway settings

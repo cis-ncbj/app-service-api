@@ -9,14 +9,12 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:57:13] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
+DEBUG:root:Return request id: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:34:21] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:57:13] "GET /status/Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
-DEBUG:root:Job queued
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:57:33] "GET /status/Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
-DEBUG:root:Job killed
-INFO:werkzeug:127.0.0.1 - - [20/Sep/2013 10:57:53] "GET /status/Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:34:21] "GET /status/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:34:41] "GET /status/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:35:01] "GET /status/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR HTTP/1.1" 200 -

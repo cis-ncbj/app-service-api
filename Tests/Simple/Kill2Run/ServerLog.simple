@@ -1,15 +1,305 @@
-INFO 09-20 10:57:11 Daemon : Executing start
-INFO 09-20 10:57:11 Tools : Initialized service: MultiNest
-INFO 09-20 10:57:11 Tools : Initialized service: default
-INFO 09-20 10:57:11 Tools : Initialized service: Test
-INFO 09-20 10:57:11 Daemon : CISAppServer started with pid 4640
-INFO 09-20 10:57:15 Tools : Job successfully submitted: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp
-WARNING 09-20 10:57:33 Tools : @PBS - Unable to extract job exit code: Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp. Will continue with output extraction
-Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 1039, in finalise
-    with open(os.path.join(_work_dir, 'status.dat')) as _status_file:
-IOError: [Errno 2] No such file or directory: '/mnt/home/kklimaszewski/.texttest/tmp/console.20Sep103605.4344/simple/Kill2Run/PBS/Scratch/Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp/status.dat'
-INFO 09-20 10:57:33 Tools : Job Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp output retrived.
-INFO 09-20 10:57:33 JobManager : Job Test_6625fd19-7398-4ae2-8a24-c5e97a2ce116_Waqtcp finished: killed
-INFO 09-20 10:57:53 Daemon : Received terminate command
-INFO 09-20 10:57:53 Daemon : Shutdown
+INFO 12-06 16:34:16 Daemon : Executing start
+DEBUG 12-06 16:34:16 Tools : @Validator - Loading services configurations.
+VERBOSE 12-06 16:34:16 Config : {
+    "config" : {},
+    "variables" : {
+        "CIS_SCHEDULER" : {
+            "type" : "string",
+            "default" : "ssh",
+            "values" : ["pbs", "ssh"]
+        },
+        "CIS_QUEUE" : {
+            "type" : "string",
+            "default" : "test_slc6",
+            "values" : ["short", "long", "test_slc6"]
+        },
+        "CIS_SSH_HOST" : {
+            "type" : "string",
+            "default" : "localhost",
+            "values" : ["localhost"]
+        }
+    },
+    "sets" : {}
+}
+
+INFO 12-06 16:34:16 Tools : Initialized service: default
+VERBOSE 12-06 16:34:16 Config : {
+    "config" : {},
+    "variables" : {
+        "nodes_min" : {
+            "type" : "int",
+            "default" : 10,
+            "values" : [0,1000]
+        },
+        "nodes_max" : {
+            "type" : "int",
+            "default" : 10,
+            "values" : [0,1000]
+        },
+        "xsize" : {
+            "type" : "int",
+            "default" : 100,
+            "values" : [0,10000]
+        },
+        "ysize" : {
+            "type" : "int",
+            "default" : 100,
+            "values" : [0,10000]
+        },
+        "sigma_min" : {
+            "type" : "float",
+            "default" : 1,
+            "values" : [1,100]
+        },
+        "sigma_max" : {
+            "type" : "float",
+            "default" : 6,
+            "values" : [1,100]
+        },
+        "node_list_x" : {
+            "type" : "float_array",
+            "default" : [],
+            "values" : [1000, 0, 10000]
+        },
+        "node_list_y" : {
+            "type" : "float_array",
+            "default" : [],
+            "values" : [1000, 0, 10000]
+        },
+        "node_list_xsigma" : {
+            "type" : "float_array",
+            "default" : [],
+            "values" : [1000, 1, 10000]
+        },
+        "node_list_ysigma" : {
+            "type" : "float_array",
+            "default" : [],
+            "values" : [1000, 1, 10000]
+        },
+        "n_live_points" : {
+            "type" : "int",
+            "default" : 1000,
+            "values" : [0,100000]
+        },
+        "sampling_efficiency" : {
+            "type" : "float",
+            "default" : 0.8,
+            "values" : [0,1]
+        },
+        "evidence_tolerance" : {
+            "type" : "float",
+            "default" : 0.5,
+            "values" : [0,1]
+        },
+        "max_modes" : {
+            "type" : "int",
+            "default" : 100,
+            "values" : [1,1000]
+        }
+    },
+    "sets" : {
+        "set_x1" : {
+            "node_list_x" : [15],
+            "node_list_y" : [15],
+            "node_list_xsigma" : [3],
+            "node_list_ysigma" : [3]
+        },
+        "set_x10" : {
+            "node_list_x" : [15, 20, 30, 40, 50, 60, 70, 80, 90, 60],
+            "node_list_y" : [15, 25, 35, 45, 55, 60, 70, 80, 95, 20],
+            "node_list_xsigma" : [3, 4, 5, 6, 1, 4, 10, 2, 5, 6],
+            "node_list_ysigma" : [3, 2, 1, 8, 6, 3, 4, 2, 11, 3]
+        }
+    }
+}
+
+INFO 12-06 16:34:16 Tools : Initialized service: MultiNest
+VERBOSE 12-06 16:34:16 Config : {
+    "config" : {},
+    "variables" : {
+
+        "SLEEP" : {
+            "type" : "int",
+            "default" : 1,
+            "values" : [1,30]
+        },
+
+        "1Float" : {
+            "type" : "float",
+            "default" : 1.0,
+            "values" : [-100,100]
+        },
+
+        "2Float" : {
+            "type" : "float",
+            "default" : 20.99,
+            "values" : [-100,100]
+        },
+
+        "PBS_OPTS" : {
+            "type" : "string",
+            "default" : "",
+            "values" : ["", "PBS -l nodes=30"]
+        },
+
+        "TestName" : {
+            "type" : "string",
+            "default" : "CleanRun",
+            "values" : ["CleanRun","FailRun","LongRun","WaitRun"]
+        },
+
+        "COMMAND" : {
+            "type" : "string",
+            "default" : "/bin/ls",
+            "values" : ["/bin/ls", "/bin/ls NieIstniejącyPlik"]
+        }
+    },
+
+
+
+    "sets" : {
+
+        "CleanSet" : {
+            "TestName" : "CleanRun",
+            "CIS_QUEUE" : "test_slc6",
+            "COMMAND" : "/bin/ls",
+            "PBS_OPTS" : "",
+            "SLEEP" : 1
+        },
+
+        "FailSet" : {
+            "TestName" : "FailRun",
+            "CIS_QUEUE" : "test_slc6",
+            "COMMAND" : "/bin/ls NieIstniejącyPlik",
+            "PBS_OPTS" : "",
+            "SLEEP" : 1
+        },
+
+        "LongSet" : {
+            "TestName" : "LongRun",
+            "CIS_QUEUE" : "test_slc6",
+            "COMMAND" : "/bin/ls",
+            "PBS_OPTS" : "",
+            "SLEEP" : 5,
+            "1Float" : 22.5,
+            "2Float" : 39.67
+        },
+
+        "WaitSet" : {
+            "TestName" : "WaitRun",
+            "CIS_QUEUE" : "test_slc6",
+            "COMMAND" : "/bin/ls",
+            "PBS_OPTS" : "PBS -l nodes=30",
+            "SLEEP" : 1,
+            "1Float" : -12.5,
+            "2Float" : 9.66
+        }
+    }
+}
+
+INFO 12-06 16:34:16 Tools : Initialized service: Test
+VERBOSE 12-06 16:34:16 Config : {"default": {"name": "default", "_Service__jobs": [], "current_size": 0, "variables": {"CIS_SCHEDULER": {"default": "ssh", "values": ["pbs", "ssh"], "type": "string"}, "CIS_SSH_HOST": {"default": "localhost", "values": ["localhost"], "type": "string"}, "CIS_QUEUE": {"default": "test_slc6", "values": ["short", "long", "test_slc6"], "type": "string"}}, "_Service__job_proxies": [], "real_size": 0, "sets": {}, "config": {"username": "konrad", "max_jobs": 80, "min_lifetime": 2, "max_runtime": 12, "quota": 10000000000, "max_lifetime": 24, "job_size": 50000000}}, "MultiNest": {"name": "MultiNest", "_Service__jobs": [], "current_size": 0, "variables": {"node_list_xsigma": {"default": [], "values": [1000, 1, 10000], "type": "float_array"}, "max_modes": {"default": 100, "values": [1, 1000], "type": "int"}, "sigma_max": {"default": 6, "values": [1, 100], "type": "float"}, "sigma_min": {"default": 1, "values": [1, 100], "type": "float"}, "sampling_efficiency": {"default": 0.8, "values": [0, 1], "type": "float"}, "ysize": {"default": 100, "values": [0, 10000], "type": "int"}, "node_list_y": {"default": [], "values": [1000, 0, 10000], "type": "float_array"}, "node_list_x": {"default": [], "values": [1000, 0, 10000], "type": "float_array"}, "n_live_points": {"default": 1000, "values": [0, 100000], "type": "int"}, "nodes_max": {"default": 10, "values": [0, 1000], "type": "int"}, "xsize": {"default": 100, "values": [0, 10000], "type": "int"}, "evidence_tolerance": {"default": 0.5, "values": [0, 1], "type": "float"}, "node_list_ysigma": {"default": [], "values": [1000, 1, 10000], "type": "float_array"}, "nodes_min": {"default": 10, "values": [0, 1000], "type": "int"}}, "_Service__job_proxies": [], "real_size": 0, "sets": {"set_x1": {"node_list_ysigma": [3], "node_list_xsigma": [3], "node_list_y": [15], "node_list_x": [15]}, "set_x10": {"node_list_ysigma": [3, 2, 1, 8, 6, 3, 4, 2, 11, 3], "node_list_xsigma": [3, 4, 5, 6, 1, 4, 10, 2, 5, 6], "node_list_y": [15, 25, 35, 45, 55, 60, 70, 80, 95, 20], "node_list_x": [15, 20, 30, 40, 50, 60, 70, 80, 90, 60]}}, "config": {"username": "konrad", "max_jobs": 80, "min_lifetime": 2, "max_runtime": 12, "quota": 10000000000, "max_lifetime": 24, "job_size": 50000000}}, "Test": {"name": "Test", "_Service__jobs": [], "current_size": 0, "variables": {"2Float": {"default": 20.99, "values": [-100, 100], "type": "float"}, "PBS_OPTS": {"default": "", "values": ["", "PBS -l nodes=30"], "type": "string"}, "TestName": {"default": "CleanRun", "values": ["CleanRun", "FailRun", "LongRun", "WaitRun"], "type": "string"}, "COMMAND": {"default": "/bin/ls", "values": ["/bin/ls", "/bin/ls NieIstniej\u0105cyPlik"], "type": "string"}, "SLEEP": {"default": 1, "values": [1, 30], "type": "int"}, "1Float": {"default": 1.0, "values": [-100, 100], "type": "float"}}, "_Service__job_proxies": [], "real_size": 0, "sets": {"WaitSet": {"PBS_OPTS": "PBS -l nodes=30", "TestName": "WaitRun", "2Float": 9.66, "SLEEP": 1, "COMMAND": "/bin/ls", "1Float": -12.5, "CIS_QUEUE": "test_slc6"}, "FailSet": {"SLEEP": 1, "PBS_OPTS": "", "COMMAND": "/bin/ls NieIstniej\u0105cyPlik", "TestName": "FailRun", "CIS_QUEUE": "test_slc6"}, "CleanSet": {"SLEEP": 1, "PBS_OPTS": "", "COMMAND": "/bin/ls", "TestName": "CleanRun", "CIS_QUEUE": "test_slc6"}, "LongSet": {"PBS_OPTS": "", "TestName": "LongRun", "2Float": 39.67, "SLEEP": 5, "COMMAND": "/bin/ls", "1Float": 22.5, "CIS_QUEUE": "test_slc6"}}, "config": {"username": "konrad", "max_jobs": 80, "min_lifetime": 2, "max_runtime": 12, "quota": 10000000000, "max_lifetime": 24, "job_size": 50000000}}}
+INFO 12-06 16:34:16 Daemon : CISAppServer started with pid 31917
+DEBUG 12-06 16:34:22 Jobs : @Job - Loaded data file Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR.
+DEBUG 12-06 16:34:22 Jobs : {u'input': {u'WaitSet': u'1'}, u'api': u'1.0', u'service': u'Test'}
+DEBUG 12-06 16:34:22 JobManager : @JManager - Detected new job Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR.
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: 2Float - 9.66
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: PBS_OPTS - PBS -l nodes=30
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: TestName - WaitRun
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: SLEEP - 1
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: COMMAND - /bin/ls
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: 1Float - -12.5
+DEBUG 12-06 16:34:22 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+VERBOSE 12-06 16:34:22 Config : @Validator - Validated input data:
+VERBOSE 12-06 16:34:22 Config : {u'2Float': 9.66, u'CIS_SCHEDULER': u'ssh', u'PBS_OPTS': u'PBS -l nodes=30', u'TestName': u'WaitRun', u'SLEEP': 1, u'CIS_SSH_HOST': u'localhost', u'COMMAND': u'/bin/ls', u'1Float': -12.5, u'CIS_QUEUE': u'test_slc6'}
+DEBUG 12-06 16:34:22 Tools : @Scheduler - generate scripts
+DEBUG 12-06 16:34:22 Tools : @Scheduler - Sub dir: 
+DEBUG 12-06 16:34:22 Tools : @Scheduler - Chaining input data
+DEBUG 12-06 16:34:22 Tools : @SSH - Submitting new job
+VERBOSE 12-06 16:34:22 Config : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shsub -i Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR -d /home/konrad/.texttest/tmp/console.06Dec163415.31908/simple/Kill2Run/SSH/Scratch/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR -o /home/konrad/.texttest/tmp/console.06Dec163415.31908/simple/Kill2Run/SSH/Scratch/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR/output.log /home/konrad/.texttest/tmp/console.06Dec163415.31908/simple/Kill2Run/SSH/Scratch/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR/pbs.sh']
+VERBOSE 12-06 16:34:22 Config : 32135
+
+INFO 12-06 16:34:22 Tools : Job successfully submitted: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+DEBUG 12-06 16:34:22 Jobs : @StateManager - Set new state: queued (Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR)
+VERBOSE 12-06 16:34:22 Config : @Service - Allocated 50 MB for job proxy (Test).
+DEBUG 12-06 16:34:22 Tools : @SSH - Check jobs state for user konrad @ localhost
+VERBOSE 12-06 16:34:22 Config : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shstat']
+VERBOSE 12-06 16:34:23 Config : 32135 -1
+
+DEBUG 12-06 16:34:23 Jobs : @StateManager - Set new state: running (Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR)
+VERBOSE 12-06 16:34:23 Config : @JManager - Removal dt: 12:00:00
+VERBOSE 12-06 16:34:23 Config : @JManager - Path time: 2013-12-06 16:34:23.512298
+VERBOSE 12-06 16:34:23 Config : @JManager - Current time: 2013-12-06 16:34:23.517198
+VERBOSE 12-06 16:34:23 Config : @JManager - Time diff: 11:59:59.995100
+DEBUG 12-06 16:34:26 Tools : @SSH - Check jobs state for user konrad @ localhost
+VERBOSE 12-06 16:34:26 Config : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shstat']
+VERBOSE 12-06 16:34:27 Config : 32135 -1
+
+VERBOSE 12-06 16:34:27 Config : @JManager - Removal dt: 12:00:00
+VERBOSE 12-06 16:34:27 Config : @JManager - Path time: 2013-12-06 16:34:23.512298
+VERBOSE 12-06 16:34:27 Config : @JManager - Current time: 2013-12-06 16:34:27.243611
+VERBOSE 12-06 16:34:27 Config : @JManager - Time diff: 11:59:56.268687
+DEBUG 12-06 16:34:30 Tools : @SSH - Check jobs state for user konrad @ localhost
+VERBOSE 12-06 16:34:30 Config : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shstat']
+VERBOSE 12-06 16:34:30 Config : 32135 -1
+
+DEBUG 12-06 16:34:30 Tools : @Scheduler - Extracting progress log (Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR)
+DEBUG 12-06 16:34:30 Tools : @Scheduler - Progress log extracted
+VERBOSE 12-06 16:34:30 Config : @JManager - Removal dt: 12:00:00
+VERBOSE 12-06 16:34:30 Config : @JManager - Path time: 2013-12-06 16:34:23.512298
+VERBOSE 12-06 16:34:30 Config : @JManager - Current time: 2013-12-06 16:34:30.942041
+VERBOSE 12-06 16:34:30 Config : @JManager - Time diff: 11:59:52.570257
+DEBUG 12-06 16:34:33 Tools : @SSH - Check jobs state for user konrad @ localhost
+VERBOSE 12-06 16:34:33 Config : @SSH - Running command: ['/usr/bin/ssh', '-x', '-l', u'konrad', u'localhost', '/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/Scripts/shstat']
+VERBOSE 12-06 16:34:34 Config : 32135 0
+
+DEBUG 12-06 16:34:34 Jobs : @StateManager - Set new state: closing (Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR)
+DEBUG 12-06 16:34:34 JobManager : @JManager - Detected cleanup job Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR.
+DEBUG 12-06 16:34:34 Jobs : @StateManager - Set new state: cleanup (Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR)
+DEBUG 12-06 16:34:34 JobManager : @JManager - Finalise cleanup thread started for job Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+DEBUG 12-06 16:34:34 Tools : @Scheduler - Retrive job output: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+DEBUG 12-06 16:34:34 Tools : @Scheduler - Remove existing output directory
+DEBUG 12-06 16:34:34 Tools : @Scheduler - Make output directory world readable
+VERBOSE 12-06 16:34:34 Config : @Job - Running command: [u'/usr/bin/du', u'-sb', '/home/konrad/.texttest/tmp/console.06Dec163415.31908/simple/Kill2Run/Output/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR']
+VERBOSE 12-06 16:34:34 Config : ('4894\t/home/konrad/.texttest/tmp/console.06Dec163415.31908/simple/Kill2Run/Output/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR\n', None)
+VERBOSE 12-06 16:34:34 Config : @Job - Job output size calculated: 4894
+VERBOSE 12-06 16:34:34 Config : @Service - Storage usage adjusted by -50 MB (Test).
+DEBUG 12-06 16:34:34 Jobs : @StateManager - Set new state: done (Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR)
+INFO 12-06 16:34:34 Jobs : Job Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR finished: done
+VERBOSE 12-06 16:34:37 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:37 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:37 Config : @JManager - Current time: 2013-12-06 16:34:37.685379
+VERBOSE 12-06 16:34:37 Config : @JManager - Time diff: 23:59:57.007013
+DEBUG 12-06 16:34:37 JobManager : @JManager - Removed finished cleanup thread.
+VERBOSE 12-06 16:34:40 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:40 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:40 Config : @JManager - Current time: 2013-12-06 16:34:40.690187
+VERBOSE 12-06 16:34:40 Config : @JManager - Time diff: 23:59:54.002205
+VERBOSE 12-06 16:34:43 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:43 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:43 Config : @JManager - Current time: 2013-12-06 16:34:43.695323
+VERBOSE 12-06 16:34:43 Config : @JManager - Time diff: 23:59:50.997069
+VERBOSE 12-06 16:34:46 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:46 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:46 Config : @JManager - Current time: 2013-12-06 16:34:46.700446
+VERBOSE 12-06 16:34:46 Config : @JManager - Time diff: 23:59:47.991946
+VERBOSE 12-06 16:34:49 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:49 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:49 Config : @JManager - Current time: 2013-12-06 16:34:49.705644
+VERBOSE 12-06 16:34:49 Config : @JManager - Time diff: 23:59:44.986748
+VERBOSE 12-06 16:34:52 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:52 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:52 Config : @JManager - Current time: 2013-12-06 16:34:52.710737
+VERBOSE 12-06 16:34:52 Config : @JManager - Time diff: 23:59:41.981655
+VERBOSE 12-06 16:34:55 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:55 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:55 Config : @JManager - Current time: 2013-12-06 16:34:55.715847
+VERBOSE 12-06 16:34:55 Config : @JManager - Time diff: 23:59:38.976545
+VERBOSE 12-06 16:34:58 Config : @JManager - Removal dt: 1 day, 0:00:00
+VERBOSE 12-06 16:34:58 Config : @JManager - Path time: 2013-12-06 16:34:34.692392
+VERBOSE 12-06 16:34:58 Config : @JManager - Current time: 2013-12-06 16:34:58.721031
+VERBOSE 12-06 16:34:58 Config : @JManager - Time diff: 23:59:35.971361
+INFO 12-06 16:35:01 Daemon : Received terminate command
+INFO 12-06 16:35:03 Daemon : Shutdown

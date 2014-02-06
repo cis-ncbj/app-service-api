@@ -22,7 +22,7 @@ sleep 5
 # Submit job
 # Use the LongSet - running time is around 50 seconds and kill during execution
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"LongSet":"1"}}')
+    '{"service":"Test", "api":"2.0", "input":{"LongSet":"1"}}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""

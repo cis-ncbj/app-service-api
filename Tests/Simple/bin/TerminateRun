@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Test system behaviour for jobs that are killed while running
+# Test system behaviour for server termination while jobs are running
 
-PORT=5006
+PORT=5012
 ROOT="$TEXTTEST_ROOT/../.."
 
 type -t module > /dev/null 2>&1
@@ -27,18 +27,9 @@ ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PO
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
-sleep 40
+sleep 15
 
 # Expect Running
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
-
-# Kill the job - simulates cluster shutdown or admin intervention
-qdel $(cat $TEXTTEST_SANDBOX/PBS/Queue/$ID)
-
-sleep 5
-
-# Expect Killed
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
@@ -47,4 +38,4 @@ $ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
-sleep 3
+sleep 10

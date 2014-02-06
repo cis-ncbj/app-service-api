@@ -4,33 +4,33 @@ INFO:werkzeug: * Running on http://127.0.0.1:5007/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-DEBUG:root:Request {"api": "1.0", "service": "Test"}
+DEBUG:root:Request {"api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:25:16] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
+DEBUG:root:Return request id: Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:22:12] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:25:16] "GET /status/Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:22:12] "GET /status/Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:25:31] "GET /status/Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:26:36] "GET /status/Test_578382c6-f4ac-4708-a8cb-139127cf2bab_0nrZAh HTTP/1.1" 200 -
-DEBUG:root:Request {"input": {"CleanSet": "1"}, "api": "1.0", "service": "Test"}
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:22:27] "GET /status/Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:23:33] "GET /status/Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9 HTTP/1.1" 200 -
+DEBUG:root:Request {"input": {"CleanSet": "1"}, "api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:26:36] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
+DEBUG:root:Return request id: Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:23:33] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:26:36] "GET /status/Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:23:33] "GET /status/Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:26:51] "GET /status/Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf
-INFO:werkzeug:127.0.0.1 - - [13/Nov/2013 12:27:32] "GET /status/Test_8de23c39-0f6e-4dfd-be31-128eb9a8d9f7_obVerf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 09:23:48] "GET /status/Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa
+INFO:werkzeug:127.0.0.1 - - [24/Jan/2014 10:07:26] "GET /status/Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa HTTP/1.1" 200 -

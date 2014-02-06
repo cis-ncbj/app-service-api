@@ -1,21 +1,30 @@
-INFO 09-20 11:52:09 Daemon : Executing start
-INFO 09-20 11:52:09 Tools : Initialized service: MultiNest
-INFO 09-20 11:52:09 Tools : Initialized service: default
-INFO 09-20 11:52:09 Tools : Initialized service: Test
-INFO 09-20 11:52:09 Tools : Initialized service: PartA
-INFO 09-20 11:52:09 Tools : Initialized service: PartB
-INFO 09-20 11:52:10 Daemon : CISAppServer started with pid 5635
-INFO 09-20 11:52:17 Tools : Job successfully submitted: PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN
-WARNING 09-20 11:52:17 Tools : @Validator - Job PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN did not finish or does not exist. Unable to chain output.
-INFO 09-20 11:52:17 JobManager : Job PartB_5410fc6e-dff1-4c06-b696-5c8d8944ae54_Ry1TQU finished: aborted
-WARNING 09-20 11:52:17 JobManager : @Validator - Bad job chain IDs.
-INFO 09-20 11:52:23 Tools : Job PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN output retrived.
-INFO 09-20 11:52:23 JobManager : Job PartA_196f8a09-99ca-403d-81d9-21854535e230_vY2kyN finished: done
-INFO 09-20 11:52:36 Tools : Job successfully submitted: PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP
-WARNING 09-20 11:52:36 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
-INFO 09-20 11:52:36 JobManager : Job PartB_50adad2f-bc02-4ed3-9744-f7f4d137979c_2ncGOc finished: aborted
-WARNING 09-20 11:52:36 JobManager : @Validator - Bad job chain IDs.
-INFO 09-20 11:52:44 Tools : Job PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP output retrived.
-INFO 09-20 11:52:44 JobManager : Job PartB_5684c480-8e8f-44aa-9d7f-51e345e73e3f_8eDxpP finished: done
-INFO 09-20 11:52:53 Daemon : Received terminate command
-INFO 09-20 11:52:53 Daemon : Shutdown
+INFO 02-04 09:28:34 Daemon : Executing start
+INFO 02-04 09:28:34 Tools : Initialized service: default
+INFO 02-04 09:28:34 Tools : Initialized service: Test
+INFO 02-04 09:28:34 Tools : Initialized service: MultiNest
+INFO 02-04 09:28:34 Tools : Initialized service: PartA
+INFO 02-04 09:28:34 Tools : Initialized service: PartB
+INFO 02-04 09:28:34 Daemon : CISAppServer started with pid 19885
+INFO 02-04 09:28:45 Tools : Job successfully submitted: PartA_47933542-98da-4007-9f34-211f8f1ab0a1_pNmZ8B
+WARNING 02-04 09:28:45 Tools : @Validator - Job PartA_47933542-98da-4007-9f34-211f8f1ab0a1_pNmZ8B did not finish or does not exist. Unable to chain output.
+WARNING 02-04 09:28:45 Jobs : @JManager - Job PartB_699e576d-9e25-44c8-8756-a26bf3d0aca5_4y22iz validation failed.
+Traceback (most recent call last):
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 165, in check_new_jobs
+    self.validator.validate(_job)
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 255, in validate
+    raise ValidatorError("@Validator - Bad job chain IDs.")
+ValidatorError: @Validator - Bad job chain IDs.
+INFO 02-04 09:28:46 Jobs : Job PartB_699e576d-9e25-44c8-8756-a26bf3d0aca5_4y22iz finished: aborted
+INFO 02-04 09:28:51 Jobs : Job PartA_47933542-98da-4007-9f34-211f8f1ab0a1_pNmZ8B finished: done
+WARNING 02-04 09:29:01 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
+WARNING 02-04 09:29:01 Jobs : @JManager - Job PartB_35605de6-fd72-4aeb-a7e1-e96d000d60fc_G_PFXJ validation failed.
+Traceback (most recent call last):
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 165, in check_new_jobs
+    self.validator.validate(_job)
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 255, in validate
+    raise ValidatorError("@Validator - Bad job chain IDs.")
+ValidatorError: @Validator - Bad job chain IDs.
+INFO 02-04 09:29:02 Tools : Job successfully submitted: PartB_6deac0fa-fdac-49f7-add3-390438e3175f_hfYdIl
+INFO 02-04 09:29:02 Jobs : Job PartB_35605de6-fd72-4aeb-a7e1-e96d000d60fc_G_PFXJ finished: aborted
+INFO 02-04 09:29:02 Jobs : Job PartB_6deac0fa-fdac-49f7-add3-390438e3175f_hfYdIl finished: done
+INFO 02-04 09:29:22 Daemon : Received terminate command

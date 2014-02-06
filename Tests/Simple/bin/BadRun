@@ -23,7 +23,7 @@ sleep 5
 
 # Wrong service
 curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"WrongTest", "api":"1.0", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}'
+    '{"service":"WrongTest", "api":"2.0", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}'
 echo ""
 # Missing API
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
@@ -39,55 +39,55 @@ curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Lack of input section
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}')
+    '{"service":"Test", "api":"2.0", "SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Wrong int type
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Wrong float type
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"2", "1Float":"string", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"2", "1Float":"string", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Wrong option
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"11Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"11Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds int
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"100000", "1Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"100000", "1Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds int 2
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"-100000", "1Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"-100000", "1Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds float
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"1", "1Float":"900000", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"900000", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Out of bounds float 2
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"1", "1Float":"-900000", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"-900000", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Bad string
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"SLEEP":"1", "1Float":"1.0", "2Float":"0.5", "COMMAND":"/bin/true"}}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"1.0", "2Float":"0.5", "COMMAND":"/bin/true"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""

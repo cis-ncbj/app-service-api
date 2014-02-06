@@ -22,7 +22,7 @@ sleep 5
 # Submit job
 # Use the CleanSet for standard options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"1.0", "input":{"CleanSet":"1"}}')
+    '{"service":"Test", "api":"2.0", "input":{"CleanSet":"1"}}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""

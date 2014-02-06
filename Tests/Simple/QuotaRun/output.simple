@@ -5,16 +5,11 @@ Job1: Running
 Job2: Waiting
 Job3: Waiting
 Job1: Done:0 Job finished succesfully
-
-Job2: Waiting
-Job3: Running
+Job2: Running
+Job3: Waiting
 Job1: Done:0 Job finished succesfully
-
-Job2: Waiting
-Job3: Done:0 Job finished succesfully
-
-Job1: Error: Job with ID:Test_a8717488-f5ab-4031-96d1-66aafd399b3c_VFBOT0 not found
 Job2: Done:0 Job finished succesfully
-
+Job3: Waiting
+Job1: Error: Job with ID:Test_68889251-40b1-4dfa-914d-e918524497c7__wvx0C not found
+Job2: Error: Job with ID:Test_ef7e43b4-76ed-4204-938d-ba5bf5b0ab19_ysXMS8 not found
 Job3: Done:0 Job finished succesfully
-

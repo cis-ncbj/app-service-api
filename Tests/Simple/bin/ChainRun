@@ -22,34 +22,34 @@ sleep 5
 # Submit job
 # Use the default options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"PartA", "api":"1.0"}')
+    '{"service":"PartA", "api":"2.0"}')
 # Submit job
 # Use the default options
 ID2=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    "{\"service\":\"PartB\", \"api\":\"1.0\", \"chain\":[\"$ID\"]}")
+    "{\"service\":\"PartB\", \"api\":\"2.0\", \"chain\":[\"$ID\"]}")
 # Expect Waiting
 echo -n "PartA: "
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
-sleep 2
+sleep 5
 # Expect Error
 echo -n "PartB input not ready: "
 curl -s -S http://localhost:$PORT/status/$ID2
 echo ""
 
-sleep 15
+sleep 10
 
 # Expect Done
 echo -n "PartA: "
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
-sleep 2
+sleep 5
 
 # Submit job
 # Use the default options
 ID3=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    "{\"service\":\"PartB\", \"api\":\"1.0\", \"chain\":[\"$ID\"]}")
+    "{\"service\":\"PartB\", \"api\":\"2.0\", \"chain\":[\"$ID\"]}")
 # Expect Waiting
 echo -n "PartB: "
 curl -s -S http://localhost:$PORT/status/$ID3
@@ -58,8 +58,8 @@ echo ""
 # Submit job
 # Use the default options
 ID4=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    "{\"service\":\"PartB\", \"api\":\"1.0\", \"chain\":[\"PartA_miss\"]}")
-sleep 2
+    "{\"service\":\"PartB\", \"api\":\"2.0\", \"chain\":[\"PartA_miss\"]}")
+sleep 5
 # Expect Error
 echo -n "PartB missing input: "
 curl -s -S http://localhost:$PORT/status/$ID4
@@ -69,7 +69,7 @@ sleep 15
 
 # Expect Done
 echo -n "PartB: "
-curl -s -S http://localhost:$PORT/status/$ID4
+curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
 sleep 2

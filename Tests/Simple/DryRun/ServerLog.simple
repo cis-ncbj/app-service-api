@@ -1,19 +1,19 @@
-INFO 11-14 11:08:43 Daemon : Executing start
-INFO 11-14 11:08:43 Tools : Initialized service: MultiNest
-INFO 11-14 11:08:43 Tools : Initialized service: Test
-INFO 11-14 11:08:43 Tools : Initialized service: default
-INFO 11-14 11:08:43 Daemon : CISAppServer started with pid 16701
-INFO 11-14 11:08:49 Daemon : Received pause command
-INFO 11-14 11:08:49 Daemon : Received run command
-INFO 11-14 11:08:50 Daemon : Received reload command
-INFO 11-14 11:08:50 Tools : Initialized service: MultiNest
-INFO 11-14 11:08:50 Tools : Initialized service: Test
-INFO 11-14 11:08:50 Tools : Initialized service: default
-INFO 11-14 11:08:50 Daemon : Reload complete
-INFO 11-14 11:08:50 Daemon : Executing restart
-INFO 11-14 11:08:51 Tools : Initialized service: MultiNest
-INFO 11-14 11:08:51 Tools : Initialized service: Test
-INFO 11-14 11:08:51 Tools : Initialized service: default
-INFO 11-14 11:08:51 Daemon : CISAppServer started with pid 16739
-INFO 11-14 11:08:52 Daemon : Received terminate command
-INFO 11-14 11:08:54 Daemon : Shutdown
+INFO 01-13 14:29:13 Daemon : Executing start
+INFO 01-13 14:29:13 Tools : Initialized service: default
+INFO 01-13 14:29:13 Tools : Initialized service: Test
+INFO 01-13 14:29:13 Tools : Initialized service: MultiNest
+INFO 01-13 14:29:13 Daemon : CISAppServer started with pid 6453
+INFO 01-13 14:29:18 Daemon : Received pause command
+INFO 01-13 14:29:18 Daemon : Received run command
+INFO 01-13 14:29:18 Daemon : Received reload command
+INFO 01-13 14:29:18 Tools : Initialized service: default
+INFO 01-13 14:29:18 Tools : Initialized service: Test
+INFO 01-13 14:29:18 Tools : Initialized service: MultiNest
+INFO 01-13 14:29:18 Daemon : Reload complete
+INFO 01-13 14:29:18 Daemon : Executing restart
+INFO 01-13 14:29:19 Tools : Initialized service: default
+INFO 01-13 14:29:19 Tools : Initialized service: Test
+INFO 01-13 14:29:19 Tools : Initialized service: MultiNest
+INFO 01-13 14:29:19 Daemon : CISAppServer started with pid 6471
+INFO 01-13 14:29:19 Daemon : Received terminate command
+INFO 01-13 14:29:21 Daemon : Shutdown

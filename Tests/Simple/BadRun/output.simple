@@ -1,12 +1,12 @@
 Error: Unsupported service
-Aborted:-95 @Validator - Job did not specify API level.
-Aborted:-95 @Validator - API level 0.1 is not supported.
-Aborted:-95 @Validator - Section '2Float' is not allowed in job definition.
-Aborted:-95 @Validator - Variable value not allowed: SLEEP - 0.1.
-Aborted:-95 @Validator - Variable value not allowed: 1Float - string.
-Aborted:-95 @Validator - Not supported variable: 11Float.
-Aborted:-95 @Validator - Variable value not allowed: SLEEP - 100000.
-Aborted:-95 @Validator - Variable value not allowed: SLEEP - -100000.
-Aborted:-95 @Validator - Variable value not allowed: 1Float - 900000.
-Aborted:-95 @Validator - Variable value not allowed: 1Float - -900000.
-Aborted:-95 @Validator - Variable value not allowed: COMMAND - /bin/true.
+Aborted:-95 @JManager - Job Test_6bd466a9-95d9-4be5-adec-220e7d03c36f_KZoDSy validation failed.
+Aborted:-95 @JManager - Job Test_4fdd9c1c-015a-46bc-a2ed-6fd360ad31c7_t_rmxo validation failed.
+Aborted:-95 @JManager - Job Test_5b01cf7e-6c47-4112-9d8f-5cb2f8392872_U2IwP2 validation failed.
+Aborted:-95 @JManager - Job Test_6f303c6d-cc7b-4f81-861f-26f96e96214b_lPnR9x validation failed.
+Aborted:-95 @JManager - Job Test_e3f201e7-4971-44ef-bbe7-36de30f986a3_jVcM5I validation failed.
+Aborted:-95 @JManager - Job Test_12351f02-4242-40cd-a225-6eb110e4e0ab_uFXuLx validation failed.
+Aborted:-95 @JManager - Job Test_42ff9724-edf8-448c-9253-548f09b22faa_ccsGd6 validation failed.
+Aborted:-95 @JManager - Job Test_d087e42e-a59d-433b-b437-f6df35f0277d_hW8uWr validation failed.
+Aborted:-95 @JManager - Job Test_639b3ef2-9d40-4fdf-8c19-ca7284a9ead8_KKrfkS validation failed.
+Aborted:-95 @JManager - Job Test_09224ed3-3bea-4ef4-865e-acb974d51cda_fKsFMn validation failed.
+Aborted:-95 @JManager - Job Test_1b25069c-1db9-45c4-adad-eada93f46bb8_aWOyIW validation failed.

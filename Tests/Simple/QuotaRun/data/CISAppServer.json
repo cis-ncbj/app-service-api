@@ -4,12 +4,22 @@
     // ***************
     //
     // Sleep interval in seconds between job status queries (dafault: 3)
-    //"config_sleep_time" : 3,
+    "config_sleep_time" : 2,
+    "config_wait_time" : 8,
     //
     // Every n-th status query dump the progress logs (default: 2)
     //"config_progress_step" : 2,
     //
+    // Interval in hours after which job is automatically removed with all data
+    // (default: 48)
+    //"config_delete_interval" : 48,
+    //
+    // Interval in hours after which job is automatically killed if in running
+    // state (default: 24)
+    //"config_kill_interval" : 24,
+    //
     "config_schedulers" : ["ssh"],
+    //"config_schedulers" : ["pbs"],
     //
     // ***************
     // Daemon settings
@@ -34,6 +44,8 @@
     //
     // Logging level: VERBOSE, DEBUG, INFO, WARNING, ERROR (default: INFO)
     "log_level" : "INFO",
+    //"log_level" : "DEBUG",
+    //"log_level" : "VERBOSE",
     //
     // Log output file name (default: /tmp/CISAppServer.log)
     "log_output" : "CISAppServer.log",
@@ -67,20 +79,8 @@
     // Path with services scripts and input files, can be relative to Daemon
     // working directory (default: Services/Data)
     //"service_path_data" : "Services/Data"
-    //
-    // Default interval in hours when job will not be removed by garbage
-    // collector (default: 2)
-    //"service_min_lifetime" : 2,
-    //
-    // Default interval in hours after which job is automatically removed with
-    // all data (default: 24)
-    //"service_max_lifetime" : 24,
-    //
-    // Default interval in hours after which job is automatically killed if in
-    // running state (default: 12)
-    //"service_max_runtime" : 12,
-    //
     "service_username" : "konrad",
+    //"service_username" : "kklimaszewski",
     //
     // ****************
     // Gateway settings
