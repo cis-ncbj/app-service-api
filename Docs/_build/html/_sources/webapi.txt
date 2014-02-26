@@ -7,11 +7,11 @@ CIŚ WebService REST API
 Job submission
 --------------
 
-Jobs are submitted via POST request on http://app-gw.cis.gov.pl/api/submit or
-https://app-gw.cis.gov.pl/api/submit. The non encrypted accesss point will be
-deprecated for production version of CIŚ WebServices. For testing purposes
-developement version of the API is available at:
+Jobs are submitted via POST request on https://app-gw.cis.gov.pl/api/submit.
+For testing purposes developement version of the API is available at:
 https://app-gw.cis.gov.pl/api-devel/submit
+
+The non encrypted accesss point https://app-gw.cis.gov.pl/api/submit is disabled.
 
 The POST request should contain job attributes either in JSON format. The data
 payload should be a JSON dictionary of key value pairs. The only keys that are
@@ -49,11 +49,18 @@ The Job ID should be stored for duration of a session. It will be used when
 performing other API requests. Simple implementation can store it as a cookie
 in the users we browser.
 
+.. _python_example:
+
 Example implementation in python::
 
     import requests
     import json
     import flask
+
+    # Using requests.Session will ensure "keep_alive" for the connections
+    session = requests.Session()
+    # File with AppGateway certificate
+    gw_cert = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app-gw.pem')
 
     def submit(payload):
         """ Submit job request to CIŚ AppGateway
@@ -70,10 +77,10 @@ Example implementation in python::
         # Send the POST request
         try:
             # For testing set verify=False as we use self signed cert.
-            # For production provide CA bundle path as value of the verify
-            # attribute
-            r = requests.post(url, data=json.dumps(req_data), headers=headers,
-                              verify=False)
+            # For production provide AppGateway certificate path as value of
+            # the verify attribute
+            r = session.post(url, data=json.dumps(req_data), headers=headers,
+                              verify=gw_cert)
         except:
             flask.flash(u"Cannot communicate with AppGateway.")
             return flask.redirect('/')
@@ -144,13 +151,18 @@ Example implementation in python::
     import requests
     import flask
 
+    # Using requests.Session will ensure "keep_alive" for the connections
+    session = requests.Session()
+    # File with AppGateway certificate
+    gw_cert = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app-gw.pem')
+
     def status():
         # Get the Job ID from web browser cookie
         _jid = flask.request.cookies.get('CISMultiNestJobID')
         # Job ID stored - check status
         if _jid is not None:
-            url = "http://app-gw.cis.gov.pl/api/status/" + _jid
-            r = requests.get(url)
+            url = "https://app-gw.cis.gov.pl/api/status/" + _jid
+            r = session.get(url, verify=gw_cert)
             return r.text
 
         return "No job submitted yet ..."
@@ -169,7 +181,7 @@ Exit codes
   *  -95: SchedulerKill - Job killed by Scheduler
   *  -94: Validate - Validator error
 
-* Small negative values <-10,-1> corrspond to scheduler errors:
+* Small negative values <-10,-1> correspond to scheduler errors:
 
   * -1: JOB_EXEC_FAIL1    - job exec failed, before files, no retry
   * -2: JOB_EXEC_FAIL2    - job exec failed, after files, no retry
@@ -213,6 +225,45 @@ Job removal
 Job can be scheduled for removal. If a job is queued or running its execution
 by the queue system will be stopped. All files related with the job will be
 removed. Delete request URL: http://app-gw.cis.gov.pl/api/delete/[id]
+
+API requirements
+----------------
+
+Security
+++++++++
+
+All API calls have to be performed using secure HTTPS channel. The server is
+using a self-signed certificate. Therefore the client should verify the server
+authenticity using its certificate instead of chain of trust. The certificate
+can be aquired from konrad.klimaszewski@ncbj.gov.pl. It is also available in
+the source code of the MultiNest service:
+WebServices/Apps/AppMultiNest/MultiNest/private/app-gw.pem
+
+In python one can use the requests module which allows to specify server
+certificate as a value of "verify" keyword for the connections (see
+:ref:`Example python implementation <python_example>`).
+
+API call limits
++++++++++++++++
+
+Currently there is no limit on the number of API calls a client can issue. This
+could change in the future. However one IP is allowed to start up to 10 new
+connections per second. Therefore it is advised to take advantage of
+"keep_alive" connections (see :ref:`performance`).
+
+.. _performance:
+
+Performance
++++++++++++
+
+The HTTPS handshake is quite constly, morover the server will limit number of
+new connections per second from one host. Therefore the connections should be
+"kept alive".
+
+In python one can use the requests module and its Session implementation. By
+creating a global instance of Session object and using it instead of requests
+functions directly one gets an automatic "keep_alive" feature (see
+:ref:`Example python implementation <python_example>`)
 
 Supported services
 ------------------

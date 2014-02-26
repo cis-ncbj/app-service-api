@@ -59,6 +59,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#job-progress">Job progress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-stop">Job stop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#job-removal">Job removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-requirements">API requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#supported-services">Supported services</a></li>
 </ul>
 </li>
@@ -102,11 +103,10 @@
 <p>CIŚ WebService REST API</p>
 <div class="section" id="job-submission">
 <h2>Job submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
-<p>Jobs are submitted via POST request on <a class="reference external" href="http://app-gw.cis.gov.pl/api/submit">http://app-gw.cis.gov.pl/api/submit</a> or
-<a class="reference external" href="https://app-gw.cis.gov.pl/api/submit">https://app-gw.cis.gov.pl/api/submit</a>. The non encrypted accesss point will be
-deprecated for production version of CIŚ WebServices. For testing purposes
-developement version of the API is available at:
+<p>Jobs are submitted via POST request on <a class="reference external" href="https://app-gw.cis.gov.pl/api/submit">https://app-gw.cis.gov.pl/api/submit</a>.
+For testing purposes developement version of the API is available at:
 <a class="reference external" href="https://app-gw.cis.gov.pl/api-devel/submit">https://app-gw.cis.gov.pl/api-devel/submit</a></p>
+<p>The non encrypted accesss point <a class="reference external" href="https://app-gw.cis.gov.pl/api/submit">https://app-gw.cis.gov.pl/api/submit</a> is disabled.</p>
 <p>The POST request should contain job attributes either in JSON format. The data
 payload should be a JSON dictionary of key value pairs. The only keys that are
 allowed are as follows:</p>
@@ -141,10 +141,15 @@ All values provided by the client are verified. Example data payload.:</p>
 <p>The Job ID should be stored for duration of a session. It will be used when
 performing other API requests. Simple implementation can store it as a cookie
 in the users we browser.</p>
-<p>Example implementation in python:</p>
+<p id="python-example">Example implementation in python:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">flask</span>
+
+<span class="c"># Using requests.Session will ensure &quot;keep_alive&quot; for the connections</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="c"># File with AppGateway certificate</span>
+<span class="n">gw_cert</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="s">&#39;app-gw.pem&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Submit job request to CIŚ AppGateway</span>
@@ -161,10 +166,10 @@ in the users we browser.</p>
     <span class="c"># Send the POST request</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c"># For testing set verify=False as we use self signed cert.</span>
-        <span class="c"># For production provide CA bundle path as value of the verify</span>
-        <span class="c"># attribute</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">req_data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-                          <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="c"># For production provide AppGateway certificate path as value of</span>
+        <span class="c"># the verify attribute</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">req_data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                          <span class="n">verify</span><span class="o">=</span><span class="n">gw_cert</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="n">flask</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="s">u&quot;Cannot communicate with AppGateway.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
@@ -230,13 +235,18 @@ The exit code is returned alonng with the status message e.g.:
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">flask</span>
 
+<span class="c"># Using requests.Session will ensure &quot;keep_alive&quot; for the connections</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="c"># File with AppGateway certificate</span>
+<span class="n">gw_cert</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="s">&#39;app-gw.pem&#39;</span><span class="p">)</span>
+
 <span class="k">def</span> <span class="nf">status</span><span class="p">():</span>
     <span class="c"># Get the Job ID from web browser cookie</span>
     <span class="n">_jid</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;CISMultiNestJobID&#39;</span><span class="p">)</span>
     <span class="c"># Job ID stored - check status</span>
     <span class="k">if</span> <span class="n">_jid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://app-gw.cis.gov.pl/api/status/&quot;</span> <span class="o">+</span> <span class="n">_jid</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://app-gw.cis.gov.pl/api/status/&quot;</span> <span class="o">+</span> <span class="n">_jid</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">gw_cert</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
 
     <span class="k">return</span> <span class="s">&quot;No job submitted yet ...&quot;</span>
@@ -256,7 +266,7 @@ The exit code is returned alonng with the status message e.g.:
 <li>-94: Validate - Validator error</li>
 </ul>
 </li>
-<li>Small negative values &lt;-10,-1&gt; corrspond to scheduler errors:<ul>
+<li>Small negative values &lt;-10,-1&gt; correspond to scheduler errors:<ul>
 <li>-1: JOB_EXEC_FAIL1    - job exec failed, before files, no retry</li>
 <li>-2: JOB_EXEC_FAIL2    - job exec failed, after files, no retry</li>
 <li>-3: JOB_EXEC_RETRY    - job execution failed, do retry</li>
@@ -297,6 +307,38 @@ produced output will be made available for user access. Kill request URL:
 <p>Job can be scheduled for removal. If a job is queued or running its execution
 by the queue system will be stopped. All files related with the job will be
 removed. Delete request URL: <a class="reference external" href="http://app-gw.cis.gov.pl/api/delete/[id">http://app-gw.cis.gov.pl/api/delete/[id</a>]</p>
+</div>
+<div class="section" id="api-requirements">
+<h2>API requirements<a class="headerlink" href="#api-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="security">
+<h3>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h3>
+<p>All API calls have to be performed using secure HTTPS channel. The server is
+using a self-signed certificate. Therefore the client should verify the server
+authenticity using its certificate instead of chain of trust. The certificate
+can be aquired from <a class="reference external" href="mailto:konrad&#46;klimaszewski&#37;&#52;&#48;ncbj&#46;gov&#46;pl">konrad<span>&#46;</span>klimaszewski<span>&#64;</span>ncbj<span>&#46;</span>gov<span>&#46;</span>pl</a>. It is also available in
+the source code of the MultiNest service:
+WebServices/Apps/AppMultiNest/MultiNest/private/app-gw.pem</p>
+<p>In python one can use the requests module which allows to specify server
+certificate as a value of &#8220;verify&#8221; keyword for the connections (see
+<a class="reference internal" href="#python-example"><em>Example python implementation</em></a>).</p>
+</div>
+<div class="section" id="api-call-limits">
+<h3>API call limits<a class="headerlink" href="#api-call-limits" title="Permalink to this headline">¶</a></h3>
+<p>Currently there is no limit on the number of API calls a client can issue. This
+could change in the future. However one IP is allowed to start up to 10 new
+connections per second. Therefore it is advised to take advantage of
+&#8220;keep_alive&#8221; connections (see <a class="reference internal" href="#performance"><em>Performance</em></a>).</p>
+</div>
+<div class="section" id="performance">
+<span id="id1"></span><h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+<p>The HTTPS handshake is quite constly, morover the server will limit number of
+new connections per second from one host. Therefore the connections should be
+&#8220;kept alive&#8221;.</p>
+<p>In python one can use the requests module and its Session implementation. By
+creating a global instance of Session object and using it instead of requests
+functions directly one gets an automatic &#8220;keep_alive&#8221; feature (see
+<a class="reference internal" href="#python-example"><em>Example python implementation</em></a>)</p>
+</div>
 </div>
 <div class="section" id="supported-services">
 <h2>Supported services<a class="headerlink" href="#supported-services" title="Permalink to this headline">¶</a></h2>
