@@ -23,7 +23,7 @@ sleep 5
 # Use custom options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"5e-1"}}')
-# Expect Waiting
+# Expect New
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 

@@ -1,4 +1,4 @@
-INFO     CISAppS 0.3
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
@@ -6,23 +6,23 @@ INFO Executing start
 INFO Initialized service: default
 INFO Initialized service: Test
 INFO Initialized service: MultiNest
-INFO CISAppServer started with pid 6453
-INFO     CISAppS 0.3
+INFO CISAppServer started with pid 5424
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
 INFO     Executing pause
-INFO     CISAppS 0.3
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
 INFO     Executing run
-INFO     CISAppS 0.3
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
 INFO     Executing reload
-INFO     CISAppS 0.3
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
@@ -30,8 +30,8 @@ INFO Executing restart
 INFO Initialized service: default
 INFO Initialized service: Test
 INFO Initialized service: MultiNest
-INFO CISAppServer started with pid 6471
-INFO     CISAppS 0.3
+INFO CISAppServer started with pid 5442
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO

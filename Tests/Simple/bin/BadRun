@@ -27,25 +27,25 @@ curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/su
 echo ""
 # Missing API
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "input":{"SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Bad API
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"0.1", "input":{"SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"0.1", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Lack of input section
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"2.0", "SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}')
+    '{"service":"Test", "api":"2.0", "SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 # Wrong int type
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
+    '{"service":"Test", "api":"2.0", "input":{"Int":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
 sleep 5
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""

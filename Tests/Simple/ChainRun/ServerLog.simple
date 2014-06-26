@@ -1,30 +1,128 @@
-INFO 02-04 09:28:34 Daemon : Executing start
-INFO 02-04 09:28:34 Tools : Initialized service: default
-INFO 02-04 09:28:34 Tools : Initialized service: Test
-INFO 02-04 09:28:34 Tools : Initialized service: MultiNest
-INFO 02-04 09:28:34 Tools : Initialized service: PartA
-INFO 02-04 09:28:34 Tools : Initialized service: PartB
-INFO 02-04 09:28:34 Daemon : CISAppServer started with pid 19885
-INFO 02-04 09:28:45 Tools : Job successfully submitted: PartA_47933542-98da-4007-9f34-211f8f1ab0a1_pNmZ8B
-WARNING 02-04 09:28:45 Tools : @Validator - Job PartA_47933542-98da-4007-9f34-211f8f1ab0a1_pNmZ8B did not finish or does not exist. Unable to chain output.
-WARNING 02-04 09:28:45 Jobs : @JManager - Job PartB_699e576d-9e25-44c8-8756-a26bf3d0aca5_4y22iz validation failed.
+INFO 04-17 11:23:04 Daemon : Executing start
+DEBUG 04-17 11:23:04 Tools : @Validator - Loading services configurations.
+INFO 04-17 11:23:04 Tools : Initialized service: default
+INFO 04-17 11:23:04 Tools : Initialized service: Test
+INFO 04-17 11:23:04 Tools : Initialized service: MultiNest
+INFO 04-17 11:23:04 Tools : Initialized service: PartA
+INFO 04-17 11:23:04 Tools : Initialized service: PartB
+INFO 04-17 11:23:04 Daemon : CISAppServer started with pid 18822
+DEBUG 04-17 11:23:09 JobManager : @JManager - Detected new job PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di.
+DEBUG 04-17 11:23:09 Tools : @Job - Loaded data file PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di.
+DEBUG 04-17 11:23:09 Tools : {u'api': u'2.0', u'service': u'PartA'}
+DEBUG 04-17 11:23:09 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 04-17 11:23:09 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 04-17 11:23:09 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+DEBUG 04-17 11:23:09 Tools : @Scheduler - generate scripts
+DEBUG 04-17 11:23:09 Tools : @Scheduler - Sub dir: 
+DEBUG 04-17 11:23:09 Tools : @Scheduler - Chaining input data
+DEBUG 04-17 11:23:09 Tools : @SSH - Submitting new job
+INFO 04-17 11:23:10 Tools : Job successfully submitted: PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di
+DEBUG 04-17 11:23:10 JobManager : @JManager - Detected new job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV.
+DEBUG 04-17 11:23:10 Tools : @Job - Loaded data file PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV.
+DEBUG 04-17 11:23:10 Tools : {u'api': u'2.0', u'service': u'PartB', u'chain': [u'PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di']}
+DEBUG 04-17 11:23:10 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 04-17 11:23:10 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 04-17 11:23:10 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+WARNING 04-17 11:23:10 Tools : @Validator - Job PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di did not finish or does not exist. Unable to chain output.
+WARNING 04-17 11:23:10 Jobs : @JManager - Job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 165, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 255, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 256, in validate
     raise ValidatorError("@Validator - Bad job chain IDs.")
 ValidatorError: @Validator - Bad job chain IDs.
-INFO 02-04 09:28:46 Jobs : Job PartB_699e576d-9e25-44c8-8756-a26bf3d0aca5_4y22iz finished: aborted
-INFO 02-04 09:28:51 Jobs : Job PartA_47933542-98da-4007-9f34-211f8f1ab0a1_pNmZ8B finished: done
-WARNING 02-04 09:29:01 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
-WARNING 02-04 09:29:01 Jobs : @JManager - Job PartB_35605de6-fd72-4aeb-a7e1-e96d000d60fc_G_PFXJ validation failed.
+DEBUG 04-17 11:23:10 Tools : @SSH - Check jobs state for user konrad @ localhost
+DEBUG 04-17 11:23:10 JobManager : @JManager - Detected cleanup job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV.
+DEBUG 04-17 11:23:10 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:10 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:10 Tools : @Scheduler - Cleanup job: PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV
+DEBUG 04-17 11:23:10 JobManager : @JManager - Abort cleanup thread started for job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV
+INFO 04-17 11:23:10 Tools : Job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV cleaned directories.
+DEBUG 04-17 11:23:10 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:10 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:10 Tools : @Scheduler - finalize cleanup: PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV
+INFO 04-17 11:23:10 Jobs : Job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV finished: aborted
+DEBUG 04-17 11:23:10 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:10 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:11 Tools : @Scheduler - job abort finished: PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV
+DEBUG 04-17 11:23:15 Tools : @SSH - Check jobs state for user konrad @ localhost
+DEBUG 04-17 11:23:16 Tools : @Scheduler - Extracting progress log (PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di)
+DEBUG 04-17 11:23:16 JobManager : @JManager - Detected cleanup job PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di.
+DEBUG 04-17 11:23:16 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:16 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:16 Tools : @Scheduler - Retrive job output: PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di
+DEBUG 04-17 11:23:16 JobManager : @JManager - Finalise cleanup thread started for job PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di
+DEBUG 04-17 11:23:16 JobManager : @JManager - Removed finished cleanup thread.
+DEBUG 04-17 11:23:16 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:16 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:16 Tools : @Scheduler - Make output directory world readable
+INFO 04-17 11:23:16 Jobs : Job PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di finished: done
+DEBUG 04-17 11:23:16 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:16 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:16 Tools : @Scheduler - job finalised: PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di
+DEBUG 04-17 11:23:21 JobManager : @JManager - Removed finished cleanup thread.
+DEBUG 04-17 11:23:21 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:21 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:26 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:26 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:31 JobManager : @JManager - Detected new job PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd.
+DEBUG 04-17 11:23:31 Tools : @Job - Loaded data file PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd.
+DEBUG 04-17 11:23:31 Tools : {u'api': u'2.0', u'service': u'PartB', u'chain': [u'PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di']}
+DEBUG 04-17 11:23:31 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 04-17 11:23:31 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 04-17 11:23:31 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+DEBUG 04-17 11:23:31 Tools : @Validator - Job chain IDs passed validation: [u'PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di']
+DEBUG 04-17 11:23:31 Tools : @Scheduler - generate scripts
+DEBUG 04-17 11:23:31 Tools : @Scheduler - Sub dir: 
+DEBUG 04-17 11:23:31 Tools : @Scheduler - Chaining input data
+DEBUG 04-17 11:23:31 Tools : @Scheduler - Job PartA_72569f0e-8413-4514-a3df-951fdceb1e4d_0aQ2di output chained as input for Job PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd
+DEBUG 04-17 11:23:31 Tools : @SSH - Submitting new job
+INFO 04-17 11:23:32 Tools : Job successfully submitted: PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd
+DEBUG 04-17 11:23:32 JobManager : @JManager - Detected new job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT.
+DEBUG 04-17 11:23:32 Tools : @Job - Loaded data file PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT.
+DEBUG 04-17 11:23:32 Tools : {u'api': u'2.0', u'service': u'PartB', u'chain': [u'PartA_miss']}
+DEBUG 04-17 11:23:32 Tools : @Validator - Value passed validation: CIS_SCHEDULER - ssh
+DEBUG 04-17 11:23:32 Tools : @Validator - Value passed validation: CIS_SSH_HOST - localhost
+DEBUG 04-17 11:23:32 Tools : @Validator - Value passed validation: CIS_QUEUE - test_slc6
+WARNING 04-17 11:23:32 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
+WARNING 04-17 11:23:32 Jobs : @JManager - Job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 165, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 255, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 256, in validate
     raise ValidatorError("@Validator - Bad job chain IDs.")
 ValidatorError: @Validator - Bad job chain IDs.
-INFO 02-04 09:29:02 Tools : Job successfully submitted: PartB_6deac0fa-fdac-49f7-add3-390438e3175f_hfYdIl
-INFO 02-04 09:29:02 Jobs : Job PartB_35605de6-fd72-4aeb-a7e1-e96d000d60fc_G_PFXJ finished: aborted
-INFO 02-04 09:29:02 Jobs : Job PartB_6deac0fa-fdac-49f7-add3-390438e3175f_hfYdIl finished: done
-INFO 02-04 09:29:22 Daemon : Received terminate command
+DEBUG 04-17 11:23:32 Tools : @SSH - Check jobs state for user konrad @ localhost
+DEBUG 04-17 11:23:32 JobManager : @JManager - Detected cleanup job PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd.
+DEBUG 04-17 11:23:32 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:32 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:32 JobManager : @JManager - Finalise cleanup thread started for job PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd
+DEBUG 04-17 11:23:32 Tools : @Scheduler - Retrive job output: PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd
+DEBUG 04-17 11:23:32 JobManager : @JManager - Detected cleanup job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT.
+DEBUG 04-17 11:23:32 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:32 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:32 Tools : @Scheduler - Make output directory world readable
+DEBUG 04-17 11:23:33 Tools : @Scheduler - Cleanup job: PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT
+DEBUG 04-17 11:23:33 JobManager : @JManager - Abort cleanup thread started for job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT
+INFO 04-17 11:23:33 Tools : Job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT cleaned directories.
+DEBUG 04-17 11:23:33 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:33 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:33 Tools : @Scheduler - finalize cleanup: PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT
+INFO 04-17 11:23:33 Jobs : Job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT finished: aborted
+DEBUG 04-17 11:23:33 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:33 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:33 Tools : @Scheduler - job abort finished: PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT
+INFO 04-17 11:23:33 Jobs : Job PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd finished: done
+DEBUG 04-17 11:23:33 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:33 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:33 Tools : @Scheduler - job finalised: PartB_126f092e-e052-4a62-9d8c-c70ffaab3a73_uMeFKd
+DEBUG 04-17 11:23:38 JobManager : Jobs - w:0, q:0, r:0, s:0, c:0, d:2, f:0, a:2, k:0.
+DEBUG 04-17 11:23:38 JobManager : @JManager - Removed finished cleanup thread.
+DEBUG 04-17 11:23:38 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:38 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:43 JobManager : @JManager - Removed finished cleanup thread.
+DEBUG 04-17 11:23:43 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:43 Jobs : @StateManager: Commit session to DB
+DEBUG 04-17 11:23:48 Jobs : @FileStateManager: Sync DB with AppGW.
+DEBUG 04-17 11:23:48 Jobs : @StateManager: Commit session to DB
+INFO 04-17 11:23:52 Daemon : Received terminate command

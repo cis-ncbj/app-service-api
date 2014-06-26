@@ -1,6 +1,6 @@
-Job1: Waiting
-Job2: Waiting
-Job3: Waiting
+Job1: New
+Job2: New
+Job3: New
 Job1: Running
 Job2: Waiting
 Job3: Waiting
@@ -10,6 +10,6 @@ Job3: Waiting
 Job1: Done:0 Job finished succesfully
 Job2: Done:0 Job finished succesfully
 Job3: Waiting
-Job1: Error: Job with ID:Test_68889251-40b1-4dfa-914d-e918524497c7__wvx0C not found
-Job2: Error: Job with ID:Test_ef7e43b4-76ed-4204-938d-ba5bf5b0ab19_ysXMS8 not found
+Job1: Error: Job with ID:Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j not found
+Job2: Error: Job with ID:Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW not found
 Job3: Done:0 Job finished succesfully

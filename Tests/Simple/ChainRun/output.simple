@@ -1,6 +1,6 @@
-PartA: Waiting
-PartB input not ready: Waiting
+PartA: New
+PartB input not ready: Aborted:-94 @JManager - Job PartB_b5dc4e9a-8565-4e76-bb9b-81acf4cf160c_n3bukV validation failed.
 PartA: Done:0 Job finished succesfully
-PartB: Waiting
-PartB missing input: Aborted:-95 @JManager - Job PartB_35605de6-fd72-4aeb-a7e1-e96d000d60fc_G_PFXJ validation failed.
+PartB: New
+PartB missing input: Aborted:-94 @JManager - Job PartB_3ff758ed-035f-4fe8-a95c-b3f2ca4073a4_mMmMdT validation failed.
 PartB: Done:0 Job finished succesfully

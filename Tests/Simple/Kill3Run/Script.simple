@@ -1,5 +1,6 @@
 #!/bin/sh
 #PBS -q test_slc6
+# 0
 #
 
 echo "Commencing test: LongRun" | tee -a progress.log

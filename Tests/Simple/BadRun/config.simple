@@ -12,3 +12,4 @@ GatewayLog:INFO:werkzeug:127.0.0.1
 GatewayLog:Test_[\w_\-]+{REPLACE Test}
 ServerLog:Test_[\w_\-]+{REPLACE Test}
 catalogue:Test_[\w_\-]+{REPLACE Test}
+output:Test_[\w_\-]+{REPLACE Test}

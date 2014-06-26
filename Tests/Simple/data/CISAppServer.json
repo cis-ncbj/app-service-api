@@ -4,7 +4,7 @@
     // ***************
     //
     // Sleep interval in seconds between job status queries (dafault: 3)
-    //"config_sleep_time" : 3,
+    "config_sleep_time" : 1,
     //
     // Every n-th status query dump the progress logs (default: 2)
     //"config_progress_step" : 2,
@@ -42,9 +42,9 @@
     // ****************
     //
     // Logging level: VERBOSE, DEBUG, INFO, WARNING, ERROR (default: INFO)
-    //"log_level" : "INFO",
+    "log_level" : "INFO",
     //"log_level" : "DEBUG",
-    "log_level" : "VERBOSE",
+    //"log_level" : "VERBOSE",
     //
     // Log output file name (default: /tmp/CISAppServer.log)
     "log_output" : "CISAppServer.log",

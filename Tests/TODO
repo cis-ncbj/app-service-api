@@ -1,3 +1,5 @@
-- Terminate test (terminate server with running, waiting, and queued jobs)
+- Terminate test (terminate server with running and waiting jobs) [DONE]
+- Terminate PBS test (terminate server with running, waiting, and queued jobs)
+  - For queue use PBS wait flag
 - Terminate hang test (terminate server with running jobs, job cleanup should hang)
-- Deprecated API test (test for API 1.0 output status values)
+- Deprecated API test (test for API 1.0 output status values) [DONE]

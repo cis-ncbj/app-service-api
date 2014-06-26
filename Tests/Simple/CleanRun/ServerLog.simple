@@ -1,9 +1,8 @@
-INFO 01-23 08:15:07 Daemon : Executing start
-INFO 01-23 08:15:07 Tools : Initialized service: default
-INFO 01-23 08:15:07 Tools : Initialized service: Test
-INFO 01-23 08:15:07 Tools : Initialized service: MultiNest
-INFO 01-23 08:15:07 Daemon : CISAppServer started with pid 8597
-INFO 01-23 08:15:18 Tools : Job successfully submitted: Test_a1b2022f-c66b-471b-b782-6934537ca649_1nU2oL
-INFO 01-23 08:15:29 Jobs : Job Test_a1b2022f-c66b-471b-b782-6934537ca649_1nU2oL finished: done
-INFO 01-23 08:15:53 Daemon : Received terminate command
-INFO 01-23 08:15:55 Daemon : Shutdown
+INFO 04-17 09:00:21 Daemon : Executing start
+INFO 04-17 09:00:21 Tools : Initialized service: default
+INFO 04-17 09:00:21 Tools : Initialized service: Test
+INFO 04-17 09:00:21 Tools : Initialized service: MultiNest
+INFO 04-17 09:00:21 Daemon : CISAppServer started with pid 10153
+INFO 04-17 09:00:32 Tools : Job successfully submitted: Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+INFO 04-17 09:00:44 Jobs : Job Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT finished: done
+INFO 04-17 09:01:07 Daemon : Received terminate command

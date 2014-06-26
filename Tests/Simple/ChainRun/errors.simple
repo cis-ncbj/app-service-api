@@ -1,16 +1,17 @@
-INFO     CISAppS 0.3
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: INFO
+INFO     Logging level: DEBUG
 INFO Executing start
+DEBUG @Validator - Loading services configurations.
 INFO Initialized service: default
 INFO Initialized service: Test
 INFO Initialized service: MultiNest
 INFO Initialized service: PartA
 INFO Initialized service: PartB
-INFO CISAppServer started with pid 19885
-INFO     CISAppS 0.3
+INFO CISAppServer started with pid 17073
+INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
-INFO     Logging level: INFO
+INFO     Logging level: DEBUG
 INFO     Executing terminate

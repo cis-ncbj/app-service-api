@@ -1,9 +1,15 @@
-INFO 01-23 07:03:03 Daemon : Executing start
-INFO 01-23 07:03:03 Tools : Initialized service: default
-INFO 01-23 07:03:03 Tools : Initialized service: Test
-INFO 01-23 07:03:03 Tools : Initialized service: MultiNest
-INFO 01-23 07:03:03 Daemon : CISAppServer started with pid 5576
-INFO 01-23 07:03:14 Tools : Job successfully submitted: Test_ebe33a6a-7b8b-4888-9451-1b6bc708eabf_cBpN0x
-INFO 01-23 07:03:25 Jobs : Job Test_ebe33a6a-7b8b-4888-9451-1b6bc708eabf_cBpN0x finished: done
-INFO 01-23 07:03:38 Daemon : Received terminate command
-INFO 01-23 07:03:40 Daemon : Shutdown
+INFO 2014-06-26 10:21:48,594 Daemon : Executing start
+INFO 2014-06-26 10:21:48,594 Tools : Initialized service: default
+INFO 2014-06-26 10:21:48,597 Tools : Initialized service: Test
+INFO 2014-06-26 10:21:48,597 Tools : Initialized service: MultiNest
+INFO 2014-06-26 10:21:48,613 Daemon : CISAppServer started with pid 22984
+ERROR 2014-06-26 10:21:56,989 JobManager : @JobManager - Main loop execution behind schedule by -0.384548 seconds.
+INFO 2014-06-26 10:21:58,290 transport : Connected (version 2.0, client OpenSSH_5.9p1)
+ERROR 2014-06-26 10:21:58,313 JobManager : @JobManager - Main loop execution behind schedule by -0.25671 seconds.
+INFO 2014-06-26 10:21:58,412 transport : Authentication (publickey) failed.
+INFO 2014-06-26 10:21:58,417 transport : Authentication (publickey) failed.
+INFO 2014-06-26 10:21:58,425 transport : Authentication (publickey) failed.
+INFO 2014-06-26 10:21:58,434 transport : Authentication (publickey) successful!
+INFO 2014-06-26 10:21:58,890 Tools : Job successfully submitted: Test_e828cf96-d35f-42d5-855e-7c5f674b38b3_Vw2Av8
+INFO 2014-06-26 10:22:09,713 Jobs : Job Test_e828cf96-d35f-42d5-855e-7c5f674b38b3_Vw2Av8 finished: done
+INFO 2014-06-26 10:22:23,916 Daemon : Received terminate command

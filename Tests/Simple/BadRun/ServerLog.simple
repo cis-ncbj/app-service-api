@@ -1,111 +1,121 @@
-INFO 01-21 16:22:51 Daemon : Executing start
-INFO 01-21 16:22:51 Tools : Initialized service: default
-INFO 01-21 16:22:51 Tools : Initialized service: Test
-INFO 01-21 16:22:51 Tools : Initialized service: MultiNest
-INFO 01-21 16:22:51 Daemon : CISAppServer started with pid 9168
-WARNING 01-21 16:23:01 Jobs : @JManager - Job Test_6bd466a9-95d9-4be5-adec-220e7d03c36f_KZoDSy validation failed.
+INFO 04-22 08:57:53 Daemon : Executing start
+INFO 04-22 08:57:53 Tools : Initialized service: default
+INFO 04-22 08:57:53 Tools : Initialized service: Test
+INFO 04-22 08:57:53 Tools : Initialized service: MultiNest
+INFO 04-22 08:57:53 Daemon : CISAppServer started with pid 6179
+WARNING 04-22 08:57:58 Jobs : @JManager - Job Test_0c1d3e38-2566-4fbd-9dd5-77d4dde06725_MmsFOU validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 154, in validate
-    raise ValidatorError("@Validator - Job did not specify API level.")
-ValidatorError: @Validator - Job did not specify API level.
-INFO 01-21 16:23:01 Jobs : Job Test_6bd466a9-95d9-4be5-adec-220e7d03c36f_KZoDSy finished: aborted
-WARNING 01-21 16:23:06 Tools : @Validator - Value not in allowed range: api - 0.1
-WARNING 01-21 16:23:06 Jobs : @JManager - Job Test_4fdd9c1c-015a-46bc-a2ed-6fd360ad31c7_t_rmxo validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
   File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 158, in validate
+    raise ValidatorError("@Validator - Job did not specify API level.")
+ValidatorError: @Validator - Job did not specify API level.
+INFO 04-22 08:57:58 Tools : Job Test_0c1d3e38-2566-4fbd-9dd5-77d4dde06725_MmsFOU cleaned directories.
+INFO 04-22 08:57:58 Jobs : Job Test_0c1d3e38-2566-4fbd-9dd5-77d4dde06725_MmsFOU finished: aborted
+WARNING 04-22 08:58:04 Tools : @Validator - Value not in allowed range: api - 0.1
+WARNING 04-22 08:58:04 Jobs : @JManager - Job Test_62844cd8-bd66-4189-9780-929ad0d648c9_gFIIq2 validation failed.
+Traceback (most recent call last):
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
+    self.validator.validate(_job)
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 162, in validate
     _data['api'])
 ValidatorError: @Validator - API level 0.1 is not supported.
-INFO 01-21 16:23:06 Jobs : Job Test_4fdd9c1c-015a-46bc-a2ed-6fd360ad31c7_t_rmxo finished: aborted
-WARNING 01-21 16:23:11 Jobs : @JManager - Job Test_5b01cf7e-6c47-4112-9d8f-5cb2f8392872_U2IwP2 validation failed.
+INFO 04-22 08:58:04 Tools : Job Test_62844cd8-bd66-4189-9780-929ad0d648c9_gFIIq2 cleaned directories.
+INFO 04-22 08:58:04 Jobs : Job Test_62844cd8-bd66-4189-9780-929ad0d648c9_gFIIq2 finished: aborted
+WARNING 04-22 08:58:09 Jobs : @JManager - Job Test_f598b054-3fc7-4450-80c3-d6a2ae65ad0e_rCk0ah validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 164, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 171, in validate
     "definition." % _k)
 ValidatorError: @Validator - Section '2Float' is not allowed in job definition.
-INFO 01-21 16:23:11 Jobs : Job Test_5b01cf7e-6c47-4112-9d8f-5cb2f8392872_U2IwP2 finished: aborted
-WARNING 01-21 16:23:16 Tools : @Validator - Value is not a proper int.
+INFO 04-22 08:58:09 Tools : Job Test_f598b054-3fc7-4450-80c3-d6a2ae65ad0e_rCk0ah cleaned directories.
+INFO 04-22 08:58:09 Jobs : Job Test_f598b054-3fc7-4450-80c3-d6a2ae65ad0e_rCk0ah finished: aborted
+WARNING 04-22 08:58:14 Tools : @Validator - Value is not a proper int.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 435, in validate_int
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 448, in validate_int
     _v = int(value)
 ValueError: invalid literal for int() with base 10: '0.1'
-WARNING 01-21 16:23:16 Jobs : @JManager - Job Test_6f303c6d-cc7b-4f81-861f-26f96e96214b_lPnR9x validation failed.
+WARNING 04-22 08:58:14 Jobs : @JManager - Job Test_d55a8eab-8b0e-4ade-b98d-27275ab78024_Sp8RyS validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: SLEEP - 0.1.
-INFO 01-21 16:23:16 Jobs : Job Test_6f303c6d-cc7b-4f81-861f-26f96e96214b_lPnR9x finished: aborted
-WARNING 01-21 16:23:21 Tools : @Validator - Value is not a proper float
+INFO 04-22 08:58:14 Tools : Job Test_d55a8eab-8b0e-4ade-b98d-27275ab78024_Sp8RyS cleaned directories.
+INFO 04-22 08:58:14 Jobs : Job Test_d55a8eab-8b0e-4ade-b98d-27275ab78024_Sp8RyS finished: aborted
+WARNING 04-22 08:58:19 Tools : @Validator - Value is not a proper float
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 462, in validate_float
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 475, in validate_float
     _v = float(value)
 ValueError: could not convert string to float: string
-WARNING 01-21 16:23:21 Jobs : @JManager - Job Test_e3f201e7-4971-44ef-bbe7-36de30f986a3_jVcM5I validation failed.
+WARNING 04-22 08:58:19 Jobs : @JManager - Job Test_1b667f32-0d7b-4ccf-bb62-db35f8984d39_0Co7R_ validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: 1Float - string.
-INFO 01-21 16:23:21 Jobs : Job Test_e3f201e7-4971-44ef-bbe7-36de30f986a3_jVcM5I finished: aborted
-WARNING 01-21 16:23:26 Jobs : @JManager - Job Test_12351f02-4242-40cd-a225-6eb110e4e0ab_uFXuLx validation failed.
+INFO 04-22 08:58:19 Tools : Job Test_1b667f32-0d7b-4ccf-bb62-db35f8984d39_0Co7R_ cleaned directories.
+INFO 04-22 08:58:19 Jobs : Job Test_1b667f32-0d7b-4ccf-bb62-db35f8984d39_0Co7R_ finished: aborted
+WARNING 04-22 08:58:24 Jobs : @JManager - Job Test_933f5fd3-d0d2-4f26-96f2-35050bb151db_6mKD2H validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 207, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 214, in validate
     raise ValidatorError("@Validator - Not supported variable: %s." % _k)
 ValidatorError: @Validator - Not supported variable: 11Float.
-INFO 01-21 16:23:26 Jobs : Job Test_12351f02-4242-40cd-a225-6eb110e4e0ab_uFXuLx finished: aborted
-WARNING 01-21 16:23:31 Tools : @Validator - Value not in allowed range: SLEEP - 100000
-WARNING 01-21 16:23:31 Jobs : @JManager - Job Test_42ff9724-edf8-448c-9253-548f09b22faa_ccsGd6 validation failed.
+INFO 04-22 08:58:24 Tools : Job Test_933f5fd3-d0d2-4f26-96f2-35050bb151db_6mKD2H cleaned directories.
+INFO 04-22 08:58:24 Jobs : Job Test_933f5fd3-d0d2-4f26-96f2-35050bb151db_6mKD2H finished: aborted
+WARNING 04-22 08:58:29 Tools : @Validator - Value not in allowed range: SLEEP - 100000
+WARNING 04-22 08:58:29 Jobs : @JManager - Job Test_68cc906d-1d16-4cbf-bbc3-930a0cb092b6_gnE_iv validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: SLEEP - 100000.
-INFO 01-21 16:23:31 Jobs : Job Test_42ff9724-edf8-448c-9253-548f09b22faa_ccsGd6 finished: aborted
-WARNING 01-21 16:23:36 Tools : @Validator - Value not in allowed range: SLEEP - -100000
-WARNING 01-21 16:23:36 Jobs : @JManager - Job Test_d087e42e-a59d-433b-b437-f6df35f0277d_hW8uWr validation failed.
+INFO 04-22 08:58:29 Tools : Job Test_68cc906d-1d16-4cbf-bbc3-930a0cb092b6_gnE_iv cleaned directories.
+INFO 04-22 08:58:29 Jobs : Job Test_68cc906d-1d16-4cbf-bbc3-930a0cb092b6_gnE_iv finished: aborted
+WARNING 04-22 08:58:33 Tools : @Validator - Value not in allowed range: SLEEP - -100000
+WARNING 04-22 08:58:33 Jobs : @JManager - Job Test_2d7bccac-f95f-4e35-8004-f4b58eca83e8_6HjhE6 validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: SLEEP - -100000.
-INFO 01-21 16:23:36 Jobs : Job Test_d087e42e-a59d-433b-b437-f6df35f0277d_hW8uWr finished: aborted
-WARNING 01-21 16:23:41 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
-WARNING 01-21 16:23:41 Jobs : @JManager - Job Test_639b3ef2-9d40-4fdf-8c19-ca7284a9ead8_KKrfkS validation failed.
+INFO 04-22 08:58:34 Tools : Job Test_2d7bccac-f95f-4e35-8004-f4b58eca83e8_6HjhE6 cleaned directories.
+INFO 04-22 08:58:34 Jobs : Job Test_2d7bccac-f95f-4e35-8004-f4b58eca83e8_6HjhE6 finished: aborted
+WARNING 04-22 08:58:39 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
+WARNING 04-22 08:58:39 Jobs : @JManager - Job Test_cc5686a3-2904-490d-8091-c5aadd669bed_cRRQFh validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: 1Float - 900000.
-INFO 01-21 16:23:41 Jobs : Job Test_639b3ef2-9d40-4fdf-8c19-ca7284a9ead8_KKrfkS finished: aborted
-WARNING 01-21 16:23:46 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
-WARNING 01-21 16:23:46 Jobs : @JManager - Job Test_09224ed3-3bea-4ef4-865e-acb974d51cda_fKsFMn validation failed.
+INFO 04-22 08:58:39 Tools : Job Test_cc5686a3-2904-490d-8091-c5aadd669bed_cRRQFh cleaned directories.
+INFO 04-22 08:58:39 Jobs : Job Test_cc5686a3-2904-490d-8091-c5aadd669bed_cRRQFh finished: aborted
+WARNING 04-22 08:58:44 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
+WARNING 04-22 08:58:44 Jobs : @JManager - Job Test_c1b68689-893e-4c12-92f9-267175f9142a_WJbn0F validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: 1Float - -900000.
-INFO 01-21 16:23:46 Jobs : Job Test_09224ed3-3bea-4ef4-865e-acb974d51cda_fKsFMn finished: aborted
-WARNING 01-21 16:23:51 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
-WARNING 01-21 16:23:51 Jobs : @JManager - Job Test_1b25069c-1db9-45c4-adad-eada93f46bb8_aWOyIW validation failed.
+INFO 04-22 08:58:44 Tools : Job Test_c1b68689-893e-4c12-92f9-267175f9142a_WJbn0F cleaned directories.
+INFO 04-22 08:58:44 Jobs : Job Test_c1b68689-893e-4c12-92f9-267175f9142a_WJbn0F finished: aborted
+WARNING 04-22 08:58:49 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
+WARNING 04-22 08:58:49 Jobs : @JManager - Job Test_24f61b16-a9ce-4709-9139-747bc2999023_lsXmjZ validation failed.
 Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 160, in check_new_jobs
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
     self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 216, in validate
+  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
     (_k, _v)
 ValidatorError: @Validator - Variable value not allowed: COMMAND - /bin/true.
-INFO 01-21 16:23:51 Jobs : Job Test_1b25069c-1db9-45c4-adad-eada93f46bb8_aWOyIW finished: aborted
-INFO 01-21 16:23:54 Daemon : Received terminate command
-INFO 01-21 16:23:56 Daemon : Shutdown
+INFO 04-22 08:58:49 Tools : Job Test_24f61b16-a9ce-4709-9139-747bc2999023_lsXmjZ cleaned directories.
+INFO 04-22 08:58:49 Jobs : Job Test_24f61b16-a9ce-4709-9139-747bc2999023_lsXmjZ finished: aborted
+INFO 04-22 08:58:56 Daemon : Received terminate command
