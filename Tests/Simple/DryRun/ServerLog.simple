@@ -1,18 +1,132 @@
-INFO 2014-06-26 09:18:27,396 Daemon : Executing start
-INFO 2014-06-26 09:18:27,396 Tools : Initialized service: default
-INFO 2014-06-26 09:18:27,399 Tools : Initialized service: Test
-INFO 2014-06-26 09:18:27,399 Tools : Initialized service: MultiNest
-INFO 2014-06-26 09:18:27,411 Daemon : CISAppServer started with pid 19717
-INFO 2014-06-26 09:18:32,605 Daemon : Received pause command
-INFO 2014-06-26 09:18:32,804 Daemon : Received run command
-INFO 2014-06-26 09:18:33,005 Daemon : Received reload command
-INFO 2014-06-26 09:18:33,011 Tools : Initialized service: default
-INFO 2014-06-26 09:18:33,014 Tools : Initialized service: Test
-INFO 2014-06-26 09:18:33,015 Tools : Initialized service: MultiNest
-INFO 2014-06-26 09:18:33,015 Daemon : Reload complete
-INFO 2014-06-26 09:18:33,188 Daemon : Executing restart
-INFO 2014-06-26 09:18:34,190 Tools : Initialized service: default
-INFO 2014-06-26 09:18:34,199 Tools : Initialized service: Test
-INFO 2014-06-26 09:18:34,200 Tools : Initialized service: MultiNest
-INFO 2014-06-26 09:18:34,213 Daemon : CISAppServer started with pid 19752
-INFO 2014-06-26 09:18:34,378 Daemon : Received terminate command
+   INFO 2015-02-19 08:57:04,627 : Executing start
+   INFO 2015-02-19 08:57:04,640 : CISAppServer started with pid 5242
+   INFO 2015-02-19 08:57:05,267 : Initialized service: default
+   INFO 2015-02-19 08:57:05,270 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,270 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,271 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,296 : Initialized service: default
+   INFO 2015-02-19 08:57:05,300 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,301 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,302 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,308 : Initialized service: default
+   INFO 2015-02-19 08:57:05,311 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,312 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,313 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,322 : Initialized service: default
+   INFO 2015-02-19 08:57:05,326 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,327 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,328 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,337 : Initialized service: default
+   INFO 2015-02-19 08:57:05,342 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,343 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,344 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,350 : Initialized service: default
+   INFO 2015-02-19 08:57:05,356 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,357 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,358 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,362 : Initialized service: default
+   INFO 2015-02-19 08:57:05,365 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,365 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,366 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,373 : Initialized service: default
+   INFO 2015-02-19 08:57:05,376 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,376 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,377 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:05,384 : Initialized service: default
+   INFO 2015-02-19 08:57:05,386 : Initialized service: Test
+   INFO 2015-02-19 08:57:05,387 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:05,388 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:09,992 : Received pause command
+   INFO 2015-02-19 08:57:09,995 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:10,015 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:10,341 : Received run command
+   INFO 2015-02-19 08:57:10,342 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:10,366 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:10,676 : Received reload command
+   INFO 2015-02-19 08:57:10,677 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:10,712 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:10,821 : Initialized service: default
+   INFO 2015-02-19 08:57:10,825 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,826 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,828 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,850 : Initialized service: default
+   INFO 2015-02-19 08:57:10,852 : Reload complete
+   INFO 2015-02-19 08:57:10,854 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,855 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,856 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,861 : Initialized service: default
+   INFO 2015-02-19 08:57:10,866 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,867 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,868 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,871 : Initialized service: default
+   INFO 2015-02-19 08:57:10,874 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,875 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,876 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,884 : Initialized service: default
+   INFO 2015-02-19 08:57:10,889 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,890 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,892 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,894 : Initialized service: default
+   INFO 2015-02-19 08:57:10,902 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,903 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,905 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,908 : Initialized service: default
+   INFO 2015-02-19 08:57:10,912 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,913 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,915 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,920 : Initialized service: default
+   INFO 2015-02-19 08:57:10,923 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,924 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,925 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,930 : Initialized service: default
+   INFO 2015-02-19 08:57:10,934 : Initialized service: Test
+   INFO 2015-02-19 08:57:10,934 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:10,935 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:10,994 : Executing restart
+   INFO 2015-02-19 08:57:10,995 : Received stop command
+   INFO 2015-02-19 08:57:10,999 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:11,040 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:11,041 : Starting shutdown
+   INFO 2015-02-19 08:57:15,178 : Shutdown complete
+   INFO 2015-02-19 08:57:21,023 : CISAppServer started with pid 5304
+   INFO 2015-02-19 08:57:21,045 : Initialized service: default
+   INFO 2015-02-19 08:57:21,048 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,048 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,049 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,071 : Initialized service: default
+   INFO 2015-02-19 08:57:21,075 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,076 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,077 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,084 : Initialized service: default
+   INFO 2015-02-19 08:57:21,089 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,090 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,091 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,098 : Initialized service: default
+   INFO 2015-02-19 08:57:21,103 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,104 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,106 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,109 : Initialized service: default
+   INFO 2015-02-19 08:57:21,114 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,115 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,116 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,124 : Initialized service: default
+   INFO 2015-02-19 08:57:21,129 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,130 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,131 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,133 : Initialized service: default
+   INFO 2015-02-19 08:57:21,138 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,139 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,140 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,147 : Initialized service: default
+   INFO 2015-02-19 08:57:21,151 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,152 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,154 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,161 : Initialized service: default
+   INFO 2015-02-19 08:57:21,164 : Initialized service: Test
+   INFO 2015-02-19 08:57:21,164 : Initialized service: MultiNest
+   INFO 2015-02-19 08:57:21,165 : Initialized service: AppFlexpart
+   INFO 2015-02-19 08:57:21,283 : Received terminate command
+   INFO 2015-02-19 08:57:21,288 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:21,317 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-19 08:57:21,318 : Starting shutdown
+   INFO 2015-02-19 08:57:27,399 : Shutdown complete

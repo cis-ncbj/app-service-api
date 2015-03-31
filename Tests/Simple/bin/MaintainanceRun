@@ -22,7 +22,7 @@ sleep 5
 # Submit job
 # Use the default options
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":"2.0"}')
+    '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1"}}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
@@ -70,4 +70,4 @@ $ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
-sleep 3
+sleep 10

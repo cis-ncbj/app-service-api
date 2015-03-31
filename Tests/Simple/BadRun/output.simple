@@ -1,12 +1,12 @@
 Error: Unsupported service
-Aborted:-94 @JManager - Job Test_2e3122a6-769d-46dd-9890-081b5a34d528_Pd2gz8 validation failed.
-Aborted:-94 @JManager - Job Test_ffb4a722-7a07-482e-8f15-00dcfadf2506_hrot_W validation failed.
-Aborted:-94 @JManager - Job Test_4a9a598f-b234-42ee-a794-2827eeed65c4_EIssrz validation failed.
-Aborted:-94 @JManager - Job Test_5635861d-6f64-4b96-9bbb-5b42f2757145_Z_zg2U validation failed.
-Aborted:-94 @JManager - Job Test_1d5bdb17-ec4d-4de3-a646-e938db20e261_8q5qSP validation failed.
-Aborted:-94 @JManager - Job Test_fa71110d-17c5-425d-81ce-a697b05f4006_VcEIy1 validation failed.
-Aborted:-94 @JManager - Job Test_78fe4702-7354-4a0d-8a43-8faaf489fbcc_Rdj0qo validation failed.
-Aborted:-94 @JManager - Job Test_c550116b-9f0f-4e74-991a-e37f977113f4_nPPDCZ validation failed.
-Aborted:-94 @JManager - Job Test_b760085f-dca4-4cac-a8c5-b3dcca51c2dd_fOT1Ay validation failed.
-Aborted:-94 @JManager - Job Test_1d92a5c4-c917-480e-97a4-cbc30f7b03cf_H9eLd2 validation failed.
-Aborted:-94 @JManager - Job Test_b20513b8-2591-4b9a-9aab-10387e16952f_Orfb2R validation failed.
+Error: Exception cought while creating job request: 'api'
+Aborted:-94 @worker_submit - Job validation failed: api = 0.1 - value not in allowed range ((1.0, 2.99))
+Aborted:-94 @worker_submit - Job validation failed: Section '2Float' is not allowed in job definition.
+Aborted:-94 @worker_submit - Job validation failed: Int = 0.1 - value does not decribe an integer
+Aborted:-94 @worker_submit - Job validation failed: 1Float = string - value does not decribe a float
+Aborted:-94 @worker_submit - Job validation failed: Not supported variable: 11Float.
+Aborted:-94 @worker_submit - Job validation failed: SLEEP = 100000.0 - value not in allowed range ((0, 30))
+Aborted:-94 @worker_submit - Job validation failed: SLEEP = -100000.0 - value not in allowed range ((0, 30))
+Aborted:-94 @worker_submit - Job validation failed: 1Float = 900000.0 - value not in allowed range ((-100, 100))
+Aborted:-94 @worker_submit - Job validation failed: 1Float = -900000.0 - value not in allowed range ((-100, 100))
+Aborted:-94 @worker_submit - Job validation failed: /bin/true = COMMAND - Value not in the white list ([u'/bin/ls', u'/bin/ls NieIstniej\u0105cyPlik']).

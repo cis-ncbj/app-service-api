@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -q test_slc6
+#PBS -q i12h
 # 0
 #
 
@@ -29,4 +29,3 @@ python -c "print 10 * 1.0 / 20.99"
 /bin/ls
 
 exit $?
-

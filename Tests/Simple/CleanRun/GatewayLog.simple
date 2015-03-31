@@ -9,10 +9,10 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 09:00:27] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+DEBUG:root:Return request id: Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2015 10:21:46] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 09:00:27] "GET /status/Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 09:01:07] "GET /status/Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2015 10:21:46] "GET /status/Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2015 10:22:26] "GET /status/Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf HTTP/1.1" 200 -

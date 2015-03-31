@@ -1,0 +1,21 @@
+INFO     CISAppS 0.9
+INFO     CLI Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Logging level: INFO
+INFO     Executing start
+INFO     CISAppServer started with pid 7962
+INFO     CISAppS 0.9
+INFO     CLI Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Logging level: INFO
+INFO     Executing status
+INFO     AppServer is active.
+INFO     Initialized service: default
+INFO     Initialized service: Test
+INFO     Initialized service: MultiNest
+INFO     Jobs - w:3599, p:600, q:150, r:152, s:244, c:150, d:5106, f:0, a:0, k:0.
+INFO     CISAppS 0.9
+INFO     CLI Logging level: INFO
+INFO     Configuration file: CISAppServer.json
+INFO     Logging level: INFO
+INFO     Executing terminate

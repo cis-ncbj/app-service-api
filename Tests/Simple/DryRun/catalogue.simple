@@ -2,7 +2,6 @@ The following new files/directories were created:
 <Test Directory>
 ----CISAppGateway.log
 ----CISAppServer.log
-----CISAppServer.pid
 ----Dump
 ----Output
 ----SSH

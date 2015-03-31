@@ -1,7 +1,7 @@
 # Ordered list of tests in test suite. Add as appropriate
 # DryRun 
 # BadRun
-DefaultRun 
+# DefaultRun 
 # CleanRun 
 # CustomRun 
 # FailRun 
@@ -12,4 +12,5 @@ DefaultRun
 # QuotaRun 
 # ChainRun 
 # TerminateRun
-# DeprecatedApiRun
+DeprecatedApiRun
+# MMORun

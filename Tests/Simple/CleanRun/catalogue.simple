@@ -2,10 +2,9 @@ The following new files/directories were created:
 <Test Directory>
 ----CISAppGateway.log
 ----CISAppServer.log
-----CISAppServer.pid
 ----Dump
 ----Output
---------Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+--------Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
 ------------epilogue.sh
 ------------output.log
 ------------pbs.sh
@@ -18,7 +17,7 @@ The following new files/directories were created:
 --------cleanup
 --------closing
 --------done
-------------Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+------------Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
 --------failed
 --------flags
 ------------delete
@@ -27,18 +26,18 @@ The following new files/directories were created:
 ------------wait_input
 ------------wait_quota
 --------jobs
-------------Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+------------Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
 --------killed
 --------new
 --------opts
-------------code_Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
-------------message_Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
-------------state_Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+------------code_Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
+------------message_Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
+------------state_Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
+--------processing
 --------queued
 --------running
 --------time
-------------start_Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
-------------stop_Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
-------------submit_Test_70b03307-440f-4a5a-9b80-0291936d6213_Idh_yT
+------------stop_Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
+------------submit_Test_816ff649-8ff6-4f0b-b058-67ce7a4612f3_2gTW9q
 --------waiting
 ----jobs.db

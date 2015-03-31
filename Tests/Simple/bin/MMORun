@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Test response for a job using deprecated API
+
+PORT=5014
+ROOT="$TEXTTEST_ROOT/../.."
+
+type -t module > /dev/null 2>&1
+if [[ $? == 0 ]]
+then
+    module load python-tools
+fi
+
+# Start server
+$ROOT/AppServer/cisapps start
+# Start gateway
+(setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
+GATEPID=$!
+
+sleep 5
+
+# Submit job
+# Use custom options
+ID1=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+    '{"service":"Test", "api":"2.0"}')
+
+#for A in $(seq 100)
+for A in $(seq 10000)
+do
+
+    # Submit job
+    # Use custom options
+    ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+        '{"service":"Test", "api":"2.0"}')
+done
+
+# Expect Waiting
+curl -s -S http://localhost:$PORT/status/$ID1
+echo ""
+# Expect New
+curl -s -S http://localhost:$PORT/status/$ID
+echo ""
+
+sleep 3
+
+# Expect Running
+curl -s -S http://localhost:$PORT/status/$ID1
+echo ""
+# Expect New
+curl -s -S http://localhost:$PORT/status/$ID
+echo ""
+
+sleep 30
+
+# Expect Done
+curl -s -S http://localhost:$PORT/status/$ID1
+echo ""
+# Expect Waiting
+curl -s -S http://localhost:$PORT/status/$ID
+echo ""
+
+sleep 60
+
+$ROOT/AppServer/cisapps status
+
+# Stop server
+$ROOT/AppServer/cisapps terminate
+# Stop gateway
+kill -TERM -$GATEPID
+
+sleep 60

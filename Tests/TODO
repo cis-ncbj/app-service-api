@@ -3,3 +3,5 @@
   - For queue use PBS wait flag
 - Terminate hang test (terminate server with running jobs, job cleanup should hang)
 - Deprecated API test (test for API 1.0 output status values) [DONE]
+- DoS test
+- Max job limits test

@@ -1,16 +1,109 @@
-INFO 01-24 09:22:07 Daemon : Executing start
-INFO 01-24 09:22:07 Tools : Initialized service: default
-INFO 01-24 09:22:07 Tools : Initialized service: Test
-INFO 01-24 09:22:07 Tools : Initialized service: MultiNest
-INFO 01-24 09:22:07 Daemon : CISAppServer started with pid 9252
-INFO 01-24 09:22:13 Tools : Job successfully submitted: Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9
-INFO 01-24 09:22:28 Daemon : Received pause command
-INFO 01-24 09:22:45 Jobs : Job Test_f22f958c-d1c3-4967-a0a0-863912c97194_AWQQc9 finished: done
-INFO 01-24 09:23:48 Daemon : Executing restart
-INFO 01-24 09:23:49 Tools : Initialized service: default
-INFO 01-24 09:23:49 Tools : Initialized service: Test
-INFO 01-24 09:23:49 Tools : Initialized service: MultiNest
-INFO 01-24 09:23:49 Daemon : CISAppServer started with pid 10859
-INFO 01-24 09:23:54 Tools : Job successfully submitted: Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa
-INFO 01-24 09:24:06 Jobs : Job Test_b9508000-b544-4952-82d1-78158fcc3ef4_AkKAMa finished: done
-INFO 01-24 10:07:26 Daemon : Received terminate command
+   INFO 2015-03-30 13:27:18,746 : Executing start
+   INFO 2015-03-30 13:27:18,771 : CISAppServer started with pid 22526
+   INFO 2015-03-30 13:27:19,386 : Initialized service: default
+   INFO 2015-03-30 13:27:19,389 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,390 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,411 : Initialized service: default
+   INFO 2015-03-30 13:27:19,414 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,415 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,422 : Initialized service: default
+   INFO 2015-03-30 13:27:19,425 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,425 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,436 : Initialized service: default
+   INFO 2015-03-30 13:27:19,439 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,440 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,452 : Initialized service: default
+   INFO 2015-03-30 13:27:19,455 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,456 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,470 : Initialized service: default
+   INFO 2015-03-30 13:27:19,473 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,474 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,495 : Initialized service: default
+   INFO 2015-03-30 13:27:19,499 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,500 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,511 : Initialized service: default
+   INFO 2015-03-30 13:27:19,517 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,518 : Initialized service: MultiNest
+   INFO 2015-03-30 13:27:19,532 : Initialized service: default
+   INFO 2015-03-30 13:27:19,535 : Initialized service: Test
+   INFO 2015-03-30 13:27:19,535 : Initialized service: MultiNest
+  ERROR 2015-03-30 13:27:24,563 : Unable to submit job.
+Traceback (most recent call last):
+  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 991, in worker_submit
+    if _scheduler.generate_scripts(_job):
+  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/Schedulers.py", line 322, in generate_scripts
+    template = self.template_env.get_template(_template_name)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 554, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/konrad/.texttest/tmp/console.30Mar132718.22512/simple/MaintainanceRun/Services/Data/Test/pbs.sh", line 27, in template
+    python -c "print @@{1Float} / @@{2Float}"
+TemplateSyntaxError: unexpected char u'F' at 579
+   INFO 2015-03-30 13:27:39,118 : Received pause command
+   INFO 2015-03-30 13:27:49,138 : Jobs - w:0, p:1, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-03-30 13:28:14,163 : Jobs - w:0, p:1, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-03-30 13:28:39,183 : Jobs - w:0, p:1, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-03-30 13:28:59,422 : Executing restart
+   INFO 2015-03-30 13:28:59,512 : Received stop command
+   INFO 2015-03-30 13:28:59,518 : Starting shutdown
+   INFO 2015-03-30 13:29:03,611 : Shutdown complete
+   INFO 2015-03-30 13:29:09,450 : CISAppServer started with pid 22582
+   INFO 2015-03-30 13:29:09,471 : Initialized service: default
+   INFO 2015-03-30 13:29:09,473 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,473 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,496 : Initialized service: default
+   INFO 2015-03-30 13:29:09,499 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,499 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,511 : Initialized service: default
+   INFO 2015-03-30 13:29:09,514 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,515 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,536 : Initialized service: default
+   INFO 2015-03-30 13:29:09,540 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,540 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,552 : Initialized service: default
+   INFO 2015-03-30 13:29:09,554 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,555 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,565 : Initialized service: default
+   INFO 2015-03-30 13:29:09,570 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,571 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,582 : Initialized service: default
+   INFO 2015-03-30 13:29:09,585 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,586 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,600 : Initialized service: default
+   INFO 2015-03-30 13:29:09,603 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,604 : Initialized service: MultiNest
+   INFO 2015-03-30 13:29:09,620 : Initialized service: default
+   INFO 2015-03-30 13:29:09,623 : Initialized service: Test
+   INFO 2015-03-30 13:29:09,623 : Initialized service: MultiNest
+  ERROR 2015-03-30 13:29:14,646 : Unable to submit job.
+Traceback (most recent call last):
+  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 991, in worker_submit
+    if _scheduler.generate_scripts(_job):
+  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/Schedulers.py", line 322, in generate_scripts
+    template = self.template_env.get_template(_template_name)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 554, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/konrad/.texttest/tmp/console.30Mar132718.22512/simple/MaintainanceRun/Services/Data/Test/pbs.sh", line 27, in template
+    python -c "print @@{1Float} / @@{2Float}"
+TemplateSyntaxError: unexpected char u'F' at 579
+   INFO 2015-03-30 13:29:39,535 : Jobs - w:0, p:2, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-03-30 13:29:49,727 : Received terminate command
+   INFO 2015-03-30 13:29:49,754 : Starting shutdown
+   INFO 2015-03-30 13:29:55,854 : Job Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE finished: killed
+   INFO 2015-03-30 13:29:55,856 : Job Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz finished: killed
+   INFO 2015-03-30 13:29:55,970 : Shutdown complete

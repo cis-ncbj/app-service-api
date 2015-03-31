@@ -1,13 +1,49 @@
-INFO 05-21 12:31:47 Daemon : Executing start
-INFO 05-21 12:31:47 Tools : Initialized service: MultiNest
-INFO 05-21 12:31:47 Tools : Initialized service: default
-INFO 05-21 12:31:47 Tools : Initialized service: Test
-INFO 05-21 12:31:47 Daemon : CISAppServer started with pid 13169
-INFO 05-21 12:31:50 JobManager : Job Test_2877a5f0-c8ea-4a4f-b6e5-8ece562a3168_6Dyifu finished: aborted
-ERROR 05-21 12:31:50 JobManager : @Scheduler - Scripts creation failed for job: Test_2877a5f0-c8ea-4a4f-b6e5-8ece562a3168_6Dyifu.
+   INFO 2015-03-30 13:12:17,118 : Executing start
+   INFO 2015-03-30 13:12:17,143 : CISAppServer started with pid 18903
+   INFO 2015-03-30 13:12:17,576 : Initialized service: default
+   INFO 2015-03-30 13:12:17,578 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,579 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,580 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,616 : Initialized service: default
+   INFO 2015-03-30 13:12:17,620 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,622 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,623 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,631 : Initialized service: default
+   INFO 2015-03-30 13:12:17,634 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,635 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,636 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,650 : Initialized service: default
+   INFO 2015-03-30 13:12:17,653 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,654 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,655 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,663 : Initialized service: default
+   INFO 2015-03-30 13:12:17,667 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,669 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,670 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,675 : Initialized service: default
+   INFO 2015-03-30 13:12:17,681 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,684 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,685 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,689 : Initialized service: default
+   INFO 2015-03-30 13:12:17,692 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,693 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,694 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,700 : Initialized service: default
+   INFO 2015-03-30 13:12:17,703 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,704 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,705 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:12:17,712 : Initialized service: default
+   INFO 2015-03-30 13:12:17,715 : Initialized service: Test
+   INFO 2015-03-30 13:12:17,717 : Initialized service: MultiNest
+   INFO 2015-03-30 13:12:17,718 : Initialized service: AppFlexpart
+  ERROR 2015-03-30 13:12:22,759 : @Scheduler - Scripts creation failed for job: Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN.
 Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 463, in generate_scripts
-    _fou.write(_line)
-UnicodeEncodeError: 'ascii' codec can't encode character u'\u0105' in position 18: ordinal not in range(128)
-INFO 05-21 12:32:30 Daemon : Received terminate command
-INFO 05-21 12:32:30 Daemon : Shutdown
+  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/Schedulers.py", line 326, in generate_scripts
+    _fou.writelines(template.generate(job.data.data))
+TypeError: writelines() argument must be a sequence of strings
+   INFO 2015-03-30 13:12:27,739 : Job Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN cleaned directories.
+   INFO 2015-03-30 13:12:27,739 : Job Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN finished: aborted
+   INFO 2015-03-30 13:12:47,634 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:1, k:0.
+   INFO 2015-03-30 13:13:02,519 : Received terminate command
+   INFO 2015-03-30 13:13:02,544 : Starting shutdown
+   INFO 2015-03-30 13:13:08,669 : Shutdown complete

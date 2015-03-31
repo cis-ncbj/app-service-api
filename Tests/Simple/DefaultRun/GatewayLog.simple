@@ -9,10 +9,10 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_6bdcf351-8aaa-4daf-b6a9-5c1b7672fd65_JI6kfS
-INFO:werkzeug:127.0.0.1 - - [26/Jun/2014 10:13:10] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6bdcf351-8aaa-4daf-b6a9-5c1b7672fd65_JI6kfS
+DEBUG:root:Return request id: Test_595b0177-2f7a-4f9f-b188-dfbdc4382977_zbBtWs
+INFO:werkzeug:127.0.0.1 - - [26/Feb/2015 09:59:43] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_595b0177-2f7a-4f9f-b188-dfbdc4382977_zbBtWs
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [26/Jun/2014 10:13:10] "GET /status/Test_6bdcf351-8aaa-4daf-b6a9-5c1b7672fd65_JI6kfS HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6bdcf351-8aaa-4daf-b6a9-5c1b7672fd65_JI6kfS
-INFO:werkzeug:127.0.0.1 - - [26/Jun/2014 10:13:40] "GET /status/Test_6bdcf351-8aaa-4daf-b6a9-5c1b7672fd65_JI6kfS HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Feb/2015 09:59:43] "GET /status/Test_595b0177-2f7a-4f9f-b188-dfbdc4382977_zbBtWs HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_595b0177-2f7a-4f9f-b188-dfbdc4382977_zbBtWs
+INFO:werkzeug:127.0.0.1 - - [26/Feb/2015 10:00:13] "GET /status/Test_595b0177-2f7a-4f9f-b188-dfbdc4382977_zbBtWs HTTP/1.1" 200 -

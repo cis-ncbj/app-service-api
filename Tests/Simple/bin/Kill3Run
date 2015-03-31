@@ -48,4 +48,4 @@ $ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
-sleep 3
+sleep 10

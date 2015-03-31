@@ -9,40 +9,40 @@ DEBUG:root:Service defined: PartA
 DEBUG:root:Service selected: PartA
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:32] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:Request {"api": "2.0", "chain": ["PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7"], "service": "PartB"}
+DEBUG:root:Return request id: PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:37:52] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:Request {"api": "2.0", "chain": ["PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7"], "service": "PartB"}
 DEBUG:root:Service defined: PartB
 DEBUG:root:Service selected: PartB
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: PartB_36be4f5c-0894-49bf-9960-6ac27d26754d_20EtwO
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:32] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7
+DEBUG:root:Return request id: PartB_7069299d-5e85-456a-ad08-690e2b7b6a3e_vKjI13
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:37:52] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:32] "GET /status/PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: PartB_36be4f5c-0894-49bf-9960-6ac27d26754d_20EtwO
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:37] "GET /status/PartB_36be4f5c-0894-49bf-9960-6ac27d26754d_20EtwO HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:47] "GET /status/PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7 HTTP/1.1" 200 -
-DEBUG:root:Request {"api": "2.0", "chain": ["PartA_fe2c79f0-2028-4d77-8f28-39b3f60720ec_u0HKc7"], "service": "PartB"}
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:37:52] "GET /status/PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_7069299d-5e85-456a-ad08-690e2b7b6a3e_vKjI13
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:02] "GET /status/PartB_7069299d-5e85-456a-ad08-690e2b7b6a3e_vKjI13 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:07] "GET /status/PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7 HTTP/1.1" 200 -
+DEBUG:root:Request {"api": "2.0", "chain": ["PartA_a1fc6b7f-44d5-4bf7-985b-7b5a4c89c5e8_GvBVq7"], "service": "PartB"}
 DEBUG:root:Service defined: PartB
 DEBUG:root:Service selected: PartB
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: PartB_c4687a60-1e5c-470b-b0d4-de97a5ca70ea_JaQmRg
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:52] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: PartB_c4687a60-1e5c-470b-b0d4-de97a5ca70ea_JaQmRg
+DEBUG:root:Return request id: PartB_e63d83da-08f8-4dd3-9830-5f0515c2d105_zQ9yPV
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:12] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_e63d83da-08f8-4dd3-9830-5f0515c2d105_zQ9yPV
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:52] "GET /status/PartB_c4687a60-1e5c-470b-b0d4-de97a5ca70ea_JaQmRg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:12] "GET /status/PartB_e63d83da-08f8-4dd3-9830-5f0515c2d105_zQ9yPV HTTP/1.1" 200 -
 DEBUG:root:Request {"api": "2.0", "chain": ["PartA_miss"], "service": "PartB"}
 DEBUG:root:Service defined: PartB
 DEBUG:root:Service selected: PartB
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: PartB_ae29a92a-bf8a-454d-a411-add1faff03a1_J_Dwh_
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:52] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: PartB_ae29a92a-bf8a-454d-a411-add1faff03a1_J_Dwh_
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:52:57] "GET /status/PartB_ae29a92a-bf8a-454d-a411-add1faff03a1_J_Dwh_ HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: PartB_c4687a60-1e5c-470b-b0d4-de97a5ca70ea_JaQmRg
-INFO:werkzeug:127.0.0.1 - - [17/Apr/2014 10:53:12] "GET /status/PartB_c4687a60-1e5c-470b-b0d4-de97a5ca70ea_JaQmRg HTTP/1.1" 200 -
+DEBUG:root:Return request id: PartB_3882efe5-367d-4925-9bd0-8e6d076d0292_ocFB8X
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:12] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_3882efe5-367d-4925-9bd0-8e6d076d0292_ocFB8X
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:22] "GET /status/PartB_3882efe5-367d-4925-9bd0-8e6d076d0292_ocFB8X HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: PartB_e63d83da-08f8-4dd3-9830-5f0515c2d105_zQ9yPV
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 09:38:32] "GET /status/PartB_e63d83da-08f8-4dd3-9830-5f0515c2d105_zQ9yPV HTTP/1.1" 200 -

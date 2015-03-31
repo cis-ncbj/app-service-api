@@ -16,6 +16,8 @@ output:Test_[\w_\-]+{REPLACE Test}
 GatewayLog:PartA_[\w_\-]+{REPLACE PartA}
 ServerLog:PartA_[\w_\-]+{REPLACE PartA}
 catalogue:PartA_[\w_\-]+{REPLACE PartA}
+output:PartA_[\w_\-]+{REPLACE PartA}
 GatewayLog:PartB_[\w_\-]+{REPLACE PartB}
 ServerLog:PartB_[\w_\-]+{REPLACE PartB}
 catalogue:PartB_[\w_\-]+{REPLACE PartB}
+output:PartB_[\w_\-]+{REPLACE PartB}

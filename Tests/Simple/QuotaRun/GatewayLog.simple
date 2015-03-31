@@ -9,60 +9,59 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:43:46] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j
+DEBUG:root:Return request id: Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:18] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:43:46] "GET /status/Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:18] "GET /status/Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD HTTP/1.1" 200 -
 DEBUG:root:Request {"api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:43:48] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW
+DEBUG:root:Return request id: Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:19] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:43:48] "GET /status/Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:19] "GET /status/Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0 HTTP/1.1" 200 -
 DEBUG:root:Request {"api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:43:50] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9
+DEBUG:root:Return request id: Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:20] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:43:50] "GET /status/Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:20] "GET /status/Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:44:05] "GET /status/Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:26] "GET /status/Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:44:05] "GET /status/Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:26] "GET /status/Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:44:05] "GET /status/Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:44:35] "GET /status/Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:26] "GET /status/Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:36] "GET /status/Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:36] "GET /status/Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:36] "GET /status/Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:46] "GET /status/Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:44:35] "GET /status/Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:46] "GET /status/Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:44:35] "GET /status/Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:45:05] "GET /status/Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:45:05] "GET /status/Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9
-DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:45:06] "GET /status/Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9 HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j
-WARNING:root:@status - Job ID not found
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:47:36] "GET /status/Test_cf5e3dfb-d2d8-4202-bce7-e0a403938b8d_NR7b8j HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW
-WARNING:root:@status - Job ID not found
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:47:36] "GET /status/Test_0a319353-4db9-4d36-a795-e6913c9cac6f_PFiztW HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9
-INFO:werkzeug:127.0.0.1 - - [27/May/2014 09:47:36] "GET /status/Test_180367f5-91a0-450c-ae2b-3d1f9928b61a_iczWa9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:39:46] "GET /status/Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:40:16] "GET /status/Test_aca67061-516c-4b44-9a2e-fb7fdf7f05c3_ahbkaD HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:40:16] "GET /status/Test_cc0a123f-3e38-40b2-8f19-eb16180e2628_nFpXz0 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 16:40:16] "GET /status/Test_18d454d9-278a-4302-b710-b0fff354352f_eOa6lY HTTP/1.1" 200 -

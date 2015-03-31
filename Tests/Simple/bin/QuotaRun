@@ -28,7 +28,7 @@ echo -n "Job1: "
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
-sleep 2
+sleep 1
 
 # Submit job
 # Use the default options
@@ -39,7 +39,7 @@ echo -n "Job2: "
 curl -s -S http://localhost:$PORT/status/$ID2
 echo ""
 
-sleep 2
+sleep 1
 
 # Submit job
 # Use the default options
@@ -50,7 +50,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 15
+sleep 6
 
 # Expect Running
 echo -n "Job1: "
@@ -65,7 +65,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 30
+sleep 10
 
 # Expect Done
 echo -n "Job1: "
@@ -80,7 +80,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 30
+sleep 10
 
 # Expect Done
 echo -n "Job1: "
@@ -95,7 +95,7 @@ echo -n "Job3: "
 curl -s -S http://localhost:$PORT/status/$ID3
 echo ""
 
-sleep 150
+sleep 30
 
 # Expect Missing
 echo -n "Job1: "
@@ -115,4 +115,4 @@ $ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
-sleep 3
+sleep 10

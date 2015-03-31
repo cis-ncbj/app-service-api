@@ -2,11 +2,8 @@ INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
-INFO Executing start
-INFO Initialized service: default
-INFO Initialized service: Test
-INFO Initialized service: MultiNest
-INFO CISAppServer started with pid 5610
+INFO     Executing start
+INFO     CISAppServer started with pid 6405
 INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json

@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -q test_slc6
+#PBS -q a12h
 # 0
 #
 
@@ -25,8 +25,7 @@ echo 2 | tee -a progress.log
 sleep 5
 echo 1 | tee -a progress.log
 
-python -c "print 22.5 / 39.67"
+python -c "print 10 * 22.5 / 39.67"
 /bin/ls
 
 exit $?
-

@@ -26,70 +26,59 @@ curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/su
     '{"service":"WrongTest", "api":"2.0", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}'
 echo ""
 # Missing API
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
+curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+    '{"service":"Test", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}'
 echo ""
 # Bad API
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID2=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"0.1", "input":{"SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Lack of input section
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID3=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "SLEEP":"1", "1Float":"0.5", "2Float":"0.5"}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Wrong int type
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID4=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"Int":"0.1", "1Float":"0.5", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Wrong float type
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID5=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"2", "1Float":"string", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Wrong option
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID6=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"11Float":"0.5", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Out of bounds int
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID7=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"100000", "1Float":"0.5", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Out of bounds int 2
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID8=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"-100000", "1Float":"0.5", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Out of bounds float
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID9=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"900000", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Out of bounds float 2
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID10=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"-900000", "2Float":"0.5"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
-echo ""
 # Bad string
-ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
+ID11=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
     '{"service":"Test", "api":"2.0", "input":{"SLEEP":"1", "1Float":"1.0", "2Float":"0.5", "COMMAND":"/bin/true"}}')
-sleep 5
-curl -s -S http://localhost:$PORT/status/$ID
+sleep 15
+curl -s -S http://localhost:$PORT/status/$ID2
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID3
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID4
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID5
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID6
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID7
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID8
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID9
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID10
+echo ""
+curl -s -S http://localhost:$PORT/status/$ID11
 echo ""
 
 sleep 2
@@ -99,4 +88,4 @@ $ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
-sleep 3
+sleep 10

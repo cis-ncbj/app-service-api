@@ -18,9 +18,9 @@ create_catalogues:true
 
 # Remove date/times and pids from comparison
 [run_dependent_text]
-ServerLog:(INFO) \d\d-\d\d \d\d:\d\d:\d\d{REPLACE \1}
-ServerLog:(ERROR) \d\d-\d\d \d\d:\d\d:\d\d{REPLACE \1}
-ServerLog:(WARNING) \d\d-\d\d \d\d:\d\d:\d\d{REPLACE \1}
+ServerLog:(INFO) \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,\d\d\d{REPLACE \1}
+ServerLog:(ERROR) \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,\d\d\d{REPLACE \1}
+ServerLog:(WARNING) \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,\d\d\d{REPLACE \1}
 ServerLog:started with pid{WORD -1}
 errors:started with pid{WORD -1}
 

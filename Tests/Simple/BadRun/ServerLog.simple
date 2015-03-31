@@ -1,121 +1,84 @@
-INFO 04-22 08:57:53 Daemon : Executing start
-INFO 04-22 08:57:53 Tools : Initialized service: default
-INFO 04-22 08:57:53 Tools : Initialized service: Test
-INFO 04-22 08:57:53 Tools : Initialized service: MultiNest
-INFO 04-22 08:57:53 Daemon : CISAppServer started with pid 6179
-WARNING 04-22 08:57:58 Jobs : @JManager - Job Test_0c1d3e38-2566-4fbd-9dd5-77d4dde06725_MmsFOU validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 158, in validate
-    raise ValidatorError("@Validator - Job did not specify API level.")
-ValidatorError: @Validator - Job did not specify API level.
-INFO 04-22 08:57:58 Tools : Job Test_0c1d3e38-2566-4fbd-9dd5-77d4dde06725_MmsFOU cleaned directories.
-INFO 04-22 08:57:58 Jobs : Job Test_0c1d3e38-2566-4fbd-9dd5-77d4dde06725_MmsFOU finished: aborted
-WARNING 04-22 08:58:04 Tools : @Validator - Value not in allowed range: api - 0.1
-WARNING 04-22 08:58:04 Jobs : @JManager - Job Test_62844cd8-bd66-4189-9780-929ad0d648c9_gFIIq2 validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 162, in validate
-    _data['api'])
-ValidatorError: @Validator - API level 0.1 is not supported.
-INFO 04-22 08:58:04 Tools : Job Test_62844cd8-bd66-4189-9780-929ad0d648c9_gFIIq2 cleaned directories.
-INFO 04-22 08:58:04 Jobs : Job Test_62844cd8-bd66-4189-9780-929ad0d648c9_gFIIq2 finished: aborted
-WARNING 04-22 08:58:09 Jobs : @JManager - Job Test_f598b054-3fc7-4450-80c3-d6a2ae65ad0e_rCk0ah validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 171, in validate
-    "definition." % _k)
-ValidatorError: @Validator - Section '2Float' is not allowed in job definition.
-INFO 04-22 08:58:09 Tools : Job Test_f598b054-3fc7-4450-80c3-d6a2ae65ad0e_rCk0ah cleaned directories.
-INFO 04-22 08:58:09 Jobs : Job Test_f598b054-3fc7-4450-80c3-d6a2ae65ad0e_rCk0ah finished: aborted
-WARNING 04-22 08:58:14 Tools : @Validator - Value is not a proper int.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 448, in validate_int
-    _v = int(value)
-ValueError: invalid literal for int() with base 10: '0.1'
-WARNING 04-22 08:58:14 Jobs : @JManager - Job Test_d55a8eab-8b0e-4ade-b98d-27275ab78024_Sp8RyS validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: SLEEP - 0.1.
-INFO 04-22 08:58:14 Tools : Job Test_d55a8eab-8b0e-4ade-b98d-27275ab78024_Sp8RyS cleaned directories.
-INFO 04-22 08:58:14 Jobs : Job Test_d55a8eab-8b0e-4ade-b98d-27275ab78024_Sp8RyS finished: aborted
-WARNING 04-22 08:58:19 Tools : @Validator - Value is not a proper float
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 475, in validate_float
-    _v = float(value)
-ValueError: could not convert string to float: string
-WARNING 04-22 08:58:19 Jobs : @JManager - Job Test_1b667f32-0d7b-4ccf-bb62-db35f8984d39_0Co7R_ validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: 1Float - string.
-INFO 04-22 08:58:19 Tools : Job Test_1b667f32-0d7b-4ccf-bb62-db35f8984d39_0Co7R_ cleaned directories.
-INFO 04-22 08:58:19 Jobs : Job Test_1b667f32-0d7b-4ccf-bb62-db35f8984d39_0Co7R_ finished: aborted
-WARNING 04-22 08:58:24 Jobs : @JManager - Job Test_933f5fd3-d0d2-4f26-96f2-35050bb151db_6mKD2H validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 214, in validate
-    raise ValidatorError("@Validator - Not supported variable: %s." % _k)
-ValidatorError: @Validator - Not supported variable: 11Float.
-INFO 04-22 08:58:24 Tools : Job Test_933f5fd3-d0d2-4f26-96f2-35050bb151db_6mKD2H cleaned directories.
-INFO 04-22 08:58:24 Jobs : Job Test_933f5fd3-d0d2-4f26-96f2-35050bb151db_6mKD2H finished: aborted
-WARNING 04-22 08:58:29 Tools : @Validator - Value not in allowed range: SLEEP - 100000
-WARNING 04-22 08:58:29 Jobs : @JManager - Job Test_68cc906d-1d16-4cbf-bbc3-930a0cb092b6_gnE_iv validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: SLEEP - 100000.
-INFO 04-22 08:58:29 Tools : Job Test_68cc906d-1d16-4cbf-bbc3-930a0cb092b6_gnE_iv cleaned directories.
-INFO 04-22 08:58:29 Jobs : Job Test_68cc906d-1d16-4cbf-bbc3-930a0cb092b6_gnE_iv finished: aborted
-WARNING 04-22 08:58:33 Tools : @Validator - Value not in allowed range: SLEEP - -100000
-WARNING 04-22 08:58:33 Jobs : @JManager - Job Test_2d7bccac-f95f-4e35-8004-f4b58eca83e8_6HjhE6 validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: SLEEP - -100000.
-INFO 04-22 08:58:34 Tools : Job Test_2d7bccac-f95f-4e35-8004-f4b58eca83e8_6HjhE6 cleaned directories.
-INFO 04-22 08:58:34 Jobs : Job Test_2d7bccac-f95f-4e35-8004-f4b58eca83e8_6HjhE6 finished: aborted
-WARNING 04-22 08:58:39 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
-WARNING 04-22 08:58:39 Jobs : @JManager - Job Test_cc5686a3-2904-490d-8091-c5aadd669bed_cRRQFh validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: 1Float - 900000.
-INFO 04-22 08:58:39 Tools : Job Test_cc5686a3-2904-490d-8091-c5aadd669bed_cRRQFh cleaned directories.
-INFO 04-22 08:58:39 Jobs : Job Test_cc5686a3-2904-490d-8091-c5aadd669bed_cRRQFh finished: aborted
-WARNING 04-22 08:58:44 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
-WARNING 04-22 08:58:44 Jobs : @JManager - Job Test_c1b68689-893e-4c12-92f9-267175f9142a_WJbn0F validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: 1Float - -900000.
-INFO 04-22 08:58:44 Tools : Job Test_c1b68689-893e-4c12-92f9-267175f9142a_WJbn0F cleaned directories.
-INFO 04-22 08:58:44 Jobs : Job Test_c1b68689-893e-4c12-92f9-267175f9142a_WJbn0F finished: aborted
-WARNING 04-22 08:58:49 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
-WARNING 04-22 08:58:49 Jobs : @JManager - Job Test_24f61b16-a9ce-4709-9139-747bc2999023_lsXmjZ validation failed.
-Traceback (most recent call last):
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 140, in check_new_jobs
-    self.validator.validate(_job)
-  File "/home/konrad/Private/Secret/Work/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 223, in validate
-    (_k, _v)
-ValidatorError: @Validator - Variable value not allowed: COMMAND - /bin/true.
-INFO 04-22 08:58:49 Tools : Job Test_24f61b16-a9ce-4709-9139-747bc2999023_lsXmjZ cleaned directories.
-INFO 04-22 08:58:49 Jobs : Job Test_24f61b16-a9ce-4709-9139-747bc2999023_lsXmjZ finished: aborted
-INFO 04-22 08:58:56 Daemon : Received terminate command
+   INFO 2015-02-26 08:45:15,835 : Executing start
+   INFO 2015-02-26 08:45:15,858 : CISAppServer started with pid 6854
+   INFO 2015-02-26 08:45:16,551 : Initialized service: default
+   INFO 2015-02-26 08:45:16,554 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,555 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,556 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,596 : Initialized service: default
+   INFO 2015-02-26 08:45:16,600 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,601 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,603 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,608 : Initialized service: default
+   INFO 2015-02-26 08:45:16,612 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,613 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,615 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,620 : Initialized service: default
+   INFO 2015-02-26 08:45:16,624 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,625 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,627 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,632 : Initialized service: default
+   INFO 2015-02-26 08:45:16,636 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,637 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,639 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,640 : Initialized service: default
+   INFO 2015-02-26 08:45:16,645 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,645 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,646 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,652 : Initialized service: default
+   INFO 2015-02-26 08:45:16,656 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,657 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,659 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,660 : Initialized service: default
+   INFO 2015-02-26 08:45:16,665 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,666 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,667 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,669 : Initialized service: default
+   INFO 2015-02-26 08:45:16,673 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,674 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,675 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:21,571 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+WARNING 2015-02-26 08:45:21,773 : @worker_submit - Job validation failed: 1Float = string - value does not decribe a float
+WARNING 2015-02-26 08:45:21,774 : @worker_submit - Job validation failed: Not supported variable: 11Float.
+WARNING 2015-02-26 08:45:21,775 : @worker_submit - Job validation failed: Job did not specify API level.
+   INFO 2015-02-26 08:45:21,776 : Jobs - w:0, p:11, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+WARNING 2015-02-26 08:45:21,776 : @worker_submit - Job validation failed: Section '2Float' is not allowed in job definition.
+WARNING 2015-02-26 08:45:21,777 : @worker_submit - Job validation failed: 1Float = -900000.0 - value not in allowed range ((-100, 100))
+WARNING 2015-02-26 08:45:21,778 : @worker_submit - Job validation failed: Int = 0.1 - value does not decribe an integer
+WARNING 2015-02-26 08:45:21,779 : @worker_submit - Job validation failed: 1Float = 900000.0 - value not in allowed range ((-100, 100))
+WARNING 2015-02-26 08:45:21,780 : @worker_submit - Job validation failed: /bin/true = COMMAND - Value not in the white list ([u'/bin/ls', u'/bin/ls NieIstniej\u0105cyPlik']).
+WARNING 2015-02-26 08:45:21,780 : @worker_submit - Job validation failed: SLEEP = 100000.0 - value not in allowed range ((0, 30))
+WARNING 2015-02-26 08:45:21,781 : @worker_submit - Job validation failed: api = 0.1 - value not in allowed range ((1.0, 2.99))
+WARNING 2015-02-26 08:45:21,782 : @worker_submit - Job validation failed: SLEEP = -100000.0 - value not in allowed range ((0, 30))
+   INFO 2015-02-26 08:45:26,567 : Jobs - w:0, p:0, q:0, r:0, s:11, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-26 08:45:26,787 : Jobs - w:0, p:0, q:0, r:0, s:0, c:11, d:0, f:0, a:0, k:0.
+   INFO 2015-02-26 08:45:26,791 : Job Test_3e376392-8f54-4c20-9d32-c37bea7da978_b9YsHO cleaned directories.
+   INFO 2015-02-26 08:45:26,791 : Job Test_3e376392-8f54-4c20-9d32-c37bea7da978_b9YsHO finished: aborted
+   INFO 2015-02-26 08:45:26,791 : Job Test_3cafdc5c-d755-45ee-9933-3cbabd2ead4d_fHV652 cleaned directories.
+   INFO 2015-02-26 08:45:26,791 : Job Test_3cafdc5c-d755-45ee-9933-3cbabd2ead4d_fHV652 finished: aborted
+   INFO 2015-02-26 08:45:26,791 : Job Test_9103e2c3-7b23-4dea-8eed-3e37c455388d_Tr4GHS cleaned directories.
+   INFO 2015-02-26 08:45:26,791 : Job Test_9103e2c3-7b23-4dea-8eed-3e37c455388d_Tr4GHS finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_691739c6-c372-4fdb-9dd1-299948b84543_6aRb1k cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_691739c6-c372-4fdb-9dd1-299948b84543_6aRb1k finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_d501cfea-363e-4372-835e-18eecb5d4630_WMOKcs cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_d501cfea-363e-4372-835e-18eecb5d4630_WMOKcs finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_cd1e707d-d04f-4a5f-8665-a640f11771c9_6Kt9QQ cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_cd1e707d-d04f-4a5f-8665-a640f11771c9_6Kt9QQ finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_57495721-67da-467d-a856-39bef519b216_jIWDtw cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_57495721-67da-467d-a856-39bef519b216_jIWDtw finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_b05221ee-f9e1-4c3d-a1be-0ec98b7921e8_a28afj cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_b05221ee-f9e1-4c3d-a1be-0ec98b7921e8_a28afj finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_312136dd-8413-4216-8c1f-a4e953bf4707_nUKxRt cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_312136dd-8413-4216-8c1f-a4e953bf4707_nUKxRt finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_6d19d0ce-a31e-403f-9efa-15a63c8191af_X6VZ0d cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_6d19d0ce-a31e-403f-9efa-15a63c8191af_X6VZ0d finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_133ebad8-c400-45bc-aed3-24a8080cbc92_i_AWjS cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_133ebad8-c400-45bc-aed3-24a8080cbc92_i_AWjS finished: aborted
+   INFO 2015-02-26 08:45:31,570 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:31,760 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:36,575 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:36,613 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:38,507 : Received terminate command
+   INFO 2015-02-26 08:45:38,508 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:38,539 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:38,539 : Starting shutdown
+   INFO 2015-02-26 08:45:44,687 : Shutdown complete
