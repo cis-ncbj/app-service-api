@@ -4,10 +4,16 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
---------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+--------Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 ------------epilogue.sh
+------------output.log
 ------------pbs.sh
+------------progress.log
 ----PBS
+--------Queue
+--------Scratch
+----SSH
+--------Queue
 --------Scratch
 ----SSH
 --------Queue
@@ -18,21 +24,20 @@ The following new files/directories were created:
 --------closing
 --------delete
 --------done
+------------Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 --------exit
-------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+------------Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 --------failed
 --------jobs
-------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+------------Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 --------killed
-------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
 --------opts
-------------Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+------------Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 --------queued
 --------running
 --------stop
+--------time
+------------start_Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+------------stop_Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+------------submit_Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 --------waiting
-
-The following existing files/directories changed their contents:
-<Test Directory>
-----PBS
---------Queue

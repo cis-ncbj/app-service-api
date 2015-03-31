@@ -1,9 +1,50 @@
-INFO 11-14 13:58:15 Daemon : Executing start
-INFO 11-14 13:58:15 Tools : Initialized service: MultiNest
-INFO 11-14 13:58:15 Tools : Initialized service: Test
-INFO 11-14 13:58:15 Tools : Initialized service: default
-INFO 11-14 13:58:15 Daemon : CISAppServer started with pid 8189
-INFO 11-14 13:58:22 Tools : Job successfully submitted: Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm
-INFO 11-14 13:58:34 JobManager : Job Test_f0a2484f-2eaf-42af-a788-a79a53840567_kkuTLm finished: done
-INFO 11-14 13:59:00 Daemon : Received terminate command
-INFO 11-14 13:59:02 Daemon : Shutdown
+   INFO 2015-03-30 13:09:31,504 : Executing start
+   INFO 2015-03-30 13:09:31,518 : CISAppServer started with pid 17422
+   INFO 2015-03-30 13:09:32,030 : Initialized service: default
+   INFO 2015-03-30 13:09:32,035 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,036 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,038 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,074 : Initialized service: default
+   INFO 2015-03-30 13:09:32,078 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,079 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,080 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,084 : Initialized service: default
+   INFO 2015-03-30 13:09:32,088 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,090 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,092 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,101 : Initialized service: default
+   INFO 2015-03-30 13:09:32,104 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,105 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,106 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,112 : Initialized service: default
+   INFO 2015-03-30 13:09:32,115 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,116 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,117 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,122 : Initialized service: default
+   INFO 2015-03-30 13:09:32,125 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,126 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,127 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,130 : Initialized service: default
+   INFO 2015-03-30 13:09:32,133 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,134 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,135 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,139 : Initialized service: default
+   INFO 2015-03-30 13:09:32,142 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,143 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,144 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:32,148 : Initialized service: default
+   INFO 2015-03-30 13:09:32,151 : Initialized service: Test
+   INFO 2015-03-30 13:09:32,152 : Initialized service: MultiNest
+   INFO 2015-03-30 13:09:32,153 : Initialized service: AppFlexpart
+   INFO 2015-03-30 13:09:43,998 : Connected (version 2.0, client OpenSSH_5.9p1)
+   INFO 2015-03-30 13:09:44,104 : Authentication (publickey) failed.
+   INFO 2015-03-30 13:09:44,116 : Authentication (publickey) successful!
+   INFO 2015-03-30 13:09:44,855 : Job successfully submitted: Test_5dfd8721-d96f-4ef9-aabd-b7a0d4d131eb_pz6O8H
+   INFO 2015-03-30 13:09:54,676 : Connected (version 2.0, client OpenSSH_5.9p1)
+   INFO 2015-03-30 13:09:54,788 : Authentication (publickey) failed.
+   INFO 2015-03-30 13:09:54,801 : Authentication (publickey) successful!
+   INFO 2015-03-30 13:09:55,676 : Job Test_5dfd8721-d96f-4ef9-aabd-b7a0d4d131eb_pz6O8H finished: done
+   INFO 2015-03-30 13:10:05,705 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:1, f:0, a:0, k:0.
+   INFO 2015-03-30 13:10:16,916 : Received terminate command
+   INFO 2015-03-30 13:10:16,958 : Starting shutdown
+   INFO 2015-03-30 13:10:23,095 : Shutdown complete

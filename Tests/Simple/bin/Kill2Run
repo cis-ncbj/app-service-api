@@ -23,7 +23,7 @@ TIME=$(date --date='tomorrow' +"%d%H%M")
 # Submit job
 # Use the WaitSet - it should queue infinitely due to unreasonable resource request
 ID=$(curl -s -S -X POST -H "Content-type: application/json" http://localhost:$PORT/submit -d \
-    '{"service":"Test", "api":1.0, "input":{"WaitSet":"1", "PBS_SLEEP_VALUE":'"$TIME"'}}')
+    '{"service":"Test", "api":"2.0", "input":{"WaitSet":"1"}}')
 # Expect Waiting
 curl -s -S http://localhost:$PORT/status/$ID
 echo ""
@@ -47,4 +47,4 @@ $ROOT/AppServer/cisapps terminate
 # Stop gateway
 kill -TERM -$GATEPID
 
-sleep 3
+sleep 10

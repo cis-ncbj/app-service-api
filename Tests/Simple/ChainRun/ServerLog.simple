@@ -1,19 +1,79 @@
-INFO 11-20 15:35:30 Daemon : Executing start
-INFO 11-20 15:35:30 Tools : Initialized service: MultiNest
-INFO 11-20 15:35:30 Tools : Initialized service: PartA
-INFO 11-20 15:35:30 Tools : Initialized service: PartB
-INFO 11-20 15:35:30 Tools : Initialized service: Test
-INFO 11-20 15:35:31 Tools : Initialized service: default
-INFO 11-20 15:35:31 Daemon : CISAppServer started with pid 12922
-INFO 11-20 15:35:44 Tools : Job successfully submitted: PartA_acc8a4d1-f7fb-4af5-ba5a-96c66f56ff9c_beqNLV
-WARNING 11-20 15:35:44 Tools : @Validator - Job PartA_acc8a4d1-f7fb-4af5-ba5a-96c66f56ff9c_beqNLV did not finish or does not exist. Unable to chain output.
-WARNING 11-20 15:35:44 JobManager : @Validator - Bad job chain IDs.
-INFO 11-20 15:35:45 JobManager : Job PartB_af72908c-ad06-438d-af8c-1ec9d9c0358d_HjgrSx finished: aborted
-INFO 11-20 15:35:51 JobManager : Job PartA_acc8a4d1-f7fb-4af5-ba5a-96c66f56ff9c_beqNLV finished: done
-INFO 11-20 15:36:01 Tools : Job successfully submitted: PartB_e4d6cbae-7737-4966-b9ba-16fba8cdb5f2_5ZGQv7
-WARNING 11-20 15:36:05 Tools : @Validator - Job PartA_miss did not finish or does not exist. Unable to chain output.
-WARNING 11-20 15:36:05 JobManager : @Validator - Bad job chain IDs.
-INFO 11-20 15:36:05 JobManager : Job PartB_52ad01e5-9fc4-47bb-a7ff-767b23001a51_SxjuHr finished: aborted
-INFO 11-20 15:36:11 JobManager : Job PartB_e4d6cbae-7737-4966-b9ba-16fba8cdb5f2_5ZGQv7 finished: done
-INFO 11-20 15:36:21 Daemon : Received terminate command
-INFO 11-20 15:36:23 Daemon : Shutdown
+   INFO 2015-03-31 10:38:11,288 : Executing start
+   INFO 2015-03-31 10:38:11,302 : CISAppServer started with pid 26000
+   INFO 2015-03-31 10:38:11,938 : Initialized service: default
+   INFO 2015-03-31 10:38:11,942 : Initialized service: Test
+   INFO 2015-03-31 10:38:11,943 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:11,944 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:11,944 : Initialized service: PartA
+   INFO 2015-03-31 10:38:11,944 : Initialized service: PartB
+   INFO 2015-03-31 10:38:11,968 : Initialized service: default
+   INFO 2015-03-31 10:38:11,973 : Initialized service: Test
+   INFO 2015-03-31 10:38:11,975 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:11,976 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:11,976 : Initialized service: PartA
+   INFO 2015-03-31 10:38:11,977 : Initialized service: PartB
+   INFO 2015-03-31 10:38:11,981 : Initialized service: default
+   INFO 2015-03-31 10:38:11,984 : Initialized service: Test
+   INFO 2015-03-31 10:38:11,985 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:11,986 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:11,986 : Initialized service: PartA
+   INFO 2015-03-31 10:38:11,986 : Initialized service: PartB
+   INFO 2015-03-31 10:38:11,995 : Initialized service: default
+   INFO 2015-03-31 10:38:12,001 : Initialized service: Test
+   INFO 2015-03-31 10:38:12,002 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:12,003 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:12,003 : Initialized service: PartA
+   INFO 2015-03-31 10:38:12,003 : Initialized service: PartB
+   INFO 2015-03-31 10:38:12,011 : Initialized service: default
+   INFO 2015-03-31 10:38:12,015 : Initialized service: Test
+   INFO 2015-03-31 10:38:12,017 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:12,018 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:12,019 : Initialized service: PartA
+   INFO 2015-03-31 10:38:12,019 : Initialized service: PartB
+   INFO 2015-03-31 10:38:12,022 : Initialized service: default
+   INFO 2015-03-31 10:38:12,026 : Initialized service: Test
+   INFO 2015-03-31 10:38:12,027 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:12,028 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:12,028 : Initialized service: PartA
+   INFO 2015-03-31 10:38:12,028 : Initialized service: PartB
+   INFO 2015-03-31 10:38:12,032 : Initialized service: default
+   INFO 2015-03-31 10:38:12,035 : Initialized service: Test
+   INFO 2015-03-31 10:38:12,036 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:12,037 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:12,037 : Initialized service: PartA
+   INFO 2015-03-31 10:38:12,037 : Initialized service: PartB
+   INFO 2015-03-31 10:38:12,041 : Initialized service: default
+   INFO 2015-03-31 10:38:12,044 : Initialized service: Test
+   INFO 2015-03-31 10:38:12,045 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:12,046 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:12,047 : Initialized service: PartA
+   INFO 2015-03-31 10:38:12,047 : Initialized service: PartB
+   INFO 2015-03-31 10:38:12,049 : Initialized service: default
+   INFO 2015-03-31 10:38:12,052 : Initialized service: Test
+   INFO 2015-03-31 10:38:12,054 : Initialized service: MultiNest
+   INFO 2015-03-31 10:38:12,055 : Initialized service: AppFlexpart
+   INFO 2015-03-31 10:38:12,055 : Initialized service: PartA
+   INFO 2015-03-31 10:38:12,055 : Initialized service: PartB
+WARNING 2015-03-31 10:38:17,140 : @worker_submit - Job validation failed: Chain job PartA_ffafd887-5c86-4f2a-b767-95ef28838c0e_ABXFI0 did not finish or does not exist.
+   INFO 2015-03-31 10:38:17,205 : Connected (version 2.0, client OpenSSH_5.9p1)
+   INFO 2015-03-31 10:38:17,281 : Authentication (publickey) failed.
+   INFO 2015-03-31 10:38:17,293 : Authentication (publickey) successful!
+   INFO 2015-03-31 10:38:18,088 : Job successfully submitted: PartA_ffafd887-5c86-4f2a-b767-95ef28838c0e_ABXFI0
+   INFO 2015-03-31 10:38:22,036 : Connected (version 2.0, client OpenSSH_5.9p1)
+   INFO 2015-03-31 10:38:22,145 : Authentication (publickey) failed.
+   INFO 2015-03-31 10:38:22,177 : Authentication (publickey) successful!
+   INFO 2015-03-31 10:38:23,000 : Job PartB_01946d1c-94e5-4796-9aa8-86f0043609d7_mgc8Ax cleaned directories.
+   INFO 2015-03-31 10:38:23,000 : Job PartB_01946d1c-94e5-4796-9aa8-86f0043609d7_mgc8Ax finished: aborted
+   INFO 2015-03-31 10:38:23,003 : Job PartA_ffafd887-5c86-4f2a-b767-95ef28838c0e_ABXFI0 finished: done
+   INFO 2015-03-31 10:38:37,158 : Connected (version 2.0, client OpenSSH_5.9p1)
+   INFO 2015-03-31 10:38:37,233 : Authentication (publickey) failed.
+   INFO 2015-03-31 10:38:37,273 : Authentication (publickey) successful!
+   INFO 2015-03-31 10:38:38,018 : Job successfully submitted: PartB_d6be6bbc-84d3-4bc0-b38e-159c3f38a119_8XKzOu
+WARNING 2015-03-31 10:38:38,025 : @worker_submit - Job validation failed: Chain job PartA_miss did not finish or does not exist.
+   INFO 2015-03-31 10:38:42,166 : Jobs - w:0, p:0, q:0, r:0, s:0, c:2, d:1, f:0, a:1, k:0.
+   INFO 2015-03-31 10:38:42,177 : Job PartB_d6be6bbc-84d3-4bc0-b38e-159c3f38a119_8XKzOu finished: done
+   INFO 2015-03-31 10:38:42,178 : Job PartB_f4717d43-b146-4de3-bcc5-7aaa64687604_Pg4TbZ cleaned directories.
+   INFO 2015-03-31 10:38:42,179 : Job PartB_f4717d43-b146-4de3-bcc5-7aaa64687604_Pg4TbZ finished: aborted
+   INFO 2015-03-31 10:38:58,840 : Received terminate command
+   INFO 2015-03-31 10:38:58,863 : Starting shutdown
+   INFO 2015-03-31 10:39:05,072 : Shutdown complete

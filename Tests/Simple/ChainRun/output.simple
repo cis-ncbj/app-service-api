@@ -1,6 +1,6 @@
-PartA: Waiting
-PartB input not ready: Aborted:-94 @Validator - Bad job chain IDs.
+PartA: New
+PartB input not ready: Aborted:-94 @worker_submit - Job validation failed: Chain job PartA_3ff2939f-8254-47a1-b1be-6af82150980f_5C2Q3A did not finish or does not exist.
 PartA: Done:0 Job finished succesfully
-PartB: Waiting
-PartB missing input: Aborted:-94 @Validator - Bad job chain IDs.
+PartB: New
+PartB missing input: Aborted:-94 @worker_submit - Job validation failed: Chain job PartA_miss did not finish or does not exist.
 PartB: Done:0 Job finished succesfully

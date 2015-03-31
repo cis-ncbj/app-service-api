@@ -1,12 +1,12 @@
 Error: Unsupported service
-Aborted:-95 @Validator - Job did not specify API level.
-Aborted:-95 @Validator - API level 0.1 is not supported.
-Aborted:-95 @Validator - Section '2Float' is not allowed in job definition.
-Aborted:-95 @Validator - Variable value not allowed: SLEEP - 0.1.
-Aborted:-95 @Validator - Variable value not allowed: 1Float - string.
-Aborted:-95 @Validator - Not supported variable: 11Float.
-Aborted:-95 @Validator - Variable value not allowed: SLEEP - 100000.
-Aborted:-95 @Validator - Variable value not allowed: SLEEP - -100000.
-Aborted:-95 @Validator - Variable value not allowed: 1Float - 900000.
-Aborted:-95 @Validator - Variable value not allowed: 1Float - -900000.
-Aborted:-95 @Validator - Variable value not allowed: COMMAND - /bin/true.
+Error: Exception cought while creating job request: 'api'
+Aborted:-94 @worker_submit - Job validation failed: api = 0.1 - value not in allowed range ((1.0, 2.99))
+Aborted:-94 @worker_submit - Job validation failed: Section '2Float' is not allowed in job definition.
+Aborted:-94 @worker_submit - Job validation failed: Int = 0.1 - value does not decribe an integer
+Aborted:-94 @worker_submit - Job validation failed: 1Float = string - value does not decribe a float
+Aborted:-94 @worker_submit - Job validation failed: Not supported variable: 11Float.
+Aborted:-94 @worker_submit - Job validation failed: SLEEP = 100000.0 - value not in allowed range ((0, 30))
+Aborted:-94 @worker_submit - Job validation failed: SLEEP = -100000.0 - value not in allowed range ((0, 30))
+Aborted:-94 @worker_submit - Job validation failed: 1Float = 900000.0 - value not in allowed range ((-100, 100))
+Aborted:-94 @worker_submit - Job validation failed: 1Float = -900000.0 - value not in allowed range ((-100, 100))
+Aborted:-94 @worker_submit - Job validation failed: /bin/true = COMMAND - Value not in the white list ([u'/bin/ls', u'/bin/ls NieIstniej\u0105cyPlik']).

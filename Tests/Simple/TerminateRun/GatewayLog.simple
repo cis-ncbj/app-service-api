@@ -1,0 +1,32 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5012/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"input": {"LongSet": "1"}, "api": "2.0", "service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 11:54:43] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc
+DEBUG:root:Job new
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 11:54:43] "GET /status/Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc HTTP/1.1" 200 -
+DEBUG:root:Request {"input": {"LongSet": "1"}, "api": "2.0", "service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_9fde0a03-b2f5-4df2-b1ee-71691ac52d86_ZTDFQX
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 11:54:43] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc
+DEBUG:root:Job new
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 11:54:43] "GET /status/Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 11:54:58] "GET /status/Test_08f94149-d479-49ed-a82a-ca3f765ae99b_kmLzxc HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_9fde0a03-b2f5-4df2-b1ee-71691ac52d86_ZTDFQX
+DEBUG:root:Job running
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 11:54:58] "GET /status/Test_9fde0a03-b2f5-4df2-b1ee-71691ac52d86_ZTDFQX HTTP/1.1" 200 -

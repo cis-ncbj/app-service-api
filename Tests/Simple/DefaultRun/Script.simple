@@ -1,5 +1,6 @@
 #!/bin/sh
-#PBS -q test_slc6
+#PBS -q i12h
+# 0
 #
 
 echo "Commencing test: CleanRun" | tee -a progress.log
@@ -24,8 +25,7 @@ echo 2 | tee -a progress.log
 sleep 1
 echo 1 | tee -a progress.log
 
-python -c "print 1.0 / 20.99"
+python -c "print 10 * 1.0 / 20.99"
 /bin/ls
 
 exit $?
-

@@ -1,5 +1,6 @@
 #!/bin/sh
 #PBS -q @@{CIS_QUEUE}
+#@@{PBS_SLEEP_TAG} @@{PBS_SLEEP_VALUE}
 #@@{PBS_OPTS}
 
 echo "Commencing test: @@{TestName}" | tee -a progress.log
@@ -24,10 +25,8 @@ echo 2 | tee -a progress.log
 sleep @@{SLEEP}
 echo 1 | tee -a progress.log
 
-python -c "print @@{1Float} / @@{2Float}"
+python -c "print @@{Int} * @@{Float1} / @@{Float2}"
 @@{COMMAND}
-
-dd status=noxfer count=4 bs=1M if=/dev/zero of=test.dat
 
 exit $?
 

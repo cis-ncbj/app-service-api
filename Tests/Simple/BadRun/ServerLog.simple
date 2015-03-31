@@ -1,45 +1,84 @@
-INFO 11-14 11:11:57 Daemon : Executing start
-INFO 11-14 11:11:57 Tools : Initialized service: MultiNest
-INFO 11-14 11:11:57 Tools : Initialized service: Test
-INFO 11-14 11:11:57 Tools : Initialized service: default
-INFO 11-14 11:11:57 Daemon : CISAppServer started with pid 18013
-WARNING 11-14 11:12:03 JobManager : @Validator - Job did not specify API level.
-INFO 11-14 11:12:04 JobManager : Job Test_9c4c7b58-955e-4fb0-8bd0-cff944d54ede_odwfQv finished: aborted
-WARNING 11-14 11:12:10 Tools : @Validator - Value not in allowed range: api - 0.1
-WARNING 11-14 11:12:10 JobManager : @Validator - API level 0.1 is not supported.
-INFO 11-14 11:12:10 JobManager : Job Test_a0249619-fd95-43cd-9580-c1312dd563b0_NVdS_c finished: aborted
-WARNING 11-14 11:12:13 JobManager : @Validator - Section '2Float' is not allowed in job definition.
-INFO 11-14 11:12:13 JobManager : Job Test_547d8c40-00d9-428a-8660-2f7e3d385295_lO3PDt finished: aborted
-WARNING 11-14 11:12:19 Tools : @Validator - Value is not a proper int.
-Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 538, in validate_int
-    _v = int(value)
-ValueError: invalid literal for int() with base 10: '0.1'
-WARNING 11-14 11:12:19 JobManager : @Validator - Variable value not allowed: SLEEP - 0.1.
-INFO 11-14 11:12:19 JobManager : Job Test_70e34f7a-a496-4797-bb54-fd48c07ba550_Ju_bqi finished: aborted
-WARNING 11-14 11:12:25 Tools : @Validator - Value is not a proper float
-Traceback (most recent call last):
-  File "/mnt/home/kklimaszewski/Soft/WebServices/AppServer/CISAppServer/Tools.py", line 565, in validate_float
-    _v = float(value)
-ValueError: could not convert string to float: string
-WARNING 11-14 11:12:25 JobManager : @Validator - Variable value not allowed: 1Float - string.
-INFO 11-14 11:12:25 JobManager : Job Test_657a16ac-6f59-4429-a017-07d6f5e424de_7Jiy30 finished: aborted
-WARNING 11-14 11:12:28 JobManager : @Validator - Not supported variable: 11Float.
-INFO 11-14 11:12:28 JobManager : Job Test_f8aabc7d-c93c-43c8-80fd-7c78dba13ce6_EY06Hk finished: aborted
-WARNING 11-14 11:12:34 Tools : @Validator - Value not in allowed range: SLEEP - 100000
-WARNING 11-14 11:12:34 JobManager : @Validator - Variable value not allowed: SLEEP - 100000.
-INFO 11-14 11:12:35 JobManager : Job Test_fa5bfc09-cc0a-4a16-b9f1-9f14b5625f38_ThWXPC finished: aborted
-WARNING 11-14 11:12:41 Tools : @Validator - Value not in allowed range: SLEEP - -100000
-WARNING 11-14 11:12:41 JobManager : @Validator - Variable value not allowed: SLEEP - -100000.
-INFO 11-14 11:12:41 JobManager : Job Test_8f40dc84-a844-497b-b8c9-1f8c01806bf1_rKiSOe finished: aborted
-WARNING 11-14 11:12:44 Tools : @Validator - Value not in allowed range: 1Float - 900000.0
-WARNING 11-14 11:12:44 JobManager : @Validator - Variable value not allowed: 1Float - 900000.
-INFO 11-14 11:12:44 JobManager : Job Test_9207c6aa-c5a8-44d6-a1de-91866365c60e_hGGyI1 finished: aborted
-WARNING 11-14 11:12:50 Tools : @Validator - Value not in allowed range: 1Float - -900000.0
-WARNING 11-14 11:12:50 JobManager : @Validator - Variable value not allowed: 1Float - -900000.
-INFO 11-14 11:12:50 JobManager : Job Test_04889629-af87-4e6a-857c-4121f1549749_uEhum8 finished: aborted
-WARNING 11-14 11:12:56 Tools : @Validator - Value not allowed: COMMAND - /bin/true.
-WARNING 11-14 11:12:56 JobManager : @Validator - Variable value not allowed: COMMAND - /bin/true.
-INFO 11-14 11:12:56 JobManager : Job Test_e33d0f8e-794a-4bc4-9bc3-de434b188ffe_61m_kQ finished: aborted
-INFO 11-14 11:13:01 Daemon : Received terminate command
-INFO 11-14 11:13:03 Daemon : Shutdown
+   INFO 2015-02-26 08:45:15,835 : Executing start
+   INFO 2015-02-26 08:45:15,858 : CISAppServer started with pid 6854
+   INFO 2015-02-26 08:45:16,551 : Initialized service: default
+   INFO 2015-02-26 08:45:16,554 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,555 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,556 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,596 : Initialized service: default
+   INFO 2015-02-26 08:45:16,600 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,601 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,603 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,608 : Initialized service: default
+   INFO 2015-02-26 08:45:16,612 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,613 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,615 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,620 : Initialized service: default
+   INFO 2015-02-26 08:45:16,624 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,625 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,627 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,632 : Initialized service: default
+   INFO 2015-02-26 08:45:16,636 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,637 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,639 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,640 : Initialized service: default
+   INFO 2015-02-26 08:45:16,645 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,645 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,646 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,652 : Initialized service: default
+   INFO 2015-02-26 08:45:16,656 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,657 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,659 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,660 : Initialized service: default
+   INFO 2015-02-26 08:45:16,665 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,666 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,667 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:16,669 : Initialized service: default
+   INFO 2015-02-26 08:45:16,673 : Initialized service: Test
+   INFO 2015-02-26 08:45:16,674 : Initialized service: MultiNest
+   INFO 2015-02-26 08:45:16,675 : Initialized service: AppFlexpart
+   INFO 2015-02-26 08:45:21,571 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+WARNING 2015-02-26 08:45:21,773 : @worker_submit - Job validation failed: 1Float = string - value does not decribe a float
+WARNING 2015-02-26 08:45:21,774 : @worker_submit - Job validation failed: Not supported variable: 11Float.
+WARNING 2015-02-26 08:45:21,775 : @worker_submit - Job validation failed: Job did not specify API level.
+   INFO 2015-02-26 08:45:21,776 : Jobs - w:0, p:11, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
+WARNING 2015-02-26 08:45:21,776 : @worker_submit - Job validation failed: Section '2Float' is not allowed in job definition.
+WARNING 2015-02-26 08:45:21,777 : @worker_submit - Job validation failed: 1Float = -900000.0 - value not in allowed range ((-100, 100))
+WARNING 2015-02-26 08:45:21,778 : @worker_submit - Job validation failed: Int = 0.1 - value does not decribe an integer
+WARNING 2015-02-26 08:45:21,779 : @worker_submit - Job validation failed: 1Float = 900000.0 - value not in allowed range ((-100, 100))
+WARNING 2015-02-26 08:45:21,780 : @worker_submit - Job validation failed: /bin/true = COMMAND - Value not in the white list ([u'/bin/ls', u'/bin/ls NieIstniej\u0105cyPlik']).
+WARNING 2015-02-26 08:45:21,780 : @worker_submit - Job validation failed: SLEEP = 100000.0 - value not in allowed range ((0, 30))
+WARNING 2015-02-26 08:45:21,781 : @worker_submit - Job validation failed: api = 0.1 - value not in allowed range ((1.0, 2.99))
+WARNING 2015-02-26 08:45:21,782 : @worker_submit - Job validation failed: SLEEP = -100000.0 - value not in allowed range ((0, 30))
+   INFO 2015-02-26 08:45:26,567 : Jobs - w:0, p:0, q:0, r:0, s:11, c:0, d:0, f:0, a:0, k:0.
+   INFO 2015-02-26 08:45:26,787 : Jobs - w:0, p:0, q:0, r:0, s:0, c:11, d:0, f:0, a:0, k:0.
+   INFO 2015-02-26 08:45:26,791 : Job Test_3e376392-8f54-4c20-9d32-c37bea7da978_b9YsHO cleaned directories.
+   INFO 2015-02-26 08:45:26,791 : Job Test_3e376392-8f54-4c20-9d32-c37bea7da978_b9YsHO finished: aborted
+   INFO 2015-02-26 08:45:26,791 : Job Test_3cafdc5c-d755-45ee-9933-3cbabd2ead4d_fHV652 cleaned directories.
+   INFO 2015-02-26 08:45:26,791 : Job Test_3cafdc5c-d755-45ee-9933-3cbabd2ead4d_fHV652 finished: aborted
+   INFO 2015-02-26 08:45:26,791 : Job Test_9103e2c3-7b23-4dea-8eed-3e37c455388d_Tr4GHS cleaned directories.
+   INFO 2015-02-26 08:45:26,791 : Job Test_9103e2c3-7b23-4dea-8eed-3e37c455388d_Tr4GHS finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_691739c6-c372-4fdb-9dd1-299948b84543_6aRb1k cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_691739c6-c372-4fdb-9dd1-299948b84543_6aRb1k finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_d501cfea-363e-4372-835e-18eecb5d4630_WMOKcs cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_d501cfea-363e-4372-835e-18eecb5d4630_WMOKcs finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_cd1e707d-d04f-4a5f-8665-a640f11771c9_6Kt9QQ cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_cd1e707d-d04f-4a5f-8665-a640f11771c9_6Kt9QQ finished: aborted
+   INFO 2015-02-26 08:45:26,792 : Job Test_57495721-67da-467d-a856-39bef519b216_jIWDtw cleaned directories.
+   INFO 2015-02-26 08:45:26,792 : Job Test_57495721-67da-467d-a856-39bef519b216_jIWDtw finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_b05221ee-f9e1-4c3d-a1be-0ec98b7921e8_a28afj cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_b05221ee-f9e1-4c3d-a1be-0ec98b7921e8_a28afj finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_312136dd-8413-4216-8c1f-a4e953bf4707_nUKxRt cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_312136dd-8413-4216-8c1f-a4e953bf4707_nUKxRt finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_6d19d0ce-a31e-403f-9efa-15a63c8191af_X6VZ0d cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_6d19d0ce-a31e-403f-9efa-15a63c8191af_X6VZ0d finished: aborted
+   INFO 2015-02-26 08:45:26,793 : Job Test_133ebad8-c400-45bc-aed3-24a8080cbc92_i_AWjS cleaned directories.
+   INFO 2015-02-26 08:45:26,793 : Job Test_133ebad8-c400-45bc-aed3-24a8080cbc92_i_AWjS finished: aborted
+   INFO 2015-02-26 08:45:31,570 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:31,760 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:36,575 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:36,613 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:38,507 : Received terminate command
+   INFO 2015-02-26 08:45:38,508 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:38,539 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:11, k:0.
+   INFO 2015-02-26 08:45:38,539 : Starting shutdown
+   INFO 2015-02-26 08:45:44,687 : Shutdown complete

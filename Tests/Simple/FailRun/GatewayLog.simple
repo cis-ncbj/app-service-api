@@ -1,18 +1,18 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Running on http://127.0.0.1:5004/
 INFO:werkzeug: * Restarting with reloader
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-DEBUG:root:Request {"FailSet": "1", "service": "Test"}
+DEBUG:root:Request {"input": {"FailSet": "1"}, "api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:46:56] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS
-DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:46:56] "GET /status/Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS
-INFO:werkzeug:127.0.0.1 - - [21/May/2013 09:47:36] "GET /status/Test_6001dd3f-722f-4995-8964-67f52d3f4fc4_trorFS HTTP/1.1" 200 -
+DEBUG:root:Return request id: Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:12:22] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN
+DEBUG:root:Job new
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:12:22] "GET /status/Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN
+INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:13:02] "GET /status/Test_c5a1599c-ad4d-4033-b778-864aa0851d3c_aFbSKN HTTP/1.1" 200 -

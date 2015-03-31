@@ -9,13 +9,12 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
-INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 12:19:01] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
+DEBUG:root:Return request id: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:34:21] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
 DEBUG:root:Job waiting
-INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 12:19:01] "GET /status/Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
-DEBUG:root:Job queued
-INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 12:19:21] "GET /status/Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY
-INFO:werkzeug:127.0.0.1 - - [20/Nov/2013 12:19:41] "GET /status/Test_b725a892-c9be-4229-bf39-dd09ad09a355_tdypGY HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:34:21] "GET /status/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:34:41] "GET /status/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR
+INFO:werkzeug:127.0.0.1 - - [06/Dec/2013 16:35:01] "GET /status/Test_06f0c065-7663-46ec-8020-87c13a51b667_iwxyqR HTTP/1.1" 200 -

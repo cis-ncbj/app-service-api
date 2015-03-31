@@ -1,0 +1,37 @@
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+INFO:werkzeug: * Running on http://127.0.0.1:5013/
+INFO:werkzeug: * Restarting with reloader
+DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
+DEBUG:root:@Config - Finalise configuration initialisation
+DEBUG:root:Request {"input": {"SLEEP": "0.1", "Float1": "0.5", "Float2": "5e-1"}, "api": "1.0", "service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Job request uses deprecated API
+DEBUG:root:Return request id: Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:01] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b
+DEBUG:root:Job waiting
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:02] "GET /status/Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b
+DEBUG:root:Job queued
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:07] "GET /status/Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:12] "GET /status/Test_04408e25-a626-41f6-8636-eefadbdb2871_P8ea8b HTTP/1.1" 200 -
+DEBUG:root:Request {"input": {"SLEEP": "0.1", "Float1": "0.5", "Float2": "5e-1"}, "api": "2.0", "service": "Test"}
+DEBUG:root:Service defined: Test
+DEBUG:root:Service selected: Test
+DEBUG:root:Job ID file created
+DEBUG:root:Job request data written to Job ID file
+DEBUG:root:Return request id: Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:16] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS
+DEBUG:root:Job new
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:17] "GET /status/Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS
+DEBUG:root:Job queued
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:22] "GET /status/Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS
+INFO:werkzeug:127.0.0.1 - - [31/Mar/2015 12:13:27] "GET /status/Test_8fbbc1ad-880d-47cd-ba0f-827cc580ac5b_W5_jnS HTTP/1.1" 200 -

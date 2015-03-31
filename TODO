@@ -1,0 +1,13 @@
+* More verbose validation messages
+* Failed kill of a job already exiting should not abort the job:
+ERROR 06-04 13:04:23 JobManager : @PBS - Unable to terminate job PWRCore_951fc922-e904-4ed8-9f01-c7eebae739b1_jh1zJP.
+Traceback (most recent call last):
+  File "/opt/WebServices/AppServer/CISAppServer/Tools.py", line 1210, in stop
+      str(_output)
+      OSError: (170, '/usr/bin/qdel returned non zero exit code.\nqdel: Request invalid for state of job MSG=invalid state for job - EXITING 83646.qsrv2.cis.gov.pl\n')
+* Job stop should more gracefuly handle qdel errors , e.g. timouts when connecting to server
+* Check how qsub and shsub handle server timeoutes
+* Handle gracefully server timeouts for shdel
+* Make sure errors when interacting with APPGW file system are handled and do not lead to crashes.
+* Make sure while stopping jobs for delete request and in old_jobs for running time timeouts and server shutdown to check if they are not marked for kill and the scheduler is slow to finish them
+* Handle long periods of NO connection to PBS
