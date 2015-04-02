@@ -24,6 +24,8 @@ $ROOT/AppServer/cisapps run
 $ROOT/AppServer/cisapps reload
 $ROOT/AppServer/cisapps restart
 
+sleep 5
+
 # Stop server
 $ROOT/AppServer/cisapps terminate
 # Stop gateway (kill the whole process group)
