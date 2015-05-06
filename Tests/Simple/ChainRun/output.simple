@@ -1,5 +1,5 @@
 PartA: New
-PartB input not ready: Aborted:-94 @worker_submit - Job validation failed: Chain job PartA_3ff2939f-8254-47a1-b1be-6af82150980f_5C2Q3A did not finish or does not exist.
+PartB input not ready: Aborted:-94 @worker_submit - Job validation failed: Chain job PartA_1089b07b-ecfd-4e8a-9ddc-41f86a212c3b_Rg8AEz did not finish or does not exist.
 PartA: Done:0 Job finished succesfully
 PartB: New
 PartB missing input: Aborted:-94 @worker_submit - Job validation failed: Chain job PartA_miss did not finish or does not exist.

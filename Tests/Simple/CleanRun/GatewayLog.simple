@@ -1,7 +1,7 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5002/
-INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5002/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
 DEBUG:root:Request {"input": {"CleanSet": "1"}, "api": "2.0", "service": "Test"}
@@ -9,10 +9,10 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf
-INFO:werkzeug:127.0.0.1 - - [02/Mar/2015 10:21:46] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf
+DEBUG:root:Return request id: Test_068d09fb-10d0-4c3b-8059-551fb1384f26_In93Dg
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 13:32:13] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_068d09fb-10d0-4c3b-8059-551fb1384f26_In93Dg
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [02/Mar/2015 10:21:46] "GET /status/Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf
-INFO:werkzeug:127.0.0.1 - - [02/Mar/2015 10:22:26] "GET /status/Test_cd184907-b714-4d98-aa4c-402d4a895dbc_QJcLBf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 13:32:13] "GET /status/Test_068d09fb-10d0-4c3b-8059-551fb1384f26_In93Dg HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_068d09fb-10d0-4c3b-8059-551fb1384f26_In93Dg
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 13:32:53] "GET /status/Test_068d09fb-10d0-4c3b-8059-551fb1384f26_In93Dg HTTP/1.1" 200 -

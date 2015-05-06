@@ -5,19 +5,13 @@
 PORT=5012
 ROOT="$TEXTTEST_ROOT/../.."
 
-type -t module > /dev/null 2>&1
-if [[ $? == 0 ]]
-then
-    module load python-tools
-fi
-
 # Start server
 $ROOT/AppServer/cisapps start
 # Start gateway
 (setsid $ROOT/AppGateway/cisappg $PORT > CISAppGateway.log 2>&1) &
 GATEPID=$!
 
-sleep 2
+sleep 5
 
 # Submit job
 # Use the LongSet - running time is around 50 seconds and kill during execution

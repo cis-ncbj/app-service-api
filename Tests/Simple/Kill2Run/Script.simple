@@ -1,6 +1,6 @@
 #!/bin/sh
-#PBS -q test_slc6
-#PBS -a 211219
+#PBS -q a12h
+#PBS -a 0400 0
 #
 
 echo "Commencing test: WaitRun" | tee -a progress.log
@@ -25,8 +25,7 @@ echo 2 | tee -a progress.log
 sleep 1
 echo 1 | tee -a progress.log
 
-python -c "print -12.5 / 9.66"
+python -c "print 10 * -12.5 / 9.66"
 /bin/ls
 
 exit $?
-

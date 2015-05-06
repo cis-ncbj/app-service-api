@@ -1,7 +1,7 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5011/
-INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5011/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
 DEBUG:root:Request {"input": {"LongSet": "1"}, "api": "2.0", "service": "Test"}
@@ -9,15 +9,15 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l
-INFO:werkzeug:127.0.0.1 - - [25/Apr/2014 12:44:03] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l
+DEBUG:root:Return request id: Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 09:37:48] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [25/Apr/2014 12:44:03] "GET /status/Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 09:37:48] "GET /status/Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [25/Apr/2014 12:44:43] "GET /status/Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l HTTP/1.1" 200 -
-DEBUG:root:@kill - Job remove request Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l
-INFO:werkzeug:127.0.0.1 - - [25/Apr/2014 12:44:43] "GET /kill/Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l
-INFO:werkzeug:127.0.0.1 - - [25/Apr/2014 12:44:58] "GET /status/Test_3b012664-6f80-45bd-9621-93a49c6f51fe_416F9l HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 09:38:29] "GET /status/Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0 HTTP/1.1" 200 -
+DEBUG:root:@kill - Job remove request Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 09:38:29] "GET /kill/Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 09:38:44] "GET /status/Test_a3b4dad8-fcc3-46bf-b295-3cdda1b035e1_ObscO0 HTTP/1.1" 200 -

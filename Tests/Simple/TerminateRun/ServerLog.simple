@@ -1,52 +1,46 @@
-   INFO 2015-03-31 11:53:38,242 : Executing start
-   INFO 2015-03-31 11:53:38,255 : CISAppServer started with pid 28964
-   INFO 2015-03-31 11:53:38,736 : Initialized service: default
-   INFO 2015-03-31 11:53:38,739 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,739 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,740 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,762 : Initialized service: default
-   INFO 2015-03-31 11:53:38,765 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,766 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,767 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,774 : Initialized service: default
-   INFO 2015-03-31 11:53:38,778 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,780 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,781 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,786 : Initialized service: default
-   INFO 2015-03-31 11:53:38,789 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,790 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,791 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,798 : Initialized service: default
-   INFO 2015-03-31 11:53:38,801 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,803 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,803 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,809 : Initialized service: default
-   INFO 2015-03-31 11:53:38,814 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,815 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,816 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,820 : Initialized service: default
-   INFO 2015-03-31 11:53:38,823 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,824 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,825 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,831 : Initialized service: default
-   INFO 2015-03-31 11:53:38,834 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,836 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,837 : Initialized service: AppFlexpart
-   INFO 2015-03-31 11:53:38,846 : Initialized service: default
-   INFO 2015-03-31 11:53:38,851 : Initialized service: Test
-   INFO 2015-03-31 11:53:38,852 : Initialized service: MultiNest
-   INFO 2015-03-31 11:53:38,853 : Initialized service: AppFlexpart
-WARNING 2015-03-31 11:53:40,767 : @JManager - All job slots in use for service Test.
-   INFO 2015-03-31 11:53:40,967 : Connected (version 2.0, client OpenSSH_5.9p1)
-   INFO 2015-03-31 11:53:41,057 : Authentication (publickey) failed.
-   INFO 2015-03-31 11:53:41,067 : Authentication (publickey) successful!
-   INFO 2015-03-31 11:53:41,771 : Job successfully submitted: Test_7afd59c6-7780-4b10-b6d7-a5426e56d213__zE1T6
-   INFO 2015-03-31 11:53:42,832 : Connected (version 2.0, client OpenSSH_5.9p1)
-   INFO 2015-03-31 11:53:42,921 : Authentication (publickey) failed.
-   INFO 2015-03-31 11:53:42,930 : Authentication (publickey) successful!
-   INFO 2015-03-31 11:53:50,835 : Jobs - w:1, p:0, q:0, r:1, s:0, c:0, d:0, f:0, a:0, k:0.
-   INFO 2015-03-31 11:53:55,710 : Received terminate command
-   INFO 2015-03-31 11:53:55,767 : Starting shutdown
-   INFO 2015-03-31 11:54:01,105 : Job Test_7afd59c6-7780-4b10-b6d7-a5426e56d213__zE1T6 finished: killed
-   INFO 2015-03-31 11:54:03,188 : Job Test_8a10930c-1910-4f73-af6d-a6d1cbeef130_xMEfSq finished: killed
-   INFO 2015-03-31 11:54:03,305 : Shutdown complete
+   INFO 2015-04-22 12:41:39,882 : Executing start
+   INFO 2015-04-22 12:41:39,930 : CISAppServer started with pid 1705
+   INFO 2015-04-22 12:41:40,231 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,247 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,265 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,280 : Initialized service: default
+   INFO 2015-04-22 12:41:40,457 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,466 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,473 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,495 : Initialized service: default
+   INFO 2015-04-22 12:41:40,575 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,622 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,633 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,639 : Initialized service: default
+   INFO 2015-04-22 12:41:40,675 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,713 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,719 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,723 : Initialized service: default
+   INFO 2015-04-22 12:41:40,766 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,785 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,790 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,793 : Initialized service: default
+   INFO 2015-04-22 12:41:40,844 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,865 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,874 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,878 : Initialized service: default
+   INFO 2015-04-22 12:41:40,932 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:40,951 : Initialized service: Test
+   INFO 2015-04-22 12:41:40,959 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:40,964 : Initialized service: default
+   INFO 2015-04-22 12:41:41,050 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:41,075 : Initialized service: Test
+   INFO 2015-04-22 12:41:41,079 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:41,082 : Initialized service: default
+   INFO 2015-04-22 12:41:41,170 : Initialized service: MultiNest
+   INFO 2015-04-22 12:41:41,178 : Initialized service: Test
+   INFO 2015-04-22 12:41:41,181 : Initialized service: AppFlexpart
+   INFO 2015-04-22 12:41:41,187 : Initialized service: default
+WARNING 2015-04-22 12:41:46,573 : @JManager - All job slots in use for service Test.
+   INFO 2015-04-22 12:41:46,871 : Job successfully submitted: Test_889f188a-a9d9-4691-9d65-917395b9bb77_oABb7u
+   INFO 2015-04-22 12:42:02,130 : Received terminate command
+   INFO 2015-04-22 12:42:02,539 : Starting shutdown
+   INFO 2015-04-22 12:42:07,392 : Job Test_889f188a-a9d9-4691-9d65-917395b9bb77_oABb7u finished: killed
+   INFO 2015-04-22 12:42:07,395 : Job Test_81c5f90a-ae42-4fa7-bb3f-69ef75204275_hJAxS7 finished: killed
+   INFO 2015-04-22 12:42:09,478 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:2.
+   INFO 2015-04-22 12:42:09,480 : Shutdown complete

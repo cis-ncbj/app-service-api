@@ -1,9 +1,13 @@
+/mnt/home/kklimaszewski/Opt/webservices-python/lib/python2.7/site-packages/Crypto/Util/number.py:57: PowmInsecureWarning: Not using mpz_powm_sec.  You should rebuild using libgmp >= 5 to avoid timing attack vulnerability.
+  _warn("Not using mpz_powm_sec.  You should rebuild using libgmp >= 5 to avoid timing attack vulnerability.", PowmInsecureWarning)
 INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json
 INFO     Logging level: INFO
 INFO     Executing start
-INFO     CISAppServer started with pid 20744
+INFO     CISAppServer started with pid 2440
+/mnt/home/kklimaszewski/Opt/webservices-python/lib/python2.7/site-packages/Crypto/Util/number.py:57: PowmInsecureWarning: Not using mpz_powm_sec.  You should rebuild using libgmp >= 5 to avoid timing attack vulnerability.
+  _warn("Not using mpz_powm_sec.  You should rebuild using libgmp >= 5 to avoid timing attack vulnerability.", PowmInsecureWarning)
 INFO     CISAppS 0.9
 INFO     CLI Logging level: INFO
 INFO     Configuration file: CISAppServer.json

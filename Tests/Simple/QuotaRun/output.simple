@@ -1,6 +1,9 @@
 Job1: New
 Job2: New
 Job3: New
+Job1: Queued
+Job2: Waiting
+Job3: Waiting
 Job1: Running
 Job2: Waiting
 Job3: Waiting
@@ -8,8 +11,5 @@ Job1: Done:0 Job finished succesfully
 Job2: Waiting
 Job3: Waiting
 Job1: Done:0 Job finished succesfully
-Job2: Running
-Job3: Waiting
-Job1: Done:0 Job finished succesfully
 Job2: Done:0 Job finished succesfully
-Job3: Done:0 Job finished succesfully
+Job3: Waiting

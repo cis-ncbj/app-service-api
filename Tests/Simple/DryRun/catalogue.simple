@@ -4,6 +4,8 @@ The following new files/directories were created:
 ----CISAppServer.log
 ----Dump
 ----Output
+----PBS
+--------Scratch
 ----SSH
 --------Queue
 --------Scratch

@@ -5,12 +5,6 @@
 PORT=5005
 ROOT="$TEXTTEST_ROOT/../.."
 
-type -t module > /dev/null 2>&1
-if [[ $? == 0 ]]
-then
-    module load python-tools
-fi
-
 # Start server
 $ROOT/AppServer/cisapps start
 # Start gateway
@@ -35,7 +29,7 @@ curl -s -S http://localhost:$PORT/status/$ID
 echo ""
 
 # Kill the job - simulates cluster shutdown or admin intervention
-qdel $(cat $TEXTTEST_SANDBOX/PBS/Queue/$ID)
+qdel $(sqlite3 $TEXTTEST_SANDBOX/jobs.db "select scheduler_queue.id from scheduler_queue join job_states on scheduler_queue.job_key == job_states.key where job_states.id == '$ID';")
 
 sleep 20
 

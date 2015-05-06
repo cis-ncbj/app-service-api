@@ -1,5 +1,4 @@
 #!/bin/sh
-#PBS -q 
 
 echo "Hello World from PartA" > output_A.dat
 sleep 2

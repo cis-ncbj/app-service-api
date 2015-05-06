@@ -5,12 +5,6 @@
 PORT=5001
 ROOT="$TEXTTEST_ROOT/../.."
 
-type -t module > /dev/null 2>&1
-if [[ $? == 0 ]]
-then
-    module load python-tools
-fi
-
 # Start server
 $ROOT/AppServer/cisapps start
 # Start gateway (start ne process group)

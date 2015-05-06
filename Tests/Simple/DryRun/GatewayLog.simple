@@ -1,6 +1,6 @@
-DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
-DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5001/
-INFO:werkzeug: * Restarting with reloader
-DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
-DEBUG:root:@Config - Finalise configuration initialisation
+Traceback (most recent call last):
+  File "/mnt/home/kklimaszewski/Soft/WebServices/Tests/Simple/../../AppGateway/cisappg", line 4, in <module>
+    from CISAppGateway import app, Config
+  File "/mnt/home/kklimaszewski/Soft/WebServices/AppGateway/CISAppGateway/__init__.py", line 1, in <module>
+    from flask import Flask
+ImportError: No module named flask

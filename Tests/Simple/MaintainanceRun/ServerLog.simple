@@ -1,109 +1,89 @@
-   INFO 2015-03-30 13:27:18,746 : Executing start
-   INFO 2015-03-30 13:27:18,771 : CISAppServer started with pid 22526
-   INFO 2015-03-30 13:27:19,386 : Initialized service: default
-   INFO 2015-03-30 13:27:19,389 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,390 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,411 : Initialized service: default
-   INFO 2015-03-30 13:27:19,414 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,415 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,422 : Initialized service: default
-   INFO 2015-03-30 13:27:19,425 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,425 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,436 : Initialized service: default
-   INFO 2015-03-30 13:27:19,439 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,440 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,452 : Initialized service: default
-   INFO 2015-03-30 13:27:19,455 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,456 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,470 : Initialized service: default
-   INFO 2015-03-30 13:27:19,473 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,474 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,495 : Initialized service: default
-   INFO 2015-03-30 13:27:19,499 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,500 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,511 : Initialized service: default
-   INFO 2015-03-30 13:27:19,517 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,518 : Initialized service: MultiNest
-   INFO 2015-03-30 13:27:19,532 : Initialized service: default
-   INFO 2015-03-30 13:27:19,535 : Initialized service: Test
-   INFO 2015-03-30 13:27:19,535 : Initialized service: MultiNest
-  ERROR 2015-03-30 13:27:24,563 : Unable to submit job.
-Traceback (most recent call last):
-  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 991, in worker_submit
-    if _scheduler.generate_scripts(_job):
-  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/Schedulers.py", line 322, in generate_scripts
-    template = self.template_env.get_template(_template_name)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 554, in compile
-    self.handle_exception(exc_info, source_hint=source)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 742, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/konrad/.texttest/tmp/console.30Mar132718.22512/simple/MaintainanceRun/Services/Data/Test/pbs.sh", line 27, in template
-    python -c "print @@{1Float} / @@{2Float}"
-TemplateSyntaxError: unexpected char u'F' at 579
-   INFO 2015-03-30 13:27:39,118 : Received pause command
-   INFO 2015-03-30 13:27:49,138 : Jobs - w:0, p:1, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
-   INFO 2015-03-30 13:28:14,163 : Jobs - w:0, p:1, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
-   INFO 2015-03-30 13:28:39,183 : Jobs - w:0, p:1, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
-   INFO 2015-03-30 13:28:59,422 : Executing restart
-   INFO 2015-03-30 13:28:59,512 : Received stop command
-   INFO 2015-03-30 13:28:59,518 : Starting shutdown
-   INFO 2015-03-30 13:29:03,611 : Shutdown complete
-   INFO 2015-03-30 13:29:09,450 : CISAppServer started with pid 22582
-   INFO 2015-03-30 13:29:09,471 : Initialized service: default
-   INFO 2015-03-30 13:29:09,473 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,473 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,496 : Initialized service: default
-   INFO 2015-03-30 13:29:09,499 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,499 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,511 : Initialized service: default
-   INFO 2015-03-30 13:29:09,514 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,515 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,536 : Initialized service: default
-   INFO 2015-03-30 13:29:09,540 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,540 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,552 : Initialized service: default
-   INFO 2015-03-30 13:29:09,554 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,555 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,565 : Initialized service: default
-   INFO 2015-03-30 13:29:09,570 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,571 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,582 : Initialized service: default
-   INFO 2015-03-30 13:29:09,585 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,586 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,600 : Initialized service: default
-   INFO 2015-03-30 13:29:09,603 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,604 : Initialized service: MultiNest
-   INFO 2015-03-30 13:29:09,620 : Initialized service: default
-   INFO 2015-03-30 13:29:09,623 : Initialized service: Test
-   INFO 2015-03-30 13:29:09,623 : Initialized service: MultiNest
-  ERROR 2015-03-30 13:29:14,646 : Unable to submit job.
-Traceback (most recent call last):
-  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/JobManager.py", line 991, in worker_submit
-    if _scheduler.generate_scripts(_job):
-  File "/home/konrad/Private/SecretMega/Soft/WebServices/AppServer/CISAppServer/Schedulers.py", line 322, in generate_scripts
-    template = self.template_env.get_template(_template_name)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 554, in compile
-    self.handle_exception(exc_info, source_hint=source)
-  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 742, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/konrad/.texttest/tmp/console.30Mar132718.22512/simple/MaintainanceRun/Services/Data/Test/pbs.sh", line 27, in template
-    python -c "print @@{1Float} / @@{2Float}"
-TemplateSyntaxError: unexpected char u'F' at 579
-   INFO 2015-03-30 13:29:39,535 : Jobs - w:0, p:2, q:0, r:0, s:0, c:0, d:0, f:0, a:0, k:0.
-   INFO 2015-03-30 13:29:49,727 : Received terminate command
-   INFO 2015-03-30 13:29:49,754 : Starting shutdown
-   INFO 2015-03-30 13:29:55,854 : Job Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE finished: killed
-   INFO 2015-03-30 13:29:55,856 : Job Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz finished: killed
-   INFO 2015-03-30 13:29:55,970 : Shutdown complete
+   INFO 2015-04-21 12:37:32,919 : Executing start
+   INFO 2015-04-21 12:37:32,975 : CISAppServer started with pid 6094
+   INFO 2015-04-21 12:37:33,250 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:33,274 : Initialized service: Test
+   INFO 2015-04-21 12:37:33,278 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:33,280 : Initialized service: default
+   INFO 2015-04-21 12:37:33,488 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:33,502 : Initialized service: Test
+   INFO 2015-04-21 12:37:33,509 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:33,514 : Initialized service: default
+   INFO 2015-04-21 12:37:33,647 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:33,660 : Initialized service: Test
+   INFO 2015-04-21 12:37:33,664 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:33,669 : Initialized service: default
+   INFO 2015-04-21 12:37:33,716 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:33,759 : Initialized service: Test
+   INFO 2015-04-21 12:37:33,770 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:33,774 : Initialized service: default
+   INFO 2015-04-21 12:37:33,802 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:33,823 : Initialized service: Test
+   INFO 2015-04-21 12:37:33,830 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:33,844 : Initialized service: default
+   INFO 2015-04-21 12:37:33,933 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:33,960 : Initialized service: Test
+   INFO 2015-04-21 12:37:33,969 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:33,973 : Initialized service: default
+   INFO 2015-04-21 12:37:34,002 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:34,035 : Initialized service: Test
+   INFO 2015-04-21 12:37:34,041 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:34,045 : Initialized service: default
+   INFO 2015-04-21 12:37:34,075 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:34,092 : Initialized service: Test
+   INFO 2015-04-21 12:37:34,099 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:34,102 : Initialized service: default
+   INFO 2015-04-21 12:37:34,175 : Initialized service: MultiNest
+   INFO 2015-04-21 12:37:34,194 : Initialized service: Test
+   INFO 2015-04-21 12:37:34,197 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:37:34,199 : Initialized service: default
+   INFO 2015-04-21 12:37:38,853 : Job successfully submitted: Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN
+   INFO 2015-04-21 12:37:53,909 : Job Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN finished: done
+   INFO 2015-04-21 12:37:55,201 : Received pause command
+   INFO 2015-04-21 12:39:17,282 : Executing restart
+   INFO 2015-04-21 12:39:17,287 : Received stop command
+   INFO 2015-04-21 12:39:17,589 : Starting shutdown
+   INFO 2015-04-21 12:39:22,113 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:1, f:0, a:0, k:0.
+   INFO 2015-04-21 12:39:22,114 : Shutdown complete
+   INFO 2015-04-21 12:39:27,326 : CISAppServer started with pid 9273
+   INFO 2015-04-21 12:39:27,449 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,464 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,467 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,470 : Initialized service: default
+   INFO 2015-04-21 12:39:27,564 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,572 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,578 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,589 : Initialized service: default
+   INFO 2015-04-21 12:39:27,622 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,638 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,645 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,648 : Initialized service: default
+   INFO 2015-04-21 12:39:27,700 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,714 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,718 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,720 : Initialized service: default
+   INFO 2015-04-21 12:39:27,753 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,771 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,777 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,780 : Initialized service: default
+   INFO 2015-04-21 12:39:27,815 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,832 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,840 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,843 : Initialized service: default
+   INFO 2015-04-21 12:39:27,894 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,911 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,917 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,920 : Initialized service: default
+   INFO 2015-04-21 12:39:27,963 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:27,970 : Initialized service: Test
+   INFO 2015-04-21 12:39:27,974 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:27,977 : Initialized service: default
+   INFO 2015-04-21 12:39:28,017 : Initialized service: MultiNest
+   INFO 2015-04-21 12:39:28,034 : Initialized service: Test
+   INFO 2015-04-21 12:39:28,037 : Initialized service: AppFlexpart
+   INFO 2015-04-21 12:39:28,040 : Initialized service: default
+   INFO 2015-04-21 12:39:33,071 : Job successfully submitted: Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5
+   INFO 2015-04-21 12:39:52,933 : Job Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5 finished: done
+   INFO 2015-04-21 12:40:09,468 : Received terminate command
+   INFO 2015-04-21 12:40:09,833 : Starting shutdown
+   INFO 2015-04-21 12:40:16,530 : Jobs - w:0, p:0, q:0, r:0, s:0, c:0, d:2, f:0, a:0, k:0.
+   INFO 2015-04-21 12:40:16,532 : Shutdown complete

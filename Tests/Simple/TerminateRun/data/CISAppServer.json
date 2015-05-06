@@ -3,6 +3,8 @@
     // Server settings
     // ***************
     //
+    // sqlite config
+    "config_db_init" : ["pragma foreign_keys=on", "pragma journal_mode=WAL"],
     // Sleep interval in seconds between job status queries (dafault: 3)
     "config_sleep_time" : 2,
     //
@@ -70,7 +72,8 @@
     // Maximum number of concurent PBS jobs (default: 100)
     //"pbs_max_jobs" : 100,
     //
-    "ssh_known_hosts" : "/home/konrad/.ssh/known_hosts_spur",
+    //"ssh_known_hosts" : "/home/konrad/.ssh/known_hosts_spur",
+    "ssh_default_queue" : "interactive0002",
     //
     // **********************
     // Services/Apps settings
@@ -83,13 +86,13 @@
     // Path with services scripts and input files, can be relative to Daemon
     // working directory (default: Services/Data)
     //"service_path_data" : "Services/Data"
-    "service_username" : "konrad",
+    //"service_username" : "konrad",
     "service_max_jobs" : 1,
     "service_job_size" : 0.1,
-    //"service_username" : "kklimaszewski",
+    "service_username" : "kklimaszewski",
     //
-    "service_schedulers" : ["ssh"],
-    "service_default_scheduler": "ssh",
+    "service_schedulers" : ["ssh", "pbs"],
+    "service_default_scheduler": "pbs",
     // ****************
     // Gateway settings
     // ****************

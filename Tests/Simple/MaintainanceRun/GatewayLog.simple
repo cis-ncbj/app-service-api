@@ -1,38 +1,36 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5007/
-INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5007/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-DEBUG:root:Request {"api": "2.0", "service": "Test"}
+DEBUG:root:Request {"input": {"SLEEP": "1"}, "api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:27:23] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE
+DEBUG:root:Return request id: Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:37:38] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:27:23] "GET /status/Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE
-DEBUG:root:Job processing
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:27:38] "GET /status/Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE
-DEBUG:root:Job processing
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:28:44] "GET /status/Test_c12c15b7-97a7-48cd-886b-a1a8f421b972_6q44oE HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:37:38] "GET /status/Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN
+DEBUG:root:Job running
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:37:53] "GET /status/Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:39:00] "GET /status/Test_caaf4a18-d515-4112-beb1-1c3d3c71c3d3_jSrLHN HTTP/1.1" 200 -
 DEBUG:root:Request {"input": {"CleanSet": "1"}, "api": "2.0", "service": "Test"}
 DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:28:44] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz
+DEBUG:root:Return request id: Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:39:00] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:28:44] "GET /status/Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:39:00] "GET /status/Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:28:59] "GET /status/Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz
-DEBUG:root:Job processing
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:29:49] "GET /status/Test_8f747259-79ca-40fe-b7b8-8e0940dabc65_lvZstz HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:39:15] "GET /status/Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5 HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5
+INFO:werkzeug:127.0.0.1 - - [21/Apr/2015 12:40:07] "GET /status/Test_d9b0f2d4-5818-486c-9dae-1db41385eb56_HCnHe5 HTTP/1.1" 200 -

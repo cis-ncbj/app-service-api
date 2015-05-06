@@ -1,7 +1,7 @@
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
-INFO:werkzeug: * Running on http://127.0.0.1:5006/
-INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5006/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
 DEBUG:root:@Config - Loading global configuration: CISAppGateway.json
 DEBUG:root:@Config - Finalise configuration initialisation
 DEBUG:root:Request {"input": {"LongSet": "1"}, "api": "2.0", "service": "Test"}
@@ -9,14 +9,13 @@ DEBUG:root:Service defined: Test
 DEBUG:root:Service selected: Test
 DEBUG:root:Job ID file created
 DEBUG:root:Job request data written to Job ID file
-DEBUG:root:Return request id: Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:17:05] "POST /submit HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS
+DEBUG:root:Return request id: Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 14:44:50] "POST /submit HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz
 DEBUG:root:Job new
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:17:05] "GET /status/Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 14:44:50] "GET /status/Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz
 DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:17:45] "GET /status/Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS HTTP/1.1" 200 -
-DEBUG:root:@status - Status check for job: Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS
-DEBUG:root:Job running
-INFO:werkzeug:127.0.0.1 - - [30/Mar/2015 13:17:50] "GET /status/Test_e103c846-6e6e-4e04-89eb-5a9e4aa879d3_gp8aKS HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 14:45:30] "GET /status/Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz HTTP/1.1" 200 -
+DEBUG:root:@status - Status check for job: Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz
+INFO:werkzeug:127.0.0.1 - - [20/Apr/2015 14:50:46] "GET /status/Test_46abcdaa-c3bf-4d8a-a833-68ebe38719a1_ho2Nuz HTTP/1.1" 200 -
