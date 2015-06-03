@@ -1,9 +1,9 @@
 [submodule "AppServer"]
 	path = AppServer
-	url = git@code.cis.gov.pl:webservices/appserver.git
+	url = git@github.com:cis-gov-pl/app-service-server.git
 [submodule "AppGateway"]
 	path = AppGateway
-	url = git@code.cis.gov.pl:webservices/appgateway.git
+	url = git@github.com:cis-gov-pl/app-service-gateway.git
 [submodule "Apps/AppMultiNest"]
 	path = Apps/AppMultiNest
-	url = git@code.cis.gov.pl:webservices/appmultinest.git
+	url = git@github.com:cis-gov-pl/app-service-multinest.git
