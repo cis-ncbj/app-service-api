@@ -27,8 +27,8 @@
     <link rel="next" title="CISAppGateway Package" href="CISAppGateway.html" />
     <link rel="prev" title="Web API" href="webapi.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,10 +43,10 @@
         <li class="right" >
           <a href="webapi.html" title="Web API"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
@@ -66,12 +66,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="CISAppGateway.html"
                         title="next chapter">CISAppGateway Package</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/modules.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -90,36 +92,39 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="implementation-reference">
 <h1>Implementation reference<a class="headerlink" href="#implementation-reference" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="source-code">
 <span id="id1"></span><h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
-<p>The source code is available through git repository:</p>
-<div class="highlight-python"><pre>git clone ssh://&lt;user_name&gt;@usrint.cis.gov.pl/mnt/home/kklimaszewski/GitRepos/WebServices
-cd WebServices
+<p>The source code is available through a git repository <a class="reference external" href="https://github.com/cis-gov-pl/app-service-api">https://github.com/cis-gov-pl/app-service-api</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:cis-gov-pl/app-service-api.git
+cd app-service-api
 git submodule init
-git submodule update</pre>
+git submodule update
+</pre></div>
 </div>
 <p>The repository contains code for AppGateway, AppServer and example service
 MultiNest as well as this documentation.</p>
 <p>Updating the code to the latest version:</p>
-<div class="highlight-python"><pre>git pull
-git submodule update</pre>
+<div class="highlight-python"><div class="highlight"><pre>git pull
+git submodule update
+</pre></div>
 </div>
 </div>
 <div class="section" id="running-webservice-locally">
 <h2>Running Webservice locally<a class="headerlink" href="#running-webservice-locally" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
-<p>First checkout the source code (see <a class="reference internal" href="#source-code"><em>Source Code</em></a>).</p>
+<p>First checkout the source code (see <a class="reference internal" href="#source-code"><span>Source Code</span></a>).</p>
 <p>Then we create a working directory:</p>
-<div class="highlight-python"><pre>mkdir WebServicesRun
+<div class="highlight-python"><div class="highlight"><pre>mkdir WebServicesRun
 cd WebServicesRun
 cp -r ../WebServices/AppServer/Services .
 cp ../WebServices/AppServer/CISAppServer.json .
-cp ../WebServices/AppGateway/CISAppGateway.json .</pre>
+cp ../WebServices/AppGateway/CISAppGateway.json .
+</pre></div>
 </div>
 <p>To test new service put it&#8217;s configuration files into WebServicesRun/Services.
 Edit the CISAppGateway.json configuration file and add the new service to
@@ -130,9 +135,10 @@ CISAppGateway.json and CISAppServer.json configuration files.</p>
 <div class="section" id="start">
 <h3>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h3>
 <p>Now we can start the AppServer and the AppGateway:</p>
-<div class="highlight-python"><pre>cd WebServicesRun
+<div class="highlight-python"><div class="highlight"><pre>cd WebServicesRun
 ../WebServices/AppServer/cisapps start
-../WebServices/AppGateway/cisappg</pre>
+../WebServices/AppGateway/cisappg
+</pre></div>
 </div>
 <p>The AppServer will run in background. To see what is going check the log file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">CISAppServer</span><span class="o">.</span><span class="n">log</span>
@@ -143,12 +149,14 @@ CISAppGateway.json and CISAppServer.json configuration files.</p>
 <h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
 <p>For job submission we can use curl. The AppGateway listens on port 5000 by
 default:</p>
-<div class="highlight-python"><pre>curl -i -H "Content-Type: application/json" -X POST \
-    -d '{"service":"Test","api":1.0, "input":{"2Float":10.0}}' \
-    http://localhost:5000/submit</pre>
+<div class="highlight-python"><div class="highlight"><pre>curl -i -H &quot;Content-Type: application/json&quot; -X POST \
+    -d &#39;{&quot;service&quot;:&quot;Test&quot;,&quot;api&quot;:1.0, &quot;input&quot;:{&quot;2Float&quot;:10.0}}&#39; \
+    http://localhost:5000/submit
+</pre></div>
 </div>
 <p>As a result we will obtain a JOBID. To check the job status:</p>
-<div class="highlight-python"><pre>curl -i http://localhost:5000/status/&lt;JOBID&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>curl -i http://localhost:5000/status/&lt;JOBID&gt;
+</pre></div>
 </div>
 <p>More API calls are described in <a class="reference internal" href="webapi.html"><em>Web API</em></a>.</p>
 </div>
@@ -156,11 +164,13 @@ default:</p>
 <h3>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
 <p>The AppGateway is stopped by sending the interrupt signal ([ctrl] + C).
 The AppServer is stopped with stop command:</p>
-<div class="highlight-python"><pre>cd WebServicesRun
-../WebServices/AppServer/cisapps stop</pre>
+<div class="highlight-python"><div class="highlight"><pre>cd WebServicesRun
+../WebServices/AppServer/cisapps stop
+</pre></div>
 </div>
 <p>Information about other commands and options can be displayed:</p>
-<div class="highlight-python"><pre>../WebServices/AppServer/cisapps --help</pre>
+<div class="highlight-python"><div class="highlight"><pre>../WebServices/AppServer/cisapps --help
+</pre></div>
 </div>
 </div>
 </div>
@@ -169,15 +179,20 @@ The AppServer is stopped with stop command:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="CISAppGateway.html">CISAppGateway Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html#module-CISAppGateway.Views"><tt class="docutils literal"><span class="pre">Views</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html#module-CISAppGateway.Server"><tt class="docutils literal"><span class="pre">Server</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html#module-CISAppGateway.Config"><tt class="docutils literal"><span class="pre">Config</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html#module-CISAppGateway.Config"><code class="docutils literal"><span class="pre">Config</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html#module-CISAppGateway.Views"><code class="docutils literal"><span class="pre">Views</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppGateway.html#module-CISAppGateway.Server"><code class="docutils literal"><span class="pre">Server</span></code> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="CISAppServer.html">CISAppServer Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.JobManager"><tt class="docutils literal"><span class="pre">JobManager</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Tools"><tt class="docutils literal"><span class="pre">Tools</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Config"><tt class="docutils literal"><span class="pre">Config</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Globals"><code class="docutils literal"><span class="pre">Globals</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Config"><code class="docutils literal"><span class="pre">Config</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.JobManager"><code class="docutils literal"><span class="pre">JobManager</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Jobs"><code class="docutils literal"><span class="pre">Jobs</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Schedulers"><code class="docutils literal"><span class="pre">Schedulers</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Services"><code class="docutils literal"><span class="pre">Services</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Tools"><code class="docutils literal"><span class="pre">Tools</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CISAppServer.html#module-CISAppServer.Daemon"><code class="docutils literal"><span class="pre">Daemon</span></code> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +206,7 @@ The AppServer is stopped with stop command:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -206,12 +221,12 @@ The AppServer is stopped with stop command:</p>
         <li class="right" >
           <a href="webapi.html" title="Web API"
              >previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, CIŚ.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

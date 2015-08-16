@@ -28,8 +28,8 @@
     <link rel="next" title="CISAppServer Package" href="CISAppServer.html" />
     <link rel="prev" title="Implementation reference" href="modules.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,11 +44,11 @@
         <li class="right" >
           <a href="modules.html" title="Implementation reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li>
-          <li><a href="modules.html" accesskey="U">Implementation reference</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">Implementation reference</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
@@ -68,12 +68,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="CISAppServer.html"
                         title="next chapter">CISAppServer Package</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/CISAppGateway.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/CISAppGateway.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -92,18 +94,138 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="cisappgateway-package">
 <h1>CISAppGateway Package<a class="headerlink" href="#cisappgateway-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-CISAppGateway.Config">
+<span id="config-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">Config</span></code> Module<a class="headerlink" href="#module-CISAppGateway.Config" title="Permalink to this headline">¶</a></h2>
+<p>Global configuration for CISAppGateway.</p>
+<dl class="class">
+<dt id="CISAppGateway.Config.Config">
+<em class="property">class </em><code class="descclassname">CISAppGateway.Config.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>Class responsible for configuration storage and initialization.</p>
+<p>Config stores variables as instace members e.g.:</p>
+<blockquote>
+<div>conf.config_file</div></blockquote>
+<p>The variables are also accessible via dictionary interface e.g.:</p>
+<blockquote>
+<div>conf[&#8216;conf_file&#8217;]</div></blockquote>
+<p>Upon initialisation some default values are applied to the variables.
+However to finish the initialization <a class="reference internal" href="#CISAppGateway.Config.Config.load" title="CISAppGateway.Config.Config.load"><code class="xref py py-meth docutils literal"><span class="pre">Config.load()</span></code></a> method
+should be called.</p>
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.allowed_services">
+<code class="descname">allowed_services</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.allowed_services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supported services</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.config_file">
+<code class="descname">config_file</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.config_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Config file name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.gate_path_output">
+<code class="descname">gate_path_output</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path where jobs output will be stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.gate_path_shared">
+<code class="descname">gate_path_shared</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_shared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the shared storage used as communication medium with
+AppServer</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.gate_url_output">
+<code class="descname">gate_url_output</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_url_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL where output files are accessible to users</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppGateway.Config.Config.json_load">
+<code class="descname">json_load</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Config.Config.json_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a JSON file</p>
+<p>First remove comments and then use the json module package
+Comments look like</p>
+<div class="highlight-python"><div class="highlight"><pre>    // ...
+or
+    /*
+    ...
+    */
+</pre></div>
+</div>
+<p>Based on:
+<a class="reference external" href="http://www.lifl.fr/~riquetd/parse-a-json-file-with-comments.html">http://www.lifl.fr/~riquetd/parse-a-json-file-with-comments.html</a>.
+Much faster than <a class="reference external" href="https://github.com/getify/JSON.minify">https://github.com/getify/JSON.minify</a> and
+<a class="reference external" href="https://gist.github.com/WizKid/1170297">https://gist.github.com/WizKid/1170297</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; name of the file to parse.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="CISAppGateway.Config.Config.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>conf_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Config.Config.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load CISAppGateway configuration from JSON file and finalize the
+initialisation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>conf_name</strong> &#8211; name of CISAppGateway config file. When <em>None</em> is
+provided hardcoded defaults are used.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.log_level">
+<code class="descname">log_level</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.log_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.log_output">
+<code class="descname">log_output</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.log_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log output file name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CISAppGateway.Config.Config.service_states">
+<code class="descname">service_states</code><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.service_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Valid job states as well as names of directories on shared storage
+that are used to monitor job states</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="CISAppGateway.Config.conf">
+<code class="descclassname">CISAppGateway.Config.</code><code class="descname">conf</code><em class="property"> = {'gate_url_output': 'http://localhost:8000/', 'service_api': 2.0, 'gate_path_running': None, 'gate_path_done': None, 'log_level': 'INFO', 'gate_path_cleanup': None, 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'gate_path_new': None, 'log_output': None, 'gate_path': {'processing': None, 'running': None, 'done': None, 'aborted': None, 'killed': None, 'failed': None, 'waiting': None, 'cleanup': None, 'new': None, 'closing': None, 'queued': None}, 'gate_path_aborted': None, 'config_file': None, 'gate_path_killed': None, 'gate_path_jobs': None, 'allowed_services': ('Test', 'MultiNest', 'EPRCore'), 'gate_path_processing': None, 'gate_path_flag_stop': None, 'gate_path_waiting': None, 'gate_path_flag_old_api': None, 'service_states': ('new', 'waiting', 'processing', 'queued', 'running', 'closing', 'cleanup', 'done', 'failed', 'aborted', 'killed'), 'gate_path_flag_delete': None, 'gate_path_queued': None, 'gate_path_closing': None, 'gate_path_output': 'Output', 'gate_path_opts': None, 'gate_path_flags': None}</em><a class="headerlink" href="#CISAppGateway.Config.conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global Config class instance. Use it to access the CISAppGateway
+configuration.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-CISAppGateway.Views">
-<span id="views-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">Views</span></tt> Module<a class="headerlink" href="#module-CISAppGateway.Views" title="Permalink to this headline">¶</a></h2>
+<span id="views-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">Views</span></code> Module<a class="headerlink" href="#module-CISAppGateway.Views" title="Permalink to this headline">¶</a></h2>
 <p>Flask based implementation of AppGateway REST API. Functions in this module
 implement server response to API requests - each request is defined as specific
 URL.</p>
 <dl class="function">
 <dt id="CISAppGateway.Views.delete">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">delete</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Views.delete" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job delete request. Expects GET request on /delete/&lt;id&gt; URL, where &lt;id&gt; is
 the Job ID returned during submission. If job is queued or running it will
 be killed. All files related to the job will be removed. If job does not
@@ -112,13 +234,13 @@ exist returns an error.</p>
 
 <dl class="function">
 <dt id="CISAppGateway.Views.index">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">index</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppGateway.Views.index" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main page.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="CISAppGateway.Views.kill">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">kill</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Views.kill" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">kill</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.kill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job kill request. Expects GET request on /kill/&lt;id&gt; URL, where &lt;id&gt; is
 the Job ID returned during submission. If job is queued or running it will
 be killed. If job does not exist or has finished returns an error.</p>
@@ -126,7 +248,7 @@ be killed. If job does not exist or has finished returns an error.</p>
 
 <dl class="function">
 <dt id="CISAppGateway.Views.output">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">output</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Views.output" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">output</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job output request. Expects GET request on /output/&lt;id&gt; URL, where &lt;id&gt; is
 the Job ID returned during submission. Returns base URL for job output
 files. Client is expected to know the actual file names or browse contents
@@ -136,7 +258,7 @@ error.</p>
 
 <dl class="function">
 <dt id="CISAppGateway.Views.progress">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">progress</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Views.progress" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">progress</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.progress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job progress request. Expects GET request on /progress/&lt;id&gt; URL, where &lt;id&gt;
 is the Job ID returned during submission. Returns contents of
 &#8220;progress.log&#8221; file if it was created by the job. This file should contain
@@ -147,7 +269,7 @@ job log or info about its progress. For jobs that do not generate
 
 <dl class="function">
 <dt id="CISAppGateway.Views.status">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">status</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Views.status" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">status</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Job status request. Expects GET request on /status/&lt;id&gt; URL, where &lt;id&gt; is
 the Job ID returned during submission. Returns job status if job exists,
 error otherwise:</p>
@@ -164,7 +286,7 @@ error otherwise:</p>
 
 <dl class="function">
 <dt id="CISAppGateway.Views.submit">
-<tt class="descclassname">CISAppGateway.Views.</tt><tt class="descname">submit</tt><big>(</big><big>)</big><a class="headerlink" href="#CISAppGateway.Views.submit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Views.</code><code class="descname">submit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Views.submit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submit request. Expects a POST request (&#64; /submit URL) with data in
 standard FORM format or as JSON payload identified by header:
 &#8216;Content-Type&#8217; = &#8216;application/json&#8217;. Returns JOB ID upon success, error
@@ -173,12 +295,12 @@ otherwise.</p>
 
 </div>
 <div class="section" id="module-CISAppGateway.Server">
-<span id="server-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">Server</span></tt> Module<a class="headerlink" href="#module-CISAppGateway.Server" title="Permalink to this headline">¶</a></h2>
+<span id="server-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">Server</span></code> Module<a class="headerlink" href="#module-CISAppGateway.Server" title="Permalink to this headline">¶</a></h2>
 <p>Functions used to interact with CISAppServer. The communication is implemented
 using shared file system.</p>
 <dl class="function">
 <dt id="CISAppGateway.Server.delete">
-<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">delete</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.delete" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Server.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Server.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mark job idendified with id for deletion.</p>
 <p>The actual job removal along with related files is perfromed by job manager
 service.</p>
@@ -194,7 +316,7 @@ service.</p>
 
 <dl class="function">
 <dt id="CISAppGateway.Server.kill">
-<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">kill</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.kill" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Server.</code><code class="descname">kill</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Server.kill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request job idendified with id to be killed.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -208,7 +330,7 @@ service.</p>
 
 <dl class="function">
 <dt id="CISAppGateway.Server.output">
-<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">output</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.output" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Server.</code><code class="descname">output</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Server.output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return base URL for output files for job identified by id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -223,7 +345,7 @@ finished.</td>
 
 <dl class="function">
 <dt id="CISAppGateway.Server.progress">
-<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">progress</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.progress" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Server.</code><code class="descname">progress</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Server.progress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return contents of progress.log file if it was generated by the job. Allows
 to update user on progress of calculations.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -239,7 +361,7 @@ exist.</td>
 
 <dl class="function">
 <dt id="CISAppGateway.Server.status">
-<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">status</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.status" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Server.</code><code class="descname">status</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Server.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check the status of a job.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -247,9 +369,10 @@ exist.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; Job id to check</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Job status [Waiting, Queued, Running, Done, Failed, Killed,
-Aborted]. For Done, Failed, Killed and Aborted states additional info
-is provided after &#8221;:&#8221;. Returns Error string if id does not exist.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Job status [New, Waiting, Processing, Queued, Running, Closing,
+Cleanup, Done, Failed, Killed, Aborted]. For Done, Failed, Killed and
+Aborted states additional info is provided after &#8221;:&#8221;.
+Returns Error string if id does not exist.</td>
 </tr>
 </tbody>
 </table>
@@ -257,7 +380,7 @@ is provided after &#8221;:&#8221;. Returns Error string if id does not exist.</t
 
 <dl class="function">
 <dt id="CISAppGateway.Server.submit">
-<tt class="descclassname">CISAppGateway.Server.</tt><tt class="descname">submit</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#CISAppGateway.Server.submit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">CISAppGateway.Server.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#CISAppGateway.Server.submit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submit a job request to the processing queue.</p>
 <p>Creates a file with job description in JSON format. File name is unique and
 serves as job ID. The job is added to the queue for execution.</p>
@@ -276,125 +399,6 @@ execution script and input files by AppServer after validation.</td>
 </dd></dl>
 
 </div>
-<div class="section" id="module-CISAppGateway.Config">
-<span id="config-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">Config</span></tt> Module<a class="headerlink" href="#module-CISAppGateway.Config" title="Permalink to this headline">¶</a></h2>
-<p>Global configuration for CISAppGateway.</p>
-<dl class="class">
-<dt id="CISAppGateway.Config.Config">
-<em class="property">class </em><tt class="descclassname">CISAppGateway.Config.</tt><tt class="descname">Config</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#CISAppGateway.Config.Config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
-<p>Class responsible for configuration storage and initialization.</p>
-<p>Config stores variables as instace members e.g.:</p>
-<blockquote>
-<div>conf.config_file</div></blockquote>
-<p>The variables are also accessible via dictionary interface e.g.:</p>
-<blockquote>
-<div>conf[&#8216;conf_file&#8217;]</div></blockquote>
-<p>Upon initialisation some default values are applied to the variables.
-However to finish the initialization <a class="reference internal" href="#CISAppGateway.Config.Config.load" title="CISAppGateway.Config.Config.load"><tt class="xref py py-meth docutils literal"><span class="pre">Config.load()</span></tt></a> method
-should be called.</p>
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.allowed_services">
-<tt class="descname">allowed_services</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.allowed_services" title="Permalink to this definition">¶</a></dt>
-<dd><p>Supported services</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.config_file">
-<tt class="descname">config_file</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.config_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Config file name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.gate_path_output">
-<tt class="descname">gate_path_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path where jobs output will be stored</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.gate_path_shared">
-<tt class="descname">gate_path_shared</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_path_shared" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path to the shared storage used as communication medium with
-AppServer</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.gate_url_output">
-<tt class="descname">gate_url_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.gate_url_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>URL where output files are accessible to users</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="CISAppGateway.Config.Config.json_load">
-<tt class="descname">json_load</tt><big>(</big><em>file</em><big>)</big><a class="headerlink" href="#CISAppGateway.Config.Config.json_load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse a JSON file</p>
-<p>First remove comments and then use the json module package
-Comments look like</p>
-<div class="highlight-python"><pre>    // ...
-or
-    /*
-    ...
-    */</pre>
-</div>
-<p>Based on:
-<a class="reference external" href="http://www.lifl.fr/~riquetd/parse-a-json-file-with-comments.html">http://www.lifl.fr/~riquetd/parse-a-json-file-with-comments.html</a>.
-Much faster than <a class="reference external" href="https://github.com/getify/JSON.minify">https://github.com/getify/JSON.minify</a> and
-<a class="reference external" href="https://gist.github.com/WizKid/1170297">https://gist.github.com/WizKid/1170297</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; name of the file to parse.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="CISAppGateway.Config.Config.load">
-<tt class="descname">load</tt><big>(</big><em>conf_name=None</em><big>)</big><a class="headerlink" href="#CISAppGateway.Config.Config.load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load CISAppGateway configuration from JSON file and finalize the
-initialisation.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>conf_name</strong> &#8211; name of CISAppGateway config file. When <em>None</em> is
-provided hardcoded defaults are used.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.log_level">
-<tt class="descname">log_level</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.log_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logging level</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.log_output">
-<tt class="descname">log_output</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.log_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Log output file name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="CISAppGateway.Config.Config.service_states">
-<tt class="descname">service_states</tt><em class="property"> = None</em><a class="headerlink" href="#CISAppGateway.Config.Config.service_states" title="Permalink to this definition">¶</a></dt>
-<dd><p>Valid job states as well as names of directories on shared storage
-that are used to monitor job states</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="data">
-<dt id="CISAppGateway.Config.conf">
-<tt class="descclassname">CISAppGateway.Config.</tt><tt class="descname">conf</tt><em class="property"> = {'gate_url_output': 'http://localhost:8000/', 'gate_path_running': None, 'gate_path_done': None, 'log_level': 'INFO', 'gate_path_cleanup': None, 'gate_path_failed': None, 'gate_path_shared': 'Shared', 'gate_path': {'running': None, 'failed': None, 'waiting': None, 'cleanup': None, 'done': None, 'aborted': None, 'closing': None, 'queued': None, 'killed': None}, 'gate_path_exit': None, 'gate_path_aborted': None, 'config_file': None, 'gate_path_stop': None, 'gate_path_killed': None, 'gate_path_jobs': None, 'allowed_services': ('Test', 'MultiNest', 'EPRCore'), 'gate_path_waiting': None, 'service_states': ('waiting', 'queued', 'running', 'closing', 'cleanup', 'done', 'failed', 'aborted', 'killed'), 'gate_path_delete': None, 'gate_path_queued': None, 'gate_path_closing': None, 'gate_path_output': 'Output', 'log_output': None}</em><a class="headerlink" href="#CISAppGateway.Config.conf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Global Config class instance. Use it to access the CISAppGateway
-configuration.</p>
-</dd></dl>
-
-</div>
 </div>
 
 
@@ -403,7 +407,7 @@ configuration.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -418,13 +422,13 @@ configuration.</p>
         <li class="right" >
           <a href="modules.html" title="Implementation reference"
              >previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li>
-          <li><a href="modules.html" >Implementation reference</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >Implementation reference</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, CIŚ.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

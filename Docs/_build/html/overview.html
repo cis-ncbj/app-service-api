@@ -27,8 +27,8 @@
     <link rel="next" title="Web API" href="webapi.html" />
     <link rel="prev" title="CIŚ WebServices documentation" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,10 +43,10 @@
         <li class="right" >
           <a href="index.html" title="CIŚ WebServices documentation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
@@ -70,12 +70,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="webapi.html"
                         title="next chapter">Web API</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/overview.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/overview.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -94,7 +96,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
@@ -134,7 +136,7 @@ PBS scheduler. AppGateway will communicate with AppServer using shared file
 system - each new request is represented as a new file that AppServer will
 process. The job status is represented by symbolic links at appropriate paths.</p>
 <p>Communication between system components:</p>
-<div class="highlight-python"><pre>Web Browser  (WAN)
+<div class="highlight-python"><div class="highlight"><pre>Web Browser  (WAN)
     ⇵ HTTPS
 Client       (DMZ)
     ⇵ HTTPS
@@ -142,7 +144,8 @@ AppGateway   (DMZ)
     ⇵ NFS
 AppServer    (LAN)
     ⇵ PBS / SSH
-Worker Nodes (LAN)</pre>
+Worker Nodes (LAN)
+</pre></div>
 </div>
 </div>
 <div class="section" id="api-overview">
@@ -155,11 +158,16 @@ types of variables are available:<ul>
 <li>&#8220;int&#8221; - an integer number with predefined validity range</li>
 <li>&#8220;float&#8221; - a floating point number with predefined validity range</li>
 <li>&#8220;string&#8221; - a string with predefined dictionary of allowed values</li>
+<li>&#8220;datetime&#8221; - a datetime strings with predefined strptime format</li>
 <li>&#8220;int_array&#8221; - a list of integer numbers that have common validity range</li>
 <li>&#8220;float_array&#8221; - a list of floating point numbers that have a common
 validity range</li>
 <li>&#8220;string_array&#8221; - a list of chracter strings that have a common dictionary
 of allowed values</li>
+<li>&#8220;datetime_array&#8221; - a list of datetime strings with common predefined
+strptime format</li>
+<li>&#8220;object&#8221; - a structure used to combine a set of basic variables</li>
+<li>&#8220;object_array&#8221; - a list of objects</li>
 <li>&#8220;set&#8221; - name of predefined set of variable values, allows to set several
 variables using one parameter. Also the only way for a job to influence
 internal variables like &#8220;PBS queue&#8221; or &#8220;number of PBS worker nodes&#8221;.
@@ -215,6 +223,9 @@ until service quota is exceeded.
 can spend in running state. When exceeded the job is killed and removed.
 (default: 12h)</li>
 <li>max_jobs - Maximum number of jobs running in parallel. (default: 50)</li>
+<li>scheduler - Select a scheduler to use: pbs, ssh. (default: pbs)</li>
+<li>username - Select a user to use for the selected scheduler if relevant.</li>
+<li>queue - Select a queue for the scheduler: pbs - queue name, ssh - hostname. (default: a12h)</li>
 </ul>
 </li>
 <li>variables - defines allowed input variables for the service. Dictionary keys
@@ -223,15 +234,25 @@ small and large letters, numbers and an underscore. National characters are
 not allowed [TBC]. Each variable is defined as dictionary with three required
 keys.<ul>
 <li>type - defines type of variable, one of (&#8220;int&#8221;, &#8220;float&#8221;, &#8220;string&#8221;,
-&#8220;int_array&#8221;, &#8220;float_array&#8221;, &#8220;string_array&#8221;)</li>
+&#8220;datetime&#8221;, &#8220;object&#8221;, &#8220;int_array&#8221;, &#8220;float_array&#8221;, &#8220;string_array&#8221;,
+&#8220;datetime_array&#8221;, &#8220;object_array&#8221;)</li>
 <li>default - default value</li>
-<li>values - array with allowed values. For int and float exactly two elements
-are required: min and max. For string the array defines a list of allowed
-values. Allowed strings can contain national characters [NOT IMPLEMENTED
-YET].  For the &#8220;*_array&#8221; variable types the first element of values array
-defines maximum allowed length of user provided list. Rest of the elements
-in the values array have the same meaning as for corresponding singluar
-data types.</li>
+<li>values - array with allowed values.<ul>
+<li>For int and float exactly two elements are required: min and max.</li>
+<li>For string the array defines a list of allowed values. Allowed strings
+can contain national characters [NOT IMPLEMENTED YET].</li>
+<li>For datetime it should be a string defining the format in which the date
+will be provided. The format should be parsable by strptime python
+function.</li>
+<li>For object it is a dictionary of components. Each component has the same
+structure as basic variables: string key defining the name and a
+dictionary value with structure described in this section. Nesting of
+objects is allowed however the nesting level is limited via config
+setting. The default nesting level is 0 - no nesting.</li>
+</ul>
+</li>
+<li>length - for the &#8220;*_array&#8221; variable types defines maximum allowed length
+of user provided list.</li>
 </ul>
 </li>
 <li>sets - predefined sets of variable values. Each set is a dictionary of
@@ -244,60 +265,112 @@ CIS_SCHEDULER</li>
 </ul>
 <p>Keep in mind that JSON unlike Python does not allow dangling &#8216;,&#8217; separators.</p>
 <p>Example Test service configuration:</p>
-<div class="highlight-python"><pre>{
-    "config" : {
-        "quota" : "10000"
+<div class="highlight-python"><div class="highlight"><pre>{
+    &quot;config&quot; : {
+        &quot;quota&quot; : &quot;10000&quot;
     },
-    "variables" : {
-        "A" : {
-            "type" : "int",
-            "default" : 100,
-            "values" : [0, 10000]
+    &quot;variables&quot; : {
+        &quot;A&quot; : {
+            &quot;type&quot; : &quot;int&quot;,
+            &quot;default&quot; : 100,
+            &quot;values&quot; : [0, 10000]
         },
-        "B" : {
-            "type" : "float",
-            "default" : 20.99,
-            "values" : [-100, 100]
+        &quot;B&quot; : {
+            &quot;type&quot; : &quot;float&quot;,
+            &quot;default&quot; : 20.99,
+            &quot;values&quot; : [-100, 100]
         },
-        "C" : {
-            "type" : "string",
-            "default" : "alpha",
-            "values" : ["alpha", "beta", "gamma", "delta"]
+        &quot;C&quot; : {
+            &quot;type&quot; : &quot;string&quot;,
+            &quot;default&quot; : &quot;alpha&quot;,
+            &quot;values&quot; : [&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;, &quot;delta&quot;]
         },
-        "D" : {
-            "type" : "int_array",
-            "default" : [100, 10, 20, 30],
-            "values" : [100, 0, 10000]
+        &quot;D&quot; : {
+            &quot;type&quot; : &quot;datetime&quot;,
+            &quot;default&quot; : &quot;20150120 130000&quot;,
+            &quot;values&quot; : &quot;%Y%m%d %H%M%S&quot;
         },
-        "E" : {
-            "type" : "float_array",
-            "default" : [20.99, 11.11, 0.5, 6.3e-2],
-            "values" : [50, -1000, 1000]
+        &quot;E&quot; : {
+            &quot;type&quot; : &quot;object&quot;,
+            &quot;default&quot; : {
+                &quot;decay&quot; : 100,
+                &quot;wetscava&quot; : 0.00001
+            },
+            &quot;values&quot; : {
+                &quot;decay&quot;:{
+                    &quot;type&quot;:&quot;int&quot;,
+                    &quot;default&quot;: 10,
+                    &quot;values&quot; : [0,1000000000]
+                },
+                &quot;wetscava&quot;:{
+                    &quot;type&quot;:&quot;float&quot;,
+                    &quot;default&quot;: -9.9E-9,
+                    &quot;values&quot; : [-9.9E-9,1E-04]
+                }
+            }
         },
-        "F" : {
-            "type" : "string_array",
-            "default" : ["alpha", "alpha", "delta", beta"],
-            "values" : [10, "alpha", "beta", "gamma", "delta"]
+        &quot;aA&quot; : {
+            &quot;type&quot; : &quot;int_array&quot;,
+            &quot;default&quot; : [100, 10, 20, 30],
+            &quot;values&quot; : [0, 10000],
+            &quot;length&quot; : 100
+        },
+        &quot;aB&quot; : {
+            &quot;type&quot; : &quot;float_array&quot;,
+            &quot;default&quot; : [20.99, 11.11, 0.5, 6.3e-2],
+            &quot;values&quot; : [-1000, 1000],
+            &quot;length&quot; : 100
+        },
+        &quot;aC&quot; : {
+            &quot;type&quot; : &quot;string_array&quot;,
+            &quot;default&quot; : [&quot;alpha&quot;, &quot;alpha&quot;, &quot;delta&quot;, beta&quot;],
+            &quot;values&quot; : [&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;, &quot;delta&quot;],
+            &quot;length&quot; : 100
+        },
+        &quot;aD&quot; : {
+            &quot;type&quot; : &quot;datetime_array&quot;,
+            &quot;default&quot; : [&quot;20150120 130000&quot;, &quot;20150121 130000&quot;],
+            &quot;values&quot; : &quot;%Y%m%d %H%M%S&quot;,
+            &quot;length&quot; : 5
+        },
+        &quot;aE&quot; : {
+            &quot;type&quot; : &quot;object_array&quot;,
+            &quot;default&quot; : [],
+            &quot;values&quot; : {
+                &quot;aaa&quot;:{
+                    &quot;type&quot;:&quot;string_array&quot;,
+                    &quot;default&quot;: [&quot;test1&quot;, &quot;test2&quot;],
+                    &quot;values&quot; : [&quot;test1&quot;, &quot;test2&quot;, &quot;test3&quot;, &quot;test4&quot;],
+                    &quot;length&quot; : 10
+                },
+                &quot;bbb&quot;:{
+                    &quot;type&quot;:&quot;datetime&quot;,
+                    &quot;default&quot; : &quot;20150120 130000&quot;,
+                    &quot;values&quot; : &quot;%Y%m%d %H%M%S&quot;
+                }
+            },
+            &quot;length&quot; : 100
         }
     },
-    "sets" : {
-        "Set1" : {
-            "A" : 1,
-            "B" : -55.55,
-            "C" : "delta"
+    &quot;sets&quot; : {
+        &quot;Set1&quot; : {
+            &quot;A&quot; : 1,
+            &quot;B&quot; : -55.55,
+            &quot;C&quot; : &quot;delta&quot;
         }
-        "Set2" : {
-            "A" : 1000,
-            "C" : "gamma"
+        &quot;Set2&quot; : {
+            &quot;A&quot; : 1000,
+            &quot;C&quot; : &quot;gamma&quot;
         },
-        "Set3" : {
-            "C" : "beta"
+        &quot;Set3&quot; : {
+            &quot;C&quot; : &quot;beta&quot;
         },
-        "Set4" : {
-            "D" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        &quot;Set4&quot; : {
+            &quot;aA&quot; : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         }
     }
-}</pre>
+}
+</pre></div>
 </div>
 <p>Service templates are placed in a subdirectory named exactly as the service.
 They should contain at least two files &#8220;pbs.sh&#8221; and &#8220;epilogue.sh&#8221;. The &#8220;pbs.sh&#8221;
@@ -305,19 +378,32 @@ script after substitutions will be executed on Worker Node. The &#8220;epilogue.
 script is executed after the job finishes and should create &#8220;status.dat&#8221; file
 in job working directory containing one line with jobs&#8217; exit code. Additional
 template files can be stored in arbitrary directory structure which will be
-replicated at WORKDIR of running job. Each file will be parsed and all
-occurrences of &#64;&#64;{variable_name} will be replaced with value specified for
-variable &#8220;variable_name&#8221;.</p>
+replicated at WORKDIR of running job. For the templates the Jinja2 template
+engine (<a class="reference external" href="http://jinja.pocoo.org">http://jinja.pocoo.org</a>) is used with a small modification: variables
+are defined as &#64;&#64;{variable_name}. Each file in the template directory will be
+parsed by the Jinja2 template engine.</p>
 <p>Example Test template pbs.sh script:</p>
-<div class="highlight-python"><pre>#!/bin/sh
+<div class="highlight-python"><div class="highlight"><pre>#!/bin/sh
 
 A=@@{A}
 B=@@{B}
 C=@@{C}
+N=@@{aA|length}
 
-echo $A $B $C
+echo $A $B $C $N
+
+{% for v in aA %}
+echo &quot;Element: @@{loop.index}&quot;
+echo &quot;Value: @@{&quot;%5s&quot;|format(v)}&quot;
+{% endfor %}
+
+{% for obj in aE %}
+echo &quot;Date: @@{obj.bbb}&quot;
+{% endfor %}
+
 /bin/hostname
-sleep 10</pre>
+sleep 10
+</pre></div>
 </div>
 </div>
 <div class="section" id="reserved-variables">
@@ -337,7 +423,7 @@ computing resources not managed by the central CIŚ scheduler. Currently only
 <ul class="simple">
 <li>CIS_CHAIN* - name of a directory containing the output data files of an input
 job. The &#8220;*&#8221; corresponds to the position of the job in the chain list (see
-<a class="reference internal" href="webapi.html#job-chain"><em>Job chaining</em></a>).</li>
+<a class="reference internal" href="webapi.html#job-chain"><span>Job chaining</span></a>).</li>
 </ul>
 </div>
 <div class="section" id="known-bugs">
@@ -369,7 +455,7 @@ job. The &#8220;*&#8221; corresponds to the position of the job in the chain lis
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -384,12 +470,12 @@ job. The &#8220;*&#8221; corresponds to the position of the job in the chain lis
         <li class="right" >
           <a href="index.html" title="CIŚ WebServices documentation"
              >previous</a> |</li>
-        <li><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CIŚ Web Services 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, CIŚ.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

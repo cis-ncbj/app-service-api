@@ -11,7 +11,7 @@ Jobs are submitted via POST request on https://app-gw.cis.gov.pl/api/submit.
 For testing purposes developement version of the API is available at:
 https://app-gw.cis.gov.pl/api-devel/submit
 
-The non encrypted accesss point https://app-gw.cis.gov.pl/api/submit is disabled.
+The non encrypted accesss point http://app-gw.cis.gov.pl/api/submit is disabled.
 
 The POST request should contain job attributes either in JSON format. The data
 payload should be a JSON dictionary of key value pairs. The only keys that are
@@ -47,7 +47,7 @@ The request will return an Job ID e.g.:
 
 The Job ID should be stored for duration of a session. It will be used when
 performing other API requests. Simple implementation can store it as a cookie
-in the users we browser.
+in the users web browser.
 
 .. _python_example:
 
@@ -114,7 +114,7 @@ is a JSON list::
     "chain" : ["Service1_ID1", "Service2_ID2"]
 
 The output of the requested jobs will be available in the working directory of
-the new jobi. Each one in its own subdirectory. Upon job completion they will
+the new job. Each one in its own subdirectory. Upon job completion they will
 be automatically removed. The subdirectory names can be accessed in the job
 script via "@@{CIS_CHAIN*}" keywords. Where "*" corresponds to the position in
 the "chain" list starting from 0.::
@@ -143,7 +143,7 @@ during submission. The request returns one of:
   alongside the status message e.g.: 
   "Aborted:-94 @Validator - Not supported variable: bad_variable"
 * Killed - Job was killed either by the user or by the underlying queue system.
-  The exit code is returned alonng with the status message e.g.:
+  The exit code is returned along with the status message e.g.:
   "Killed:271 Job was killed by the scheduler"
 
 Example implementation in python::

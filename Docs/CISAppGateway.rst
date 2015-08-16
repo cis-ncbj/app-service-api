@@ -1,6 +1,14 @@
 CISAppGateway Package
 =====================
 
+:mod:`Config` Module
+--------------------
+
+.. automodule:: CISAppGateway.Config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`Views` Module
 -------------------
 
@@ -13,14 +21,6 @@ CISAppGateway Package
 --------------------
 
 .. automodule:: CISAppGateway.Server
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-:mod:`Config` Module
---------------------
-
-.. automodule:: CISAppGateway.Config
     :members:
     :undoc-members:
     :show-inheritance:

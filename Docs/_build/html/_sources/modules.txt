@@ -7,10 +7,10 @@ Implementation reference
 Source Code
 -----------
 
-The source code is available through git repository::
+The source code is available through a git repository https://github.com/cis-gov-pl/app-service-api::
 
-    git clone ssh://<user_name>@usrint.cis.gov.pl/mnt/home/kklimaszewski/GitRepos/WebServices
-    cd WebServices
+    git clone git@github.com:cis-gov-pl/app-service-api.git
+    cd app-service-api
     git submodule init
     git submodule update
 

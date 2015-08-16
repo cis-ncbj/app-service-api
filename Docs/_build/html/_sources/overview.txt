@@ -67,11 +67,16 @@ The Gateway API allows for:
     - "int" - an integer number with predefined validity range
     - "float" - a floating point number with predefined validity range
     - "string" - a string with predefined dictionary of allowed values
+    - "datetime" - a datetime strings with predefined strptime format
     - "int_array" - a list of integer numbers that have common validity range
     - "float_array" - a list of floating point numbers that have a common
       validity range
     - "string_array" - a list of chracter strings that have a common dictionary
       of allowed values
+    - "datetime_array" - a list of datetime strings with common predefined
+      strptime format
+    - "object" - a structure used to combine a set of basic variables
+    - "object_array" - a list of objects
     - "set" - name of predefined set of variable values, allows to set several
       variables using one parameter. Also the only way for a job to influence
       internal variables like "PBS queue" or "number of PBS worker nodes".
@@ -126,6 +131,9 @@ the service. File consists of three dictionaries:
     can spend in running state. When exceeded the job is killed and removed.
     (default: 12h)
   + max_jobs - Maximum number of jobs running in parallel. (default: 50)
+  + scheduler - Select a scheduler to use: pbs, ssh. (default: pbs)
+  + username - Select a user to use for the selected scheduler if relevant.
+  + queue - Select a queue for the scheduler: pbs - queue name, ssh - hostname. (default: a12h)
 
 * variables - defines allowed input variables for the service. Dictionary keys
   specify variable names. Allowed variable names consist of any combination of
@@ -134,15 +142,25 @@ the service. File consists of three dictionaries:
   keys.
 
   + type - defines type of variable, one of ("int", "float", "string",
-    "int_array", "float_array", "string_array")
+    "datetime", "object", "int_array", "float_array", "string_array",
+    "datetime_array", "object_array")
   + default - default value
-  + values - array with allowed values. For int and float exactly two elements
-    are required: min and max. For string the array defines a list of allowed
-    values. Allowed strings can contain national characters [NOT IMPLEMENTED
-    YET].  For the "\*_array" variable types the first element of values array
-    defines maximum allowed length of user provided list. Rest of the elements
-    in the values array have the same meaning as for corresponding singluar
-    data types.
+  + values - array with allowed values.
+
+    - For int and float exactly two elements are required: min and max.
+    - For string the array defines a list of allowed values. Allowed strings
+      can contain national characters [NOT IMPLEMENTED YET].
+    - For datetime it should be a string defining the format in which the date
+      will be provided. The format should be parsable by strptime python
+      function.
+    - For object it is a dictionary of components. Each component has the same
+      structure as basic variables: string key defining the name and a
+      dictionary value with structure described in this section. Nesting of
+      objects is allowed however the nesting level is limited via config
+      setting. The default nesting level is 0 - no nesting.
+
+  + length - for the "\*_array" variable types defines maximum allowed length
+    of user provided list.
 
 * sets - predefined sets of variable values. Each set is a dictionary of
   "variable name":"value" pairs. Values have to be valid according to variable
@@ -177,19 +195,70 @@ Example Test service configuration::
                 "values" : ["alpha", "beta", "gamma", "delta"]
             },
             "D" : {
-                "type" : "int_array",
-                "default" : [100, 10, 20, 30],
-                "values" : [100, 0, 10000]
+                "type" : "datetime",
+                "default" : "20150120 130000",
+                "values" : "%Y%m%d %H%M%S"
             },
             "E" : {
+                "type" : "object",
+                "default" : {
+                    "decay" : 100,
+                    "wetscava" : 0.00001
+                },
+                "values" : {
+                    "decay":{
+                        "type":"int",
+                        "default": 10,
+                        "values" : [0,1000000000]
+                    },
+                    "wetscava":{
+                        "type":"float",
+                        "default": -9.9E-9,
+                        "values" : [-9.9E-9,1E-04]
+                    }
+                }
+            },
+            "aA" : {
+                "type" : "int_array",
+                "default" : [100, 10, 20, 30],
+                "values" : [0, 10000],
+                "length" : 100
+            },
+            "aB" : {
                 "type" : "float_array",
                 "default" : [20.99, 11.11, 0.5, 6.3e-2],
-                "values" : [50, -1000, 1000]
+                "values" : [-1000, 1000],
+                "length" : 100
             },
-            "F" : {
+            "aC" : {
                 "type" : "string_array",
                 "default" : ["alpha", "alpha", "delta", beta"],
-                "values" : [10, "alpha", "beta", "gamma", "delta"]
+                "values" : ["alpha", "beta", "gamma", "delta"],
+                "length" : 100
+            },
+            "aD" : {
+                "type" : "datetime_array",
+                "default" : ["20150120 130000", "20150121 130000"],
+                "values" : "%Y%m%d %H%M%S",
+                "length" : 5
+            },
+            "aE" : {
+                "type" : "object_array",
+                "default" : [],
+                "values" : {
+                    "aaa":{
+                        "type":"string_array",
+                        "default": ["test1", "test2"],
+                        "values" : ["test1", "test2", "test3", "test4"],
+                        "length" : 10
+                    },
+                    "bbb":{
+                        "type":"datetime",
+                        "default" : "20150120 130000",
+                        "values" : "%Y%m%d %H%M%S"
+                    }
+                },
+                "length" : 100
             }
         },
         "sets" : {
@@ -206,7 +275,7 @@ Example Test service configuration::
                 "C" : "beta"
             },
             "Set4" : {
-                "D" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                "aA" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             }
         }
     }
@@ -217,9 +286,10 @@ script after substitutions will be executed on Worker Node. The "epilogue.sh"
 script is executed after the job finishes and should create "status.dat" file
 in job working directory containing one line with jobs' exit code. Additional
 template files can be stored in arbitrary directory structure which will be
-replicated at WORKDIR of running job. Each file will be parsed and all
-occurrences of @@{variable_name} will be replaced with value specified for
-variable "variable_name".
+replicated at WORKDIR of running job. For the templates the Jinja2 template
+engine (http://jinja.pocoo.org) is used with a small modification: variables
+are defined as @@{variable_name}. Each file in the template directory will be
+parsed by the Jinja2 template engine.
 
 Example Test template pbs.sh script::
 
@@ -228,8 +298,19 @@ Example Test template pbs.sh script::
     A=@@{A}
     B=@@{B}
     C=@@{C}
+    N=@@{aA|length}
 
-    echo $A $B $C
+    echo $A $B $C $N
+
+    {% for v in aA %}
+    echo "Element: @@{loop.index}"
+    echo "Value: @@{"%5s"|format(v)}"
+    {% endfor %}
+
+    {% for obj in aE %}
+    echo "Date: @@{obj.bbb}"
+    {% endfor %}
+
     /bin/hostname
     sleep 10
 
