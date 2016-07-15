@@ -353,3 +353,30 @@ List of planned / proposed features:
   + Webserver that does not fork for each request ????
 
 * User support (LDAP and/or OpenID login, per user quota, etc)
+
+Enhancements
+------------
+
+User authentication and authorization
+
+* Each user is issued an X.509 certificate. The certificate is used by the
+  gateway to authenticate user. The CN of the certificate will be the user
+  identifier. In addition all payloads can be encrypted using the private key
+  of the user and decrypted on the server. This ensures that even when gateway
+  is compromised it cannot send requests on behalf of the users as the request
+  have to be crypto signed. This allows for secure message exchange over
+  RabbitMQ.
+* Each job has an owner and users are only allowed to manage their jobs
+* A superuser is possible
+* RabbitMQ can be used to signal state changes requested by the
+  user and can be used internally to achive an asynchronous operation and
+  scalability. The exchanges and queues used internally should be on separate vhost
+  from exchanges used to handle the client requests. This ensures that even
+  compromised gateway cannot affect internal state of the service.
+* The fair share handling is moved entirely to the external scheduler
+  (preferably slurm) where each user has its own LDAP account. To start jobs as
+  dedicated user a service with a subset of superuser priviledges will listen
+  to rabbitmq queue. When a message to start a job arrives it will fork a new
+  process (check if such worker exists??) which will drop superuser and su into
+  the dedicated user. A service will be running in background ensuring that a
+  proper kerberos ticket is available.
